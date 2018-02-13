@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 7 de febrero de 2018 at 17:41:21</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 13 de febrero de 2018 at 19:00:09</time-stamp>
 
 
 <component-created>
@@ -369,7 +369,27 @@
 
 <comment>
 <class-id>FMBomba</class-id>
-<body>FMBomba crea un laberinto que la paredes tienen bombas.</body>
+<body>FMBomba crea un laberinto que la paredes tienen bombas con herencia</body>
+</comment>
+
+<class>
+<name>FMBombaDecorator</name>
+<environment>Smalltalk</environment>
+<super>FactoryMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>factoryMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>FMBombaDecorator</class-id>
+<body>FMBombaDecorator crea un laberinto con dos bombas en dos paredes aplicando el patrón decorator.</body>
 </comment>
 
 <methods>
@@ -390,15 +410,17 @@
 
 <body package="factoryMethod" selector="fabricarLaberinto">fabricarLaberinto	^Laberinto new.</body>
 
-<body package="factoryMethod" selector="fabricarHabitacion:">fabricarHabitacion:id	^Habitacion new id:id.</body>
-
 <body package="factoryMethod" selector="fabricarHabitacion">fabricarHabitacion	^Habitacion new.</body>
 
-<body package="factoryMethod" selector="fabricarPuertaHab1:hab2:">fabricarPuertaHab1:h1 hab2:h2	| puerta |	puerta := Puerta new.	puerta hab1:h1.	puerta hab2:h2.		^puerta.</body>
+<body package="factoryMethod" selector="fabricarBomba">fabricarBomba	^Bomba new.</body>
+
+<body package="factoryMethod" selector="fabricarHabitacion:">fabricarHabitacion:id	^Habitacion new id:id.</body>
 
 <body package="factoryMethod" selector="fabricarPared">fabricarPared	^Pared new.</body>
 
 <body package="factoryMethod" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | laberinto hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared."creacion del laberinto con dos habitaciones"hab1 norte:pared1.hab1 sur:pared2.hab1 este:pared3.hab1 oeste:puerta.hab2 este:puerta.hab2 sur:pared4.hab2 norte:pared5.hab2 oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2.^laberinto.</body>
+
+<body package="factoryMethod" selector="fabricarPuertaHab1:hab2:">fabricarPuertaHab1:h1 hab2:h2	| puerta |	puerta := Puerta new.	puerta hab1:h1.	puerta hab2:h2.		^puerta.</body>
 </methods>
 
 
@@ -415,9 +437,112 @@
 </methods>
 
 
+<methods>
+<class-id>FMBombaDecorator class</class-id> <category>instance creation</category>
+
+<body package="factoryMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>FMBombaDecorator</class-id> <category>initialize-release</category>
+
+<body package="factoryMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>FMBombaDecorator</class-id> <category>métodosFactoria</category>
+
+<body package="factoryMethod" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | laberinto hab1  hab2 puerta bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.hab1 norte:bomba1.hab1 sur:pared2.hab1 este:pared3.hab1 oeste:puerta.hab2 este:puerta.hab2 sur:bomba2.hab2 norte:pared5.hab2 oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2.^laberinto.</body>
+</methods>
+
+
+
+<component-created>
+<name>decorator</name> <type>package</type>
+</component-created><!-- Package decorator* -->
+
+
+<component-property>
+<name>decorator</name> <type>package</type>
+<property>comment</property> <value>'Este paquete tendrá todas las clases qe tengan que ver con el patrón decorator'</value>
+</component-property>
+
+<class>
+<name>Decorator</name>
+<environment>Smalltalk</environment>
+<super>ElementoMapa</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>elementoMapa </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>decorator</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Decorator</class-id>
+<body>Decorator es la clase abstracta que representa todos los objetos que serán decoradoresInstance Variables:	elementoMapa	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of elementoMapa</body>
+</comment>
+
+<class>
+<name>Bomba</name>
+<environment>Smalltalk</environment>
+<super>Decorator</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>activa </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>decorator</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Bomba</class-id>
+<body>Bomba representa un decorador bomba el cual puede estar activado o no y en caso afirmativo hace algo.Instance Variables:	activa	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of activa</body>
+</comment>
+
+<methods>
+<class-id>Decorator</class-id> <category>accessing</category>
+
+<body package="decorator" selector="elementoMapa:">elementoMapa: anObject	elementoMapa := anObject</body>
+
+<body package="decorator" selector="elementoMapa">elementoMapa	^elementoMapa</body>
+</methods>
+
+<methods>
+<class-id>Decorator</class-id> <category>initialize-release</category>
+
+<body package="decorator" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	elementoMapa := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+
+<body package="decorator" selector="entrar">entrar	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+
+<methods>
+<class-id>Bomba</class-id> <category>accessing</category>
+
+<body package="decorator" selector="activa">activa	^activa</body>
+
+<body package="decorator" selector="activa:">activa: anObject	activa := anObject</body>
+</methods>
+
+<methods>
+<class-id>Bomba</class-id> <category>initialize-release</category>
+
+<body package="decorator" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	activa := false.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
 
 <bundle-structure>
-<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod'))</structure>
+<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator'))</structure>
 </bundle-structure>
 
 </st-source>

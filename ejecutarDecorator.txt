@@ -1,0 +1,11 @@
+jl := JuegoLaberinto new.
+
+fm := FMBombaDecorator new.
+
+lab := fm crearLaberinto2habs.
+jl laberinto:lab.
+
+habitacion := jl obtenerHabitacion:1.
+habitacion este entrar.
+habitacion este entrar.
+habitacion inspect
