@@ -8,4 +8,8 @@ jl laberinto:lab.
 habitacion := jl obtenerHabitacion:1.
 habitacion este entrar.
 habitacion este entrar.
-habitacion inspect
+habitacion inspect.
+
+habitacion norte activa:true.
+habitacion norte entrar.
+habitacion norte entrar.
