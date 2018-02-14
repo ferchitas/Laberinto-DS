@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 14 de febrero de 2018 at 16:57:13</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 14 de febrero de 2018 at 17:38:00</time-stamp>
 
 
 <component-created>
@@ -383,7 +383,7 @@
 </comment>
 
 <class>
-<name>FMBomba</name>
+<name>FMEstrategia</name>
 <environment>Smalltalk</environment>
 <super>FactoryMethod</super>
 <private>false</private>
@@ -398,8 +398,8 @@
 </class>
 
 <comment>
-<class-id>FMBomba</class-id>
-<body>FMBomba crea un laberinto que la paredes tienen bombas con herencia</body>
+<class-id>FMEstrategia</class-id>
+<body>FMEstrategia todos los metodos factoría del patrón estrategy.</body>
 </comment>
 
 <class>
@@ -420,6 +420,26 @@
 <comment>
 <class-id>FMBombaDecorator</class-id>
 <body>FMBombaDecorator crea un laberinto con dos bombas en dos paredes aplicando el patrón decorator.</body>
+</comment>
+
+<class>
+<name>FMBomba</name>
+<environment>Smalltalk</environment>
+<super>FactoryMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>factoryMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>FMBomba</class-id>
+<body>FMBomba crea un laberinto que la paredes tienen bombas con herencia</body>
 </comment>
 
 <methods>
@@ -487,6 +507,31 @@
 </methods>
 
 
+<methods>
+<class-id>FMEstrategia</class-id> <category>FactoryMethods</category>
+
+<body package="factoryMethod" selector="fabricarEstrategiaH">fabricarEstrategiaH	^H new.</body>
+
+<body package="factoryMethod" selector="fabricarBomba:">fabricarBomba:unaEstrategia	^Bomba new estrategia:unaEstrategia.</body>
+
+<body package="factoryMethod" selector="fabricarEstrategiaBroma">fabricarEstrategiaBroma	^Broma new.</body>
+
+<body package="factoryMethod" selector="fabricarEstrategiaMina">fabricarEstrategiaMina	^Mina new.</body>
+</methods>
+
+<methods>
+<class-id>FMEstrategia</class-id> <category>métodosFactoria</category>
+
+<body package="factoryMethod" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | laberinto hab1  hab2 puerta bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba.bomba1 estrategia:self fabricarEstrategiaH.bomba2 estrategia:self fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.hab1 norte:bomba1.hab1 sur:pared2.hab1 este:pared3.hab1 oeste:puerta.hab2 este:puerta.hab2 sur:bomba2.hab2 norte:pared5.hab2 oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2.^laberinto.</body>
+</methods>
+
+<methods>
+<class-id>FMEstrategia</class-id> <category>initialize-release</category>
+
+<body package="factoryMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
 
 <component-created>
 <name>decorator</name> <type>package</type>
@@ -524,7 +569,7 @@
 <super>Decorator</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>activa </inst-vars>
+<inst-vars>activa estrategia </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -558,9 +603,13 @@
 <methods>
 <class-id>Bomba</class-id> <category>accessing</category>
 
+<body package="decorator" selector="activa:">activa: anObject	activa := anObject</body>
+
 <body package="decorator" selector="activa">activa	^activa</body>
 
-<body package="decorator" selector="activa:">activa: anObject	activa := anObject</body>
+<body package="decorator" selector="estrategia:">estrategia: anObject	estrategia := anObject</body>
+
+<body package="decorator" selector="estrategia">estrategia	^estrategia</body>
 </methods>
 
 <methods>
@@ -572,7 +621,7 @@
 <methods>
 <class-id>Bomba</class-id> <category>initialize-release</category>
 
-<body package="decorator" selector="entrar">entrar	self activa ifTrue: [				Transcript show: 'la bomba a explotado';cr.		self activa:false.	]	ifFalse: [				self elementoMapa entrar.	]</body>
+<body package="decorator" selector="entrar">entrar	"self activa ifTrue: [				self estrategia entrar.		self activa:false.	]	ifFalse: [				self elementoMapa entrar.	]"	self estrategia entrar:self.</body>
 
 <body package="decorator" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	activa := false.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
@@ -622,13 +671,15 @@
 <methods>
 <class-id>PruebasLaberintoDecorator</class-id> <category>running</category>
 
-<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMBombaDecorator new.		juego laberinto:fm crearLaberinto2habs.</body>
+<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMEstrategia new.		juego laberinto:fm crearLaberinto2habs.</body>
 </methods>
 
 <methods>
 <class-id>PruebasLaberintoDecorator</class-id> <category>tests</category>
 
 <body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 bomba1 bomba2 puertaCaraHabitacion1 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 norte esBomba).	self assert: (habitacion1 oeste esPuerta).	self assert: (habitacion1 sur esPared).	self assert: (habitacion1 este esPared).		bomba1 := habitacion1 norte.	self assert: bomba1 elementoMapa esPared.		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 sur esBomba).	self assert: (habitacion2 este esPuerta).	self assert: (habitacion2 norte esPared).	self assert: (habitacion2 oeste esPared).		bomba2 := habitacion2 sur.	self assert: bomba2 elementoMapa esPared.		puertaCaraHabitacion1 := habitacion1 oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 este).	self assert: (puertaCaraHabitacion1 abierta not).</body>
+
+<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 |		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	bomba1 := habitacion1 norte.	self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		habitacion2 := juego obtenerHabitacion:2.	bomba2 := habitacion2 sur.	self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
 
 <body package="Pruebas" selector="testComprobarJuego">testComprobarJuego	| habitacion1 |	self assert: (juego laberinto notNil).	self assert: (juego laberinto habitaciones size = 2).		habitacion1:= juego obtenerHabitacion: 1.	self assert: (habitacion1 norte esBomba).</body>
 
@@ -643,8 +694,146 @@
 
 
 
+<component-created>
+<name>Estrategy</name> <type>package</type>
+</component-created><!-- Package Estrategy* -->
+
+
+<component-property>
+<name>Estrategy</name> <type>package</type>
+<property>comment</property> <value>'Contendrá todo lo referente al patrón strategy'</value>
+</component-property>
+
+<class>
+<name>Estrategia</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Estrategy</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Estrategia</class-id>
+<body>Estrategia es una clase abstracta que tendrán los elementos que tengas estrategias ahora mismo solo las bombas.</body>
+</comment>
+
+<class>
+<name>Broma</name>
+<environment>Smalltalk</environment>
+<super>Estrategia</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Estrategy</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Broma</class-id>
+<body>Broma que solo da un susto.</body>
+</comment>
+
+<class>
+<name>Mina</name>
+<environment>Smalltalk</environment>
+<super>Estrategia</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Estrategy</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Mina</class-id>
+<body>Mina mata a quien la activa.</body>
+</comment>
+
+<class>
+<name>H</name>
+<environment>Smalltalk</environment>
+<super>Estrategia</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Estrategy</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>H</class-id>
+<body>H mata todo lo que haya en la habitación.</body>
+</comment>
+
+<methods>
+<class-id>Estrategia class</class-id> <category>instance creation</category>
+
+<body package="Estrategy" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Estrategia</class-id> <category>initialize-release</category>
+
+<body package="Estrategy" selector="entrar:">entrar:unaBomba	self subclassResponsibility.</body>
+
+<body package="Estrategy" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Mina</class-id> <category>initialize-release</category>
+
+<body package="Estrategy" selector="entrar:">entrar:unaBomba	unaBomba activa ifTrue: [				Transcript show: 'Te has topado con una mina, estas muerto.'	]	ifFalse: [				unaBomba elementoMapa entrar.	]</body>
+
+<body package="Estrategy" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>H</class-id> <category>initialize-release</category>
+
+<body package="Estrategy" selector="entrar">entrar	Transcript show: 'Has activado una bomba de tipo H, en otras palabras has volado todo lo que había en la habitación, tu incluido :)'</body>
+
+<body package="Estrategy" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="Estrategy" selector="entrar:">entrar:unaBombaunaBomba activa ifTrue: [				Transcript show: 'Has activado una bomba de tipo H, en otras palabras has volado todo lo que había en la habitación, tu incluido :)'	]	ifFalse: [				unaBomba elementoMapa entrar.	]</body>
+</methods>
+
+
+<methods>
+<class-id>Broma</class-id> <category>initialize-release</category>
+
+<body package="Estrategy" selector="entrar">entrar	Transcript show: 'has tenido suerte, solo era una bomba de broma.'</body>
+
+<body package="Estrategy" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="Estrategy" selector="entrar:">entrar:unaBomba	Transcript show: 'has tenido suerte, solo era una bomba de broma.'</body>
+</methods>
+
+
+
 <bundle-structure>
-<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas'))</structure>
+<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas') #(#package 'Estrategy'))</structure>
 </bundle-structure>
 
 </st-source>
