@@ -1,4 +1,3 @@
-"ejecutar estrategy"
 jl := JuegoLaberinto new.
 
 fm := FMEstrategia new.
