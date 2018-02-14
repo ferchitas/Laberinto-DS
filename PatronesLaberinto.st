@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 13 de febrero de 2018 at 19:18:13</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 14 de febrero de 2018 at 16:57:13</time-stamp>
 
 
 <component-created>
@@ -210,14 +210,18 @@
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
-
 <methods>
-<class-id>Habitacion</class-id> <category>initialize-release</category>
+<class-id>ElementoMapa</class-id> <category>testing</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	norte := nil.	sur := nil.	este:= nil.	oeste := nil.		^self</body>
+<body package="SolucionLaberinto" selector="esPared">esPared	^false.</body>
 
-<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'estas entrando en la habitacion', id printString;cr.</body>
+<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^false.</body>
+
+<body package="SolucionLaberinto" selector="esBomba">esBomba	^false.</body>
+
+<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^false.</body>
 </methods>
+
 
 <methods>
 <class-id>Habitacion</class-id> <category>accessing</category>
@@ -243,6 +247,20 @@
 <body package="SolucionLaberinto" selector="oeste">oeste	^oeste</body>
 </methods>
 
+<methods>
+<class-id>Habitacion</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^true</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	norte := nil.	sur := nil.	este:= nil.	oeste := nil.		^self</body>
+
+<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'estas entrando en la habitacion', id printString;cr.</body>
+</methods>
+
 
 <methods>
 <class-id>Pared</class-id> <category>initialize-release</category>
@@ -250,6 +268,12 @@
 <body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'Es una pared, no puedes entrar';cr.</body>
 
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Pared</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esPared">esPared	^true</body>
 </methods>
 
 
@@ -267,6 +291,12 @@
 <body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
 
 <body package="SolucionLaberinto" selector="abierta:">abierta: anObject	abierta := anObject</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^true</body>
 </methods>
 
 <methods>
@@ -534,6 +564,12 @@
 </methods>
 
 <methods>
+<class-id>Bomba</class-id> <category>testing</category>
+
+<body package="decorator" selector="esBomba">esBomba	^true</body>
+</methods>
+
+<methods>
 <class-id>Bomba</class-id> <category>initialize-release</category>
 
 <body package="decorator" selector="entrar">entrar	self activa ifTrue: [				Transcript show: 'la bomba a explotado';cr.		self activa:false.	]	ifFalse: [				self elementoMapa entrar.	]</body>
@@ -543,8 +579,72 @@
 
 
 
+<component-created>
+<name>Pruebas</name> <type>package</type>
+</component-created><!-- Package Pruebas* -->
+
+
+<component-property>
+<name>Pruebas</name> <type>package</type>
+<property>comment</property> <value>'Este paquete pruebas contendrá todas las pruebas (test cases), en un principio unitarias, de la solución del laberinto.'</value>
+</component-property>
+
+<class>
+<name>PruebasLaberintoDecorator</name>
+<environment>Smalltalk</environment>
+<super>XProgramming.SUnit.TestCase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>juego </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Pruebas</package>
+</attributes>
+</class>
+
+<methods>
+<class-id>PruebasLaberintoDecorator class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMBombaDecorator new.		juego laberinto:fm crearLaberinto2habs.</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>tests</category>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 bomba1 bomba2 puertaCaraHabitacion1 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 norte esBomba).	self assert: (habitacion1 oeste esPuerta).	self assert: (habitacion1 sur esPared).	self assert: (habitacion1 este esPared).		bomba1 := habitacion1 norte.	self assert: bomba1 elementoMapa esPared.		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 sur esBomba).	self assert: (habitacion2 este esPuerta).	self assert: (habitacion2 norte esPared).	self assert: (habitacion2 oeste esPared).		bomba2 := habitacion2 sur.	self assert: bomba2 elementoMapa esPared.		puertaCaraHabitacion1 := habitacion1 oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 este).	self assert: (puertaCaraHabitacion1 abierta not).</body>
+
+<body package="Pruebas" selector="testComprobarJuego">testComprobarJuego	| habitacion1 |	self assert: (juego laberinto notNil).	self assert: (juego laberinto habitaciones size = 2).		habitacion1:= juego obtenerHabitacion: 1.	self assert: (habitacion1 norte esBomba).</body>
+
+<body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| habitacion |		habitacion := self juego obtenerHabitacion:1.	self assert: (habitacion id = 1).		habitacion := self juego obtenerHabitacion:2.	self assert: (habitacion id = 2).</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+
 <bundle-structure>
-<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator'))</structure>
+<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas'))</structure>
 </bundle-structure>
 
 </st-source>
