@@ -1,0 +1,17 @@
+"la habitacion (contenedor) creada tiene un armario (contenedor) y dentro una bomba (hoja), en este codigo cojo la bomba desde el contenedor armario y la meto en el contenedor habitacion"
+
+jl := JuegoLaberinto new.
+
+fm := FMComposite new.
+
+lab := fm crearLaberintoArmarios.
+jl laberinto:lab.
+
+
+hab := lab obtenerHabitacion:1.
+arm := hab hijos at:1.
+bomba1 := arm hijos at:1.
+arm eliminarHijo:bomba1.
+hab agregarHijo:bomba1.
+
+hab inspect.

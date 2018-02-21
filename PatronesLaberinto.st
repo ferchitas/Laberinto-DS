@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 
 <st-source>
+<<<<<<< HEAD
 <time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 21 de febrero de 2018 at 17:10:42</time-stamp>
+=======
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 21 de febrero de 2018 at 17:44:10</time-stamp>
+>>>>>>> composite
 
 
 <component-created>
@@ -425,6 +429,8 @@
 
 <body package="SolucionLaberinto" selector="esBomba">esBomba	^false.</body>
 
+<body package="SolucionLaberinto" selector="esArmario">esArmario	^false.</body>
+
 <body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^false.</body>
 </methods>
 
@@ -502,6 +508,15 @@
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+<<<<<<< HEAD
+=======
+<methods>
+<class-id>Armario</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esArmario">esArmario	^true.</body>
+</methods>
+
+>>>>>>> composite
 
 <methods>
 <class-id>Habitacion</class-id> <category>accessing</category>
@@ -1010,6 +1025,26 @@
 </component-property>
 
 <class>
+<name>PruebasLaberintoComposite</name>
+<environment>Smalltalk</environment>
+<super>XProgramming.SUnit.TestCase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>juego </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Pruebas</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>PruebasLaberintoComposite</class-id>
+<body>PruebasLaberintoComposite tiene las pruebas del laberinto composite con armarios y bombas dentro.Instance Variables:	juego	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of juego</body>
+</comment>
+
+<class>
 <name>PruebasLaberintoDecorator</name>
 <environment>Smalltalk</environment>
 <super>XProgramming.SUnit.TestCase</super>
@@ -1039,6 +1074,49 @@
 </attributes>
 </class>
 
+<<<<<<< HEAD
+=======
+<methods>
+<class-id>PruebasLaberintoBombas class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoBombas</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoBombas</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMEstrategia new.		juego laberinto:fm crearLaberinto2habs.</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoBombas</class-id> <category>tests</category>
+
+<body package="Pruebas" selector="testComprobarJuego">testComprobarJuego	| habitacion1 |	self assert: (juego laberinto notNil).	self assert: (juego laberinto habitaciones size = 2).		habitacion1:= juego obtenerHabitacion: 1.	self assert: (habitacion1 norte esBomba).</body>
+
+<body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| habitacion |		habitacion := self juego obtenerHabitacion:1.	self assert: (habitacion id = 1).		habitacion := self juego obtenerHabitacion:2.	self assert: (habitacion id = 2).</body>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 bomba1 bomba2 puertaCaraHabitacion1 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 norte esBomba).	self assert: (habitacion1 oeste esPuerta).	self assert: (habitacion1 sur esPared).	self assert: (habitacion1 este esPared).		bomba1 := habitacion1 norte.	self assert: bomba1 elementoMapa esPared.		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 sur esBomba).	self assert: (habitacion2 este esPuerta).	self assert: (habitacion2 norte esPared).	self assert: (habitacion2 oeste esPared).		bomba2 := habitacion2 sur.	self assert: bomba2 elementoMapa esPared.		puertaCaraHabitacion1 := habitacion1 oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 este).	self assert: (puertaCaraHabitacion1 abierta not).</body>
+
+<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 |		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	bomba1 := habitacion1 norte.	self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		habitacion2 := juego obtenerHabitacion:2.	bomba2 := habitacion2 sur.	self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoBombas</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+>>>>>>> composite
 <methods>
 <class-id>PruebasLaberintoDecorator class</class-id> <category>instance creation</category>
 
@@ -1080,14 +1158,22 @@
 
 
 <methods>
+<<<<<<< HEAD
 <class-id>PruebasLaberintoBombas class</class-id> <category>instance creation</category>
+=======
+<class-id>PruebasLaberintoComposite class</class-id> <category>instance creation</category>
+>>>>>>> composite
 
 <body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
 </methods>
 
 
 <methods>
+<<<<<<< HEAD
 <class-id>PruebasLaberintoBombas</class-id> <category>accessing</category>
+=======
+<class-id>PruebasLaberintoComposite</class-id> <category>accessing</category>
+>>>>>>> composite
 
 <body package="Pruebas" selector="juego">juego	^juego</body>
 
@@ -1095,6 +1181,7 @@
 </methods>
 
 <methods>
+<<<<<<< HEAD
 <class-id>PruebasLaberintoBombas</class-id> <category>running</category>
 
 <body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMEstrategia new.		juego laberinto:fm crearLaberinto2habs.</body>
@@ -1116,6 +1203,25 @@
 <class-id>PruebasLaberintoBombas</class-id> <category>initialize-release</category>
 
 <body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+=======
+<class-id>PruebasLaberintoComposite</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMComposite new.		juego laberinto:fm crearLaberintoArmarios.</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoComposite</class-id> <category>tests</category>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 puertaCaraHabitacion1 armario1 armario2 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 norte esPared).	self assert: (habitacion1 oeste esPuerta).	self assert: (habitacion1 sur esPared).	self assert: (habitacion1 este esPared).		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 sur esPared).	self assert: (habitacion2 este esPuerta).	self assert: (habitacion2 norte esPared).	self assert: (habitacion2 oeste esPared).		puertaCaraHabitacion1 := habitacion1 oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 este).	self assert: (puertaCaraHabitacion1 abierta not).		armario1 := habitacion1 hijos at:1.	self assert: (armario1 esArmario).		armario2 := habitacion2 hijos at:1.	self assert: (armario2 esArmario).</body>
+
+<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 armario1 armario2|		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	armario1 := habitacion1 hijos at:1.	armario2 := habitacion2 hijos at:1.	bomba1 := armario1 hijos at:1.	bomba2 := armario2 hijos at:1.		self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoComposite</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	juego := nil.	^self</body>
+>>>>>>> composite
 </methods>
 
 
