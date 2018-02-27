@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 27 de febrero de 2018 at 18:35:39</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 27 de febrero de 2018 at 19:06:52</time-stamp>
 
 
 <component-created>
@@ -330,6 +330,248 @@
 </comment>
 
 <methods>
+<class-id>JuegoLaberinto class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>JuegoLaberinto</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="laberinto">laberinto	^laberinto</body>
+
+<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^laberinto obtenerHabitacion:id.</body>
+
+<body package="SolucionLaberinto" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := Laberinto new.hab1 := Habitacion new.hab2 := Habitacion new.puerta := Puerta new.pared1 := Pared new.pared2 := Pared new.pared3 := Pared new.pared4 := Pared new.pared5 := Pared new.pared6 := Pared new."creacion del laberinto con dos habitaciones"hab1 norte:pared1.hab1 sur:pared2.hab1 este:pared3.hab1 oeste:puerta.hab2 este:puerta.hab2 sur:pared4.hab2 norte:pared5.hab2 oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+
+<body package="SolucionLaberinto" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
+</methods>
+
+<methods>
+<class-id>JuegoLaberinto</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>ElementoMapa class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>ElementoMapa</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="padre">padre	^padre</body>
+
+<body package="SolucionLaberinto" selector="padre:">padre: anObject	padre := anObject</body>
+</methods>
+
+<methods>
+<class-id>ElementoMapa</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esPared">esPared	^false.</body>
+
+<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^false.</body>
+
+<body package="SolucionLaberinto" selector="esBomba">esBomba	^false.</body>
+
+<body package="SolucionLaberinto" selector="esArmario">esArmario	^false.</body>
+
+<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^false.</body>
+</methods>
+
+<methods>
+<class-id>ElementoMapa</class-id> <category>gestion hijos</category>
+
+<body package="SolucionLaberinto" selector="agregarHijo:">agregarHijo:unElementoMapa</body>
+
+<body package="SolucionLaberinto" selector="eliminarHijo:">eliminarHijo:unElementoMapa</body>
+</methods>
+
+<methods>
+<class-id>ElementoMapa</class-id> <category>enumerate</category>
+
+<body package="SolucionLaberinto" selector="do:">do:aBlock	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>ElementoMapa</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="entrar">entrar	self subclassResponsibility.</body>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Contenedor</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="hijos">hijos	^hijos</body>
+
+<body package="SolucionLaberinto" selector="hijos:">hijos: anObject	hijos := anObject</body>
+</methods>
+
+<methods>
+<class-id>Contenedor</class-id> <category>gestion hijos</category>
+
+<body package="SolucionLaberinto" selector="eliminarHijo:">eliminarHijo:unElementoMapa	self hijos remove: unElementoMapa ifAbsent: [nil].	unElementoMapa padre:nil.</body>
+
+<body package="SolucionLaberinto" selector="agregarHijo:">agregarHijo:unElementoMapa	self hijos add:unElementoMapa.	unElementoMapa padre:self.</body>
+</methods>
+
+<methods>
+<class-id>Contenedor</class-id> <category>enumerate</category>
+
+<body package="SolucionLaberinto" selector="do:">do:aBlock	aBlock value:self.	self hijos do:[:each | each do:aBlock].</body>
+</methods>
+
+<methods>
+<class-id>Contenedor</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	self hijos:List new.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Habitacion</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="id">id	^id</body>
+
+<body package="SolucionLaberinto" selector="este:">este: anObject	este := anObject</body>
+
+<body package="SolucionLaberinto" selector="id:">id: anObject	id := anObject</body>
+
+<body package="SolucionLaberinto" selector="este">este	^este</body>
+
+<body package="SolucionLaberinto" selector="sur:">sur: anObject	sur := anObject</body>
+
+<body package="SolucionLaberinto" selector="norte:">norte: anObject	norte := anObject</body>
+
+<body package="SolucionLaberinto" selector="oeste:">oeste: anObject	oeste := anObject</body>
+
+<body package="SolucionLaberinto" selector="sur">sur	^sur</body>
+
+<body package="SolucionLaberinto" selector="norte">norte	^norte</body>
+
+<body package="SolucionLaberinto" selector="oeste">oeste	^oeste</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^true</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>Orientaciones</category>
+
+<body package="SolucionLaberinto" selector="ponerEnUnaOrientacion:UnElemento:">ponerEnUnaOrientacion:unaOrientacion UnElemento:unElemento	unaOrientacion ponElemento:unElemento habitacion:self.</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	norte := nil.	sur := nil.	este:= nil.	oeste := nil.		^self</body>
+
+<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'estas entrando en la habitacion', id printString;cr.</body>
+</methods>
+
+
+<methods>
+<class-id>Hoja</class-id> <category>enumerate</category>
+
+<body package="SolucionLaberinto" selector="do:">do:aBlock	aBlock value:self.</body>
+</methods>
+
+
+<methods>
+<class-id>Pared</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'Es una pared, no puedes entrar';cr.</body>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Pared</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esPared">esPared	^true</body>
+</methods>
+
+
+<methods>
+<class-id>Puerta</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
+
+<body package="SolucionLaberinto" selector="abierta">abierta	^abierta</body>
+
+<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
+
+<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
+
+<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
+
+<body package="SolucionLaberinto" selector="abierta:">abierta: anObject	abierta := anObject</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^true</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	abierta := false.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="SolucionLaberinto" selector="entrar">entrar	self abierta ifTrue: [				Transcript show: 'cruzando la puerta';cr.	]	ifFalse: [				Transcript show: 'la puerta esta cerrada, lo siento';cr.	]</body>
+</methods>
+
+
+<methods>
+<class-id>Laberinto class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Laberinto</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Laberinto</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | each id = id] ifNone:[nil]</body>
+</methods>
+
+
+<methods>
+<class-id>ParedBomba</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="activada">activada	^activada</body>
+
+<body package="SolucionLaberinto" selector="activada:">activada: anObject	activada := anObject</body>
+
+<body package="SolucionLaberinto" selector="entrar">entrar		self activada ifTrue: [				Transcript show: 'es una pared bomba y te ha explotado';cr.		self activada:false.	]	ifFalse: [				Transcript show: 'has chocado con una pared';cr.	]</body>
+</methods>
+
+<methods>
+<class-id>ParedBomba</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	activada := true.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
 <class-id>Orientacion class</class-id> <category>instance creation</category>
 
 <body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
@@ -402,101 +644,6 @@
 
 
 <methods>
-<class-id>ElementoMapa class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>ElementoMapa</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="padre">padre	^padre</body>
-
-<body package="SolucionLaberinto" selector="padre:">padre: anObject	padre := anObject</body>
-</methods>
-
-<methods>
-<class-id>ElementoMapa</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esPared">esPared	^false.</body>
-
-<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^false.</body>
-
-<body package="SolucionLaberinto" selector="esBomba">esBomba	^false.</body>
-
-<body package="SolucionLaberinto" selector="esArmario">esArmario	^false.</body>
-
-<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^false.</body>
-</methods>
-
-<methods>
-<class-id>ElementoMapa</class-id> <category>gestion hijos</category>
-
-<body package="SolucionLaberinto" selector="agregarHijo:">agregarHijo:unElementoMapa</body>
-
-<body package="SolucionLaberinto" selector="eliminarHijo:">eliminarHijo:unElementoMapa</body>
-</methods>
-
-<methods>
-<class-id>ElementoMapa</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="entrar">entrar	self subclassResponsibility.</body>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Contenedor</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="hijos">hijos	^hijos</body>
-
-<body package="SolucionLaberinto" selector="hijos:">hijos: anObject	hijos := anObject</body>
-</methods>
-
-<methods>
-<class-id>Contenedor</class-id> <category>gestion hijos</category>
-
-<body package="SolucionLaberinto" selector="eliminarHijo:">eliminarHijo:unElementoMapa	self hijos remove: unElementoMapa ifAbsent: [nil].	unElementoMapa padre:nil.</body>
-
-<body package="SolucionLaberinto" selector="agregarHijo:">agregarHijo:unElementoMapa	self hijos add:unElementoMapa.	unElementoMapa padre:self.</body>
-</methods>
-
-<methods>
-<class-id>Contenedor</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	self hijos:List new.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>JuegoLaberinto class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="laberinto">laberinto	^laberinto</body>
-
-<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^laberinto obtenerHabitacion:id.</body>
-
-<body package="SolucionLaberinto" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := Laberinto new.hab1 := Habitacion new.hab2 := Habitacion new.puerta := Puerta new.pared1 := Pared new.pared2 := Pared new.pared3 := Pared new.pared4 := Pared new.pared5 := Pared new.pared6 := Pared new."creacion del laberinto con dos habitaciones"hab1 norte:pared1.hab1 sur:pared2.hab1 este:pared3.hab1 oeste:puerta.hab2 este:puerta.hab2 sur:pared4.hab2 norte:pared5.hab2 oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2.^laberinto.</body>
-
-<body package="SolucionLaberinto" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
-</methods>
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
 <class-id>Armario</class-id> <category>initialize-release</category>
 
 <body package="SolucionLaberinto" selector="entrar">entrar		Transcript show: 'Has entrado en un armario';cr.</body>
@@ -508,140 +655,6 @@
 <class-id>Armario</class-id> <category>testing</category>
 
 <body package="SolucionLaberinto" selector="esArmario">esArmario	^true.</body>
-</methods>
-
-
-<methods>
-<class-id>Habitacion</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="id">id	^id</body>
-
-<body package="SolucionLaberinto" selector="este:">este: anObject	este := anObject</body>
-
-<body package="SolucionLaberinto" selector="id:">id: anObject	id := anObject</body>
-
-<body package="SolucionLaberinto" selector="este">este	^este</body>
-
-<body package="SolucionLaberinto" selector="sur:">sur: anObject	sur := anObject</body>
-
-<body package="SolucionLaberinto" selector="norte:">norte: anObject	norte := anObject</body>
-
-<body package="SolucionLaberinto" selector="oeste:">oeste: anObject	oeste := anObject</body>
-
-<body package="SolucionLaberinto" selector="sur">sur	^sur</body>
-
-<body package="SolucionLaberinto" selector="norte">norte	^norte</body>
-
-<body package="SolucionLaberinto" selector="oeste">oeste	^oeste</body>
-</methods>
-
-<methods>
-<class-id>Habitacion</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^true</body>
-</methods>
-
-<methods>
-<class-id>Habitacion</class-id> <category>Orientaciones</category>
-
-<body package="SolucionLaberinto" selector="ponerEnUnaOrientacion:UnElemento:">ponerEnUnaOrientacion:unaOrientacion UnElemento:unElemento	unaOrientacion ponElemento:unElemento habitacion:self.</body>
-</methods>
-
-<methods>
-<class-id>Habitacion</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	norte := nil.	sur := nil.	este:= nil.	oeste := nil.		^self</body>
-
-<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'estas entrando en la habitacion', id printString;cr.</body>
-</methods>
-
-
-<methods>
-<class-id>Pared</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'Es una pared, no puedes entrar';cr.</body>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-<methods>
-<class-id>Pared</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esPared">esPared	^true</body>
-</methods>
-
-
-<methods>
-<class-id>Puerta</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
-
-<body package="SolucionLaberinto" selector="abierta">abierta	^abierta</body>
-
-<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
-
-<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
-
-<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
-
-<body package="SolucionLaberinto" selector="abierta:">abierta: anObject	abierta := anObject</body>
-</methods>
-
-<methods>
-<class-id>Puerta</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^true</body>
-</methods>
-
-<methods>
-<class-id>Puerta</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	abierta := false.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-
-<body package="SolucionLaberinto" selector="entrar">entrar	self abierta ifTrue: [				Transcript show: 'cruzando la puerta';cr.	]	ifFalse: [				Transcript show: 'la puerta esta cerrada, lo siento';cr.	]</body>
-</methods>
-
-
-<methods>
-<class-id>Laberinto class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Laberinto</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | each id = id] ifNone:[nil]</body>
-
-<body package="SolucionLaberinto" selector="habitaciones:">habitaciones: anObject	habitaciones := anObject</body>
-
-<body package="SolucionLaberinto" selector="insertarHabitacion:">insertarHabitacion:hab	self habitaciones add: hab.</body>
-
-<body package="SolucionLaberinto" selector="habitaciones">habitaciones	^habitaciones</body>
-</methods>
-
-<methods>
-<class-id>Laberinto</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	habitaciones := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>ParedBomba</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="activada">activada	^activada</body>
-
-<body package="SolucionLaberinto" selector="activada:">activada: anObject	activada := anObject</body>
-
-<body package="SolucionLaberinto" selector="entrar">entrar		self activada ifTrue: [				Transcript show: 'es una pared bomba y te ha explotado';cr.		self activada:false.	]	ifFalse: [				Transcript show: 'has chocado con una pared';cr.	]</body>
-</methods>
-
-<methods>
-<class-id>ParedBomba</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	activada := true.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -985,6 +998,10 @@
 <body package="decorator" selector="activa:">activa: anObject	activa := anObject</body>
 
 <body package="decorator" selector="activa">activa	^activa</body>
+
+<body package="decorator" selector="activar">activar	self activa:true.</body>
+
+<body package="decorator" selector="desactivar">desactivar	self activa:false.</body>
 
 <body package="decorator" selector="estrategia:">estrategia: anObject	estrategia := anObject</body>
 
