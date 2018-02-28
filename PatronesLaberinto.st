@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 28 de febrero de 2018 at 17:30:32</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 28 de febrero de 2018 at 17:53:44</time-stamp>
 
 
 <component-created>
@@ -215,7 +215,7 @@
 <super>Core.Object</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>laberinto bichos </inst-vars>
+<inst-vars>laberinto bichos hilos </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -365,7 +365,7 @@
 <methods>
 <class-id>JuegoLaberinto</class-id> <category>initialize-release</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	bichos := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	bichos := List new.	hilos := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 
@@ -1562,11 +1562,15 @@
 <methods>
 <class-id>Modo</class-id> <category>templateMethod</category>
 
-<body package="templateMethod" selector="actua:">actua:unBicho	self dormir.	self caminar.	self dormir."	self actuar.	self dormir.	self atacar.	self dormir."</body>
+<body package="templateMethod" selector="actua:">actua:unBicho	self caminar.	self dormir."	self actuar.	self dormir.	self atacar.	self dormir."</body>
+
+<body package="templateMethod" selector="siguienteOrientacion:">siguienteOrientacion:unBicho	| unNumero |		unNumero := self obtenerAleatorio: (unBicho posicion orientaciones size).	^unBicho posicion orientaciones at:unNumero.</body>
 
 <body package="templateMethod" selector="dormir">dormir	Delay forSeconds: 2.</body>
 
-<body package="templateMethod" selector="caminar">caminar</body>
+<body package="templateMethod" selector="caminar:">caminar:unBicho	| siguienteOrientacion |	 	siguienteOrientacion := self siguienteOrientacion:unBicho.</body>
+
+<body package="templateMethod" selector="obtenerAleatorio:">obtenerAleatorio:numMax	| aleatorio |			aleatorio := Random new.		^1 + (aleatorio next: numMax truncated).</body>
 </methods>
 
 <methods>
