@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 28 de febrero de 2018 at 17:53:44</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 6 de marzo de 2018 at 18:25:34</time-stamp>
 
 
 <component-created>
@@ -344,10 +344,16 @@
 <body package="SolucionLaberinto" selector="agregarBicho:">agregarBicho:unBicho	self asignarId:unBicho.	self bichos add:unBicho.</body>
 
 <body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
+
+<body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	self hilos add:proceso.]</body>
+
+<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos| num proceso bicho|num:=self hilos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:num.	proceso isNil ifFalse:[proceso terminate].	self hilos remove:proceso.	num:=num-1.]</body>
 </methods>
 
 <methods>
 <class-id>JuegoLaberinto</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="hilos">hilos	^hilos</body>
 
 <body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^laberinto obtenerHabitacion:id.</body>
 
@@ -358,6 +364,8 @@
 <body package="SolucionLaberinto" selector="bichos:">bichos: anObject	bichos := anObject</body>
 
 <body package="SolucionLaberinto" selector="laberinto">laberinto	^laberinto</body>
+
+<body package="SolucionLaberinto" selector="hilos:">hilos: anObject	hilos := anObject</body>
 
 <body package="SolucionLaberinto" selector="bichos">bichos	^bichos</body>
 </methods>
@@ -491,6 +499,12 @@
 <methods>
 <class-id>Habitacion</class-id> <category>Orientaciones</category>
 
+<body package="SolucionLaberinto" selector="irAlEste:">irAlEste:alguien	self este entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlNorte:">irAlNorte:alguien	self norte entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlSur:">irAlSur:alguien	self sur entrar:alguien.</body>
+
 <body package="SolucionLaberinto" selector="ponerEnUnaOrientacion:UnElemento:">ponerEnUnaOrientacion:unaOrientacion UnElemento:unElemento	unaOrientacion ponElemento:unElemento habitacion:self.</body>
 </methods>
 
@@ -574,7 +588,7 @@
 <methods>
 <class-id>Laberinto</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | each id = id] ifNone:[nil]</body>
+<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | (each esHabitacion) &amp; (each id = id)] ifNone:[nil]</body>
 </methods>
 
 
@@ -603,17 +617,27 @@
 
 
 <methods>
+<class-id>Orientacion</class-id> <category>orientaciones</category>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self subclassResponsibility.</body>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	self subclassResponsibility.</body>
+</methods>
+
+<methods>
 <class-id>Orientacion</class-id> <category>initialize-release</category>
 
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+
 <methods>
-<class-id>Orientacion</class-id> <category>orientaciones</category>
+<class-id>Norte</class-id> <category>orientaciones</category>
 
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	self subclassResponsibility.</body>
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion norte:unElemento.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlNorte.</body>
 </methods>
-
 
 <methods>
 <class-id>Norte</class-id> <category>initialize-release</category>
@@ -621,12 +645,14 @@
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+
 <methods>
-<class-id>Norte</class-id> <category>orientaciones</category>
+<class-id>Sur</class-id> <category>orientaciones</category>
 
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion norte:unElemento.</body>
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion sur:unElemento.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlSur.</body>
 </methods>
-
 
 <methods>
 <class-id>Sur</class-id> <category>initialize-release</category>
@@ -634,12 +660,14 @@
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+
 <methods>
-<class-id>Sur</class-id> <category>orientaciones</category>
+<class-id>Este</class-id> <category>orientaciones</category>
 
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion sur:unElemento.</body>
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion este:unElemento.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlEste.</body>
 </methods>
-
 
 <methods>
 <class-id>Este</class-id> <category>initialize-release</category>
@@ -647,23 +675,19 @@
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
-<methods>
-<class-id>Este</class-id> <category>orientaciones</category>
-
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion este:unElemento.</body>
-</methods>
-
-
-<methods>
-<class-id>Oeste</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
 
 <methods>
 <class-id>Oeste</class-id> <category>orientaciones</category>
 
 <body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion oeste:unElemento.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlOeste.</body>
+</methods>
+
+<methods>
+<class-id>Oeste</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -1542,7 +1566,15 @@
 <methods>
 <class-id>Bicho</class-id> <category>templateMethod</category>
 
+<body package="templateMethod" selector="irAlNorte">irAlNorte	self posicion irAlNorte:self.</body>
+
+<body package="templateMethod" selector="irAlOeste">irAlOeste	self posicion irAlOeste:self.</body>
+
+<body package="templateMethod" selector="irAlSur">irAlSur	self posicion irAlSur:self.</body>
+
 <body package="templateMethod" selector="actua">actua	self modo actua:self.</body>
+
+<body package="templateMethod" selector="irAlEste">irAlEste	self posicion irAlEste:self.</body>
 </methods>
 
 <methods>
@@ -1570,7 +1602,7 @@
 
 <body package="templateMethod" selector="caminar:">caminar:unBicho	| siguienteOrientacion |	 	siguienteOrientacion := self siguienteOrientacion:unBicho.</body>
 
-<body package="templateMethod" selector="obtenerAleatorio:">obtenerAleatorio:numMax	| aleatorio |			aleatorio := Random new.		^1 + (aleatorio next: numMax truncated).</body>
+<body package="templateMethod" selector="obtenerAleatorio:">obtenerAleatorio:numMax	^((Random new next*10)\\4+1) truncated.</body>
 </methods>
 
 <methods>
