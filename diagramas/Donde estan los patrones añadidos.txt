@@ -1,0 +1,8 @@
+Factory method: está en la clase factory method.
+Decorator: en la clase decorador, y con bomba. Los elementos del mapa tienen 0 o 1 decorador.
+Estrategy: la bomba tiene estrategias y cada una de ellas define un comportamiento, un algoritmo.
+Composite: incluye las clases contenedor y hoja. Crea jerarquias completas de tipo todo parte.
+Iterator: esta en
+Template method:
+Abstract factory:
+Singleton:
