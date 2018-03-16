@@ -1,0 +1,33 @@
+{
+  "forma":"cuadrado",
+  "puertas":[
+    [1,"Norte",2,"Sur"]
+  ],
+  "bichos":
+  [
+    {"modo":"agresivo","habitacion": 1, "id":1},
+    {"modo":"perezoso","habitacion": 2, "id":2}
+  ],
+  "laberinto":
+  [
+    {"em":"contenedor", "tipo":"habitacion", "hijos":
+      [
+        {"em":"hoja", "tipo":"bomba", "argumento":"H"}
+      ]
+    },
+    {"em":"contenedor", "tipo":"habitacion", "hijos":
+      [
+        {"em":"hoja", "tipo":"bomba", "argumento":"mina"},
+        {"em":"Contenedor","tipo":"armario", "hijos":[]}
+      ]
+    },
+    {"em":"contenedor", "tipo":"habitacion","hijos":
+      [
+        {"em":"Contenedor", "tipo":"armario","hijos":
+          [
+            {"em":"hoja", "tipo":"bomba", "argumento":"broma"}
+          ]}
+      ]
+    }
+  ]
+}
