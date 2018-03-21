@@ -3,6 +3,6 @@ Decorator: en la clase decorador, y con bomba. Los elementos del mapa tienen 0 o
 Estrategy: la bomba tiene estrategias y cada una de ellas define un comportamiento, un algoritmo.
 Composite: incluye las clases contenedor y hoja. Crea jerarquias completas de tipo todo parte.
 Iterator: esta en
-Template method:
+Template method: en el modo del bicho y en el bicho y el personaje y como hacen sus ataques.
 Abstract factory:
 Singleton:
