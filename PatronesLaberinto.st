@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 21 de marzo de 2018 at 17:57:58</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 21 de marzo de 2018 at 19:32:19</time-stamp>
 
 
 <component-created>
@@ -504,9 +504,11 @@
 
 <body package="SolucionLaberinto" selector="obtenerOrientaciones">obtenerOrientaciones	^self forma obtenerOrientaciones.</body>
 
-<body package="SolucionLaberinto" selector="ocupantes:">ocupantes: anObject	ocupantes := anObject</body>
+<body package="SolucionLaberinto" selector="obtenerId">obtenerId	self subclassResponsibility.</body>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	alguien posicion notNil ifTrue: [		alguien posicion quitarOcupante:alguien.		].	alguien posicion:self.	self agregarOcupante: alguien.	Transcript show: alguien printString, ' estás en ', self  printString;cr.</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	| habitacionId |	habitacionId := ''.	alguien posicion notNil ifTrue: [		alguien posicion quitarOcupante:alguien.		].	alguien posicion:self.	self esHabitacion ifTrue: [habitacionId := self obtenerId].	self agregarOcupante: alguien.	Transcript show: alguien printString, ' estás en ', self  printString, ' con id ', habitacionId printString;cr.</body>
+
+<body package="SolucionLaberinto" selector="ocupantes:">ocupantes: anObject	ocupantes := anObject</body>
 
 <body package="SolucionLaberinto" selector="hijos">hijos	^hijos</body>
 
@@ -554,6 +556,8 @@
 <class-id>Habitacion</class-id> <category>accessing</category>
 
 <body package="SolucionLaberinto" selector="id">id	^id</body>
+
+<body package="SolucionLaberinto" selector="obtenerId">obtenerId	^self id.</body>
 
 <body package="SolucionLaberinto" selector="id:">id: anObject	id := anObject</body>
 </methods>
@@ -2298,7 +2302,7 @@
 
 <body package="Builder" selector="iniBuilder">iniBuilder	(dic at:'forma')='cuadrado'	ifTrue:[builder:=LaberintoCuadrado new initialize].</body>
 
-<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  (cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion')].  (cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')].]</body>
+<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  (cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion') id:(cada at:'id')].  (cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].]</body>
 
 <body package="Builder" selector="crearJuego">crearJuego	builder construirJuego.</body>
 
@@ -2343,13 +2347,9 @@
 
 <body package="Builder" selector="construirBombaMinaEn:">construirBombaMinaEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:Mina new.	padre agregarHijo:bomba.</body>
 
-<body package="Builder" selector="construirBichoAgresivoEn:">construirBichoAgresivoEn:idContenedor	| bicho habitacion |		bicho := Bicho new.		bicho modo:Agresivo new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
-
 <body package="Builder" selector="construirPared">construirPared	^Pared new.</body>
 
 <body package="Builder" selector="construirPuertaDe:orientacion:a:orientacion:">construirPuertaDe:num1 orientacion:or1 a:num2 orientacion:or2| puerta hab1 hab2 |puerta:=Puerta new.puerta abrir.hab1:=self laberinto obtenerHabitacion:num1.hab2:=self laberinto obtenerHabitacion:num2.puerta hab1:hab1.puerta hab2:hab2.hab1 ponerEnUnaOrientacion:(self orientaciones at:or1) UnElemento:puerta.hab2 ponerEnUnaOrientacion:(self orientaciones at:or2) UnElemento:puerta.</body>
-
-<body package="Builder" selector="construirBichoPerezosoEn:">construirBichoPerezosoEn:idContenedor	| bicho habitacion |		bicho := Bicho new.		bicho modo:Perezoso new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
 
 <body package="Builder" selector="construirArmarioEn:">construirArmarioEn:padre| armario forma |		"crear un armario, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el armario con su padre y devolver el armario."	forma := self construirForma.	armario := Armario new.		armario forma:forma.	forma contenedor:armario.	armario forma orientaciones do: [:each | armario ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: armario orientacion: padre.	padre agregarHijo: armario.		^armario.</body>
 
@@ -2359,7 +2359,11 @@
 
 <body package="Builder" selector="construirForma">construirForma	| cuandrado |		cuandrado := Cuadrado new.	cuandrado orientaciones add: Norte default.	cuandrado orientaciones add:Este  default.	cuandrado orientaciones add:Sur  default.	cuandrado orientaciones add:Oeste default.		self orientaciones at:'Norte' put: Norte default.	self orientaciones at:'Sur' put: Sur default.	self orientaciones at:'Este' put: Este default.	self orientaciones at:'Oeste' put: Oeste default.	^cuandrado.</body>
 
+<body package="Builder" selector="construirBichoPerezosoEn:id:">construirBichoPerezosoEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.	bicho id:unId.	bicho modo:Perezoso new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
+
 <body package="Builder" selector="construirBaulEn:">construirBaulEn:padre| armario forma |		"crear un armario, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el armario con su padre y devolver el armario."	forma := self construirForma.	armario := Baul new.		armario forma:forma.	forma contenedor:armario.	armario forma orientaciones do: [:each | armario ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: armario orientacion: padre.	padre agregarHijo: armario.		^armario.</body>
+
+<body package="Builder" selector="construirBichoAgresivoEn:id:">construirBichoAgresivoEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.		bicho modo:Agresivo new.	habitacion := juego obtenerHabitacion: idContenedor.	bicho id:unId.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
 
 <body package="Builder" selector="construirBombaHEn:">construirBombaHEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:H new.	padre agregarHijo:bomba.</body>
 

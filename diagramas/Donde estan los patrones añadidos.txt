@@ -4,5 +4,8 @@ Estrategy: la bomba tiene estrategias y cada una de ellas define un comportamien
 Composite: incluye las clases contenedor y hoja. Crea jerarquias completas de tipo todo parte.
 Iterator: esta en
 Template method: en el modo del bicho y en el bicho y el personaje y como hacen sus ataques.
-Abstract factory:
-Singleton:
+Abstract factory: en juego laberinto hemos introducido un método que actua como una factoria, creando un laberinto.
+Singleton: los objetos de orientaciones (norte, sur, este y oeste).
+Builder: en el paquete buider estan las dos clases, el director y el builder que crea en especial todos los elementos.
+Proxy: la puerta actua como proxy con la habitación.
+Adapter: no lo hemos implementado.
