@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de abril de 2018 at 15:27:09</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de abril de 2018 at 16:17:38</time-stamp>
 
 
 <component-created>
@@ -1041,6 +1041,26 @@
 </methods>
 
 <methods>
+<class-id>Octogono</class-id> <category>moversePorLaForma</category>
+
+<body package="SolucionLaberinto" selector="irAlSurEste:">irAlSurEste:alguien	self surEste entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlNorOeste:">irAlNorOeste:alguien	self norOeste entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlEste:">irAlEste:alguien	self este entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlNorte:">irAlNorte:alguien	self norte entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlSur:">irAlSur:alguien	self sur entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlOeste:">irAlOeste:alguien	self oeste entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlSurOeste:">irAlSurOeste:alguien	self surOeste entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlNorEste:">irAlNorEste:alguien	self norEste entrar:alguien.</body>
+</methods>
+
+<methods>
 <class-id>Octogono</class-id> <category>initialize-release</category>
 
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	norte := nil.	sur := nil.	este := nil.	oeste := nil.	norEste := nil.	surEste := nil.	surOeste := nil.	norOeste := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
@@ -1082,7 +1102,7 @@
 
 <body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma surEste:unElemento.</body>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by Orientacion as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlSurEste.</body>
 </methods>
 
 <methods>
@@ -1180,7 +1200,7 @@
 <methods>
 <class-id>NorEste</class-id> <category>orientaciones</category>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by Orientacion as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlNorEste.</body>
 
 <body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma norEste:unElemento.</body>
 </methods>
@@ -1247,7 +1267,7 @@
 
 <body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma norOeste:unElemento.</body>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by Orientacion as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlNorOeste.</body>
 </methods>
 
 <methods>
@@ -1271,7 +1291,7 @@
 
 <body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma surOeste:unElemento.</body>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by Orientacion as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlSurEste.</body>
 </methods>
 
 <methods>
@@ -2212,6 +2232,46 @@
 </component-property>
 
 <class>
+<name>Modo</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>templateMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Modo</class-id>
+<body>Modo representa los posibles comportamientos del bicho, clase abstracta</body>
+</comment>
+
+<class>
+<name>Golismero</name>
+<environment>Smalltalk</environment>
+<super>Modo</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>templateMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Golismero</class-id>
+<body>Golismero es un modo de comportamiento para los michos que trata de entrar en los contenedores que hay dentro de las habitaciones.</body>
+</comment>
+
+<class>
 <name>Ente</name>
 <environment>Smalltalk</environment>
 <super>Core.Object</super>
@@ -2249,26 +2309,6 @@
 <comment>
 <class-id>Personaje</class-id>
 <body>Personaje repsenta un ente diferente a los bichos con nombre propio.Instance Variables:	nombre	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of nombre</body>
-</comment>
-
-<class>
-<name>Modo</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>templateMethod</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Modo</class-id>
-<body>Modo representa los posibles comportamientos del bicho, clase abstracta</body>
 </comment>
 
 <class>
@@ -2382,118 +2422,23 @@
 <methods>
 <class-id>Ente</class-id> <category>templateMethod</category>
 
-<body package="templateMethod" selector="irAlOeste">irAlOeste	self posicion forma irAlOeste:self.</body>
+<body package="templateMethod" selector="irAlSurOeste">irAlSurOeste	self posicion forma irAlSurOeste:self.</body>
 
 <body package="templateMethod" selector="irAlSur">irAlSur	self posicion forma irAlSur:self.</body>
 
-<body package="templateMethod" selector="actua">actua	self subclassResponsibility</body>
+<body package="templateMethod" selector="irAlOeste">irAlOeste	self posicion forma irAlOeste:self.</body>
+
+<body package="templateMethod" selector="irAlNorEste">irAlNorEste	self posicion forma irAlNorEste:self.</body>
+
+<body package="templateMethod" selector="irAlNorOeste">irAlNorOeste	self posicion forma irAlNorOeste:self.</body>
 
 <body package="templateMethod" selector="irAlEste">irAlEste	self posicion forma irAlEste:self.</body>
 
 <body package="templateMethod" selector="irAlNorte">irAlNorte	self posicion forma irAlNorte:self.</body>
-</methods>
 
+<body package="templateMethod" selector="irAlSurEste">irAlSurEste	self posicion forma irAlSurEste:self.</body>
 
-<methods>
-<class-id>Personaje class</class-id> <category>instance creation</category>
-
-<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Personaje</class-id> <category>ataques</category>
-
-<body package="templateMethod" selector="morir">morir	self juego finJuego.	Transcript show: 'El personaje está muerto, el juego ha terminado.';cr.</body>
-
-<body package="templateMethod" selector="seleccionarEnemigo">seleccionarEnemigo	^self posicion ocupantes detect:[:each | each esPersonaje ] ifNone:[nil].</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>accessing</category>
-
-<body package="templateMethod" selector="nombre:">nombre: anObject	nombre := anObject</body>
-
-<body package="templateMethod" selector="nombre">nombre	^nombre</body>
-
-<body package="templateMethod" selector="obtenerOrientaciones">obtenerOrientaciones	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="esPersonaje">esPersonaje	^true.</body>
-
-<body package="templateMethod" selector="id">id	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="modo:">modo: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="id:">id: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="modo">modo	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>templateMethod</category>
-
-<body package="templateMethod" selector="actua">actua	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>initialize-release</category>
-
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Modo class</class-id> <category>instance creation</category>
-
-<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Modo</class-id> <category>testing</category>
-
-<body package="templateMethod" selector="esPerezoso">esPerezoso	^false.</body>
-
-<body package="templateMethod" selector="esAgresivo">esAgresivo	^false.</body>
-</methods>
-
-<methods>
-<class-id>Modo</class-id> <category>templateMethod</category>
-
-<body package="templateMethod" selector="actua:">actua:unBicho	self caminar:unBicho.	self dormir.	unBicho ataca.	"self actuar.	self dormir.	self atacar.	self dormir."</body>
-
-<body package="templateMethod" selector="siguienteOrientacion:">siguienteOrientacion:unBicho	| unNumero orientaciones |		orientaciones := unBicho obtenerOrientaciones.	unNumero := self obtenerAleatorio: orientaciones size.	^unBicho posicion forma orientaciones at:unNumero.</body>
-
-<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 2) wait.</body>
-
-<body package="templateMethod" selector="caminar:">caminar:unBicho	| siguienteOrientacion |	 	siguienteOrientacion := self siguienteOrientacion:unBicho.	siguienteOrientacion entrar: unBicho.</body>
-
-<body package="templateMethod" selector="obtenerAleatorio:">obtenerAleatorio:numMax	^((Random new next*10)\\numMax+1) truncated.</body>
-</methods>
-
-<methods>
-<class-id>Modo</class-id> <category>initialize-release</category>
-
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Perezoso</class-id> <category>testing</category>
-
-<body package="templateMethod" selector="esPerezoso">esPerezoso	^true.</body>
-</methods>
-
-<methods>
-<class-id>Perezoso</class-id> <category>templateMethod</category>
-
-<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 4)  wait.</body>
-</methods>
-
-<methods>
-<class-id>Perezoso</class-id> <category>initialize-release</category>
-
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="templateMethod" selector="actua">actua	self subclassResponsibility</body>
 </methods>
 
 
@@ -2548,6 +2493,44 @@
 
 
 <methods>
+<class-id>Modo class</class-id> <category>instance creation</category>
+
+<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Modo</class-id> <category>testing</category>
+
+<body package="templateMethod" selector="esPerezoso">esPerezoso	^false.</body>
+
+<body package="templateMethod" selector="esAgresivo">esAgresivo	^false.</body>
+</methods>
+
+<methods>
+<class-id>Modo</class-id> <category>templateMethod</category>
+
+<body package="templateMethod" selector="siguienteOrientacion:">siguienteOrientacion:unBicho	| unNumero orientaciones |		orientaciones := unBicho obtenerOrientaciones.	unNumero := self obtenerAleatorio: orientaciones size.	^unBicho posicion forma orientaciones at:unNumero.</body>
+
+<body package="templateMethod" selector="caminar:">caminar:unBicho	| siguienteOrientacion |	 	siguienteOrientacion := self siguienteOrientacion:unBicho.	siguienteOrientacion entrar: unBicho.</body>
+
+<body package="templateMethod" selector="actua:">actua:unBicho	self caminar:unBicho.	self dormir.	unBicho ataca.	self golismear: unBicho.	"self dormir.	self atacar.	self dormir."</body>
+
+<body package="templateMethod" selector="golismear:">golismear:unBicho	(Delay forSeconds: 1) wait.	Transcript show: 'Soy ', unBicho printString, ' y no me gusta meterme en las cosas de los demás.';cr.</body>
+
+<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 2) wait.</body>
+
+<body package="templateMethod" selector="obtenerAleatorio:">obtenerAleatorio:numMax	^((Random new next*10)\\numMax+1) truncated.</body>
+</methods>
+
+<methods>
+<class-id>Modo</class-id> <category>initialize-release</category>
+
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
 <class-id>Agresivo</class-id> <category>testing</category>
 
 <body package="templateMethod" selector="esAgresivo">esAgresivo	^true.</body>
@@ -2555,6 +2538,86 @@
 
 <methods>
 <class-id>Agresivo</class-id> <category>initialize-release</category>
+
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Personaje class</class-id> <category>instance creation</category>
+
+<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Personaje</class-id> <category>ataques</category>
+
+<body package="templateMethod" selector="morir">morir	self juego finJuego.	Transcript show: 'El personaje está muerto, el juego ha terminado.';cr.</body>
+
+<body package="templateMethod" selector="seleccionarEnemigo">seleccionarEnemigo	^self posicion ocupantes detect:[:each | each esPersonaje ] ifNone:[nil].</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>accessing</category>
+
+<body package="templateMethod" selector="nombre:">nombre: anObject	nombre := anObject</body>
+
+<body package="templateMethod" selector="nombre">nombre	^nombre</body>
+
+<body package="templateMethod" selector="obtenerOrientaciones">obtenerOrientaciones	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="esPersonaje">esPersonaje	^true.</body>
+
+<body package="templateMethod" selector="id">id	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="modo:">modo: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="id:">id: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="modo">modo	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>templateMethod</category>
+
+<body package="templateMethod" selector="actua">actua	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>initialize-release</category>
+
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Golismero</class-id> <category>templateMethod</category>
+
+<body package="templateMethod" selector="golismear:">golismear:unBicho	| contenedor |	contenedor := unBicho posicion hijos:(self obtenerAleatorio:(unBicho posicion hijos size)).	contenedor entrar:unBicho.</body>
+</methods>
+
+<methods>
+<class-id>Golismero</class-id> <category>initialize-release</category>
+
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Perezoso</class-id> <category>testing</category>
+
+<body package="templateMethod" selector="esPerezoso">esPerezoso	^true.</body>
+</methods>
+
+<methods>
+<class-id>Perezoso</class-id> <category>templateMethod</category>
+
+<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 4)  wait.</body>
+</methods>
+
+<methods>
+<class-id>Perezoso</class-id> <category>initialize-release</category>
 
 <body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
@@ -2677,7 +2740,7 @@
 
 <body package="Builder" selector="iniBuilder">iniBuilder	(dic at:'forma')='cuadrado'	ifTrue:[builder:=LaberintoCuadrado new initialize].		(dic at:'forma')='octogono'	ifTrue:[builder:=LaberintoOctogonal new initialize].</body>
 
-<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  (cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion') id:(cada at:'id')].  (cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].]</body>
+<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  (cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion') id:(cada at:'id')].  (cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].(cada at:'modo')='golismero' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].]</body>
 
 <body package="Builder" selector="crearJuego">crearJuego	builder construirJuego.</body>
 
@@ -2721,13 +2784,15 @@
 <methods>
 <class-id>Builder</class-id> <category>builders</category>
 
-<body package="Builder" selector="construirLaberinto">construirLaberinto	laberinto:=Laberinto new.</body>
+<body package="Builder" selector="construirBichoGolismeroEn:id:">construirBichoGolismeroEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.	bicho id:unId.	bicho modo:Golismero new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
 
 <body package="Builder" selector="construirBombaBromaEn:">construirBombaBromaEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:Broma new.	padre agregarHijo:bomba.</body>
 
 <body package="Builder" selector="construirBaulEn:">construirBaulEn:padre| baul forma |		"crear un baul, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el baul con su padre y devolver el baul."	forma := self construirForma.	baul := Baul new.		baul forma:forma.	forma contenedor:baul.	baul forma orientaciones do: [:each | baul ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: baul orientacion: padre.	padre agregarHijo: baul.		^baul.</body>
 
 <body package="Builder" selector="construirBichoAgresivoEn:id:">construirBichoAgresivoEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.		bicho modo:Agresivo new.	habitacion := juego obtenerHabitacion: idContenedor.	bicho id:unId.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
+
+<body package="Builder" selector="construirLaberinto">construirLaberinto	laberinto:=Laberinto new.</body>
 
 <body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe:unaOrientacion orientacion:otraOrientacion	| puerta hab1 hab2 |puerta:=Puerta new.puerta hab1:unaOrientacion.puerta hab2:otraOrientacion.unaOrientacion ponerEnUnaOrientacion:(Este default) UnElemento:puerta.</body>
 
@@ -2739,9 +2804,9 @@
 
 <body package="Builder" selector="construirJuego">construirJuego	juego:=JuegoLaberinto new.	juego laberinto:self laberinto.</body>
 
-<body package="Builder" selector="construirBombaMinaEn:">construirBombaMinaEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:Mina new.	padre agregarHijo:bomba.</body>
-
 <body package="Builder" selector="construirBichoPerezosoEn:id:">construirBichoPerezosoEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.	bicho id:unId.	bicho modo:Perezoso new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
+
+<body package="Builder" selector="construirBombaMinaEn:">construirBombaMinaEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:Mina new.	padre agregarHijo:bomba.</body>
 </methods>
 
 <methods>
