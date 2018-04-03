@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de abril de 2018 at 16:17:38</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de abril de 2018 at 19:55:25</time-stamp>
 
 
 <component-created>
@@ -2184,15 +2184,13 @@
 <methods>
 <class-id>Broma</class-id> <category>initialize-release</category>
 
-<body package="Estrategy" selector="entrar">entrar	Transcript show: 'has tenido suerte, solo era una bomba de broma.'</body>
-
 <body package="Estrategy" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-
-<body package="Estrategy" selector="entrar:en:">entrar: alguien en: unaBomba	Transcript show: alguien printString,'has tenido suerte, solo era una bomba de broma.'.	unaBomba activa:false</body>
 
 <body package="Estrategy" selector="explotar:sobre:">explotar:unaBomba sobre:alguien</body>
 
-<body package="Estrategy" selector="entrar:">entrar:unaBomba	Transcript show: 'has tenido suerte, solo era una bomba de broma.'.	unaBomba activa:false</body>
+<body package="Estrategy" selector="entrar:en:">entrar: alguien en: unaBomba	Transcript show: alguien printString,' has tenido suerte, solo era una bomba de broma.';cr.	unaBomba activa:false</body>
+
+<body package="Estrategy" selector="entrar:">entrar:unaBomba	Transcript show: 'has tenido suerte, solo era una bomba de broma.';cr.	unaBomba activa:false</body>
 </methods>
 
 
@@ -2594,7 +2592,7 @@
 <methods>
 <class-id>Golismero</class-id> <category>templateMethod</category>
 
-<body package="templateMethod" selector="golismear:">golismear:unBicho	| contenedor |	contenedor := unBicho posicion hijos:(self obtenerAleatorio:(unBicho posicion hijos size)).	contenedor entrar:unBicho.</body>
+<body package="templateMethod" selector="golismear:">golismear:unBicho	| contenedor posicionContenedor |	posicionContenedor := unBicho posicion hijos size.	posicionContenedor &gt; 0 ifTrue: [				contenedor := unBicho posicion hijos at:(self obtenerAleatorio: posicionContenedor).		contenedor entrar:unBicho.	].</body>
 </methods>
 
 <methods>
@@ -2740,7 +2738,7 @@
 
 <body package="Builder" selector="iniBuilder">iniBuilder	(dic at:'forma')='cuadrado'	ifTrue:[builder:=LaberintoCuadrado new initialize].		(dic at:'forma')='octogono'	ifTrue:[builder:=LaberintoOctogonal new initialize].</body>
 
-<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  (cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion') id:(cada at:'id')].  (cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].(cada at:'modo')='golismero' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].]</body>
+<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  	(cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion') id:(cada at:'id')].	(cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].	(cada at:'modo')='golismero' ifTrue:[self builder construirBichoGolismeroEn:(cada at:'habitacion')id:(cada at:'id')].]</body>
 
 <body package="Builder" selector="crearJuego">crearJuego	builder construirJuego.</body>
 
@@ -2892,8 +2890,79 @@
 
 
 
+<component-created>
+<name>LaberintoGUI</name> <type>package</type>
+</component-created><!-- Package LaberintoGUI* -->
+
+
+<component-property>
+<name>LaberintoGUI</name> <type>package</type>
+<property>comment</property> <value>'contedrá las clases que forman la vista de muestro modelo (MVC)'</value>
+</component-property>
+
+<class>
+<name>LaberintoGUI</name>
+<environment>Smalltalk</environment>
+<super>UI.ApplicationModel</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>juego archivo numHab numBichos forma </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>LaberintoGUI</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>LaberintoGUI</class-id>
+<body>LaberintoGUI todo lo que tiene que ver con al interfaz.Instance Variables:	archivo	&lt;ValueModel&gt;	description of archivo	forma	&lt;ValueHolder&gt;	description of forma	juego	&lt;JuegoLaberinto&gt;	description of juego	numBichos	&lt;ValueHolder&gt;	description of numBichos	numHab	&lt;ValueHolder&gt;	description of numHab</body>
+</comment>
+
+<methods>
+<class-id>LaberintoGUI class</class-id> <category>interface specs</category>
+
+<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 20 20 ) 			#max: #(#{Core.Point} 0 0 ) 			#bounds: #(#{Graphics.Rectangle} 614 240 1014 640 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 113 0 42 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 111 0 13 0 357 0 32 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 14 0 13 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 14 0 79 0 362 0 203 0 ) 					#name: #GroupBox1 					#label: 'Configurar laberinto' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 117 0 99 0 353 0 118 0 ) 					#name: #InputField2 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 117 0 133 0 353 0 152 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 117 0 167 0 353 0 186 0 ) 					#name: #InputField4 					#model: #numHab 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 22 0 101 0 ) 					#name: #Label1 					#label: 'Forma' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 22 0 135 0 ) 					#name: #Label3 					#label: 'Num de bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 22 0 169 0 ) 					#name: #Label4 					#label: 'Num de habs' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 208 0 254 0 303 0 275 0 ) 					#name: #ActionButton2 					#model: #terminarBichos 					#label: 'Terminar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 73 0 254 0 158 0 275 0 ) 					#name: #ActionButton3 					#model: #lanzarBichos 					#label: 'Lanzar bichos' 					#isDefault: false 					#defaultable: true ) ) ) )</body>
+</methods>
+
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>aspects</category>
+
+<body package="LaberintoGUI" selector="forma">forma	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^forma isNil		ifTrue:			[forma := String new asValue]		ifFalse:			[forma]</body>
+
+<body package="LaberintoGUI" selector="numBichos">numBichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numBichos isNil		ifTrue:			[numBichos := String new asValue]		ifFalse:			[numBichos]</body>
+
+<body package="LaberintoGUI" selector="archivo">archivo	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^archivo isNil		ifTrue:			[archivo := String new asValue]		ifFalse:			[archivo]</body>
+
+<body package="LaberintoGUI" selector="numHab">numHab	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numHab isNil		ifTrue:			[numHab := String new asValue]		ifFalse:			[numHab]</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>accessing</category>
+
+<body package="LaberintoGUI" selector="juego">juego	^juego</body>
+
+<body package="LaberintoGUI" selector="juego:">juego: anObject	juego := anObject</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>actions</category>
+
+<body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self juego:director builder juego.</body>
+
+<body package="LaberintoGUI" selector="procesar">procesar	| dialog nom |	dialog := OpenFileDialog new.	dialog		windowTitle: 'Obtener archivo de configuración';		acceptButtonLabel: 'Obtener';		addFileFilter: 'JSON (*.json)' pattern: '*.json';		defaultFilename: ''.	nom := dialog select.	nom isNil ifFalse:[		self archivo value: nom tail.		self crearJuego:nom.	]</body>
+
+<body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
+
+<body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
+</methods>
+
+
+
 <bundle-structure>
-<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas') #(#package 'Estrategy') #(#package 'templateMethod') #(#package 'Builder'))</structure>
+<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas') #(#package 'Estrategy') #(#package 'templateMethod') #(#package 'Builder') #(#package 'LaberintoGUI'))</structure>
 </bundle-structure>
 
 <initialize>
