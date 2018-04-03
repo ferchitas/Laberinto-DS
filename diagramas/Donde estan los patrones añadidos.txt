@@ -9,3 +9,6 @@ Singleton: los objetos de orientaciones (norte, sur, este y oeste).
 Builder: en el paquete buider estan las dos clases, el director y el builder que crea en especial todos los elementos.
 Proxy: la puerta actua como proxy con la habitación.
 Adapter: no lo hemos implementado.
+builder: esta entre las jerarquias de forma y contenedor.
+Mediator: la clase mediador es el contenedor y los bichos por ejemplo atacan desde el mediador. Los entes se comunican entre ellos utilizando el contenedor, con la lista de ocupantes. Por otro lado, la clase ente (collegue) tiene la variable posicion que guarda el contenedor donde esta (mediator).
+Observer: 
