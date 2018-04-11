@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 11 de abril de 2018 at 18:20:07</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 11 de abril de 2018 at 19:34:38</time-stamp>
 
 
 <component-created>
@@ -842,7 +842,7 @@
 
 <body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando	self quitarComando: unComando.	self agregarComando: (Cerrar new receptor:self).</body>
 
-<body package="SolucionLaberinto" selector="obtenerComandos">obtenerComandos		| list |	list := List new.	list addAll: self forma obtenerComandos.	^list.</body>
+<body package="SolucionLaberinto" selector="obtenerComandos">obtenerComandos		| list |	list := List new.	self hijos do:[:each | list addAll: (each obtenerComandos)].	list addAll: self forma obtenerComandos.	^list.</body>
 </methods>
 
 <methods>
@@ -890,6 +890,12 @@
 <class-id>Baul</class-id> <category>testing</category>
 
 <body package="SolucionLaberinto" selector="esBaul">esBaul		^true.</body>
+</methods>
+
+<methods>
+<class-id>Baul</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Baul'.</body>
 </methods>
 
 <methods>
@@ -1001,6 +1007,12 @@
 </methods>
 
 <methods>
+<class-id>Armario</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Arm'.</body>
+</methods>
+
+<methods>
 <class-id>Armario</class-id> <category>initialize-release</category>
 
 <body package="SolucionLaberinto" selector="entrar">entrar		Transcript show: 'Has entrado en un armario';cr.</body>
@@ -1023,6 +1035,12 @@
 <class-id>Habitacion</class-id> <category>testing</category>
 
 <body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^true</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn:aStream	aStream nextPutAll:'H-', self id printString.</body>
 </methods>
 
 <methods>
@@ -1207,7 +1225,7 @@
 
 <body package="SolucionLaberinto" selector="abierta">abierta	^abierta</body>
 
-<body package="SolucionLaberinto" selector="cerrar">cerrar	abierta := false.	Transcript show: 'la puerta se acaba de cerrar.'.</body>
+<body package="SolucionLaberinto" selector="cerrar">cerrar	abierta := false.	Transcript show: self printString , ' se acaba de cerrar.';cr.</body>
 
 <body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
 
@@ -1215,7 +1233,7 @@
 
 <body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
 
-<body package="SolucionLaberinto" selector="abrir">abrir	abierta := true.	Transcript show: 'la puerta se acaba de abrir.'.</body>
+<body package="SolucionLaberinto" selector="abrir">abrir	abierta := true.	Transcript show: self printString , ' se acaba de abrir.';cr.</body>
 
 <body package="SolucionLaberinto" selector="abierta:">abierta: anObject	abierta := anObject</body>
 </methods>
@@ -1224,6 +1242,12 @@
 <class-id>Puerta</class-id> <category>testing</category>
 
 <body package="SolucionLaberinto" selector="esPuerta">esPuerta	^true</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Puerta ', self hab1 printString, ' - ', self hab2 printString.</body>
 </methods>
 
 <methods>
@@ -3216,9 +3240,15 @@
 
 
 <methods>
+<class-id>Cerrar</class-id> <category>printing</category>
+
+<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll:'Cerrar ' , self receptor printString.</body>
+</methods>
+
+<methods>
 <class-id>Cerrar</class-id> <category>acciones</category>
 
-<body package="command" selector="ejecutar">ejecutar	self receptor cerrar.</body>
+<body package="command" selector="ejecutar">ejecutar	self receptor cerrar.	self receptor quitarComando: self.	self receptor agregarComando:(Abrir new receptor:self receptor).</body>
 </methods>
 
 <methods>
@@ -3240,6 +3270,12 @@
 <body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+
+<methods>
+<class-id>Abrir</class-id> <category>printing</category>
+
+<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll:'Abrir ' , self receptor printString.</body>
+</methods>
 
 <methods>
 <class-id>Abrir</class-id> <category>acciones</category>
