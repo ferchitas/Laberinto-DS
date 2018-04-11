@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de abril de 2018 at 19:55:25</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 10 de abril de 2018 at 19:57:20</time-stamp>
 
 
 <component-created>
@@ -175,7 +175,7 @@
 <super>Core.Object</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>padre </inst-vars>
+<inst-vars>padre comandos </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -215,7 +215,7 @@
 <super>Core.Object</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>laberinto bichos hilos </inst-vars>
+<inst-vars>laberinto bichos hilos personaje </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -725,11 +725,19 @@
 <methods>
 <class-id>ElementoMapa</class-id> <category>accessing</category>
 
+<body package="SolucionLaberinto" selector="comandos:">comandos: anObject	comandos := anObject</body>
+
 <body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self subclassResponsibility.</body>
 
-<body package="SolucionLaberinto" selector="padre">padre	^padre</body>
-
 <body package="SolucionLaberinto" selector="padre:">padre: anObject	padre := anObject</body>
+
+<body package="SolucionLaberinto" selector="comandos">comandos	^comandos</body>
+
+<body package="SolucionLaberinto" selector="agregarComando:">agregarComando:unComando	comandos add: unComando.</body>
+
+<body package="SolucionLaberinto" selector="quitarComando:">quitarComando:unComando	comandos remove: unComando ifAbsent:[nil].</body>
+
+<body package="SolucionLaberinto" selector="padre">padre	^padre</body>
 </methods>
 
 <methods>
@@ -749,6 +757,12 @@
 </methods>
 
 <methods>
+<class-id>ElementoMapa</class-id> <category>enumerate</category>
+
+<body package="SolucionLaberinto" selector="do:">do:aBlock	self subclassResponsibility.</body>
+</methods>
+
+<methods>
 <class-id>ElementoMapa</class-id> <category>gestion hijos</category>
 
 <body package="SolucionLaberinto" selector="agregarHijo:">agregarHijo:unElementoMapa</body>
@@ -757,15 +771,9 @@
 </methods>
 
 <methods>
-<class-id>ElementoMapa</class-id> <category>enumerate</category>
-
-<body package="SolucionLaberinto" selector="do:">do:aBlock	self subclassResponsibility.</body>
-</methods>
-
-<methods>
 <class-id>ElementoMapa</class-id> <category>initialize-release</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	comandos := List new.	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -861,27 +869,41 @@
 <methods>
 <class-id>JuegoLaberinto</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="hilos">hilos	^hilos</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:unPersonaje	| h1 |		h1 := self obtenerHabitacion:1.	unPersonaje juego:self.	h1 entrar:unPersonaje.	Transcript show: 'El personaje ',unPersonaje nombre printString, ' ha entrado en el laberinto';cr.</body>
 
 <body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^laberinto obtenerHabitacion:id.</body>
 
 <body package="SolucionLaberinto" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := Laberinto new.hab1 := Habitacion new.hab2 := Habitacion new.puerta := Puerta new.pared1 := Pared new.pared2 := Pared new.pared3 := Pared new.pared4 := Pared new.pared5 := Pared new.pared6 := Pared new."creacion del laberinto con dos habitaciones"hab1  forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:unPersonaje	| h1 |		h1 := self obtenerHabitacion:1.	h1 ocupantes add:unPersonaje.	unPersonaje juego:self.</body>
-
 <body package="SolucionLaberinto" selector="finJuego">finJuego	Transcript show: 'El juego ha termiando';cr.	self terminarHilosBichos.</body>
 
-<body package="SolucionLaberinto" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
+<body package="SolucionLaberinto" selector="hilos">hilos	^hilos</body>
 
-<body package="SolucionLaberinto" selector="crearLaberinto2habs:">crearLaberinto2habs:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 norteh1 surh1 esteh1 oesteh1 bomba1 bomba2 |self laberinto:unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion: 1.hab2 := unaFactoria fabricarHabitacion: 2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.norteh1 := unaFactoria fabricarNorte.esteh1 := unaFactoria fabricarEste.surh1 := unaFactoria fabricarSur.oesteh1 := unaFactoria fabricarOeste.hab1 ponerEnUnaOrientacion: norteh1 UnElemento:bomba1.hab1 ponerEnUnaOrientacion: esteh1 UnElemento:pared2.hab1 ponerEnUnaOrientacion: surh1 UnElemento:pared3.hab1 ponerEnUnaOrientacion: oesteh1 UnElemento: puerta.hab2 ponerEnUnaOrientacion: norteh1 UnElemento:bomba2.hab2 ponerEnUnaOrientacion: esteh1 UnElemento:puerta.hab2 ponerEnUnaOrientacion: surh1 UnElemento:pared5.hab2 ponerEnUnaOrientacion: oesteh1 UnElemento: pared6."creacion del laberinto con dos habitaciones"hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."self laberinto agregarHijo: hab1.self laberinto agregarHijo: hab2.^laberinto.</body>
+<body package="SolucionLaberinto" selector="bichos">bichos	^bichos</body>
+
+<body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^self laberinto obtenerNumeroDeHabitaciones.</body>
+
+<body package="SolucionLaberinto" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
 
 <body package="SolucionLaberinto" selector="bichos:">bichos: anObject	bichos := anObject</body>
 
 <body package="SolucionLaberinto" selector="hilos:">hilos: anObject	hilos := anObject</body>
 
+<body package="SolucionLaberinto" selector="personaje:">personaje: anObject	personaje := anObject</body>
+
+<body package="SolucionLaberinto" selector="personaje">personaje	^personaje</body>
+
+<body package="SolucionLaberinto" selector="obtenerNumeroDeBichos">obtenerNumeroDeBichos	^bichos size.</body>
+
 <body package="SolucionLaberinto" selector="laberinto">laberinto	^laberinto</body>
 
-<body package="SolucionLaberinto" selector="bichos">bichos	^bichos</body>
+<body package="SolucionLaberinto" selector="crearLaberinto2habs:">crearLaberinto2habs:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 norteh1 surh1 esteh1 oesteh1 bomba1 bomba2 |self laberinto:unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion: 1.hab2 := unaFactoria fabricarHabitacion: 2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.norteh1 := unaFactoria fabricarNorte.esteh1 := unaFactoria fabricarEste.surh1 := unaFactoria fabricarSur.oesteh1 := unaFactoria fabricarOeste.hab1 ponerEnUnaOrientacion: norteh1 UnElemento:bomba1.hab1 ponerEnUnaOrientacion: esteh1 UnElemento:pared2.hab1 ponerEnUnaOrientacion: surh1 UnElemento:pared3.hab1 ponerEnUnaOrientacion: oesteh1 UnElemento: puerta.hab2 ponerEnUnaOrientacion: norteh1 UnElemento:bomba2.hab2 ponerEnUnaOrientacion: esteh1 UnElemento:puerta.hab2 ponerEnUnaOrientacion: surh1 UnElemento:pared5.hab2 ponerEnUnaOrientacion: oesteh1 UnElemento: pared6."creacion del laberinto con dos habitaciones"hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."self laberinto agregarHijo: hab1.self laberinto agregarHijo: hab2.^laberinto.</body>
+</methods>
+
+<methods>
+<class-id>JuegoLaberinto</class-id> <category>personaje</category>
+
+<body package="SolucionLaberinto" selector="agregarPersonaje:">agregarPersonaje:unPersonaje	self personaje:unPersonaje.	self entrar: unPersonaje.</body>
 </methods>
 
 <methods>
@@ -1159,9 +1181,11 @@
 <methods>
 <class-id>Laberinto</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	self subclassResponsibility</body>
+<body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^hijos size.</body>
 
 <body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | (each esHabitacion) &amp; (each id = id)] ifNone:[nil]</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	self subclassResponsibility</body>
 </methods>
 
 <methods>
@@ -2792,11 +2816,11 @@
 
 <body package="Builder" selector="construirLaberinto">construirLaberinto	laberinto:=Laberinto new.</body>
 
-<body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe:unaOrientacion orientacion:otraOrientacion	| puerta hab1 hab2 |puerta:=Puerta new.puerta hab1:unaOrientacion.puerta hab2:otraOrientacion.unaOrientacion ponerEnUnaOrientacion:(Este default) UnElemento:puerta.</body>
+<body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe: unaOrientacion orientacion: otraOrientacion	| puerta |	puerta := Puerta new.	puerta hab1: unaOrientacion.	puerta hab2: otraOrientacion.	unaOrientacion ponerEnUnaOrientacion: Este default UnElemento: puerta.	puerta agregarComando: (Abrir new receptor: puerta)</body>
 
 <body package="Builder" selector="construirPared">construirPared	^Pared new.</body>
 
-<body package="Builder" selector="construirPuertaDe:orientacion:a:orientacion:">construirPuertaDe:num1 orientacion:or1 a:num2 orientacion:or2| puerta hab1 hab2 |puerta:=Puerta new.hab1:=self laberinto obtenerHabitacion:num1.hab2:=self laberinto obtenerHabitacion:num2.puerta hab1:hab1.puerta hab2:hab2.hab1 ponerEnUnaOrientacion:(self orientaciones at:or1) UnElemento:puerta.hab2 ponerEnUnaOrientacion:(self orientaciones at:or2) UnElemento:puerta.</body>
+<body package="Builder" selector="construirPuertaDe:orientacion:a:orientacion:">construirPuertaDe:num1 orientacion:or1 a:num2 orientacion:or2| puerta hab1 hab2 |puerta:=Puerta new.hab1:=self laberinto obtenerHabitacion:num1.hab2:=self laberinto obtenerHabitacion:num2.puerta hab1:hab1.puerta hab2:hab2.hab1 ponerEnUnaOrientacion:(self orientaciones at:or1) UnElemento:puerta.hab2 ponerEnUnaOrientacion:(self orientaciones at:or2) UnElemento:puerta.puerta agregarComando: (Abrir new receptor:puerta).</body>
 
 <body package="Builder" selector="construirBombaHEn:">construirBombaHEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:H new.	padre agregarHijo:bomba.</body>
 
@@ -2906,7 +2930,7 @@
 <super>UI.ApplicationModel</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>juego archivo numHab numBichos forma </inst-vars>
+<inst-vars>juego archivo numHab numBichos forma Bichos nombre orientaciones </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -2923,20 +2947,26 @@
 <methods>
 <class-id>LaberintoGUI class</class-id> <category>interface specs</category>
 
-<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 20 20 ) 			#max: #(#{Core.Point} 0 0 ) 			#bounds: #(#{Graphics.Rectangle} 614 240 1014 640 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 113 0 42 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 111 0 13 0 357 0 32 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 14 0 13 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 14 0 79 0 362 0 203 0 ) 					#name: #GroupBox1 					#label: 'Configurar laberinto' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 117 0 99 0 353 0 118 0 ) 					#name: #InputField2 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 117 0 133 0 353 0 152 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 117 0 167 0 353 0 186 0 ) 					#name: #InputField4 					#model: #numHab 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 22 0 101 0 ) 					#name: #Label1 					#label: 'Forma' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 22 0 135 0 ) 					#name: #Label3 					#label: 'Num de bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 22 0 169 0 ) 					#name: #Label4 					#label: 'Num de habs' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 208 0 254 0 303 0 275 0 ) 					#name: #ActionButton2 					#model: #terminarBichos 					#label: 'Terminar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 73 0 254 0 158 0 275 0 ) 					#name: #ActionButton3 					#model: #lanzarBichos 					#label: 'Lanzar bichos' 					#isDefault: false 					#defaultable: true ) ) ) )</body>
+<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 487 577 ) 			#max: #(#{Core.Point} 487 577 ) 			#bounds: #(#{Graphics.Rectangle} 646 92 1133 669 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 96 0 459 0 232 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 110 0 48 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 109 0 19 0 355 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 12 0 21 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 91 0 508 0 177 0 529 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 308 0 509 0 389 0 530 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 153 0 269 0 172 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 119 0 267 0 138 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 153 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 185 0 269 0 210 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 121 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 188 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 140 0 436 0 207 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 29 0 307 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 82 0 305 0 193 0 326 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 82 0 335 0 192 0 356 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 120 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 287 0 279 0 443 0 481 0 ) 					#name: #List2 					#model: #orientaciones 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 289 0 253 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) ) ) )</body>
 </methods>
 
 
 <methods>
 <class-id>LaberintoGUI</class-id> <category>aspects</category>
 
-<body package="LaberintoGUI" selector="forma">forma	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^forma isNil		ifTrue:			[forma := String new asValue]		ifFalse:			[forma]</body>
+<body package="LaberintoGUI" selector="orientaciones">orientaciones	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^orientaciones isNil		ifTrue:			[orientaciones := SelectionInList new]		ifFalse:			[orientaciones]</body>
 
-<body package="LaberintoGUI" selector="numBichos">numBichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numBichos isNil		ifTrue:			[numBichos := String new asValue]		ifFalse:			[numBichos]</body>
+<body package="LaberintoGUI" selector="numBichos">numBichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numBichos isNil		ifTrue:			[numBichos := 0 asValue]		ifFalse:			[numBichos]</body>
 
 <body package="LaberintoGUI" selector="archivo">archivo	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^archivo isNil		ifTrue:			[archivo := String new asValue]		ifFalse:			[archivo]</body>
 
-<body package="LaberintoGUI" selector="numHab">numHab	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numHab isNil		ifTrue:			[numHab := String new asValue]		ifFalse:			[numHab]</body>
+<body package="LaberintoGUI" selector="forma">forma	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^forma isNil		ifTrue:			[forma := String new asValue]		ifFalse:			[forma]</body>
+
+<body package="LaberintoGUI" selector="Bichos">Bichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^Bichos isNil		ifTrue:			[Bichos := SelectionInList new]		ifFalse:			[Bichos]</body>
+
+<body package="LaberintoGUI" selector="numHab">numHab	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numHab isNil		ifTrue:			[numHab := 0 asValue]		ifFalse:			[numHab]</body>
+
+<body package="LaberintoGUI" selector="nombre">nombre	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^nombre isNil		ifTrue:			[nombre := String new asValue]		ifFalse:			[nombre]</body>
 </methods>
 
 <methods>
@@ -2950,19 +2980,121 @@
 <methods>
 <class-id>LaberintoGUI</class-id> <category>actions</category>
 
-<body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self juego:director builder juego.</body>
+<body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self forma value: director builder printString.	self juego:director builder juego.</body>
 
-<body package="LaberintoGUI" selector="procesar">procesar	| dialog nom |	dialog := OpenFileDialog new.	dialog		windowTitle: 'Obtener archivo de configuración';		acceptButtonLabel: 'Obtener';		addFileFilter: 'JSON (*.json)' pattern: '*.json';		defaultFilename: ''.	nom := dialog select.	nom isNil ifFalse:[		self archivo value: nom tail.		self crearJuego:nom.	]</body>
+<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self juego agregarPersonaje:(Personaje new nombre:self nombre value).		self mostrarOrientaciones.		]</body>
 
-<body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
+<body package="LaberintoGUI" selector="procesar">procesar	| dialog nom |	dialog := OpenFileDialog new.	dialog		windowTitle: 'Obtener archivo de configuración';		acceptButtonLabel: 'Obtener';		addFileFilter: 'JSON (*.json)' pattern: '*.json';		defaultFilename: ''.	nom := dialog select.	nom isNil ifFalse:[		self archivo value: nom tail.		self crearJuego:nom.		self mostrarValores.	]</body>
 
 <body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
+
+<body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>mostrarCosas</category>
+
+<body package="LaberintoGUI" selector="mostrarOrientaciones">mostrarOrientaciones	self orientaciones list:self juego personaje posicion forma orientaciones.</body>
+
+<body package="LaberintoGUI" selector="mostrarValores">mostrarValores	self numHab value:self juego obtenerNumeroDeHabitaciones.	self numBichos value:self juego obtenerNumeroDeBichos.		self Bichos list:self juego bichos.</body>
+</methods>
+
+
+
+<component-created>
+<name>command</name> <type>package</type>
+</component-created><!-- Package command* -->
+
+
+<component-property>
+<name>command</name> <type>package</type>
+<property>comment</property> <value>'En este paquete incluiré todo lo relacionado con el patrón command'</value>
+</component-property>
+
+<class>
+<name>Comando</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>receptor </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>command</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Comando</class-id>
+<body>Comando es la clase abstracta de los comandosInstance Variables:	receptor	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of receptor</body>
+</comment>
+
+<class>
+<name>Abrir</name>
+<environment>Smalltalk</environment>
+<super>Comando</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>command</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Abrir</class-id>
+<body>Abrir es un comando</body>
+</comment>
+
+<methods>
+<class-id>Comando class</class-id> <category>instance creation</category>
+
+<body package="command" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Comando</class-id> <category>accessing</category>
+
+<body package="command" selector="receptor">receptor	^receptor</body>
+
+<body package="command" selector="receptor:">receptor: anObject	receptor := anObject</body>
+</methods>
+
+<methods>
+<class-id>Comando</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar">ejecutar	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>Comando</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	receptor := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Abrir</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar">ejecutar	self receptor abrir.</body>
+</methods>
+
+<methods>
+<class-id>Abrir</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
 
 <bundle-structure>
-<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas') #(#package 'Estrategy') #(#package 'templateMethod') #(#package 'Builder') #(#package 'LaberintoGUI'))</structure>
+<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas') #(#package 'Estrategy') #(#package 'templateMethod') #(#package 'Builder') #(#package 'LaberintoGUI') #(#package 'command'))</structure>
 </bundle-structure>
 
 <initialize>
