@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 11 de abril de 2018 at 19:34:38</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 18 de abril de 2018 at 16:15:54</time-stamp>
 
 
 <component-created>
@@ -315,7 +315,7 @@
 <super>Hoja</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>hab1 hab2 abierta </inst-vars>
+<inst-vars>hab1 hab2 abierta estado </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -818,13 +818,13 @@
 
 <body package="SolucionLaberinto" selector="forma">forma	^forma</body>
 
+<body package="SolucionLaberinto" selector="salir:">salir:alguien	self quitarOcupante: alguien.</body>
+
 <body package="SolucionLaberinto" selector="hijos:">hijos: anObject	hijos := anObject</body>
 
 <body package="SolucionLaberinto" selector="obtenerOrientaciones">obtenerOrientaciones	^self forma obtenerOrientaciones.</body>
 
 <body package="SolucionLaberinto" selector="obtenerId">obtenerId	self subclassResponsibility.</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	| habitacionId |	habitacionId := ''.	alguien posicion notNil ifTrue: [		alguien posicion quitarOcupante:alguien.		].	alguien posicion:self.	self esHabitacion ifTrue: [habitacionId := self obtenerId].	self agregarOcupante: alguien.	Transcript show: alguien printString, ' estás en ', self  printString, ' con id ', habitacionId printString;cr.</body>
 
 <body package="SolucionLaberinto" selector="ocupantes:">ocupantes: anObject	ocupantes := anObject</body>
 
@@ -839,6 +839,8 @@
 <class-id>Contenedor</class-id> <category>comandos</category>
 
 <body package="SolucionLaberinto" selector="abrir:">abrir:unComando	self quitarComando: unComando.	self agregarComando: (Cerrar new receptor:self).	self agregarComando: (Entrar new receptor:self).</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	| habitacionId |	habitacionId := ''.	alguien actualizarPosicion:self.	self esHabitacion ifTrue: [habitacionId := self obtenerId].	Transcript show: alguien printString, ' estás en ', self  printString, ' con id ', habitacionId printString;cr.</body>
 
 <body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando	self quitarComando: unComando.	self agregarComando: (Cerrar new receptor:self).</body>
 
@@ -995,21 +997,15 @@
 
 
 <methods>
-<class-id>Armario</class-id> <category>accessing</category>
+<class-id>Armario</class-id> <category>printing</category>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien posicion:self.	Transcript show: alguien printString,' has entrado en un armario.';cr.</body>
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Arm'.</body>
 </methods>
 
 <methods>
 <class-id>Armario</class-id> <category>testing</category>
 
 <body package="SolucionLaberinto" selector="esArmario">esArmario	^true.</body>
-</methods>
-
-<methods>
-<class-id>Armario</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Arm'.</body>
 </methods>
 
 <methods>
@@ -1219,23 +1215,35 @@
 <methods>
 <class-id>Puerta</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self abierta ifTrue: [		alguien posicion = self hab1		ifTrue: [self hab2 entrar: alguien]		ifFalse: [self hab1 entrar: alguien]	]	ifFalse: [				Transcript show: 'la puerta esta cerrada, lo siento';cr.	]</body>
-
-<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
-
-<body package="SolucionLaberinto" selector="abierta">abierta	^abierta</body>
-
-<body package="SolucionLaberinto" selector="cerrar">cerrar	abierta := false.	Transcript show: self printString , ' se acaba de cerrar.';cr.</body>
-
-<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
-
-<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
+<body package="SolucionLaberinto" selector="estado">estado	^estado</body>
 
 <body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
 
-<body package="SolucionLaberinto" selector="abrir">abrir	abierta := true.	Transcript show: self printString , ' se acaba de abrir.';cr.</body>
+<body package="SolucionLaberinto" selector="abierta">abierta	^abierta</body>
+
+<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
+
+<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
+
+<body package="SolucionLaberinto" selector="abrir:">abrir:unComando	"abierta := true.	self agregarComando: (Entrar new receptor:self).	Transcript show: self printString , ' se acaba de abrir.';cr."		self estado abrir:self comando:unComando.</body>
 
 <body package="SolucionLaberinto" selector="abierta:">abierta: anObject	abierta := anObject</body>
+
+<body package="SolucionLaberinto" selector="abrir">abrir	abierta := true.	"self agregarComando: (Entrar new receptor:self)."	Transcript show: self printString , ' se acaba de abrir.';cr.</body>
+
+<body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
+
+<body package="SolucionLaberinto" selector="cerrar">cerrar	"abierta := false.	self quitarEntrar.	Transcript show: self printString , ' se acaba de cerrar.';cr"</body>
+
+<body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando		self estado cerrar:self comando:unComando.</body>
+
+<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	"self abierta ifTrue: [		alguien posicion = self hab1		ifTrue: [self hab2 entrar: alguien]		ifFalse: [self hab1 entrar: alguien].		self quitarComando:comando.	]	ifFalse: [				Transcript show: 'la puerta esta cerrada, lo siento';cr.	]."	self estado entar:self alguien:alguien comando:comando.</body>
+
+<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
+
+<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	"self abierta ifTrue: [		alguien posicion = self hab1		ifTrue: [self hab2 entrar: alguien]		ifFalse: [self hab1 entrar: alguien]	]	ifFalse: [				Transcript show: 'la puerta esta cerrada, lo siento';cr.	]"	self entrar:alguien comando: nil.</body>
 </methods>
 
 <methods>
@@ -2554,15 +2562,19 @@
 
 <body package="templateMethod" selector="irAlSur">irAlSur	self posicion forma irAlSur:self.</body>
 
+<body package="templateMethod" selector="salirDePosicion">salirDePosicion	self posicion notNil	ifTrue: [self posicion salir:self].</body>
+
 <body package="templateMethod" selector="irAlOeste">irAlOeste	self posicion forma irAlOeste:self.</body>
 
 <body package="templateMethod" selector="irAlNorEste">irAlNorEste	self posicion forma irAlNorEste:self.</body>
 
 <body package="templateMethod" selector="irAlNorOeste">irAlNorOeste	self posicion forma irAlNorOeste:self.</body>
 
+<body package="templateMethod" selector="irAlNorte">irAlNorte	self posicion forma irAlNorte:self.</body>
+
 <body package="templateMethod" selector="irAlEste">irAlEste	self posicion forma irAlEste:self.</body>
 
-<body package="templateMethod" selector="irAlNorte">irAlNorte	self posicion forma irAlNorte:self.</body>
+<body package="templateMethod" selector="actualizarPosicion:">actualizarPosicion:unContenedor	self salirDePosicion.	self posicion:unContenedor.	self posicion agregarOcupante:self.</body>
 
 <body package="templateMethod" selector="irAlSurEste">irAlSurEste	self posicion forma irAlSurEste:self.</body>
 
@@ -2928,11 +2940,11 @@
 
 <body package="Builder" selector="construirLaberinto">construirLaberinto	laberinto:=Laberinto new.</body>
 
-<body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe: unaOrientacion orientacion: otraOrientacion	| puerta |	puerta := Puerta new.	puerta hab1: unaOrientacion.	puerta hab2: otraOrientacion.	unaOrientacion ponerEnUnaOrientacion: Este default UnElemento: puerta.	puerta agregarComando: (Abrir new receptor: puerta)</body>
+<body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe: unaOrientacion orientacion: otraOrientacion	| puerta |	puerta := Puerta new.	puerta estado:Cerrada new.	puerta hab1: unaOrientacion.	puerta hab2: otraOrientacion.	unaOrientacion ponerEnUnaOrientacion: Este default UnElemento: puerta.	puerta agregarComando: (Abrir new receptor: puerta)</body>
 
 <body package="Builder" selector="construirPared">construirPared	^Pared new.</body>
 
-<body package="Builder" selector="construirPuertaDe:orientacion:a:orientacion:">construirPuertaDe:num1 orientacion:or1 a:num2 orientacion:or2| puerta hab1 hab2 |puerta:=Puerta new.hab1:=self laberinto obtenerHabitacion:num1.hab2:=self laberinto obtenerHabitacion:num2.puerta hab1:hab1.puerta hab2:hab2.hab1 ponerEnUnaOrientacion:(self orientaciones at:or1) UnElemento:puerta.hab2 ponerEnUnaOrientacion:(self orientaciones at:or2) UnElemento:puerta.puerta agregarComando: (Abrir new receptor:puerta).</body>
+<body package="Builder" selector="construirPuertaDe:orientacion:a:orientacion:">construirPuertaDe:num1 orientacion:or1 a:num2 orientacion:or2| puerta hab1 hab2 |puerta:=Puerta new.puerta estado:Cerrada new.hab1:=self laberinto obtenerHabitacion:num1.hab2:=self laberinto obtenerHabitacion:num2.puerta hab1:hab1.puerta hab2:hab2.hab1 ponerEnUnaOrientacion:(self orientaciones at:or1) UnElemento:puerta.hab2 ponerEnUnaOrientacion:(self orientaciones at:or2) UnElemento:puerta.puerta agregarComando: (Abrir new receptor:puerta).</body>
 
 <body package="Builder" selector="construirBombaHEn:">construirBombaHEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:H new.	padre agregarHijo:bomba.</body>
 
@@ -3102,7 +3114,7 @@
 
 <body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self forma value: director builder printString.	self juego:director builder juego.</body>
 
-<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando |	comando:= self comandos selection.	comando ejecutar.	self mostrarComandos.</body>
+<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	comando ejecutar:alguien.	self mostrarComandos.</body>
 
 <body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
 
@@ -3227,9 +3239,17 @@
 </methods>
 
 <methods>
+<class-id>Comando</class-id> <category>testing</category>
+
+<body package="command" selector="esEntrar">esEntrar	^false.</body>
+</methods>
+
+<methods>
 <class-id>Comando</class-id> <category>acciones</category>
 
 <body package="command" selector="ejecutar">ejecutar	self subclassResponsibility.</body>
+
+<body package="command" selector="ejecutar:">ejecutar:alguien	self subclassResponsibility.</body>
 </methods>
 
 <methods>
@@ -3248,6 +3268,8 @@
 <methods>
 <class-id>Cerrar</class-id> <category>acciones</category>
 
+<body package="command" selector="ejecutar:">ejecutar:alguien	self receptor cerrar:self.</body>
+
 <body package="command" selector="ejecutar">ejecutar	self receptor cerrar.	self receptor quitarComando: self.	self receptor agregarComando:(Abrir new receptor:self receptor).</body>
 </methods>
 
@@ -3259,9 +3281,23 @@
 
 
 <methods>
+<class-id>Entrar</class-id> <category>testing</category>
+
+<body package="command" selector="esEntrar">esEntrar		^true.</body>
+</methods>
+
+<methods>
+<class-id>Entrar</class-id> <category>printing</category>
+
+<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll:'Entrar en ' , self receptor printString.</body>
+</methods>
+
+<methods>
 <class-id>Entrar</class-id> <category>acciones</category>
 
 <body package="command" selector="ejecutar">ejecutar	" *** This method was defined by Comando as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="command" selector="ejecutar:">ejecutar: alguien	self receptor entrar:alguien comando: self.</body>
 </methods>
 
 <methods>
@@ -3280,6 +3316,8 @@
 <methods>
 <class-id>Abrir</class-id> <category>acciones</category>
 
+<body package="command" selector="ejecutar:">ejecutar:alguien	self receptor abrir:self.</body>
+
 <body package="command" selector="ejecutar">ejecutar	self receptor abrir.	self receptor quitarComando: self.	self receptor agregarComando:(Cerrar new receptor:self receptor).</body>
 </methods>
 
@@ -3291,8 +3329,125 @@
 
 
 
+<component-created>
+<name>state</name> <type>package</type>
+</component-created><!-- Package state* -->
+
+
+<component-property>
+<name>state</name> <type>package</type>
+<property>comment</property> <value>'Todo lo realcionado con el patrón state'</value>
+</component-property>
+
+<class>
+<name>Estado</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Estado</class-id>
+<body>Estado representa los posibles estados</body>
+</comment>
+
+<class>
+<name>Cerrada</name>
+<environment>Smalltalk</environment>
+<super>Estado</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Cerrada</class-id>
+<body>Cerrada representa el estado de una puerta cerrada</body>
+</comment>
+
+<class>
+<name>Abierta</name>
+<environment>Smalltalk</environment>
+<super>Estado</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Abierta</class-id>
+<body>Abierta representa el estado de una puerta abierta</body>
+</comment>
+
+<methods>
+<class-id>Estado class</class-id> <category>instance creation</category>
+
+<body package="state" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Estado</class-id> <category>initialize-release</category>
+
+<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	self subclassResponsibility.</body>
+
+<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	self subclassResponsibility.</body>
+
+<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	self subclassResponsibility.</body>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Abierta</class-id> <category>initialize-release</category>
+
+<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	self shouldNotImplement.</body>
+
+<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	unaPuerta estado:Cerrada new.	Transcript show: unaPuerta printString , ' se acaba de cerrar.';cr.	unaPuerta quitarComando: unComando.	unaPuerta quitarEntrar.	unaPuerta agregarComando: (Abrir new receptor:unaPuerta).</body>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	alguien posicion = unaPuerta hab1	ifTrue: [unaPuerta hab2 entrar: alguien]	ifFalse: [unaPuerta hab1 entrar: alguien].	unaPuerta quitarEntrar</body>
+</methods>
+
+
+<methods>
+<class-id>Cerrada</class-id> <category>initialize-release</category>
+
+<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	Transcript show: alguien printString ,' La ',unaPuerta printString ,' esta cerrada'.</body>
+
+<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	unaPuerta estado:Abierta new.	Transcript show: unaPuerta printString , ' se acaba de abrir.';cr.	unaPuerta quitarComando: unComando.	unaPuerta agregarComando: (Entrar new receptor:unaPuerta).	unaPuerta agregarComando: (Cerrar new receptor:unaPuerta).</body>
+
+<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	self shouldNotImplement.</body>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+
 <bundle-structure>
-<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas') #(#package 'Estrategy') #(#package 'templateMethod') #(#package 'Builder') #(#package 'LaberintoGUI') #(#package 'command'))</structure>
+<name>PatronesLaberinto</name> <structure>#(#(#package 'SolucionLaberinto') #(#package 'factoryMethod') #(#package 'decorator') #(#package 'Pruebas') #(#package 'Estrategy') #(#package 'templateMethod') #(#package 'Builder') #(#package 'LaberintoGUI') #(#package 'command') #(#package 'state'))</structure>
 </bundle-structure>
 
 <initialize>
