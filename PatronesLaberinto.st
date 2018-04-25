@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 18 de abril de 2018 at 17:28:22</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 24 de abril de 2018 at 18:17:48</time-stamp>
 
 
 <component-created>
@@ -864,7 +864,7 @@
 
 <body package="SolucionLaberinto" selector="agregarOcupante:">agregarOcupante:alguien	self ocupantes add:alguien.</body>
 
-<body package="SolucionLaberinto" selector="quitarOcupante:">quitarOcupante:alguien	self ocupantes remove:alguien.</body>
+<body package="SolucionLaberinto" selector="quitarOcupante:">quitarOcupante: alguien	| lista |	lista := List new.	lista addAll: self ocupantes.	lista remove: alguien ifAbsent: [nil].	self ocupantes: List new.	self ocupantes addAll: lista</body>
 </methods>
 
 <methods>
@@ -981,15 +981,17 @@
 
 <body package="SolucionLaberinto" selector="muereBicho:">muereBicho:bicho	| proceso |	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	"self hilos remove:proceso."	self hilos at:bicho id put: nil.</body>
 
+<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	self bichos remove: unBicho ifAbsent: [nil]</body>
+
 <body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	"self hilos add:proceso."	self hilos at:each id put:proceso.	]</body>
 
 <body package="SolucionLaberinto" selector="eliminarBicho:">eliminarBicho:unBicho	self bichos remove: unBicho ifAbsent: [nil].</body>
 
 <body package="SolucionLaberinto" selector="agregarBicho:">agregarBicho:unBicho	self asignarId:unBicho.	self bichos add:unBicho.</body>
 
-<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	"self hilos remove:proceso."	self hilos at:bicho id put: nil.	num:=num-1.]</body>
-
 <body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
+
+<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]</body>
 </methods>
 
 
@@ -1225,6 +1227,8 @@
 
 <body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
 
+<body package="SolucionLaberinto" selector="esAbierta">esAbierta	^self estado esAbierta.</body>
+
 <body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
 
 <body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
@@ -1257,7 +1261,7 @@
 <methods>
 <class-id>Puerta</class-id> <category>initialize-release</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	estado:=Cerrada new.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -2518,7 +2522,7 @@
 
 <body package="templateMethod" selector="esBicho">esBicho	^false.</body>
 
-<body package="templateMethod" selector="vidas:">vidas: anObject	vidas := anObject</body>
+<body package="templateMethod" selector="vidas:">vidas: anObject	vidas := anObject.	self changed: #vidas.</body>
 
 <body package="templateMethod" selector="modo">modo	self subclassResponsibility</body>
 
@@ -3050,7 +3054,7 @@
 <super>UI.ApplicationModel</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>juego archivo numHab numBichos forma Bichos nombre orientaciones comandos </inst-vars>
+<inst-vars>juego archivo numHab numBichos forma Bichos nombre orientaciones comandos numVidas person </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -3067,7 +3071,7 @@
 <methods>
 <class-id>LaberintoGUI class</class-id> <category>interface specs</category>
 
-<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 487 577 ) 			#max: #(#{Core.Point} 487 577 ) 			#bounds: #(#{Graphics.Rectangle} 627 53 1114 630 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 96 0 459 0 232 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 246 0 458 0 497 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 110 0 48 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 109 0 19 0 355 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 12 0 21 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 91 0 508 0 177 0 529 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 308 0 509 0 389 0 530 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 153 0 269 0 172 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 119 0 267 0 138 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 153 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 185 0 269 0 210 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 121 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 188 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 140 0 436 0 207 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 271 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 102 0 269 0 214 0 288 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 103 0 299 0 213 0 320 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 120 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 28 0 354 0 194 0 487 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 328 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 220 0 354 0 386 0 487 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 220 0 328 0 ) 					#name: #Label8 					#label: 'Comandos' ) ) ) )</body>
+<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 487 577 ) 			#max: #(#{Core.Point} 487 577 ) 			#bounds: #(#{Graphics.Rectangle} 828 52 1315 629 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 96 0 459 0 232 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 246 0 458 0 497 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 110 0 48 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 109 0 19 0 355 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 12 0 21 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 91 0 508 0 177 0 529 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 308 0 509 0 389 0 530 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 153 0 269 0 172 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 119 0 267 0 138 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 153 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 185 0 269 0 210 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 121 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 188 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 140 0 436 0 207 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 271 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 102 0 269 0 202 0 288 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 103 0 299 0 213 0 320 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 120 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 28 0 354 0 194 0 487 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 328 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 220 0 354 0 386 0 487 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 220 0 328 0 ) 					#name: #Label8 					#label: 'Comandos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 241 0 271 0 ) 					#name: #Label9 					#label: 'Vidas' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 286 0 269 0 386 0 288 0 ) 					#name: #InputField6 					#model: #numVidas 					#type: #number ) ) ) )</body>
 </methods>
 
 
@@ -3079,6 +3083,8 @@
 <body package="LaberintoGUI" selector="numBichos">numBichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numBichos isNil		ifTrue:			[numBichos := 0 asValue]		ifFalse:			[numBichos]</body>
 
 <body package="LaberintoGUI" selector="comandos">comandos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^comandos isNil		ifTrue:			[comandos := SelectionInList new]		ifFalse:			[comandos]</body>
+
+<body package="LaberintoGUI" selector="numVidas">numVidas	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numVidas isNil		ifTrue:			[numVidas := 0 asValue]		ifFalse:			[numVidas]</body>
 
 <body package="LaberintoGUI" selector="archivo">archivo	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^archivo isNil		ifTrue:			[archivo := String new asValue]		ifFalse:			[archivo]</body>
 
@@ -3094,9 +3100,13 @@
 <methods>
 <class-id>LaberintoGUI</class-id> <category>accessing</category>
 
-<body package="LaberintoGUI" selector="juego">juego	^juego</body>
-
 <body package="LaberintoGUI" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="LaberintoGUI" selector="person:">person: anObject	person := anObject</body>
+
+<body package="LaberintoGUI" selector="person">person	^person</body>
+
+<body package="LaberintoGUI" selector="juego">juego	^juego</body>
 </methods>
 
 <methods>
@@ -3104,9 +3114,11 @@
 
 <body package="LaberintoGUI" selector="ejecutar">ejecutar	| or |	or := self orientaciones selection.	or entrar: self juego personaje.	self mostrarOrientaciones.	self mostrarComandos.</body>
 
-<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self juego agregarPersonaje:(Personaje new nombre:self nombre value).		self mostrarOrientaciones.		self mostrarComandos.		]</body>
+<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self iniciarAspectos.		]</body>
 
 <body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
+
+<body package="LaberintoGUI" selector="iniciarAspectos">iniciarAspectos	numVidas subject:self person.</body>
 
 <body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self forma value: director builder printString.	self juego:director builder juego.</body>
 
@@ -3125,6 +3137,12 @@
 <body package="LaberintoGUI" selector="mostrarComandos">mostrarComandos		self comandos list: (self juego personaje obtenerComandos).</body>
 
 <body package="LaberintoGUI" selector="mostrarValores">mostrarValores	self numHab value:self juego obtenerNumeroDeHabitaciones.	self numBichos value:self juego obtenerNumeroDeBichos.		self Bichos list:self juego bichos.</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>initialize-release</category>
+
+<body package="LaberintoGUI" selector="initialize">initialize	numVidas := (AspectAdaptor subject: self person sendsUpdates: true)				forAspect: #vidas.	^self</body>
 </methods>
 
 
