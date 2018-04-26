@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 24 de abril de 2018 at 18:17:48</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 26 de abril de 2018 at 12:23:18</time-stamp>
 
 
 <component-created>
@@ -195,7 +195,7 @@
 <super>ElementoMapa</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>hijos forma ocupantes </inst-vars>
+<inst-vars>hijos forma ocupantes punto extent proporcion </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -315,7 +315,7 @@
 <super>Hoja</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>hab1 hab2 estado </inst-vars>
+<inst-vars>hab1 hab2 estado visitada </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -613,6 +613,12 @@
 </methods>
 
 <methods>
+<class-id>Orientacion</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde:unCont	self subclassResponsibility.</body>
+</methods>
+
+<methods>
 <class-id>Orientacion</class-id> <category>comandos</category>
 
 <body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos: unaForma	self subclassResponsibility.</body>
@@ -640,6 +646,12 @@
 <body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma norte:unElemento.</body>
 
 <body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlNorte.</body>
+</methods>
+
+<methods>
+<class-id>Norte</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde: unCont	| unPunto |	unPunto := (unCont punto x) @ (unCont punto y - 1).	unCont forma norte calcularPosicionDesde: unCont en: unPunto</body>
 </methods>
 
 <methods>
@@ -673,6 +685,12 @@
 </methods>
 
 <methods>
+<class-id>Sur</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde: unCont	| unPunto |	unPunto := (unCont punto x) @ (unCont punto y + 1).	unCont forma sur calcularPosicionDesde: unCont en: unPunto</body>
+</methods>
+
+<methods>
 <class-id>Sur</class-id> <category>comandos</category>
 
 <body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma sur obtenerComandos.</body>
@@ -703,6 +721,12 @@
 </methods>
 
 <methods>
+<class-id>Este</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde: unCont	| unPunto |	unPunto := (unCont punto x + 1) @ unCont punto y.	unCont forma este calcularPosicionDesde: unCont en: unPunto</body>
+</methods>
+
+<methods>
 <class-id>Este</class-id> <category>comandos</category>
 
 <body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma este obtenerComandos.</body>
@@ -730,6 +754,12 @@
 <body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma oeste:unElemento.</body>
 
 <body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlOeste.</body>
+</methods>
+
+<methods>
+<class-id>Oeste</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde: unCont	| unPunto |	unPunto := (unCont punto x - 1) @ (unCont punto y).	unCont forma oeste calcularPosicionDesde: unCont en: unPunto</body>
 </methods>
 
 <methods>
@@ -783,12 +813,6 @@
 </methods>
 
 <methods>
-<class-id>ElementoMapa</class-id> <category>enumerate</category>
-
-<body package="SolucionLaberinto" selector="do:">do:aBlock	self subclassResponsibility.</body>
-</methods>
-
-<methods>
 <class-id>ElementoMapa</class-id> <category>comandos</category>
 
 <body package="SolucionLaberinto" selector="quitarComando:">quitarComando:unComando	comandos remove: unComando ifAbsent:[nil].</body>
@@ -796,6 +820,18 @@
 <body package="SolucionLaberinto" selector="obtenerComandos">obtenerComandos	^comandos.</body>
 
 <body package="SolucionLaberinto" selector="agregarComando:">agregarComando:unComando	comandos add: unComando.</body>
+</methods>
+
+<methods>
+<class-id>ElementoMapa</class-id> <category>enumerate</category>
+
+<body package="SolucionLaberinto" selector="do:">do:aBlock	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>ElementoMapa</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales: unCont	self subclassResponsibility</body>
 </methods>
 
 <methods>
@@ -816,23 +852,41 @@
 <methods>
 <class-id>Contenedor</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="forma">forma	^forma</body>
-
-<body package="SolucionLaberinto" selector="salir:">salir:alguien	self quitarOcupante: alguien.</body>
-
 <body package="SolucionLaberinto" selector="hijos:">hijos: anObject	hijos := anObject</body>
 
 <body package="SolucionLaberinto" selector="obtenerOrientaciones">obtenerOrientaciones	^self forma obtenerOrientaciones.</body>
 
+<body package="SolucionLaberinto" selector="punto">punto	^punto</body>
+
+<body package="SolucionLaberinto" selector="extent:">extent: anObject	extent := anObject</body>
+
 <body package="SolucionLaberinto" selector="obtenerId">obtenerId	self subclassResponsibility.</body>
 
-<body package="SolucionLaberinto" selector="ocupantes:">ocupantes: anObject	ocupantes := anObject</body>
+<body package="SolucionLaberinto" selector="punto:">punto: anObject	punto := anObject</body>
 
-<body package="SolucionLaberinto" selector="hijos">hijos	^hijos</body>
+<body package="SolucionLaberinto" selector="proporcion">proporcion	^proporcion</body>
 
 <body package="SolucionLaberinto" selector="ocupantes">ocupantes	^ocupantes</body>
 
+<body package="SolucionLaberinto" selector="forma">forma	^forma</body>
+
 <body package="SolucionLaberinto" selector="forma:">forma: anObject	forma := anObject</body>
+
+<body package="SolucionLaberinto" selector="ocupantes:">ocupantes: anObject	ocupantes := anObject</body>
+
+<body package="SolucionLaberinto" selector="proporcion:">proporcion: anObject	proporcion := anObject</body>
+
+<body package="SolucionLaberinto" selector="extent">extent	^extent</body>
+
+<body package="SolucionLaberinto" selector="salir:">salir:alguien	self quitarOcupante: alguien.</body>
+
+<body package="SolucionLaberinto" selector="hijos">hijos	^hijos</body>
+</methods>
+
+<methods>
+<class-id>Contenedor</class-id> <category>enumerate</category>
+
+<body package="SolucionLaberinto" selector="do:">do:aBlock	aBlock value:self.	self hijos do:[:each | each do:aBlock].</body>
 </methods>
 
 <methods>
@@ -848,15 +902,15 @@
 </methods>
 
 <methods>
-<class-id>Contenedor</class-id> <category>enumerate</category>
+<class-id>Contenedor</class-id> <category>drawing</category>
 
-<body package="SolucionLaberinto" selector="do:">do:aBlock	aBlock value:self.	self hijos do:[:each | each do:aBlock].</body>
+<body package="SolucionLaberinto" selector="dibujar:">dibujar: unaVista	self forma dibujar: self vista: unaVista.	self hijos do: [:each | each dibujar: unaVista]</body>
 </methods>
 
 <methods>
-<class-id>Contenedor</class-id> <category>initialize-release</category>
+<class-id>Contenedor</class-id> <category>posicion</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	self hijos:List new.	self ocupantes:List new.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="calcularPosicion">calcularPosicion	self forma calcularPosicionDesde:self</body>
 </methods>
 
 <methods>
@@ -865,6 +919,12 @@
 <body package="SolucionLaberinto" selector="agregarOcupante:">agregarOcupante:alguien	self ocupantes add:alguien.</body>
 
 <body package="SolucionLaberinto" selector="quitarOcupante:">quitarOcupante: alguien	| lista |	lista := List new.	lista addAll: self ocupantes.	lista remove: alguien ifAbsent: [nil].	self ocupantes: List new.	self ocupantes addAll: lista</body>
+</methods>
+
+<methods>
+<class-id>Contenedor</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	self hijos:List new.	self ocupantes:List new.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 <methods>
@@ -895,21 +955,27 @@
 </methods>
 
 <methods>
-<class-id>Baul</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Baul'.</body>
-</methods>
-
-<methods>
 <class-id>Baul</class-id> <category>comandos</category>
 
 <body package="SolucionLaberinto" selector="abrir:">abrir:unComando	self quitarComando: unComando.	self agregarComando: (Cerrar new receptor:self).</body>
 </methods>
 
 <methods>
+<class-id>Baul</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	self forma asignarPuntosReales:unCont en:self</body>
+</methods>
+
+<methods>
 <class-id>Baul</class-id> <category>initialize-release</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	proporcion := 0.1.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Baul</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Baul'.</body>
 </methods>
 
 
@@ -979,9 +1045,9 @@
 <methods>
 <class-id>JuegoLaberinto</class-id> <category>gestionBichos</category>
 
-<body package="SolucionLaberinto" selector="muereBicho:">muereBicho:bicho	| proceso |	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	"self hilos remove:proceso."	self hilos at:bicho id put: nil.</body>
+<body package="SolucionLaberinto" selector="muereBicho:">muereBicho:unNumero	| proceso bicho|	bicho := self bichos at: unNumero.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:unNumero ifAbsent: [nil].	self quitarBicho: bicho.	proceso isNil ifFalse:[proceso terminate].	self hilos at:unNumero put: nil.</body>
 
-<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	self bichos remove: unBicho ifAbsent: [nil]</body>
+<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	"self bichos remove: unBicho ifAbsent: [nil]"</body>
 
 <body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	"self hilos add:proceso."	self hilos at:each id put:proceso.	]</body>
 
@@ -991,9 +1057,19 @@
 
 <body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
 
-<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]</body>
+<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos"| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]"1 to: self hilos size do:[:each | self muereBicho: each]</body>
 </methods>
 
+
+<methods>
+<class-id>Hoja</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	"ToDo"</body>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde:unCont en:unPunto</body>
+
+<body package="SolucionLaberinto" selector="dibujar:">dibujar: unaVista</body>
+</methods>
 
 <methods>
 <class-id>Hoja</class-id> <category>enumerate</category>
@@ -1003,15 +1079,21 @@
 
 
 <methods>
+<class-id>Armario</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esArmario">esArmario	^true.</body>
+</methods>
+
+<methods>
 <class-id>Armario</class-id> <category>printing</category>
 
 <body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Arm'.</body>
 </methods>
 
 <methods>
-<class-id>Armario</class-id> <category>testing</category>
+<class-id>Armario</class-id> <category>drawing</category>
 
-<body package="SolucionLaberinto" selector="esArmario">esArmario	^true.</body>
+<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	self forma asignarPuntosReales:unCont en:self</body>
 </methods>
 
 <methods>
@@ -1019,7 +1101,7 @@
 
 <body package="SolucionLaberinto" selector="entrar">entrar		Transcript show: 'Has entrado en un armario';cr.</body>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	proporcion := 0.3.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -1083,6 +1165,16 @@
 <body package="SolucionLaberinto" selector="esOctogono">esOctogono	^false.</body>
 
 <body package="SolucionLaberinto" selector="esCuadrado">esCuadrado	^false.</body>
+</methods>
+
+<methods>
+<class-id>Forma</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="dibujar:vista:">dibujar:unCont vista:unaVista	self subclassResponsibility</body>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde: unCont	self orientaciones do: [:or | or calcularPosicionDesde: unCont]</body>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:en:">asignarPuntosReales: unCont en: otroCont	self subclassResponsibility.</body>
 </methods>
 
 <methods>
@@ -1223,27 +1315,31 @@
 
 <body package="SolucionLaberinto" selector="estado">estado	^estado</body>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self entrar:alguien comando: nil.</body>
+<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
+
+<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
+
+<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
+
+<body package="SolucionLaberinto" selector="abrir:">abrir:unComando	self estado abrir:self comando:unComando.</body>
+
+<body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
+
+<body package="SolucionLaberinto" selector="visitada">visitada	^visitada</body>
+
+<body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando		self estado cerrar:self comando:unComando.</body>
+
+<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	"self abierta ifTrue: [		alguien posicion = self hab1		ifTrue: [self hab2 entrar: alguien]		ifFalse: [self hab1 entrar: alguien].		self quitarComando:comando.	]	ifFalse: [				Transcript show: 'la puerta esta cerrada, lo siento';cr.	]."	self estado entar:self alguien:alguien comando:comando.</body>
+
+<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
 
 <body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
 
 <body package="SolucionLaberinto" selector="esAbierta">esAbierta	^self estado esAbierta.</body>
 
-<body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self entrar:alguien comando: nil.</body>
 
-<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
-
-<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
-
-<body package="SolucionLaberinto" selector="abrir:">abrir:unComando	self estado abrir:self comando:unComando.</body>
-
-<body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando		self estado cerrar:self comando:unComando.</body>
-
-<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
-
-<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	"self abierta ifTrue: [		alguien posicion = self hab1		ifTrue: [self hab2 entrar: alguien]		ifFalse: [self hab1 entrar: alguien].		self quitarComando:comando.	]	ifFalse: [				Transcript show: 'la puerta esta cerrada, lo siento';cr.	]."	self estado entar:self alguien:alguien comando:comando.</body>
-
-<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
+<body package="SolucionLaberinto" selector="visitada:">visitada: anObject	visitada := anObject</body>
 </methods>
 
 <methods>
@@ -1259,9 +1355,15 @@
 </methods>
 
 <methods>
+<class-id>Puerta</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde: unCont en: unPunto	self visitada		ifFalse:			[	self visitada: true.				unCont id = self hab1 id				ifTrue: 					[					self hab2 punto: unPunto.					self hab2 calcularPosicion]				ifFalse: 					[					self hab1 punto: unPunto.					self hab1 calcularPosicion]]</body>
+</methods>
+
+<methods>
 <class-id>Puerta</class-id> <category>initialize-release</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	estado:=Cerrada new.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	estado:=Cerrada new.	self visitada:false.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -1368,6 +1470,14 @@
 <class-id>Cuadrado</class-id> <category>testing</category>
 
 <body package="SolucionLaberinto" selector="esCuadrado">esCuadrado	^true.</body>
+</methods>
+
+<methods>
+<class-id>Cuadrado</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:en:">asignarPuntosReales: unCont en: otroCont	| unPunto unExtent division numeroHijo |	unExtent := unCont extent * otroCont proporcion.	division := (unCont extent x) //(unCont hijos size).	numeroHijo := (unCont hijos indexOf: otroCont) - 1.	unPunto := (unCont punto x + (division*numeroHijo))				@ (unCont punto y + unCont extent y - unExtent y).	otroCont punto: unPunto.	otroCont extent: unExtent</body>
+
+<body package="SolucionLaberinto" selector="dibujar:vista:">dibujar: unCont vista: unaVista	unaVista dibujarContenedorRectangular: unCont</body>
 </methods>
 
 <methods>
@@ -3054,7 +3164,7 @@
 <super>UI.ApplicationModel</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>juego archivo numHab numBichos forma Bichos nombre orientaciones comandos numVidas person </inst-vars>
+<inst-vars>juego archivo numHab numBichos forma Bichos nombre orientaciones comandos numVidas person gc origen ancho alto hiloMover </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -3071,9 +3181,97 @@
 <methods>
 <class-id>LaberintoGUI class</class-id> <category>interface specs</category>
 
-<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 487 577 ) 			#max: #(#{Core.Point} 487 577 ) 			#bounds: #(#{Graphics.Rectangle} 828 52 1315 629 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 96 0 459 0 232 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 246 0 458 0 497 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 110 0 48 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 109 0 19 0 355 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 12 0 21 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 91 0 508 0 177 0 529 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 308 0 509 0 389 0 530 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 153 0 269 0 172 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 119 0 267 0 138 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 153 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 185 0 269 0 210 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 121 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 188 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 140 0 436 0 207 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 271 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 102 0 269 0 202 0 288 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 103 0 299 0 213 0 320 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 120 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 28 0 354 0 194 0 487 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 328 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 220 0 354 0 386 0 487 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 220 0 328 0 ) 					#name: #Label8 					#label: 'Comandos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 241 0 271 0 ) 					#name: #Label9 					#label: 'Vidas' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 286 0 269 0 386 0 288 0 ) 					#name: #InputField6 					#model: #numVidas 					#type: #number ) ) ) )</body>
+<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 1136 577 ) 			#max: #(#{Core.Point} 1136 577 ) 			#bounds: #(#{Graphics.Rectangle} 220 60 1356 637 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 96 0 459 0 232 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 17 0 246 0 458 0 497 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 110 0 48 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 109 0 19 0 355 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 12 0 21 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 91 0 508 0 177 0 529 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 308 0 509 0 389 0 530 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 153 0 269 0 172 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 119 0 267 0 138 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 153 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 185 0 269 0 210 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 121 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 188 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 140 0 436 0 207 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 271 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 102 0 269 0 202 0 288 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 103 0 299 0 213 0 320 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 120 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 28 0 354 0 194 0 487 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 28 0 328 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 220 0 354 0 386 0 487 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 220 0 328 0 ) 					#name: #Label8 					#label: 'Comandos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 241 0 271 0 ) 					#name: #Label9 					#label: 'Vidas' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 286 0 269 0 386 0 288 0 ) 					#name: #InputField6 					#model: #numVidas 					#type: #number ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 473 0 19 0 1121 0 536 0 ) 					#name: #GroupBox3 					#label: 'Laberinto' ) ) ) )</body>
 </methods>
 
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>accessing</category>
+
+<body package="LaberintoGUI" selector="hiloMover:">hiloMover: anObject	hiloMover := anObject</body>
+
+<body package="LaberintoGUI" selector="gc">gc	^gc</body>
+
+<body package="LaberintoGUI" selector="person:">person: anObject	person := anObject</body>
+
+<body package="LaberintoGUI" selector="juego">juego	^juego</body>
+
+<body package="LaberintoGUI" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="LaberintoGUI" selector="archivo1">archivo1	^archivo</body>
+
+<body package="LaberintoGUI" selector="ancho:">ancho: anObject	ancho := anObject</body>
+
+<body package="LaberintoGUI" selector="alto:">alto: anObject	alto := anObject</body>
+
+<body package="LaberintoGUI" selector="archivo:">archivo: anObject	^archivo := anObject</body>
+
+<body package="LaberintoGUI" selector="ancho">ancho	^ancho</body>
+
+<body package="LaberintoGUI" selector="origen">origen	^origen</body>
+
+<body package="LaberintoGUI" selector="origen:">origen: anObject	origen := anObject</body>
+
+<body package="LaberintoGUI" selector="alto">alto	^alto</body>
+
+<body package="LaberintoGUI" selector="gc:">gc: anObject	gc := anObject</body>
+
+<body package="LaberintoGUI" selector="person">person	^person</body>
+
+<body package="LaberintoGUI" selector="hiloMover">hiloMover	^hiloMover</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>interface closing</category>
+
+<body package="LaberintoGUI" selector="noticeOfWindowClose:">noticeOfWindowClose:aWindow        	self juego notNil ifTrue:[self juego terminarHilosBichos].	self hiloMover notNil ifTrue:[self hiloMover terminate]</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>actions</category>
+
+<body package="LaberintoGUI" selector="ejecutar">ejecutar	| or |	or := self orientaciones selection.	or entrar: self juego personaje.	self mostrarOrientaciones.	self mostrarComandos.</body>
+
+<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self iniciarAspectos.		self inciarJuego.		]</body>
+
+<body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
+
+<body package="LaberintoGUI" selector="iniciarAspectos">iniciarAspectos	numVidas subject:self person.</body>
+
+<body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self forma value: director builder printString.	self juego:director builder juego.</body>
+
+<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	comando ejecutar:alguien.	self mostrarComandos.</body>
+
+<body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
+
+<body package="LaberintoGUI" selector="procesar">procesar	| dialog nom |	dialog := OpenFileDialog new.	dialog		windowTitle: 'Obtener archivo de configuración';		acceptButtonLabel: 'Obtener';		addFileFilter: 'JSON (*.json)' pattern: '*.json';		defaultFilename: ''.	nom := dialog select.	nom isNil ifFalse:[		self archivo value: nom tail.		self crearJuego:nom.		self mostrarValores.	]</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>drawing</category>
+
+<body package="LaberintoGUI" selector="asignarPuntosReales">asignarPuntosReales	| x y |	self juego laberinto hijos do: 			[:each |			x := self origen x + (each punto x * self ancho).			y := self origen y + (each punto y * self alto).			each punto: x @ y.			each extent: self ancho @ self alto.			each hijos do: [:hijo | hijo asignarPuntosReales: each]]</body>
+
+<body package="LaberintoGUI" selector="dibujarContenedorRectangular:">dibujarContenedorRectangular: unCont	| rec unPunto an |	unPunto := unCont punto.	an := unCont extent x.	rec := Rectangle origin: unPunto extent: unCont extent.	rec displayStrokedOn: (self gc paint: ColorValue black).	"dibuja el número del contenedor"	unCont esHabitacion ifTrue: [		(unCont id printString) displayOn:self gc at:(unPunto x+an-15)@(unPunto y+15).		]	ifFalse: [(unCont printString) displayOn:self gc at:(unPunto x+an-15)@(unPunto y+15).].	"self dibujarPuertasRectangular:unCont."</body>
+
+<body package="LaberintoGUI" selector="calcularDimensiones">calcularDimensiones	"Este rectangulo delimita el área sobre la que se dibuja el laberinto: 416@4 extent:560@359"	| maxX maxY |	maxX := 0.	maxY := 0.	origen := 473 @ 19.	self juego laberinto hijos do: 			[:each |			each punto x &gt; maxX ifTrue: [maxX := each punto x].			each punto y &gt; maxY ifTrue: [maxY := each punto y]].	maxX := maxX + 1.	maxY := maxY + 1.	self ancho: 648 // maxX.	self alto: 517 // maxY.	self gc clippingRectangle: (473 @ 19 extent: 1122 @ 537).	self gc clear</body>
+
+<body package="LaberintoGUI" selector="inciarJuego">inciarJuego	self lanzarBichos.	self moverObjetos.</body>
+
+<body package="LaberintoGUI" selector="iniciar">iniciar	| ventana |	ventana := self open.	self gc: ventana window graphicsContext</body>
+
+<body package="LaberintoGUI" selector="normalizar">normalizar	| minX minY unPunto |	minX := 0.	minY := 0.	self juego laberinto hijos do: 			[:each |			each punto x &lt; minX ifTrue: [minX := each punto x].			each punto y &lt; minY ifTrue: [minY := each punto y]].	self juego laberinto hijos do: 			[:each |			unPunto := each punto.			each punto: (unPunto x + minX abs) @ (unPunto y + minY abs)]</body>
+
+<body package="LaberintoGUI" selector="moverObjetos">moverObjetos        hiloMover:=[[true] whileTrue:[                        (Delay forMilliseconds:1000) wait.                        self dibujarLaberinto.                        ]] fork.</body>
+
+<body package="LaberintoGUI" selector="dibujarLaberinto">dibujarLaberinto	self gc clear.	self juego laberinto hijos do: [:each | each dibujar: self].	"self juego bichos do:[:bicho |	self mostrarBicho:bicho]."	person ifNotNil: [self mostrarPersonaje.]</body>
+</methods>
+
+<methods>
+<class-id>LaberintoGUI</class-id> <category>initialize-release</category>
+
+<body package="LaberintoGUI" selector="initialize">initialize	numVidas := (AspectAdaptor subject: self person sendsUpdates: true)				forAspect: #vidas.	^self</body>
+</methods>
 
 <methods>
 <class-id>LaberintoGUI</class-id> <category>aspects</category>
@@ -3098,51 +3296,19 @@
 </methods>
 
 <methods>
-<class-id>LaberintoGUI</class-id> <category>accessing</category>
-
-<body package="LaberintoGUI" selector="juego:">juego: anObject	juego := anObject</body>
-
-<body package="LaberintoGUI" selector="person:">person: anObject	person := anObject</body>
-
-<body package="LaberintoGUI" selector="person">person	^person</body>
-
-<body package="LaberintoGUI" selector="juego">juego	^juego</body>
-</methods>
-
-<methods>
-<class-id>LaberintoGUI</class-id> <category>actions</category>
-
-<body package="LaberintoGUI" selector="ejecutar">ejecutar	| or |	or := self orientaciones selection.	or entrar: self juego personaje.	self mostrarOrientaciones.	self mostrarComandos.</body>
-
-<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self iniciarAspectos.		]</body>
-
-<body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
-
-<body package="LaberintoGUI" selector="iniciarAspectos">iniciarAspectos	numVidas subject:self person.</body>
-
-<body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self forma value: director builder printString.	self juego:director builder juego.</body>
-
-<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	comando ejecutar:alguien.	self mostrarComandos.</body>
-
-<body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
-
-<body package="LaberintoGUI" selector="procesar">procesar	| dialog nom |	dialog := OpenFileDialog new.	dialog		windowTitle: 'Obtener archivo de configuración';		acceptButtonLabel: 'Obtener';		addFileFilter: 'JSON (*.json)' pattern: '*.json';		defaultFilename: ''.	nom := dialog select.	nom isNil ifFalse:[		self archivo value: nom tail.		self crearJuego:nom.		self mostrarValores.	]</body>
-</methods>
-
-<methods>
 <class-id>LaberintoGUI</class-id> <category>mostrarCosas</category>
 
 <body package="LaberintoGUI" selector="mostrarOrientaciones">mostrarOrientaciones	self orientaciones list:self juego personaje posicion forma orientaciones.</body>
 
-<body package="LaberintoGUI" selector="mostrarComandos">mostrarComandos		self comandos list: (self juego personaje obtenerComandos).</body>
+<body package="LaberintoGUI" selector="mostrarPersonaje">mostrarPersonaje	| unContenedor anchura altura a b c d rec|		unContenedor := self person posicion.	altura := unContenedor extent x.	anchura := unContenedor extent y.	a := (unContenedor punto x) + (anchura//2).	b := (unContenedor punto y) + (altura//2).	c := 5.	d := 5.	rec := Rectangle origin: a@b extent: c@d.	rec displayFilledOn: (self gc paint: ColorValue yellow).</body>
 
-<body package="LaberintoGUI" selector="mostrarValores">mostrarValores	self numHab value:self juego obtenerNumeroDeHabitaciones.	self numBichos value:self juego obtenerNumeroDeBichos.		self Bichos list:self juego bichos.</body>
-</methods>
+<body package="LaberintoGUI" selector="mostrarLaberinto">mostrarLaberinto	self calcularPosiciones.	self normalizar.	self calcularDimensiones.	self asignarPuntosReales.	self dibujarLaberinto.</body>
 
-<methods>
-<class-id>LaberintoGUI</class-id> <category>initialize-release</category>
+<body package="LaberintoGUI" selector="mostrarComandos">mostrarComandos		self comandos list: (self juego personaje obtenerComandos).	self mostrarPersonaje.</body>
 
-<body package="LaberintoGUI" selector="initialize">initialize	numVidas := (AspectAdaptor subject: self person sendsUpdates: true)				forAspect: #vidas.	^self</body>
+<body package="LaberintoGUI" selector="mostrarValores">mostrarValores	self numHab value:self juego obtenerNumeroDeHabitaciones.	self numBichos value:self juego obtenerNumeroDeBichos.		self Bichos list:self juego bichos.	self mostrarLaberinto.</body>
+
+<body package="LaberintoGUI" selector="calcularPosiciones">calcularPosiciones	| h1 |	self juego isNil		ifFalse: 			[h1 := self juego obtenerHabitacion: 1.			h1 punto: 0 @ 0.			h1 calcularPosicion]</body>
 </methods>
 
 
