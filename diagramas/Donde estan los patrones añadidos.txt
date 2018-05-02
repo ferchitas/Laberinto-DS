@@ -1,8 +1,8 @@
-Factory method: está en la clase factory method.
+  Factory method: está en la clase factory method.
 Decorator: en la clase decorador, y con bomba. Los elementos del mapa tienen 0 o 1 decorador.
 Estrategy: la bomba tiene estrategias y cada una de ellas define un comportamiento, un algoritmo.
 Composite: incluye las clases contenedor y hoja. Crea jerarquias completas de tipo todo parte.
-Iterator: esta en la hoja.
+Iterator: esta en el ElementoMapa, con el método do:ablock.
 Template method: en el modo del bicho y en el bicho y el personaje y como hacen sus ataques.
 Abstract factory: en juego laberinto hemos introducido un método que actua como una factoria, creando un laberinto.
 Singleton: los objetos de orientaciones (norte, sur, este y oeste).
