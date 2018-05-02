@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 26 de abril de 2018 at 12:23:18</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 2 de mayo de 2018 at 16:51:18</time-stamp>
 
 
 <component-created>
@@ -11,7 +11,12 @@
 
 <component-property>
 <name>PatronesLaberinto</name> <type>bundle</type>
-<property>comment</property> <value>'Bundle que almacenara todos los patrones, en paquetes'</value>
+<property>notice</property> <value>''</value>
+</component-property>
+
+<component-property>
+<name>PatronesLaberinto</name> <type>bundle</type>
+<property>comment</property> <value>'Bundle que almacenara todos los patrones, en paquetes.'</value>
 </component-property>
 
 <component-created>
@@ -215,7 +220,7 @@
 <super>Core.Object</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>laberinto bichos hilos personaje prototipo </inst-vars>
+<inst-vars>laberinto bichos hilos personaje prototipo fase </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -999,6 +1004,8 @@
 
 <body package="SolucionLaberinto" selector="prototipo:">prototipo: anObject	prototipo := anObject</body>
 
+<body package="SolucionLaberinto" selector="fase:">fase: anObject	fase := anObject</body>
+
 <body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^laberinto obtenerHabitacion:id.</body>
 
 <body package="SolucionLaberinto" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := Laberinto new.hab1 := Habitacion new.hab2 := Habitacion new.puerta := Puerta new.pared1 := Pared new.pared2 := Pared new.pared3 := Pared new.pared4 := Pared new.pared5 := Pared new.pared6 := Pared new."creacion del laberinto con dos habitaciones"hab1  forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
@@ -1011,6 +1018,8 @@
 
 <body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^self laberinto obtenerNumeroDeHabitaciones.</body>
 
+<body package="SolucionLaberinto" selector="fase">fase	^fase</body>
+
 <body package="SolucionLaberinto" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
 
 <body package="SolucionLaberinto" selector="bichos:">bichos: anObject	bichos := anObject</body>
@@ -1021,9 +1030,9 @@
 
 <body package="SolucionLaberinto" selector="personaje">personaje	^personaje</body>
 
-<body package="SolucionLaberinto" selector="obtenerNumeroDeBichos">obtenerNumeroDeBichos	^bichos size.</body>
-
 <body package="SolucionLaberinto" selector="laberinto">laberinto	^laberinto</body>
+
+<body package="SolucionLaberinto" selector="obtenerNumeroDeBichos">obtenerNumeroDeBichos	^bichos size.</body>
 
 <body package="SolucionLaberinto" selector="crearLaberinto2habs:">crearLaberinto2habs:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 norteh1 surh1 esteh1 oesteh1 bomba1 bomba2 |self laberinto:unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion: 1.hab2 := unaFactoria fabricarHabitacion: 2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.norteh1 := unaFactoria fabricarNorte.esteh1 := unaFactoria fabricarEste.surh1 := unaFactoria fabricarSur.oesteh1 := unaFactoria fabricarOeste.hab1 ponerEnUnaOrientacion: norteh1 UnElemento:bomba1.hab1 ponerEnUnaOrientacion: esteh1 UnElemento:pared2.hab1 ponerEnUnaOrientacion: surh1 UnElemento:pared3.hab1 ponerEnUnaOrientacion: oesteh1 UnElemento: puerta.hab2 ponerEnUnaOrientacion: norteh1 UnElemento:bomba2.hab2 ponerEnUnaOrientacion: esteh1 UnElemento:puerta.hab2 ponerEnUnaOrientacion: surh1 UnElemento:pared5.hab2 ponerEnUnaOrientacion: oesteh1 UnElemento: pared6."creacion del laberinto con dos habitaciones"hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."self laberinto agregarHijo: hab1.self laberinto agregarHijo: hab2.^laberinto.</body>
 
@@ -1033,13 +1042,13 @@
 <methods>
 <class-id>JuegoLaberinto</class-id> <category>personaje</category>
 
-<body package="SolucionLaberinto" selector="agregarPersonaje:">agregarPersonaje:unPersonaje	self personaje:unPersonaje.	self entrar: unPersonaje.</body>
+<body package="SolucionLaberinto" selector="agregarPersonaje:">agregarPersonaje:unPersonaje	"self personaje:unPersonaje.	self entrar: unPersonaje."		self fase agregarPersonaje:unPersonaje juego:self.</body>
 </methods>
 
 <methods>
 <class-id>JuegoLaberinto</class-id> <category>initialize-release</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	bichos := List new.	hilos := Dictionary new.	" *** And replace this comment with additional initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	bichos := List new.	hilos := Dictionary new.	fase := Incial new.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 <methods>
@@ -1047,15 +1056,17 @@
 
 <body package="SolucionLaberinto" selector="muereBicho:">muereBicho:unNumero	| proceso bicho|	bicho := self bichos at: unNumero.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:unNumero ifAbsent: [nil].	self quitarBicho: bicho.	proceso isNil ifFalse:[proceso terminate].	self hilos at:unNumero put: nil.</body>
 
-<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	"self bichos remove: unBicho ifAbsent: [nil]"</body>
-
 <body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	"self hilos add:proceso."	self hilos at:each id put:proceso.	]</body>
 
-<body package="SolucionLaberinto" selector="eliminarBicho:">eliminarBicho:unBicho	self bichos remove: unBicho ifAbsent: [nil].</body>
+<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	"self bichos remove: unBicho ifAbsent: [nil]"</body>
+
+<body package="SolucionLaberinto" selector="bichoActua:">bichoActua:unBicho	self fase bichoActua:unBicho.</body>
 
 <body package="SolucionLaberinto" selector="agregarBicho:">agregarBicho:unBicho	self asignarId:unBicho.	self bichos add:unBicho.</body>
 
 <body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
+
+<body package="SolucionLaberinto" selector="eliminarBicho:">eliminarBicho:unBicho	self bichos remove: unBicho ifAbsent: [nil].</body>
 
 <body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos"| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]"1 to: self hilos size do:[:each | self muereBicho: each]</body>
 </methods>
@@ -2730,7 +2741,7 @@
 <methods>
 <class-id>Bicho</class-id> <category>templateMethod</category>
 
-<body package="templateMethod" selector="actua">actua	self modo actua:self.</body>
+<body package="templateMethod" selector="actua">actua	"self modo actua:self."	self juego bichoActua:self.</body>
 </methods>
 
 <methods>
@@ -3256,7 +3267,7 @@
 
 <body package="LaberintoGUI" selector="calcularDimensiones">calcularDimensiones	"Este rectangulo delimita el área sobre la que se dibuja el laberinto: 416@4 extent:560@359"	| maxX maxY |	maxX := 0.	maxY := 0.	origen := 473 @ 19.	self juego laberinto hijos do: 			[:each |			each punto x &gt; maxX ifTrue: [maxX := each punto x].			each punto y &gt; maxY ifTrue: [maxY := each punto y]].	maxX := maxX + 1.	maxY := maxY + 1.	self ancho: 648 // maxX.	self alto: 517 // maxY.	self gc clippingRectangle: (473 @ 19 extent: 1122 @ 537).	self gc clear</body>
 
-<body package="LaberintoGUI" selector="inciarJuego">inciarJuego	self lanzarBichos.	self moverObjetos.</body>
+<body package="LaberintoGUI" selector="inciarJuego">inciarJuego	"self lanzarBichos."	self moverObjetos.</body>
 
 <body package="LaberintoGUI" selector="iniciar">iniciar	| ventana |	ventana := self open.	self gc: ventana window graphicsContext</body>
 
@@ -3552,6 +3563,86 @@
 </comment>
 
 <class>
+<name>Fase</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Fase</class-id>
+<body>Fase define la interfaz de los estados de un juego.</body>
+</comment>
+
+<class>
+<name>Incial</name>
+<environment>Smalltalk</environment>
+<super>Fase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Incial</class-id>
+<body>Incial estado en el que se inicializa el juego.</body>
+</comment>
+
+<class>
+<name>Jugando</name>
+<environment>Smalltalk</environment>
+<super>Fase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Jugando</class-id>
+<body>Jugando estado en el que se juega.</body>
+</comment>
+
+<class>
+<name>Final</name>
+<environment>Smalltalk</environment>
+<super>Fase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Final</class-id>
+<body>Final estado que se alcanza cuando el juego termina.</body>
+</comment>
+
+<class>
 <name>Abierta</name>
 <environment>Smalltalk</environment>
 <super>Estado</super>
@@ -3634,6 +3725,73 @@
 <class-id>Cerrada</class-id> <category>testing</category>
 
 <body package="state" selector="esCerrada">esCerrada	^true.</body>
+</methods>
+
+
+<methods>
+<class-id>Fase class</class-id> <category>instance creation</category>
+
+<body package="state" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Fase</class-id> <category>estado</category>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	self subclassResponsibility.</body>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>Fase</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Incial</class-id> <category>estado</category>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	unJuego personaje:unPersonaje.	unJuego entrar: unPersonaje.	unJuego fase: Jugando new.	unJuego lanzarHiloBichos.</body>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'el juego no ha empezado.';cr.</body>
+</methods>
+
+<methods>
+<class-id>Incial</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Jugando</class-id> <category>estado</category>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se esta jugando.';cr.</body>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	unBicho modo actua:unBicho.</body>
+</methods>
+
+<methods>
+<class-id>Jugando</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Final</class-id> <category>estado</category>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se ha terminado el juego.';cr.</body>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'el juego ha terminado, no se pueden añadir más bichos.';cr.</body>
+</methods>
+
+<methods>
+<class-id>Final</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
