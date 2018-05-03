@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 2 de mayo de 2018 at 16:51:18</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de mayo de 2018 at 11:56:29</time-stamp>
 
 
 <component-created>
@@ -992,9 +992,29 @@
 
 
 <methods>
-<class-id>JuegoLaberinto</class-id> <category>abstractFactory</category>
+<class-id>JuegoLaberinto</class-id> <category>personaje</category>
 
-<body package="SolucionLaberinto" selector="crearLaberinto2habsDecorator:">crearLaberinto2habsDecorator:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion:1.hab2 := unaFactoria fabricarHabitacion:2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 estrategia:unaFactoria fabricarEstrategiaH.bomba2 estrategia:unaFactoria fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+<body package="SolucionLaberinto" selector="agregarPersonaje:">agregarPersonaje:unPersonaje	"self personaje:unPersonaje.	self entrar: unPersonaje."		self fase agregarPersonaje:unPersonaje juego:self.</body>
+</methods>
+
+<methods>
+<class-id>JuegoLaberinto</class-id> <category>gestionBichos</category>
+
+<body package="SolucionLaberinto" selector="muereBicho:">muereBicho:unNumero	| proceso bicho|	bicho := self bichos at: unNumero.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:unNumero ifAbsent: [nil].	self quitarBicho: bicho.	proceso isNil ifFalse:[proceso terminate].	self hilos at:unNumero put: nil.</body>
+
+<body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	"self hilos add:proceso."	self hilos at:each id put:proceso.	]</body>
+
+<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	"self bichos remove: unBicho ifAbsent: [nil]"</body>
+
+<body package="SolucionLaberinto" selector="bichoActua:">bichoActua:unBicho	self fase bichoActua:unBicho.</body>
+
+<body package="SolucionLaberinto" selector="agregarBicho:">agregarBicho:unBicho	self asignarId:unBicho.	self bichos add:unBicho.</body>
+
+<body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
+
+<body package="SolucionLaberinto" selector="eliminarBicho:">eliminarBicho:unBicho	self bichos remove: unBicho ifAbsent: [nil].</body>
+
+<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos"| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]"1 to: self hilos size do:[:each | self muereBicho: each]</body>
 </methods>
 
 <methods>
@@ -1010,7 +1030,7 @@
 
 <body package="SolucionLaberinto" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := Laberinto new.hab1 := Habitacion new.hab2 := Habitacion new.puerta := Puerta new.pared1 := Pared new.pared2 := Pared new.pared3 := Pared new.pared4 := Pared new.pared5 := Pared new.pared6 := Pared new."creacion del laberinto con dos habitaciones"hab1  forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
 
-<body package="SolucionLaberinto" selector="finJuego">finJuego	Transcript show: 'El juego ha termiando';cr.	self terminarHilosBichos.</body>
+<body package="SolucionLaberinto" selector="finJuego">finJuego	self fase finJuego:self.</body>
 
 <body package="SolucionLaberinto" selector="hilos">hilos	^hilos</body>
 
@@ -1040,9 +1060,9 @@
 </methods>
 
 <methods>
-<class-id>JuegoLaberinto</class-id> <category>personaje</category>
+<class-id>JuegoLaberinto</class-id> <category>comandos</category>
 
-<body package="SolucionLaberinto" selector="agregarPersonaje:">agregarPersonaje:unPersonaje	"self personaje:unPersonaje.	self entrar: unPersonaje."		self fase agregarPersonaje:unPersonaje juego:self.</body>
+<body package="SolucionLaberinto" selector="entrarOrientacion:">entrarOrientacion:unaOrientacion	self fase entrarOrientacion:unaOrientacion juego:self.</body>
 </methods>
 
 <methods>
@@ -1052,23 +1072,9 @@
 </methods>
 
 <methods>
-<class-id>JuegoLaberinto</class-id> <category>gestionBichos</category>
+<class-id>JuegoLaberinto</class-id> <category>abstractFactory</category>
 
-<body package="SolucionLaberinto" selector="muereBicho:">muereBicho:unNumero	| proceso bicho|	bicho := self bichos at: unNumero.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:unNumero ifAbsent: [nil].	self quitarBicho: bicho.	proceso isNil ifFalse:[proceso terminate].	self hilos at:unNumero put: nil.</body>
-
-<body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	"self hilos add:proceso."	self hilos at:each id put:proceso.	]</body>
-
-<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	"self bichos remove: unBicho ifAbsent: [nil]"</body>
-
-<body package="SolucionLaberinto" selector="bichoActua:">bichoActua:unBicho	self fase bichoActua:unBicho.</body>
-
-<body package="SolucionLaberinto" selector="agregarBicho:">agregarBicho:unBicho	self asignarId:unBicho.	self bichos add:unBicho.</body>
-
-<body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
-
-<body package="SolucionLaberinto" selector="eliminarBicho:">eliminarBicho:unBicho	self bichos remove: unBicho ifAbsent: [nil].</body>
-
-<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos"| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]"1 to: self hilos size do:[:each | self muereBicho: each]</body>
+<body package="SolucionLaberinto" selector="crearLaberinto2habsDecorator:">crearLaberinto2habsDecorator:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion:1.hab2 := unaFactoria fabricarHabitacion:2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 estrategia:unaFactoria fabricarEstrategiaH.bomba2 estrategia:unaFactoria fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
 </methods>
 
 
@@ -2810,11 +2816,9 @@
 
 
 <methods>
-<class-id>Personaje</class-id> <category>ataques</category>
+<class-id>Personaje</class-id> <category>initialize-release</category>
 
-<body package="templateMethod" selector="morir">morir	self juego finJuego.	Transcript show: 'El personaje está muerto, el juego ha terminado.';cr.</body>
-
-<body package="templateMethod" selector="seleccionarEnemigo">seleccionarEnemigo	^self posicion ocupantes detect:[:each | each esPersonaje ] ifNone:[nil].</body>
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 <methods>
@@ -2838,21 +2842,27 @@
 </methods>
 
 <methods>
+<class-id>Personaje</class-id> <category>ataques</category>
+
+<body package="templateMethod" selector="morir">morir	self juego finJuego.	Transcript show: 'El personaje está muerto, el juego ha terminado.';cr.</body>
+
+<body package="templateMethod" selector="seleccionarEnemigo">seleccionarEnemigo	^self posicion ocupantes detect:[:each | each esPersonaje ] ifNone:[nil].</body>
+</methods>
+
+<methods>
 <class-id>Personaje</class-id> <category>comandos</category>
 
 <body package="templateMethod" selector="obtenerComandos">obtenerComandos	^self posicion obtenerComandos.</body>
+
+<body package="templateMethod" selector="ejecutarComando:">ejecutarComando:comando	self juego ejecutarComando:comando.</body>
+
+<body package="templateMethod" selector="entraOrientacion:">entraOrientacion:unaOrientacion	self juego entrarOrientacion:unaOrientacion.</body>
 </methods>
 
 <methods>
 <class-id>Personaje</class-id> <category>templateMethod</category>
 
 <body package="templateMethod" selector="actua">actua	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>initialize-release</category>
-
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 
@@ -3241,7 +3251,7 @@
 <methods>
 <class-id>LaberintoGUI</class-id> <category>actions</category>
 
-<body package="LaberintoGUI" selector="ejecutar">ejecutar	| or |	or := self orientaciones selection.	or entrar: self juego personaje.	self mostrarOrientaciones.	self mostrarComandos.</body>
+<body package="LaberintoGUI" selector="ejecutar">ejecutar	| or alguien |	or := self orientaciones selection.	alguien := self juego personaje.	alguien entraOrientacion:or.	self mostrarOrientaciones.	self mostrarComandos.</body>
 
 <body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self iniciarAspectos.		self inciarJuego.		]</body>
 
@@ -3251,7 +3261,7 @@
 
 <body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self forma value: director builder printString.	self juego:director builder juego.</body>
 
-<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	comando ejecutar:alguien.	self mostrarComandos.</body>
+<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	"comando ejecutar:alguien."	alguien ejecutarComando:comando.	self mostrarComandos.</body>
 
 <body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
 
@@ -3738,9 +3748,15 @@
 <methods>
 <class-id>Fase</class-id> <category>estado</category>
 
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	self subclassResponsibility.</body>
+
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	self subclassResponsibility.</body>
+
+<body package="state" selector="finJuego:">finJuego:unJuego	self subclassResponsibility.</body>
+
 <body package="state" selector="bichoActua:">bichoActua:unBicho	self subclassResponsibility.</body>
 
-<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	self subclassResponsibility.</body>
+<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	self subclassResponsibility.</body>
 </methods>
 
 <methods>
@@ -3753,9 +3769,13 @@
 <methods>
 <class-id>Incial</class-id> <category>estado</category>
 
-<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	unJuego personaje:unPersonaje.	unJuego entrar: unPersonaje.	unJuego fase: Jugando new.	unJuego lanzarHiloBichos.</body>
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	Transcript show: 'El juego ha termiando, no se puede entrar en ninguna orientación.';cr.</body>
+
+<body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego el juego no ha empezado';cr.</body>
 
 <body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'el juego no ha empezado.';cr.</body>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	unJuego personaje:unPersonaje.	unJuego entrar: unPersonaje.	unJuego fase: Jugando new.	unJuego lanzarHiloBichos.</body>
 </methods>
 
 <methods>
@@ -3768,9 +3788,15 @@
 <methods>
 <class-id>Jugando</class-id> <category>estado</category>
 
-<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se esta jugando.';cr.</body>
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	| person |		person := unJuego personaje.	unaOrientacion entrar: person.</body>
+
+<body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego ha termiando';cr.	unJuego fase: Final new.	unJuego terminarHilosBichos.</body>
 
 <body package="state" selector="bichoActua:">bichoActua:unBicho	unBicho modo actua:unBicho.</body>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se esta jugando.';cr.</body>
+
+<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	| person |	person := unJuego personaje.	comando ejecutar: person.</body>
 </methods>
 
 <methods>
@@ -3785,7 +3811,11 @@
 
 <body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se ha terminado el juego.';cr.</body>
 
-<body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'el juego ha terminado, no se pueden añadir más bichos.';cr.</body>
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	Transcript show: 'EL juego no ha comenzado, no se puede entrar en ninguna orientación.';cr.</body>
+
+<body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego ya esta terminado';cr.</body>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	| juego |	Transcript show: 'el juego ha terminado, no se pueden añadir más bichos.';cr.	juego := unBicho juego.	juego terminarHilosBichos.</body>
 </methods>
 
 <methods>
