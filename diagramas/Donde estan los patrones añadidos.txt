@@ -16,4 +16,5 @@ Command: con las puertas, las cosas que se pueden hacer con ella, abrir, cerrar 
 State: si una puerta esta abierta o cerrada.
 Prototype: con el agujero negro.
 Visitor: con la interfaz gráfica, cuando dibujamos el laberinto, entre las clases de forma y LaberintoGUI
-FLyweight:
+FLyweight: no implementado.
+El resto tampoco estan implementados.
