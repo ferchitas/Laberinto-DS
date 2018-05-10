@@ -1,4 +1,4 @@
-  Factory method: está en la clase factory method.
+Factory method: está en la clase factory method.
 Decorator: en la clase decorador, y con bomba. Los elementos del mapa tienen 0 o 1 decorador.
 Estrategy: la bomba tiene estrategias y cada una de ellas define un comportamiento, un algoritmo.
 Composite: incluye las clases contenedor y hoja. Crea jerarquias completas de tipo todo parte.
@@ -9,7 +9,7 @@ Singleton: los objetos de orientaciones (norte, sur, este y oeste).
 Builder: en el paquete buider estan las dos clases, el director y el builder que crea en especial todos los elementos.
 Proxy: la puerta actua como proxy con la habitación.
 Adapter: no lo hemos implementado.
-builder: esta entre las jerarquias de forma y contenedor.
+bridge: esta entre las jerarquias de forma y contenedor.
 Mediator: la clase mediador es el contenedor y los bichos por ejemplo atacan desde el mediador. Los entes se comunican entre ellos utilizando el contenedor, con la lista de ocupantes. Por otro lado, la clase ente (collegue) tiene la variable posicion que guarda el contenedor donde esta (mediator).
 Observer: con al interfaz grafica del juego, modelo vista controlador.
 Command: con las puertas, las cosas que se pueden hacer con ella, abrir, cerrar y entrar.
