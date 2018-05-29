@@ -1,21 +1,29 @@
 {
   "forma":"cuadrado",
   "puertas":[
-    [1,"Sur",2,"Norte"],
+
+    [3,"Sur",4,"Norte"],
     [2,"Este",3,"Oeste"]
   ],
   "ParedesAdyacentes":[
-    [3,"Sur",4,"Norte"]
+    [1,"Sur",2,"Norte"]
   ],
   "bichos":
   [
-    {"modo":"agresivo","habitacion": 1, "id":1},
-    {"modo":"perezoso","habitacion": 2, "id":2}
   ],
   "laberinto":
   [
+    {"em":"contenedor", "tipo":"tienda", "hijos":[
+      {"em":"hoja", "tipo":"almadena", "argumento":"30"},
+      {"em":"hoja", "tipo":"detector", "argumento":"20"},
+      {"em":"hoja", "tipo":"espada", "argumento":"25"},
+      {"em":"hoja", "tipo":"tesoro", "argumento":"200"}
+    ]},
     {"em":"contenedor", "tipo":"habitacion", "hijos":
       [
+        {"em":"hoja", "tipo":"moneda", "argumento":"50"},
+        {"em":"hoja", "tipo":"almadena", "argumento":""},
+        {"em":"hoja", "tipo":"detector", "argumento":""},
         {"em":"Contenedor", "tipo":"armario","hijos":
           [
             {"em":"hoja", "tipo":"bomba", "argumento":"mina"}
