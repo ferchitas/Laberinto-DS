@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 29 de mayo de 2018 at 15:23:20</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de junio de 2018 at 0:26:14</time-stamp>
 
 
 <component-created>
@@ -35,46 +35,6 @@
 </component-property>
 
 <class>
-<name>Orientacion</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Orientacion</class-id>
-<body>Orientacion define la interface de las orientaciones que tenga un contenedor.</body>
-</comment>
-
-<class>
-<name>SurEste</name>
-<environment>Smalltalk</environment>
-<super>Orientacion</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>SurEste</class-id>
-<body>SurEste representa la orientacion al norte.</body>
-</comment>
-
-<class>
 <name>ElementoMapa</name>
 <environment>Smalltalk</environment>
 <super>Core.Object</super>
@@ -95,66 +55,6 @@
 </comment>
 
 <class>
-<name>Contenedor</name>
-<environment>Smalltalk</environment>
-<super>ElementoMapa</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>hijos forma ocupantes punto extent proporcion </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Contenedor</class-id>
-<body>Contenedor repesenta los posibles contenedores del patrón composite.</body>
-</comment>
-
-<class>
-<name>Laberinto</name>
-<environment>Smalltalk</environment>
-<super>Contenedor</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Laberinto</class-id>
-<body>Laberinto tiene un array de habitacionesInstance Variables:	habitaciones	&lt;List&gt;	description of habitaciones</body>
-</comment>
-
-<class>
-<name>NorEste</name>
-<environment>Smalltalk</environment>
-<super>Orientacion</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>NorEste</class-id>
-<body>NorEste representa la orientacion al norte.</body>
-</comment>
-
-<class>
 <name>Hoja</name>
 <environment>Smalltalk</environment>
 <super>ElementoMapa</super>
@@ -172,186 +72,6 @@
 <comment>
 <class-id>Hoja</class-id>
 <body>Hoja, sus hijas son las hojas del patrón composite</body>
-</comment>
-
-<class>
-<name>Pared</name>
-<environment>Smalltalk</environment>
-<super>Hoja</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Pared</class-id>
-<body>Pared forma parte de una habitacíon</body>
-</comment>
-
-<class>
-<name>ParedBomba</name>
-<environment>Smalltalk</environment>
-<super>Pared</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>activada </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>ParedBomba</class-id>
-<body>ParedBomba explota si la tocas.</body>
-</comment>
-
-<class>
-<name>NorOeste</name>
-<environment>Smalltalk</environment>
-<super>Orientacion</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>NorOeste</class-id>
-<body>NorOeste representa la orientacion al norte.</body>
-</comment>
-
-<class>
-<name>Forma</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>orientaciones contenedor </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Forma</class-id>
-<body>Forma define la forma de los contenedoresInstance Variables:	orientaciones	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of orientaciones</body>
-</comment>
-
-<class>
-<name>Herramienta</name>
-<environment>Smalltalk</environment>
-<super>Hoja</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>duracion poder </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Herramienta</class-id>
-<body>Herramienta representa todos los posibles objetos que podemos coger en el laberinto y tienen una o varias funciones para interactuar con otros elementos del laberinto.</body>
-</comment>
-
-<class>
-<name>Almadena</name>
-<environment>Smalltalk</environment>
-<super>Herramienta</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Almadena</class-id>
-<body>Almadena se puede recoger del suelo y sirve para tirar paredes. Hay que tener cuidado con ella, si se tira una pared normal es posible caer a la laba que rodea el laberinto, se recomenda solo para paredes adyacentes.</body>
-</comment>
-
-<class>
-<name>Cuadrado</name>
-<environment>Smalltalk</environment>
-<super>Forma</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>norte sur este oeste </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Cuadrado</class-id>
-<body>Cuadrado define la forma cuadra de un contenedor.Instance Variables:	este	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of este	norte	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of norte	oeste	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of oeste	sur	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of sur</body>
-</comment>
-
-<class>
-<name>SurOeste</name>
-<environment>Smalltalk</environment>
-<super>Orientacion</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>SurOeste</class-id>
-<body>SurOeste representa la orientacion al norte.</body>
-</comment>
-
-<class>
-<name>DetectorDeMetales</name>
-<environment>Smalltalk</environment>
-<super>Herramienta</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>DetectorDeMetales</class-id>
-<body>DetectorDeMetales sirve para buscar cosas metálicas en el laberinto, como pueden ser las moendas.</body>
 </comment>
 
 <class>
@@ -455,6 +175,26 @@
 </comment>
 
 <class>
+<name>Contenedor</name>
+<environment>Smalltalk</environment>
+<super>ElementoMapa</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>hijos forma ocupantes punto extent proporcion </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Contenedor</class-id>
+<body>Contenedor repesenta los posibles contenedores del patrón composite.</body>
+</comment>
+
+<class>
 <name>Tienda</name>
 <environment>Smalltalk</environment>
 <super>Contenedor</super>
@@ -475,6 +215,26 @@
 </comment>
 
 <class>
+<name>Orientacion</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Orientacion</class-id>
+<body>Orientacion define la interface de las orientaciones que tenga un contenedor.</body>
+</comment>
+
+<class>
 <name>Norte</name>
 <environment>Smalltalk</environment>
 <super>Orientacion</super>
@@ -492,6 +252,26 @@
 <comment>
 <class-id>Norte</class-id>
 <body>Norte representa la orientacion al norte.</body>
+</comment>
+
+<class>
+<name>Herramienta</name>
+<environment>Smalltalk</environment>
+<super>Hoja</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>duracion poder </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Herramienta</class-id>
+<body>Herramienta representa todos los posibles objetos que podemos coger en el laberinto y tienen una o varias funciones para interactuar con otros elementos del laberinto.</body>
 </comment>
 
 <class>
@@ -615,6 +395,46 @@
 </comment>
 
 <class>
+<name>Superficie</name>
+<environment>Smalltalk</environment>
+<super>Hoja</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Superficie</class-id>
+<body>Superficie conexiones entre contenedores.</body>
+</comment>
+
+<class>
+<name>Pared</name>
+<environment>Smalltalk</environment>
+<super>Superficie</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Pared</class-id>
+<body>Pared forma parte de una habitacíon</body>
+</comment>
+
+<class>
 <name>ParedAdyacente</name>
 <environment>Smalltalk</environment>
 <super>Pared</super>
@@ -695,6 +515,26 @@
 </comment>
 
 <class>
+<name>Forma</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>orientaciones contenedor </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Forma</class-id>
+<body>Forma define la forma de los contenedoresInstance Variables:	orientaciones	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of orientaciones</body>
+</comment>
+
+<class>
 <name>Octogono</name>
 <environment>Smalltalk</environment>
 <super>Forma</super>
@@ -715,9 +555,29 @@
 </comment>
 
 <class>
+<name>SurEste</name>
+<environment>Smalltalk</environment>
+<super>Orientacion</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>SurEste</class-id>
+<body>SurEste representa la orientacion al norte.</body>
+</comment>
+
+<class>
 <name>Puerta</name>
 <environment>Smalltalk</environment>
-<super>Hoja</super>
+<super>Superficie</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
 <inst-vars>hab1 hab2 estado visitada </inst-vars>
@@ -734,13 +594,192 @@
 <body>Puerta esta entre dos habitaciones y puede estar habierta o cerrada.Instance Variables:	hab1	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of hab1	hab2	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of hab2	abierta	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of abierta</body>
 </comment>
 
+<class>
+<name>Laberinto</name>
+<environment>Smalltalk</environment>
+<super>Contenedor</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Laberinto</class-id>
+<body>Laberinto tiene un array de habitacionesInstance Variables:	habitaciones	&lt;List&gt;	description of habitaciones</body>
+</comment>
+
+<class>
+<name>NorEste</name>
+<environment>Smalltalk</environment>
+<super>Orientacion</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>NorEste</class-id>
+<body>NorEste representa la orientacion al norte.</body>
+</comment>
+
+<class>
+<name>ParedBomba</name>
+<environment>Smalltalk</environment>
+<super>Pared</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>activada </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>ParedBomba</class-id>
+<body>ParedBomba explota si la tocas.</body>
+</comment>
+
+<class>
+<name>NorOeste</name>
+<environment>Smalltalk</environment>
+<super>Orientacion</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>NorOeste</class-id>
+<body>NorOeste representa la orientacion al norte.</body>
+</comment>
+
+<class>
+<name>Almadena</name>
+<environment>Smalltalk</environment>
+<super>Herramienta</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Almadena</class-id>
+<body>Almadena se puede recoger del suelo y sirve para tirar paredes. Hay que tener cuidado con ella, si se tira una pared normal es posible caer a la laba que rodea el laberinto, se recomenda solo para paredes adyacentes.</body>
+</comment>
+
+<class>
+<name>Cuadrado</name>
+<environment>Smalltalk</environment>
+<super>Forma</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>norte sur este oeste </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Cuadrado</class-id>
+<body>Cuadrado define la forma cuadra de un contenedor.Instance Variables:	este	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of este	norte	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of norte	oeste	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of oeste	sur	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of sur</body>
+</comment>
+
+<class>
+<name>Estanteria</name>
+<environment>Smalltalk</environment>
+<super>Superficie</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>tienda contenedor </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Estanteria</class-id>
+<body>Estanteria la interfaz con la que el personaje interactuará con la tienda.</body>
+</comment>
+
+<class>
+<name>SurOeste</name>
+<environment>Smalltalk</environment>
+<super>Orientacion</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>SurOeste</class-id>
+<body>SurOeste representa la orientacion al norte.</body>
+</comment>
+
+<class>
+<name>DetectorDeMetales</name>
+<environment>Smalltalk</environment>
+<super>Herramienta</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>DetectorDeMetales</class-id>
+<body>DetectorDeMetales sirve para buscar cosas metálicas en el laberinto, como pueden ser las moendas.</body>
+</comment>
+
 <shared-variable>
-<name>SurEsteUnica</name>
-<environment>SurEste</environment>
+<name>UnicaSur</name>
+<environment>Sur</environment>
 <private>false</private>
 <constant>false</constant>
-<category>New Share</category>
-<initializer>nil</initializer>
+<category>As yet unclassified</category>
 <attributes>
 <package>SolucionLaberinto</package>
 </attributes>
@@ -762,8 +801,22 @@
 
 
 <shared-variable>
-<name>UnicaSur</name>
-<environment>Sur</environment>
+<name>SurEsteUnica</name>
+<environment>SurEste</environment>
+<private>false</private>
+<constant>false</constant>
+<category>New Share</category>
+<initializer>nil</initializer>
+<attributes>
+<package>SolucionLaberinto</package>
+</attributes>
+</shared-variable>
+
+
+
+<shared-variable>
+<name>UnicaOeste</name>
+<environment>Oeste</environment>
 <private>false</private>
 <constant>false</constant>
 <category>As yet unclassified</category>
@@ -777,20 +830,6 @@
 <shared-variable>
 <name>NorEsteUnica</name>
 <environment>NorEste</environment>
-<private>false</private>
-<constant>false</constant>
-<category>New Share</category>
-<initializer>nil</initializer>
-<attributes>
-<package>SolucionLaberinto</package>
-</attributes>
-</shared-variable>
-
-
-
-<shared-variable>
-<name>SurOesteUnica</name>
-<environment>SurOeste</environment>
 <private>false</private>
 <constant>false</constant>
 <category>New Share</category>
@@ -830,11 +869,12 @@
 
 
 <shared-variable>
-<name>UnicaOeste</name>
-<environment>Oeste</environment>
+<name>SurOesteUnica</name>
+<environment>SurOeste</environment>
 <private>false</private>
 <constant>false</constant>
-<category>As yet unclassified</category>
+<category>New Share</category>
+<initializer>nil</initializer>
 <attributes>
 <package>SolucionLaberinto</package>
 </attributes>
@@ -843,70 +883,100 @@
 
 
 <methods>
-<class-id>Orientacion class</class-id> <category>instance creation</category>
+<class-id>JuegoLaberinto class</class-id> <category>instance creation</category>
 
 <body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
 </methods>
 
 
 <methods>
-<class-id>Orientacion</class-id> <category>orientaciones</category>
+<class-id>JuegoLaberinto</class-id> <category>personaje</category>
 
-<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	self subclassResponsibility.</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self subclassResponsibility.</body>
-
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	self subclassResponsibility.</body>
+<body package="SolucionLaberinto" selector="agregarPersonaje:">agregarPersonaje:unPersonaje	"self personaje:unPersonaje.	self entrar: unPersonaje."		self fase agregarPersonaje:unPersonaje juego:self.</body>
 </methods>
 
 <methods>
-<class-id>Orientacion</class-id> <category>drawing</category>
+<class-id>JuegoLaberinto</class-id> <category>gestionBichos</category>
 
-<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde:unCont	self subclassResponsibility.</body>
+<body package="SolucionLaberinto" selector="eliminarBicho:">eliminarBicho:unBicho	self bichos remove: unBicho ifAbsent: [nil].</body>
+
+<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos"| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]"1 to: self hilos size do:[:each | self muereBicho: each]</body>
+
+<body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
+
+<body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	"self hilos add:proceso."	self hilos at:each id put:proceso.	]</body>
+
+<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	"self bichos remove: unBicho ifAbsent: [nil]"</body>
+
+<body package="SolucionLaberinto" selector="muereBicho:">muereBicho:unNumero	| proceso bicho|	bicho := self bichos at: unNumero.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:unNumero ifAbsent: [nil].	self quitarBicho: bicho.	proceso isNil ifFalse:[proceso terminate].	self hilos at:unNumero put: nil.</body>
+
+<body package="SolucionLaberinto" selector="bichoActua:">bichoActua:unBicho	self fase bichoActua:unBicho.</body>
+
+<body package="SolucionLaberinto" selector="agregarBicho:">agregarBicho:unBicho	self asignarId:unBicho.	self bichos add:unBicho.</body>
 </methods>
 
 <methods>
-<class-id>Orientacion</class-id> <category>comandos</category>
+<class-id>JuegoLaberinto</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos: unaForma	self subclassResponsibility.</body>
+<body package="SolucionLaberinto" selector="bichos:">bichos: anObject	bichos := anObject</body>
+
+<body package="SolucionLaberinto" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := Laberinto new.hab1 := Habitacion new.hab2 := Habitacion new.puerta := Puerta new.pared1 := Pared new.pared2 := Pared new.pared3 := Pared new.pared4 := Pared new.pared5 := Pared new.pared6 := Pared new."creacion del laberinto con dos habitaciones"hab1  forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+
+<body package="SolucionLaberinto" selector="crearLaberinto2habs:">crearLaberinto2habs:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 norteh1 surh1 esteh1 oesteh1 bomba1 bomba2 |self laberinto:unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion: 1.hab2 := unaFactoria fabricarHabitacion: 2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.norteh1 := unaFactoria fabricarNorte.esteh1 := unaFactoria fabricarEste.surh1 := unaFactoria fabricarSur.oesteh1 := unaFactoria fabricarOeste.hab1 ponerEnUnaOrientacion: norteh1 UnElemento:bomba1.hab1 ponerEnUnaOrientacion: esteh1 UnElemento:pared2.hab1 ponerEnUnaOrientacion: surh1 UnElemento:pared3.hab1 ponerEnUnaOrientacion: oesteh1 UnElemento: puerta.hab2 ponerEnUnaOrientacion: norteh1 UnElemento:bomba2.hab2 ponerEnUnaOrientacion: esteh1 UnElemento:puerta.hab2 ponerEnUnaOrientacion: surh1 UnElemento:pared5.hab2 ponerEnUnaOrientacion: oesteh1 UnElemento: pared6."creacion del laberinto con dos habitaciones"hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."self laberinto agregarHijo: hab1.self laberinto agregarHijo: hab2.^laberinto.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:unPersonaje		unPersonaje juego:self.	self laberinto entrar: unPersonaje.</body>
+
+<body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^self laberinto obtenerNumeroDeHabitaciones.</body>
+
+<body package="SolucionLaberinto" selector="comprobarNumeroHabitaciones">comprobarNumeroHabitaciones	^self laberinto hijos size.</body>
+
+<body package="SolucionLaberinto" selector="hilos:">hilos: anObject	hilos := anObject</body>
+
+<body package="SolucionLaberinto" selector="bichos">bichos	^bichos</body>
+
+<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^laberinto obtenerHabitacion:id.</body>
+
+<body package="SolucionLaberinto" selector="obtenerNumeroDeBichos">obtenerNumeroDeBichos	^bichos size.</body>
+
+<body package="SolucionLaberinto" selector="hilos">hilos	^hilos</body>
+
+<body package="SolucionLaberinto" selector="prototipo">prototipo	^prototipo</body>
+
+<body package="SolucionLaberinto" selector="personaje:">personaje: anObject	personaje := anObject</body>
+
+<body package="SolucionLaberinto" selector="finJuego">finJuego	self fase finJuego:self.</body>
+
+<body package="SolucionLaberinto" selector="prototipo:">prototipo: anObject	prototipo := anObject</body>
+
+<body package="SolucionLaberinto" selector="fase">fase	^fase</body>
+
+<body package="SolucionLaberinto" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
+
+<body package="SolucionLaberinto" selector="laberinto">laberinto	^laberinto</body>
+
+<body package="SolucionLaberinto" selector="fase:">fase: anObject	fase := anObject</body>
+
+<body package="SolucionLaberinto" selector="personaje">personaje	^personaje</body>
 </methods>
 
 <methods>
-<class-id>Orientacion</class-id> <category>initialize-release</category>
+<class-id>JuegoLaberinto</class-id> <category>comandos</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
+<body package="SolucionLaberinto" selector="ejecutarComando:">ejecutarComando:comando	self fase ejecutarComando: comando juego: self.</body>
 
-
-<methods>
-<class-id>SurEste class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="default">default	SurEsteUnica isNil ifTrue: [SurEsteUnica := super new].	^SurEsteUnica.</body>
-
-<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
-</methods>
-
-
-<methods>
-<class-id>SurEste</class-id> <category>orientaciones</category>
-
-<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma surEste</body>
-
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma surEste:unElemento.</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlSurEste.</body>
+<body package="SolucionLaberinto" selector="entrarOrientacion:">entrarOrientacion:unaOrientacion	self fase entrarOrientacion:unaOrientacion juego:self.</body>
 </methods>
 
 <methods>
-<class-id>SurEste</class-id> <category>comandos</category>
+<class-id>JuegoLaberinto</class-id> <category>initialize-release</category>
 
-<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma surEste obtenerComandos.</body>
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	bichos := List new.	hilos := Dictionary new.	fase := Incial new.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 <methods>
-<class-id>SurEste</class-id> <category>initialize-release</category>
+<class-id>JuegoLaberinto</class-id> <category>abstractFactory</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="crearLaberinto2habsDecorator:">crearLaberinto2habsDecorator:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion:1.hab2 := unaFactoria fabricarHabitacion:2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 estrategia:unaFactoria fabricarEstrategiaH.bomba2 estrategia:unaFactoria fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
 </methods>
 
 
@@ -920,17 +990,17 @@
 <methods>
 <class-id>ElementoMapa</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="tested:">tested: anObject	tested := anObject</body>
-
-<body package="SolucionLaberinto" selector="tested">tested	^tested</body>
+<body package="SolucionLaberinto" selector="padre:">padre: anObject	padre := anObject</body>
 
 <body package="SolucionLaberinto" selector="comandos:">comandos: anObject	comandos := anObject</body>
 
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self subclassResponsibility.</body>
-
-<body package="SolucionLaberinto" selector="padre:">padre: anObject	padre := anObject</body>
+<body package="SolucionLaberinto" selector="tested:">tested: anObject	tested := anObject</body>
 
 <body package="SolucionLaberinto" selector="comandos">comandos	^comandos</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self subclassResponsibility.</body>
+
+<body package="SolucionLaberinto" selector="tested">tested	^tested</body>
 
 <body package="SolucionLaberinto" selector="padre">padre	^padre</body>
 </methods>
@@ -938,41 +1008,51 @@
 <methods>
 <class-id>ElementoMapa</class-id> <category>testing</category>
 
-<body package="SolucionLaberinto" selector="esMoneda">esMoneda	^false.</body>
-
-<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^false.</body>
-
-<body package="SolucionLaberinto" selector="esBaul">esBaul	^false.</body>
-
-<body package="SolucionLaberinto" selector="esBomba">esBomba	^false.</body>
+<body package="SolucionLaberinto" selector="esPared">esPared	^false.</body>
 
 <body package="SolucionLaberinto" selector="esAgujeroNegro">esAgujeroNegro	^false.</body>
 
-<body package="SolucionLaberinto" selector="esAlmadena">esAlmadena	^false.</body>
-
-<body package="SolucionLaberinto" selector="esTesoro">esTesoro	^false.</body>
-
-<body package="SolucionLaberinto" selector="esDetector">esDetector	^false.</body>
-
 <body package="SolucionLaberinto" selector="esPuerta">esPuerta	^false.</body>
+
+<body package="SolucionLaberinto" selector="esD5">esD5	^false.</body>
+
+<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^false.</body>
+
+<body package="SolucionLaberinto" selector="esContenedor">esContenedor	^false.</body>
+
+<body package="SolucionLaberinto" selector="esAlmadena">esAlmadena	^false.</body>
 
 <body package="SolucionLaberinto" selector="esArmario">esArmario	^false.</body>
 
+<body package="SolucionLaberinto" selector="esBaul">esBaul	^false.</body>
+
+<body package="SolucionLaberinto" selector="esD10">esD10	^false.</body>
+
+<body package="SolucionLaberinto" selector="esTesoro">esTesoro	^false.</body>
+
+<body package="SolucionLaberinto" selector="esD20">esD20	^false.</body>
+
 <body package="SolucionLaberinto" selector="esEspada">esEspada	^false.</body>
 
-<body package="SolucionLaberinto" selector="esPared">esPared	^false.</body>
+<body package="SolucionLaberinto" selector="esBomba">esBomba	^false.</body>
 
-<body package="SolucionLaberinto" selector="esContenedor">esContenedor	^false.</body>
+<body package="SolucionLaberinto" selector="esDetector">esDetector	^false.</body>
+
+<body package="SolucionLaberinto" selector="esD50">esD50	^false.</body>
+
+<body package="SolucionLaberinto" selector="esMoneda">esMoneda	^false.</body>
+
+<body package="SolucionLaberinto" selector="esTienda">esTienda	^false.</body>
 </methods>
 
 <methods>
 <class-id>ElementoMapa</class-id> <category>comandos</category>
 
-<body package="SolucionLaberinto" selector="quitarComando:">quitarComando:unComando	comandos remove: unComando ifAbsent:[nil].</body>
-
 <body package="SolucionLaberinto" selector="obtenerComandos">obtenerComandos	^comandos.</body>
 
 <body package="SolucionLaberinto" selector="agregarComando:">agregarComando:unComando	comandos add: unComando.</body>
+
+<body package="SolucionLaberinto" selector="quitarComando:">quitarComando:unComando	comandos remove: unComando ifAbsent:[nil].</body>
 </methods>
 
 <methods>
@@ -1011,35 +1091,35 @@
 <methods>
 <class-id>Contenedor</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="hijos:">hijos: anObject	hijos := anObject</body>
+<body package="SolucionLaberinto" selector="forma">forma	^forma</body>
+
+<body package="SolucionLaberinto" selector="punto:">punto: anObject	punto := anObject</body>
+
+<body package="SolucionLaberinto" selector="forma:">forma: anObject	forma := anObject</body>
+
+<body package="SolucionLaberinto" selector="extent:">extent: anObject	extent := anObject</body>
 
 <body package="SolucionLaberinto" selector="obtenerOrientaciones">obtenerOrientaciones	^self forma obtenerOrientaciones.</body>
 
 <body package="SolucionLaberinto" selector="punto">punto	^punto</body>
 
-<body package="SolucionLaberinto" selector="extent:">extent: anObject	extent := anObject</body>
-
-<body package="SolucionLaberinto" selector="obtenerId">obtenerId	self subclassResponsibility.</body>
-
-<body package="SolucionLaberinto" selector="punto:">punto: anObject	punto := anObject</body>
+<body package="SolucionLaberinto" selector="salir:">salir:alguien	self quitarOcupante: alguien.</body>
 
 <body package="SolucionLaberinto" selector="proporcion">proporcion	^proporcion</body>
 
-<body package="SolucionLaberinto" selector="ocupantes">ocupantes	^ocupantes</body>
-
-<body package="SolucionLaberinto" selector="forma">forma	^forma</body>
-
-<body package="SolucionLaberinto" selector="forma:">forma: anObject	forma := anObject</body>
-
 <body package="SolucionLaberinto" selector="ocupantes:">ocupantes: anObject	ocupantes := anObject</body>
+
+<body package="SolucionLaberinto" selector="hijos">hijos	^hijos</body>
+
+<body package="SolucionLaberinto" selector="ocupantes">ocupantes	^ocupantes</body>
 
 <body package="SolucionLaberinto" selector="proporcion:">proporcion: anObject	proporcion := anObject</body>
 
 <body package="SolucionLaberinto" selector="extent">extent	^extent</body>
 
-<body package="SolucionLaberinto" selector="salir:">salir:alguien	self quitarOcupante: alguien.</body>
+<body package="SolucionLaberinto" selector="obtenerId">obtenerId	self subclassResponsibility.</body>
 
-<body package="SolucionLaberinto" selector="hijos">hijos	^hijos</body>
+<body package="SolucionLaberinto" selector="hijos:">hijos: anObject	hijos := anObject</body>
 </methods>
 
 <methods>
@@ -1051,17 +1131,17 @@
 <methods>
 <class-id>Contenedor</class-id> <category>comandos</category>
 
-<body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando	self quitarComando: unComando.	self agregarComando: (Cerrar new receptor:self).</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	| habitacionId |	habitacionId := ''.	alguien actualizarPosicion:self.	self esHabitacion ifTrue: [habitacionId := self obtenerId].	Transcript show: alguien printString, ' estás en ', self  printString, ' con id ', habitacionId printString;cr.</body>
-
 <body package="SolucionLaberinto" selector="analizar:">analizar:unComando	| monedas |		monedas := hijos select: [:each | each esMoneda].	hijos removeAll: monedas.	self quitarComando: unComando.	Transcript show: 'Genial!! Has encotrado ', monedas size printString;cr.		^monedas</body>
 
 <body package="SolucionLaberinto" selector="obtenerComandos">obtenerComandos		| list |	list := List new.	self hijos do:[:each | list addAll: (each obtenerComandos)].	list addAll: self forma obtenerComandos.	list addAll: self comandos.	^list.</body>
 
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	| habitacionId |	habitacionId := ''.	alguien actualizarPosicion:self.	self esHabitacion ifTrue: [habitacionId := self obtenerId].	Transcript show: alguien printString, ' estás en ', self  printString, ' con id ', habitacionId printString;cr.</body>
+
 <body package="SolucionLaberinto" selector="analizar:comando:">analizar: alguien comando:unComando	alguien analizar: unComando.</body>
 
 <body package="SolucionLaberinto" selector="abrir:">abrir:unComando	self quitarComando: unComando.	self agregarComando: (Cerrar new receptor:self).	self agregarComando: (Entrar new receptor:self).</body>
+
+<body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando	self quitarComando: unComando.	self agregarComando: (Cerrar new receptor:self).</body>
 </methods>
 
 <methods>
@@ -1091,6 +1171,12 @@
 </methods>
 
 <methods>
+<class-id>Contenedor</class-id> <category>tienda</category>
+
+<body package="SolucionLaberinto" selector="obtenerTienda">obtenerTienda	^hijos detect: [:each | each esTienda] ifNone: [nil.].</body>
+</methods>
+
+<methods>
 <class-id>Contenedor</class-id> <category>Orientaciones</category>
 
 <body package="SolucionLaberinto" selector="obtenerElementoOrientacion:">obtenerElementoOrientacion:or	^self forma obtenerElementoOrientacion:or.</body>
@@ -1103,739 +1189,9 @@
 
 <body package="SolucionLaberinto" selector="obtenerHijosRecursivo">obtenerHijosRecursivo	| list |	list := List new.	self hijos do: 			[:each |			list add: each.			each esContenedor ifTrue: [list addAll: each obtenerHijosRecursivo]].	^list</body>
 
-<body package="SolucionLaberinto" selector="eliminarHijo:">eliminarHijo:unElementoMapa	self hijos remove: unElementoMapa ifAbsent: [nil].	unElementoMapa padre:nil.</body>
-
 <body package="SolucionLaberinto" selector="agregarHijo:">agregarHijo:unElementoMapa	self hijos add:unElementoMapa.	unElementoMapa padre:self.</body>
-</methods>
 
-
-<methods>
-<class-id>JuegoLaberinto class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>personaje</category>
-
-<body package="SolucionLaberinto" selector="agregarPersonaje:">agregarPersonaje:unPersonaje	"self personaje:unPersonaje.	self entrar: unPersonaje."		self fase agregarPersonaje:unPersonaje juego:self.</body>
-</methods>
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>gestionBichos</category>
-
-<body package="SolucionLaberinto" selector="muereBicho:">muereBicho:unNumero	| proceso bicho|	bicho := self bichos at: unNumero.	Transcript show:'Muere ', bicho printString;cr.	proceso:=self hilos at:unNumero ifAbsent: [nil].	self quitarBicho: bicho.	proceso isNil ifFalse:[proceso terminate].	self hilos at:unNumero put: nil.</body>
-
-<body package="SolucionLaberinto" selector="lanzarHiloBichos">lanzarHiloBichos|proceso|self bichos do:[:each |	proceso:=[ [true] whileTrue:[each actua]] fork.	"self hilos add:proceso."	self hilos at:each id put:proceso.	]</body>
-
-<body package="SolucionLaberinto" selector="quitarBicho:">quitarBicho: unBicho	| cont |	cont := unBicho posicion.	cont quitarOcupante: unBicho.	"self bichos remove: unBicho ifAbsent: [nil]"</body>
-
-<body package="SolucionLaberinto" selector="bichoActua:">bichoActua:unBicho	self fase bichoActua:unBicho.</body>
-
-<body package="SolucionLaberinto" selector="agregarBicho:">agregarBicho:unBicho	self asignarId:unBicho.	self bichos add:unBicho.</body>
-
-<body package="SolucionLaberinto" selector="asignarId:">asignarId:unBicho	| ultimo idUltimo |		self bichos isEmpty ifTrue: [		unBicho id:1.	]	ifFalse: [		ultimo := self bichos last.		idUltimo := ultimo id.		unBicho id:idUltimo + 1.		]</body>
-
-<body package="SolucionLaberinto" selector="eliminarBicho:">eliminarBicho:unBicho	self bichos remove: unBicho ifAbsent: [nil].</body>
-
-<body package="SolucionLaberinto" selector="terminarHilosBichos">terminarHilosBichos"| num proceso bicho|num:=self bichos size.[num&gt;0] whileTrue:[	bicho:=self bichos at:num.	Transcript show:'Muere ', bicho printString;cr.	self quitarBicho:bicho.	proceso:=self hilos at:bicho id.	proceso isNil ifFalse:[proceso terminate].	self hilos at:bicho id put: nil.	num:=num-1.]"1 to: self hilos size do:[:each | self muereBicho: each]</body>
-</methods>
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:unPersonaje		unPersonaje juego:self.	self laberinto entrar: unPersonaje.</body>
-
-<body package="SolucionLaberinto" selector="comprobarNumeroHabitaciones">comprobarNumeroHabitaciones	^self laberinto hijos size.</body>
-
-<body package="SolucionLaberinto" selector="prototipo:">prototipo: anObject	prototipo := anObject</body>
-
-<body package="SolucionLaberinto" selector="fase:">fase: anObject	fase := anObject</body>
-
-<body package="SolucionLaberinto" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := Laberinto new.hab1 := Habitacion new.hab2 := Habitacion new.puerta := Puerta new.pared1 := Pared new.pared2 := Pared new.pared3 := Pared new.pared4 := Pared new.pared5 := Pared new.pared6 := Pared new."creacion del laberinto con dos habitaciones"hab1  forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
-
-<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^laberinto obtenerHabitacion:id.</body>
-
-<body package="SolucionLaberinto" selector="finJuego">finJuego	self fase finJuego:self.</body>
-
-<body package="SolucionLaberinto" selector="hilos">hilos	^hilos</body>
-
-<body package="SolucionLaberinto" selector="bichos">bichos	^bichos</body>
-
-<body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^self laberinto obtenerNumeroDeHabitaciones.</body>
-
-<body package="SolucionLaberinto" selector="fase">fase	^fase</body>
-
-<body package="SolucionLaberinto" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
-
-<body package="SolucionLaberinto" selector="bichos:">bichos: anObject	bichos := anObject</body>
-
-<body package="SolucionLaberinto" selector="hilos:">hilos: anObject	hilos := anObject</body>
-
-<body package="SolucionLaberinto" selector="personaje:">personaje: anObject	personaje := anObject</body>
-
-<body package="SolucionLaberinto" selector="personaje">personaje	^personaje</body>
-
-<body package="SolucionLaberinto" selector="laberinto">laberinto	^laberinto</body>
-
-<body package="SolucionLaberinto" selector="obtenerNumeroDeBichos">obtenerNumeroDeBichos	^bichos size.</body>
-
-<body package="SolucionLaberinto" selector="crearLaberinto2habs:">crearLaberinto2habs:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 norteh1 surh1 esteh1 oesteh1 bomba1 bomba2 |self laberinto:unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion: 1.hab2 := unaFactoria fabricarHabitacion: 2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.norteh1 := unaFactoria fabricarNorte.esteh1 := unaFactoria fabricarEste.surh1 := unaFactoria fabricarSur.oesteh1 := unaFactoria fabricarOeste.hab1 ponerEnUnaOrientacion: norteh1 UnElemento:bomba1.hab1 ponerEnUnaOrientacion: esteh1 UnElemento:pared2.hab1 ponerEnUnaOrientacion: surh1 UnElemento:pared3.hab1 ponerEnUnaOrientacion: oesteh1 UnElemento: puerta.hab2 ponerEnUnaOrientacion: norteh1 UnElemento:bomba2.hab2 ponerEnUnaOrientacion: esteh1 UnElemento:puerta.hab2 ponerEnUnaOrientacion: surh1 UnElemento:pared5.hab2 ponerEnUnaOrientacion: oesteh1 UnElemento: pared6."creacion del laberinto con dos habitaciones"hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."self laberinto agregarHijo: hab1.self laberinto agregarHijo: hab2.^laberinto.</body>
-
-<body package="SolucionLaberinto" selector="prototipo">prototipo	^prototipo</body>
-</methods>
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="ejecutarComando:">ejecutarComando:comando	self fase ejecutarComando: comando juego: self.</body>
-
-<body package="SolucionLaberinto" selector="entrarOrientacion:">entrarOrientacion:unaOrientacion	self fase entrarOrientacion:unaOrientacion juego:self.</body>
-</methods>
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	bichos := List new.	hilos := Dictionary new.	fase := Incial new.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-<methods>
-<class-id>JuegoLaberinto</class-id> <category>abstractFactory</category>
-
-<body package="SolucionLaberinto" selector="crearLaberinto2habsDecorator:">crearLaberinto2habsDecorator:unaFactoria"inicialización de todas las instancias" | hab1  hab2 puerta bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := unaFactoria fabricarLaberinto.hab1 := unaFactoria fabricarHabitacion:1.hab2 := unaFactoria fabricarHabitacion:2.puerta := unaFactoria fabricarPuertaHab1: hab1 hab2: hab2.pared1 := unaFactoria fabricarPared.pared2 := unaFactoria fabricarPared.pared3 := unaFactoria fabricarPared.pared4 := unaFactoria fabricarPared.pared5 := unaFactoria fabricarPared.pared6 := unaFactoria fabricarPared.bomba1 := unaFactoria fabricarBomba.bomba2 := unaFactoria fabricarBomba.bomba1 estrategia:unaFactoria fabricarEstrategiaH.bomba2 estrategia:unaFactoria fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.hab1 forma norte:bomba1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:bomba2.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2.laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
-</methods>
-
-
-<methods>
-<class-id>NorEste class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="default">default	NorEsteUnica isNil ifTrue: [NorEsteUnica := super new].	^NorEsteUnica.</body>
-
-<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
-</methods>
-
-
-<methods>
-<class-id>NorEste</class-id> <category>orientaciones</category>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlNorEste.</body>
-
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma norEste:unElemento.</body>
-
-<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma norEste.</body>
-</methods>
-
-<methods>
-<class-id>NorEste</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma norEste obtenerComandos.</body>
-</methods>
-
-<methods>
-<class-id>NorEste</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Hoja</class-id> <category>enumerate</category>
-
-<body package="SolucionLaberinto" selector="do:">do:aBlock	aBlock value:self.</body>
-</methods>
-
-<methods>
-<class-id>Hoja</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	"ToDo"</body>
-
-<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde:unCont en:unPunto</body>
-
-<body package="SolucionLaberinto" selector="dibujar:">dibujar: unaVista</body>
-</methods>
-
-<methods>
-<class-id>Hoja</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="hundir:">hundir:unComando	Transcript show: 'Para hundir una pared necesita equiparte una almadena.'.</body>
-</methods>
-
-
-<methods>
-<class-id>SurOeste class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="default">default	SurOesteUnica isNil ifTrue: [SurOesteUnica := super new].	^SurOesteUnica.</body>
-
-<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
-</methods>
-
-
-<methods>
-<class-id>SurOeste</class-id> <category>orientaciones</category>
-
-<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma surEste.</body>
-
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma surOeste:unElemento.</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlSurEste.</body>
-</methods>
-
-<methods>
-<class-id>SurOeste</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma surOeste obtenerComandos.</body>
-</methods>
-
-<methods>
-<class-id>SurOeste</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Armario</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esArmario">esArmario	^true.</body>
-</methods>
-
-<methods>
-<class-id>Armario</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Arm'.</body>
-</methods>
-
-<methods>
-<class-id>Armario</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	self forma asignarPuntosReales:unCont en:self</body>
-</methods>
-
-<methods>
-<class-id>Armario</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="entrar">entrar		Transcript show: 'Has entrado en un armario';cr.</body>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	proporcion := 0.3.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Habitacion</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="id">id	^id</body>
-
-<body package="SolucionLaberinto" selector="obtenerId">obtenerId	^self id.</body>
-
-<body package="SolucionLaberinto" selector="id:">id: anObject	id := anObject</body>
-</methods>
-
-<methods>
-<class-id>Habitacion</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^true</body>
-</methods>
-
-<methods>
-<class-id>Habitacion</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn:aStream	aStream nextPutAll:'H-', self id printString.</body>
-</methods>
-
-<methods>
-<class-id>Habitacion</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	forma := nil.		^self</body>
-
-<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'estas entrando en la habitacion', id printString;cr.</body>
-</methods>
-
-
-<methods>
-<class-id>NorOeste class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="default">default	NorOesteUnica isNil ifTrue: [NorOesteUnica := super new].	^NorOesteUnica.</body>
-
-<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
-</methods>
-
-
-<methods>
-<class-id>NorOeste</class-id> <category>orientaciones</category>
-
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma norOeste:unElemento.</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlNorOeste.</body>
-
-<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma norOeste</body>
-</methods>
-
-<methods>
-<class-id>NorOeste</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma norOeste obtenerComandos.</body>
-</methods>
-
-<methods>
-<class-id>NorOeste</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Pared</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	Transcript show: alguien printString, ' has chocado con una pared.';cr.</body>
-</methods>
-
-<methods>
-<class-id>Pared</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esPared">esPared	^true</body>
-</methods>
-
-<methods>
-<class-id>Pared</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'Es una pared, no puedes entrar';cr.</body>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Puerta</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="estado">estado	^estado</body>
-
-<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
-
-<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
-
-<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
-
-<body package="SolucionLaberinto" selector="abrir:">abrir:unComando	self estado abrir:self comando:unComando.</body>
-
-<body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
-
-<body package="SolucionLaberinto" selector="visitada">visitada	^visitada</body>
-
-<body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando		self estado cerrar:self comando:unComando.</body>
-
-<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	self estado entar:self alguien:alguien comando:comando.</body>
-
-<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
-
-<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
-
-<body package="SolucionLaberinto" selector="esAbierta">esAbierta	^self estado esAbierta.</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self entrar:alguien comando: nil.</body>
-
-<body package="SolucionLaberinto" selector="visitada:">visitada: anObject	visitada := anObject</body>
-</methods>
-
-<methods>
-<class-id>Puerta</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^true</body>
-</methods>
-
-<methods>
-<class-id>Puerta</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Puerta ', self hab1 printString, ' - ', self hab2 printString.</body>
-</methods>
-
-<methods>
-<class-id>Puerta</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde: unCont en: unPunto	self visitada		ifFalse:			[	self visitada: true.				unCont id = self hab1 id				ifTrue: 					[					self hab2 punto: unPunto.					self hab2 calcularPosicion]				ifFalse: 					[					self hab1 punto: unPunto.					self hab1 calcularPosicion]]</body>
-</methods>
-
-<methods>
-<class-id>Puerta</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	estado:=Cerrada new.	self visitada:false.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Laberinto class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Laberinto</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^hijos size.</body>
-
-<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | (each esHabitacion) &amp; (each id = id)] ifNone:[nil]</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	| h1 |		h1 := self obtenerHabitacion:1.	h1 entrar:alguien.	Transcript show: 'El personaje ',alguien nombre printString, ' ha entrado en el laberinto';cr.</body>
-</methods>
-
-<methods>
-<class-id>Laberinto</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>ParedBomba</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="activada">activada	^activada</body>
-
-<body package="SolucionLaberinto" selector="activada:">activada: anObject	activada := anObject</body>
-
-<body package="SolucionLaberinto" selector="entrar">entrar		self activada ifTrue: [				Transcript show: 'es una pared bomba y te ha explotado';cr.		self activada:false.	]	ifFalse: [				Transcript show: 'has chocado con una pared';cr.	]</body>
-</methods>
-
-<methods>
-<class-id>ParedBomba</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	activada := true.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Forma class</class-id> <category>instance creation</category>
-
-<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Forma</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="contenedor">contenedor	^contenedor</body>
-
-<body package="SolucionLaberinto" selector="contenedor:">contenedor: anObject	contenedor := anObject</body>
-
-<body package="SolucionLaberinto" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
-
-<body package="SolucionLaberinto" selector="obtenerOrientaciones">obtenerOrientaciones	^self orientaciones.</body>
-
-<body package="SolucionLaberinto" selector="orientaciones">orientaciones	^orientaciones</body>
-
-<body package="SolucionLaberinto" selector="obtenerElementoOrientacion:">obtenerElementoOrientacion:or	^or obtenerElemento:self.</body>
-
-<body package="SolucionLaberinto" selector="ponerEnUnaOrientacion:UnElemento:">ponerEnUnaOrientacion:unaOrientacion UnElemento:unElemento	unaOrientacion ponElemento:unElemento habitacion:self contenedor.</body>
-</methods>
-
-<methods>
-<class-id>Forma</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esOctogono">esOctogono	^false.</body>
-
-<body package="SolucionLaberinto" selector="esCuadrado">esCuadrado	^false.</body>
-</methods>
-
-<methods>
-<class-id>Forma</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="dibujar:vista:">dibujar:unCont vista:unaVista	self subclassResponsibility</body>
-
-<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde: unCont	self orientaciones do: [:or | or calcularPosicionDesde: unCont]</body>
-
-<body package="SolucionLaberinto" selector="asignarPuntosReales:en:">asignarPuntosReales: unCont en: otroCont	self subclassResponsibility.</body>
-</methods>
-
-<methods>
-<class-id>Forma</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="obtenerComandos">obtenerComandos	| lista |	lista := List new.	self orientaciones do:[:each | lista addAll: (each obtenerComandos: self)].	^lista.</body>
-</methods>
-
-<methods>
-<class-id>Forma</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	orientaciones := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Tienda</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="obtenerId">obtenerId	" *** This method was defined by Contenedor as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Tienda</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales: unCont	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Tienda</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Cuadrado</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="este">este	^este</body>
-
-<body package="SolucionLaberinto" selector="sur:">sur: anObject	sur := anObject</body>
-
-<body package="SolucionLaberinto" selector="norte:">norte: anObject	norte := anObject</body>
-
-<body package="SolucionLaberinto" selector="irAlEste:">irAlEste:alguien	self este entrar:alguien.</body>
-
-<body package="SolucionLaberinto" selector="irAlNorte:">irAlNorte:alguien	self norte entrar:alguien.</body>
-
-<body package="SolucionLaberinto" selector="oeste:">oeste: anObject	oeste := anObject</body>
-
-<body package="SolucionLaberinto" selector="norte">norte	^norte</body>
-
-<body package="SolucionLaberinto" selector="irAlSur:">irAlSur:alguien	self sur entrar:alguien.</body>
-
-<body package="SolucionLaberinto" selector="irAlOeste:">irAlOeste:alguien	self oeste entrar:alguien.</body>
-
-<body package="SolucionLaberinto" selector="oeste">oeste	^oeste</body>
-
-<body package="SolucionLaberinto" selector="sur">sur	^sur</body>
-
-<body package="SolucionLaberinto" selector="este:">este: anObject	este := anObject</body>
-</methods>
-
-<methods>
-<class-id>Cuadrado</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esCuadrado">esCuadrado	^true.</body>
-</methods>
-
-<methods>
-<class-id>Cuadrado</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="asignarPuntosReales:en:">asignarPuntosReales: unCont en: otroCont	| unPunto unExtent division numeroHijo |	unExtent := unCont extent * otroCont proporcion.	division := (unCont extent x) //(unCont hijos size).	numeroHijo := (unCont hijos indexOf: otroCont) - 1.	unPunto := (unCont punto x + (division*numeroHijo))				@ (unCont punto y + unCont extent y - unExtent y).	otroCont punto: unPunto.	otroCont extent: unExtent</body>
-
-<body package="SolucionLaberinto" selector="dibujar:vista:">dibujar: unCont vista: unaVista	unaVista dibujarContenedorRectangular: unCont</body>
-</methods>
-
-<methods>
-<class-id>Cuadrado</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	norte := nil.	sur := nil.	este := nil.	oeste := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Herramienta</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="poder:">poder: anObject	poder := anObject</body>
-
-<body package="SolucionLaberinto" selector="duracion:">duracion: anObject	duracion := anObject</body>
-
-<body package="SolucionLaberinto" selector="poder">poder	^poder</body>
-
-<body package="SolucionLaberinto" selector="duracion">duracion	^duracion</body>
-
-<body package="SolucionLaberinto" selector="restarDuracion:">restarDuracion:alguien	self duracion:(self duracion - 1).	self duracion &lt;= 0 ifTrue: [alguien quitarObjeto:self.].</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Herramienta</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="coger:comando:">coger:alguien comando:unComando	self quitarComando: unComando.	alguien agregarObjeto: self.</body>
-</methods>
-
-<methods>
-<class-id>Herramienta</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Espada</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Espada</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esEspada">esEspada	^true.</body>
-</methods>
-
-<methods>
-<class-id>Espada</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Espada ', self duracion printString.</body>
-</methods>
-
-<methods>
-<class-id>Espada</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="coger:comando:">coger:alguien comando:unComando	self quitarComando: unComando.	self agregarComando: (Atacar new receptor:self).	alguien agregarObjeto: self.</body>
-
-<body package="SolucionLaberinto" selector="atacar:comando:">atacar:alguien comando:comando	"self duracion &gt;0 ifTrue: [self duracion:(self duracion - 1).] 	ifFalse: [alguien quitarObjeto: self.]"	alguien atacaCon:self.</body>
-</methods>
-
-<methods>
-<class-id>Espada</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	poder := 2.	duracion := 5.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Tesoro</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Tesoro</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esTesoro">esTesoro	^true.</body>
-</methods>
-
-<methods>
-<class-id>Tesoro</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream		aStream nextPutAll:'Tesoro'.</body>
-</methods>
-
-<methods>
-<class-id>Tesoro</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="coger:comando:">coger:alguien comando:unComando	self quitarComando: unComando.	alguien juego finJuego.</body>
-</methods>
-
-<methods>
-<class-id>Tesoro</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>ParedAdyacente</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	self estado entar:self alguien:alguien comando:comando.</body>
-
-<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
-
-<body package="SolucionLaberinto" selector="visitada:">visitada: anObject	visitada := anObject</body>
-
-<body package="SolucionLaberinto" selector="estado">estado	^estado</body>
-
-<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
-
-<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
-
-<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
-
-<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
-
-<body package="SolucionLaberinto" selector="visitada">visitada	^visitada</body>
-</methods>
-
-<methods>
-<class-id>ParedAdyacente</class-id> <category>printing</category>
-
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'P.Adyacente ', self hab1 printString, ' - ', self hab2 printString.</body>
-</methods>
-
-<methods>
-<class-id>ParedAdyacente</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde: unCont en: unPunto	self visitada		ifFalse:			[	self visitada: true.				unCont id = self hab1 id				ifTrue: 					[					self hab2 punto: unPunto.					self hab2 calcularPosicion]				ifFalse: 					[					self hab1 punto: unPunto.					self hab1 calcularPosicion]]</body>
-</methods>
-
-<methods>
-<class-id>ParedAdyacente</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="hundir:comando:">hundir:alguien comando:unComando	alguien hundir: unComando.</body>
-
-<body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
-
-<body package="SolucionLaberinto" selector="hundir:">hundir:unComando	self estado hundir: self comando:unComando.</body>
-</methods>
-
-<methods>
-<class-id>ParedAdyacente</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	hab1 := nil.	hab2 :=nil.	estado := EnPie new.	self visitada:false.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Almadena</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Almadena</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="isAlmadena">isAlmadena	^true.</body>
-</methods>
-
-<methods>
-<class-id>Almadena</class-id> <category>comandos</category>
-
-<body package="SolucionLaberinto" selector="hundir:comando:">hundir:alguien comando:unComando	alguien hundir: unComando.</body>
-</methods>
-
-<methods>
-<class-id>Almadena</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	poder := 2.	duracion := 5.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>DetectorDeMetales</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esDetector">esDetector	^true.</body>
-</methods>
-
-<methods>
-<class-id>DetectorDeMetales</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	duracion := 5.	poder := 0.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Moneda</class-id> <category>accessing</category>
-
-<body package="SolucionLaberinto" selector="valor">valor	^valor</body>
-
-<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="SolucionLaberinto" selector="valor:">valor: anObject	valor := anObject</body>
-</methods>
-
-<methods>
-<class-id>Moneda</class-id> <category>testing</category>
-
-<body package="SolucionLaberinto" selector="esMoneda">esMoneda		^true.</body>
-</methods>
-
-<methods>
-<class-id>Moneda</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	valor := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>D50</class-id> <category>initialize-release</category>
-
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 50.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="eliminarHijo:">eliminarHijo:unElementoMapa	self hijos remove: unElementoMapa ifAbsent: [nil].	unElementoMapa padre:nil.</body>
 </methods>
 
 
@@ -1877,60 +1233,292 @@
 
 
 <methods>
-<class-id>D20</class-id> <category>initialize-release</category>
+<class-id>Hoja</class-id> <category>enumerate</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 20.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="do:">do:aBlock	aBlock value:self.</body>
+</methods>
+
+<methods>
+<class-id>Hoja</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde:unCont en:unPunto</body>
+
+<body package="SolucionLaberinto" selector="dibujar:">dibujar: unaVista</body>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	"ToDo"</body>
+</methods>
+
+<methods>
+<class-id>Hoja</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="hundir:">hundir:unComando	Transcript show: 'Para hundir una pared necesita equiparte una almadena.'.</body>
 </methods>
 
 
 <methods>
-<class-id>D10</class-id> <category>initialize-release</category>
+<class-id>Superficie</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 10.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Superficie</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
 <methods>
-<class-id>D5</class-id> <category>initialize-release</category>
+<class-id>Pared</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 5.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	Transcript show: alguien printString, ' has chocado con una pared.';cr.</body>
+</methods>
+
+<methods>
+<class-id>Pared</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esPared">esPared	^true</body>
+</methods>
+
+<methods>
+<class-id>Pared</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'Es una pared, no puedes entrar';cr.</body>
+</methods>
+
+
+<methods>
+<class-id>ParedAdyacente</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
+
+<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
+
+<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
+
+<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
+
+<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
+
+<body package="SolucionLaberinto" selector="visitada">visitada	^visitada</body>
+
+<body package="SolucionLaberinto" selector="visitada:">visitada: anObject	visitada := anObject</body>
+
+<body package="SolucionLaberinto" selector="estado">estado	^estado</body>
+
+<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	self estado entar:self alguien:alguien comando:comando.</body>
+</methods>
+
+<methods>
+<class-id>ParedAdyacente</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'P.Adyacente ', self hab1 printString, ' - ', self hab2 printString.</body>
+</methods>
+
+<methods>
+<class-id>ParedAdyacente</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde: unCont en: unPunto	self visitada		ifFalse:			[	self visitada: true.				unCont id = self hab1 id				ifTrue: 					[					self hab2 punto: unPunto.					self hab2 calcularPosicion]				ifFalse: 					[					self hab1 punto: unPunto.					self hab1 calcularPosicion]]</body>
+</methods>
+
+<methods>
+<class-id>ParedAdyacente</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="hundir:comando:">hundir:alguien comando:unComando	alguien hundir: unComando.</body>
+
+<body package="SolucionLaberinto" selector="hundir:">hundir:unComando	self estado hundir: self comando:unComando.</body>
+
+<body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
+</methods>
+
+<methods>
+<class-id>ParedAdyacente</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	hab1 := nil.	hab2 :=nil.	estado := EnPie new.	self visitada:false.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Armario</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esArmario">esArmario	^true.</body>
+</methods>
+
+<methods>
+<class-id>Armario</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Arm'.</body>
+</methods>
+
+<methods>
+<class-id>Armario</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	self forma asignarPuntosReales:unCont en:self</body>
+</methods>
+
+<methods>
+<class-id>Armario</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	proporcion := 0.3.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="SolucionLaberinto" selector="entrar">entrar		Transcript show: 'Has entrado en un armario';cr.</body>
+</methods>
+
+
+<methods>
+<class-id>Tesoro</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Tesoro</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esTesoro">esTesoro	^true.</body>
+</methods>
+
+<methods>
+<class-id>Tesoro</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream		aStream nextPutAll:'Tesoro'.</body>
+</methods>
+
+<methods>
+<class-id>Tesoro</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="coger:comando:">coger:alguien comando:unComando	self quitarComando: unComando.	alguien juego finJuego.</body>
+</methods>
+
+<methods>
+<class-id>Tesoro</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Habitacion</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="id">id	^id</body>
+
+<body package="SolucionLaberinto" selector="obtenerId">obtenerId	^self id.</body>
+
+<body package="SolucionLaberinto" selector="id:">id: anObject	id := anObject</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^true</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn:aStream	aStream nextPutAll:'H-', self id printString.</body>
+</methods>
+
+<methods>
+<class-id>Habitacion</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	forma := nil.		^self</body>
+
+<body package="SolucionLaberinto" selector="entrar">entrar	Transcript show: 'estas entrando en la habitacion', id printString;cr.</body>
+</methods>
+
+
+<methods>
+<class-id>Forma class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Forma</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
+
+<body package="SolucionLaberinto" selector="ponerEnUnaOrientacion:UnElemento:">ponerEnUnaOrientacion:unaOrientacion UnElemento:unElemento	unaOrientacion ponElemento:unElemento habitacion:self contenedor.</body>
+
+<body package="SolucionLaberinto" selector="obtenerOrientaciones">obtenerOrientaciones	^self orientaciones.</body>
+
+<body package="SolucionLaberinto" selector="contenedor">contenedor	^contenedor</body>
+
+<body package="SolucionLaberinto" selector="orientaciones">orientaciones	^orientaciones</body>
+
+<body package="SolucionLaberinto" selector="contenedor:">contenedor: anObject	contenedor := anObject</body>
+
+<body package="SolucionLaberinto" selector="obtenerElementoOrientacion:">obtenerElementoOrientacion:or	^or obtenerElemento:self.</body>
+</methods>
+
+<methods>
+<class-id>Forma</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esCuadrado">esCuadrado	^false.</body>
+
+<body package="SolucionLaberinto" selector="esOctogono">esOctogono	^false.</body>
+</methods>
+
+<methods>
+<class-id>Forma</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="dibujar:vista:">dibujar:unCont vista:unaVista	self subclassResponsibility</body>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde: unCont	self orientaciones do: [:or | or calcularPosicionDesde: unCont]</body>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:en:">asignarPuntosReales: unCont en: otroCont	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>Forma</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="obtenerComandos">obtenerComandos	| lista |	lista := List new.	self orientaciones do:[:each | lista addAll: (each obtenerComandos: self)].	^lista.</body>
+</methods>
+
+<methods>
+<class-id>Forma</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	orientaciones := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 
 <methods>
 <class-id>Octogono</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="norte">norte	^norte</body>
-
-<body package="SolucionLaberinto" selector="norte:">norte: anObject	norte := anObject</body>
-
-<body package="SolucionLaberinto" selector="este:">este: anObject	este := anObject</body>
-
-<body package="SolucionLaberinto" selector="surEste:">surEste: anObject	surEste := anObject</body>
-
-<body package="SolucionLaberinto" selector="sur">sur	^sur</body>
-
-<body package="SolucionLaberinto" selector="surOeste">surOeste	^surOeste</body>
-
-<body package="SolucionLaberinto" selector="norEste">norEste	^norEste</body>
-
-<body package="SolucionLaberinto" selector="sur:">sur: anObject	sur := anObject</body>
-
 <body package="SolucionLaberinto" selector="surOeste:">surOeste: anObject	surOeste := anObject</body>
-
-<body package="SolucionLaberinto" selector="norEste:">norEste: anObject	norEste := anObject</body>
-
-<body package="SolucionLaberinto" selector="norOeste">norOeste	^norOeste</body>
-
-<body package="SolucionLaberinto" selector="oeste">oeste	^oeste</body>
-
-<body package="SolucionLaberinto" selector="oeste:">oeste: anObject	oeste := anObject</body>
 
 <body package="SolucionLaberinto" selector="surEste">surEste	^surEste</body>
 
-<body package="SolucionLaberinto" selector="norOeste:">norOeste: anObject	norOeste := anObject</body>
+<body package="SolucionLaberinto" selector="sur">sur	^sur</body>
+
+<body package="SolucionLaberinto" selector="norte:">norte: anObject	norte := anObject</body>
 
 <body package="SolucionLaberinto" selector="este">este	^este</body>
+
+<body package="SolucionLaberinto" selector="norEste:">norEste: anObject	norEste := anObject</body>
+
+<body package="SolucionLaberinto" selector="surOeste">surOeste	^surOeste</body>
+
+<body package="SolucionLaberinto" selector="norte">norte	^norte</body>
+
+<body package="SolucionLaberinto" selector="este:">este: anObject	este := anObject</body>
+
+<body package="SolucionLaberinto" selector="sur:">sur: anObject	sur := anObject</body>
+
+<body package="SolucionLaberinto" selector="surEste:">surEste: anObject	surEste := anObject</body>
+
+<body package="SolucionLaberinto" selector="oeste:">oeste: anObject	oeste := anObject</body>
+
+<body package="SolucionLaberinto" selector="oeste">oeste	^oeste</body>
+
+<body package="SolucionLaberinto" selector="norOeste">norOeste	^norOeste</body>
+
+<body package="SolucionLaberinto" selector="norEste">norEste	^norEste</body>
+
+<body package="SolucionLaberinto" selector="norOeste:">norOeste: anObject	norOeste := anObject</body>
 </methods>
 
 <methods>
@@ -1942,27 +1530,544 @@
 <methods>
 <class-id>Octogono</class-id> <category>moversePorLaForma</category>
 
-<body package="SolucionLaberinto" selector="irAlSurEste:">irAlSurEste:alguien	self surEste entrar:alguien.</body>
-
-<body package="SolucionLaberinto" selector="irAlNorOeste:">irAlNorOeste:alguien	self norOeste entrar:alguien.</body>
-
-<body package="SolucionLaberinto" selector="irAlEste:">irAlEste:alguien	self este entrar:alguien.</body>
-
 <body package="SolucionLaberinto" selector="irAlNorte:">irAlNorte:alguien	self norte entrar:alguien.</body>
 
-<body package="SolucionLaberinto" selector="irAlSur:">irAlSur:alguien	self sur entrar:alguien.</body>
-
-<body package="SolucionLaberinto" selector="irAlOeste:">irAlOeste:alguien	self oeste entrar:alguien.</body>
+<body package="SolucionLaberinto" selector="irAlSurEste:">irAlSurEste:alguien	self surEste entrar:alguien.</body>
 
 <body package="SolucionLaberinto" selector="irAlSurOeste:">irAlSurOeste:alguien	self surOeste entrar:alguien.</body>
 
+<body package="SolucionLaberinto" selector="irAlSur:">irAlSur:alguien	self sur entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlNorOeste:">irAlNorOeste:alguien	self norOeste entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlOeste:">irAlOeste:alguien	self oeste entrar:alguien.</body>
+
 <body package="SolucionLaberinto" selector="irAlNorEste:">irAlNorEste:alguien	self norEste entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="irAlEste:">irAlEste:alguien	self este entrar:alguien.</body>
 </methods>
 
 <methods>
 <class-id>Octogono</class-id> <category>initialize-release</category>
 
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	norte := nil.	sur := nil.	este := nil.	oeste := nil.	norEste := nil.	surEste := nil.	surOeste := nil.	norOeste := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Puerta</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
+
+<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	self estado entar:self alguien:alguien comando:comando.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self entrar:alguien comando: nil.</body>
+
+<body package="SolucionLaberinto" selector="abrir:">abrir:unComando	self estado abrir:self comando:unComando.</body>
+
+<body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
+
+<body package="SolucionLaberinto" selector="visitada:">visitada: anObject	visitada := anObject</body>
+
+<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
+
+<body package="SolucionLaberinto" selector="cerrar:">cerrar:unComando		self estado cerrar:self comando:unComando.</body>
+
+<body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
+
+<body package="SolucionLaberinto" selector="visitada">visitada	^visitada</body>
+
+<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
+
+<body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
+
+<body package="SolucionLaberinto" selector="estado">estado	^estado</body>
+
+<body package="SolucionLaberinto" selector="esAbierta">esAbierta	^self estado esAbierta.</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^true</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Puerta ', self hab1 printString, ' - ', self hab2 printString.</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde: unCont en: unPunto	self visitada		ifFalse:			[	self visitada: true.				unCont id = self hab1 id				ifTrue: 					[					self hab2 punto: unPunto.					self hab2 calcularPosicion]				ifFalse: 					[					self hab1 punto: unPunto.					self hab1 calcularPosicion]]</body>
+</methods>
+
+<methods>
+<class-id>Puerta</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	hab1 := nil.	hab2 :=nil.	estado:=Cerrada new.	self visitada:false.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Estanteria</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="contenedor">contenedor	^contenedor</body>
+
+<body package="SolucionLaberinto" selector="contenedor:">contenedor: anObject	contenedor := anObject</body>
+
+<body package="SolucionLaberinto" selector="tienda:">tienda: anObject	tienda := anObject</body>
+
+<body package="SolucionLaberinto" selector="tienda">tienda	^tienda</body>
+</methods>
+
+<methods>
+<class-id>Estanteria</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	self tienda mostrarProductos.</body>
+</methods>
+
+<methods>
+<class-id>Estanteria</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Orientacion class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Orientacion</class-id> <category>orientaciones</category>
+
+<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	self subclassResponsibility.</body>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	self subclassResponsibility.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>Orientacion</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:">calcularPosicionDesde:unCont	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>Orientacion</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos: unaForma	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>Orientacion</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>SurEste class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="default">default	SurEsteUnica isNil ifTrue: [SurEsteUnica := super new].	^SurEsteUnica.</body>
+
+<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
+</methods>
+
+
+<methods>
+<class-id>SurEste</class-id> <category>orientaciones</category>
+
+<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma surEste</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlSurEste.</body>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma surEste:unElemento.</body>
+</methods>
+
+<methods>
+<class-id>SurEste</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma surEste obtenerComandos.</body>
+</methods>
+
+<methods>
+<class-id>SurEste</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Laberinto class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Laberinto</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | (each esHabitacion) &amp; (each id = id)] ifNone:[nil]</body>
+
+<body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^hijos size.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar: alguien	| h1 |		h1 := self obtenerHabitacion:1.	h1 entrar:alguien.	Transcript show: 'El personaje ',alguien nombre printString, ' ha entrado en el laberinto';cr.</body>
+</methods>
+
+<methods>
+<class-id>Laberinto</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>NorEste class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="default">default	NorEsteUnica isNil ifTrue: [NorEsteUnica := super new].	^NorEsteUnica.</body>
+
+<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
+</methods>
+
+
+<methods>
+<class-id>NorEste</class-id> <category>orientaciones</category>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma norEste:unElemento.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlNorEste.</body>
+
+<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma norEste.</body>
+</methods>
+
+<methods>
+<class-id>NorEste</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma norEste obtenerComandos.</body>
+</methods>
+
+<methods>
+<class-id>NorEste</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>ParedBomba</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="entrar">entrar		self activada ifTrue: [				Transcript show: 'es una pared bomba y te ha explotado';cr.		self activada:false.	]	ifFalse: [				Transcript show: 'has chocado con una pared';cr.	]</body>
+
+<body package="SolucionLaberinto" selector="activada">activada	^activada</body>
+
+<body package="SolucionLaberinto" selector="activada:">activada: anObject	activada := anObject</body>
+</methods>
+
+<methods>
+<class-id>ParedBomba</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	activada := true.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>NorOeste class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="default">default	NorOesteUnica isNil ifTrue: [NorOesteUnica := super new].	^NorOesteUnica.</body>
+
+<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
+</methods>
+
+
+<methods>
+<class-id>NorOeste</class-id> <category>orientaciones</category>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma norOeste:unElemento.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlNorOeste.</body>
+
+<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma norOeste</body>
+</methods>
+
+<methods>
+<class-id>NorOeste</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma norOeste obtenerComandos.</body>
+</methods>
+
+<methods>
+<class-id>NorOeste</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Herramienta</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="poder">poder	^poder</body>
+
+<body package="SolucionLaberinto" selector="restarDuracion:">restarDuracion:alguien	self duracion:(self duracion - 1).	self duracion &lt;= 0 ifTrue: [alguien quitarObjeto:self.].</body>
+
+<body package="SolucionLaberinto" selector="poder:">poder: anObject	poder := anObject</body>
+
+<body package="SolucionLaberinto" selector="duracion">duracion	^duracion</body>
+
+<body package="SolucionLaberinto" selector="duracion:">duracion: anObject	duracion := anObject</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Herramienta</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="coger:comando:">coger:alguien comando:unComando	self quitarComando: unComando.	alguien agregarObjeto: self.</body>
+</methods>
+
+<methods>
+<class-id>Herramienta</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Almadena</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Almadena</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="isAlmadena">isAlmadena	^true.</body>
+</methods>
+
+<methods>
+<class-id>Almadena</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Almadena ' , self duracion printString.</body>
+</methods>
+
+<methods>
+<class-id>Almadena</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="hundir:comando:">hundir:alguien comando:unComando	alguien hundir: unComando.</body>
+</methods>
+
+<methods>
+<class-id>Almadena</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	poder := 2.	duracion := 5.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Cuadrado</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="norte">norte	^norte</body>
+
+<body package="SolucionLaberinto" selector="este:">este: anObject	este := anObject</body>
+
+<body package="SolucionLaberinto" selector="irAlSur:">irAlSur:alguien	self sur entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="sur:">sur: anObject	sur := anObject</body>
+
+<body package="SolucionLaberinto" selector="este">este	^este</body>
+
+<body package="SolucionLaberinto" selector="irAlOeste:">irAlOeste:alguien	self oeste entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="norte:">norte: anObject	norte := anObject</body>
+
+<body package="SolucionLaberinto" selector="irAlEste:">irAlEste:alguien	self este entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="oeste">oeste	^oeste</body>
+
+<body package="SolucionLaberinto" selector="sur">sur	^sur</body>
+
+<body package="SolucionLaberinto" selector="irAlNorte:">irAlNorte:alguien	self norte entrar:alguien.</body>
+
+<body package="SolucionLaberinto" selector="oeste:">oeste: anObject	oeste := anObject</body>
+</methods>
+
+<methods>
+<class-id>Cuadrado</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esCuadrado">esCuadrado	^true.</body>
+</methods>
+
+<methods>
+<class-id>Cuadrado</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:en:">asignarPuntosReales: unCont en: otroCont	| unPunto unExtent division numeroHijo |	unExtent := unCont extent * otroCont proporcion.	division := (unCont extent x) //(unCont hijos size).	numeroHijo := (unCont hijos indexOf: otroCont) - 1.	unPunto := (unCont punto x + (division*numeroHijo))				@ (unCont punto y + unCont extent y - unExtent y).	otroCont punto: unPunto.	otroCont extent: unExtent</body>
+
+<body package="SolucionLaberinto" selector="dibujar:vista:">dibujar: unCont vista: unaVista	unaVista dibujarContenedorRectangular: unCont</body>
+</methods>
+
+<methods>
+<class-id>Cuadrado</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	norte := nil.	sur := nil.	este := nil.	oeste := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>SurOeste class</class-id> <category>instance creation</category>
+
+<body package="SolucionLaberinto" selector="default">default	SurOesteUnica isNil ifTrue: [SurOesteUnica := super new].	^SurOesteUnica.</body>
+
+<body package="SolucionLaberinto" selector="new">new		self error:'No se pueden crear instancias nuevas de esta variable.'.</body>
+</methods>
+
+
+<methods>
+<class-id>SurOeste</class-id> <category>orientaciones</category>
+
+<body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma surEste.</body>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion		unaHabitacion forma surOeste:unElemento.</body>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien		alguien irAlSurEste.</body>
+</methods>
+
+<methods>
+<class-id>SurOeste</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="obtenerComandos:">obtenerComandos:unaForma	^unaForma surOeste obtenerComandos.</body>
+</methods>
+
+<methods>
+<class-id>SurOeste</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>DetectorDeMetales</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll:'Detector ' , self duracion printString.</body>
+</methods>
+
+<methods>
+<class-id>DetectorDeMetales</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esDetector">esDetector	^true.</body>
+</methods>
+
+<methods>
+<class-id>DetectorDeMetales</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	duracion := 5.	poder := 0.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Moneda</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="SolucionLaberinto" selector="valor">valor	^valor</body>
+
+<body package="SolucionLaberinto" selector="valor:">valor: anObject	valor := anObject</body>
+</methods>
+
+<methods>
+<class-id>Moneda</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esMoneda">esMoneda		^true.</body>
+</methods>
+
+<methods>
+<class-id>Moneda</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	valor := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>D50</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esD50">esD50	^true.</body>
+</methods>
+
+<methods>
+<class-id>D50</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 50.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>D20</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esD20">esD20	^true.</body>
+</methods>
+
+<methods>
+<class-id>D20</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 20.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>D10</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esD10">esD10	^true.</body>
+</methods>
+
+<methods>
+<class-id>D10</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 10.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>D5</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esD5">esD5	^true.</body>
+</methods>
+
+<methods>
+<class-id>D5</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	valor := 5.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Tienda</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="obtenerId">obtenerId	" *** This method was defined by Contenedor as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="SolucionLaberinto" selector="obtenerProductos">obtenerProductos	| productos |	productos := List new.		self hijos do: [:each | productos add: (each elementoMapa)].	^productos.</body>
+</methods>
+
+<methods>
+<class-id>Tienda</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esTienda">esTienda	^true.</body>
+</methods>
+
+<methods>
+<class-id>Tienda</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="asignarPuntosReales:">asignarPuntosReales:unCont	self forma asignarPuntosReales:unCont en:self</body>
+</methods>
+
+<methods>
+<class-id>Tienda</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	proporcion := 0.3.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -1978,9 +2083,9 @@
 <methods>
 <class-id>Norte</class-id> <category>orientaciones</category>
 
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma norte:unElemento.</body>
-
 <body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlNorte.</body>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma norte:unElemento.</body>
 
 <body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma norte</body>
 </methods>
@@ -2001,6 +2106,39 @@
 <class-id>Norte</class-id> <category>initialize-release</category>
 
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Espada</class-id> <category>accessing</category>
+
+<body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Espada</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esEspada">esEspada	^true.</body>
+</methods>
+
+<methods>
+<class-id>Espada</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Espada ', self duracion printString.</body>
+</methods>
+
+<methods>
+<class-id>Espada</class-id> <category>comandos</category>
+
+<body package="SolucionLaberinto" selector="atacar:comando:">atacar:alguien comando:comando	"self duracion &gt;0 ifTrue: [self duracion:(self duracion - 1).] 	ifFalse: [alguien quitarObjeto: self.]"	alguien atacaCon:self.</body>
+
+<body package="SolucionLaberinto" selector="coger:comando:">coger:alguien comando:unComando	self quitarComando: unComando.	self agregarComando: (Atacar new receptor:self).	alguien agregarObjeto: self.</body>
+</methods>
+
+<methods>
+<class-id>Espada</class-id> <category>initialize-release</category>
+
+<body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	poder := 2.	duracion := 5.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 
@@ -2092,9 +2230,9 @@
 <methods>
 <class-id>Oeste</class-id> <category>orientaciones</category>
 
-<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma oeste:unElemento.</body>
-
 <body package="SolucionLaberinto" selector="entrar:">entrar: alguien	alguien irAlOeste.</body>
+
+<body package="SolucionLaberinto" selector="ponElemento:habitacion:">ponElemento:unElemento habitacion:unaHabitacion	unaHabitacion forma oeste:unElemento.</body>
 
 <body package="SolucionLaberinto" selector="obtenerElemento:">obtenerElemento:unaForma	^unaForma oeste</body>
 </methods>
@@ -2190,6 +2328,46 @@
 </comment>
 
 <class>
+<name>FMTemplateMethod</name>
+<environment>Smalltalk</environment>
+<super>FMConOrientaciones</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>factoryMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>FMTemplateMethod</class-id>
+<body>FMTemplateMethod metodos factoria del template method.</body>
+</comment>
+
+<class>
+<name>FMBombaDecorator</name>
+<environment>Smalltalk</environment>
+<super>FactoryMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>factoryMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>FMBombaDecorator</class-id>
+<body>FMBombaDecorator crea un laberinto con dos bombas en dos paredes aplicando el patrón decorator.</body>
+</comment>
+
+<class>
 <name>FMComposite</name>
 <environment>Smalltalk</environment>
 <super>FMConOrientaciones</super>
@@ -2249,46 +2427,6 @@
 <body>FMBomba crea un laberinto que la paredes tienen bombas con herencia</body>
 </comment>
 
-<class>
-<name>FMTemplateMethod</name>
-<environment>Smalltalk</environment>
-<super>FMConOrientaciones</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>factoryMethod</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>FMTemplateMethod</class-id>
-<body>FMTemplateMethod metodos factoria del template method.</body>
-</comment>
-
-<class>
-<name>FMBombaDecorator</name>
-<environment>Smalltalk</environment>
-<super>FactoryMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>factoryMethod</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>FMBombaDecorator</class-id>
-<body>FMBombaDecorator crea un laberinto con dos bombas en dos paredes aplicando el patrón decorator.</body>
-</comment>
-
 <methods>
 <class-id>FactoryMethod class</class-id> <category>instance creation</category>
 
@@ -2309,42 +2447,42 @@
 
 <body package="factoryMethod" selector="fabricarModoPerezoso">fabricarModoPerezoso	^Perezoso new.</body>
 
+<body package="factoryMethod" selector="fabricarBicho">fabricarBicho	^Bicho new.</body>
+
+<body package="factoryMethod" selector="fabricarHabitacion:">fabricarHabitacion:id	| habitacion forma |		habitacion := Habitacion new id:id.	"habitacion orientaciones add: Norte default.	habitacion orientaciones add:Este  default.	habitacion orientaciones add:Sur  default.	habitacion orientaciones add:Oeste  default."	forma := self fabricarForma.	habitacion forma:forma.	forma contenedor: habitacion.	^habitacion.</body>
+
+<body package="factoryMethod" selector="fabricarPuertaHab1:hab2:">fabricarPuertaHab1:h1 hab2:h2	| puerta |	puerta := Puerta new.	puerta hab1:h1.	puerta hab2:h2.		^puerta.</body>
+
+<body package="factoryMethod" selector="crearBicho:en:">crearBicho:unModo en:unContenedor	| bicho |		bicho := Bicho new.</body>
+
+<body package="factoryMethod" selector="fabricarHabitacion">fabricarHabitacion	^Habitacion new.</body>
+
+<body package="factoryMethod" selector="fabricarPared">fabricarPared	^Pared new.</body>
+
+<body package="factoryMethod" selector="fabricarBomba">fabricarBomba	^Bomba new.</body>
+
+<body package="factoryMethod" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | laberinto hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared."creacion del laberinto con dos habitaciones"hab1 forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+
+<body package="factoryMethod" selector="fabricarBicho:en:">fabricarBicho:unModo en:unContenedor	| bicho |		bicho := Bicho new.	unContenedor ocupantes add:bicho.	bicho modo:unModo.	bicho posicion:unContenedor.	bicho juego: self juego.		^bicho.</body>
+
 <body package="factoryMethod" selector="fabricarModoAgresivo">fabricarModoAgresivo	^Agresivo new.</body>
 
 <body package="factoryMethod" selector="fabricarArmario:">fabricarArmario: padre	| armario forma puerta |		"crear un armario, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el armario con su padre y devolver el armario."	forma := self fabricarForma.	armario := self fabricarArmario.		armario forma:forma.	forma contenedor:armario.	armario forma orientaciones do: [:each | armario ponerEnUnaOrientacion: each UnElemento: self fabricarPared].		puerta := self fabricarPuertaHab1: armario hab2: padre.	armario ponerEnUnaOrientacion: Este default UnElemento: puerta.	padre agregarHijo: armario.		^armario.</body>
 
-<body package="factoryMethod" selector="fabricarBicho:en:">fabricarBicho:unModo en:unContenedor	| bicho |		bicho := Bicho new.	unContenedor ocupantes add:bicho.	bicho modo:unModo.	bicho posicion:unContenedor.	bicho juego: self juego.		^bicho.</body>
-
-<body package="factoryMethod" selector="fabricarHabitacion:">fabricarHabitacion:id	| habitacion forma |		habitacion := Habitacion new id:id.	"habitacion orientaciones add: Norte default.	habitacion orientaciones add:Este  default.	habitacion orientaciones add:Sur  default.	habitacion orientaciones add:Oeste  default."	forma := self fabricarForma.	habitacion forma:forma.	forma contenedor: habitacion.	^habitacion.</body>
-
-<body package="factoryMethod" selector="fabricarBicho">fabricarBicho	^Bicho new.</body>
-
-<body package="factoryMethod" selector="fabricarArmario">fabricarArmario	^Armario new.</body>
-
-<body package="factoryMethod" selector="fabricarPuertaHab1:hab2:">fabricarPuertaHab1:h1 hab2:h2	| puerta |	puerta := Puerta new.	puerta hab1:h1.	puerta hab2:h2.		^puerta.</body>
-
-<body package="factoryMethod" selector="fabricarBomba">fabricarBomba	^Bomba new.</body>
-
-<body package="factoryMethod" selector="fabricarHabitacion">fabricarHabitacion	^Habitacion new.</body>
-
-<body package="factoryMethod" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | laberinto hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared."creacion del laberinto con dos habitaciones"hab1 forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
-
-<body package="factoryMethod" selector="fabricarPared">fabricarPared	^Pared new.</body>
-
 <body package="factoryMethod" selector="fabricarForma">fabricarForma	| cuandrado |		cuandrado := Cuadrado new.	cuandrado orientaciones add: Norte default.	cuandrado orientaciones add:Este  default.	cuandrado orientaciones add:Sur  default.	cuandrado orientaciones add:Oeste  default.	^cuandrado.</body>
 
-<body package="factoryMethod" selector="crearBicho:en:">crearBicho:unModo en:unContenedor	| bicho |		bicho := Bicho new.</body>
+<body package="factoryMethod" selector="fabricarArmario">fabricarArmario	^Armario new.</body>
 </methods>
 
 
 <methods>
 <class-id>FMEstrategia</class-id> <category>FactoryMethods</category>
 
-<body package="factoryMethod" selector="fabricarEstrategiaH">fabricarEstrategiaH	^H new.</body>
+<body package="factoryMethod" selector="fabricarEstrategiaBroma">fabricarEstrategiaBroma	^Broma new.</body>
 
 <body package="factoryMethod" selector="fabricarBomba:">fabricarBomba:unaEstrategia	^Bomba new estrategia:unaEstrategia.</body>
 
-<body package="factoryMethod" selector="fabricarEstrategiaBroma">fabricarEstrategiaBroma	^Broma new.</body>
+<body package="factoryMethod" selector="fabricarEstrategiaH">fabricarEstrategiaH	^H new.</body>
 
 <body package="factoryMethod" selector="fabricarEstrategiaMina">fabricarEstrategiaMina	^Mina new.</body>
 </methods>
@@ -2380,15 +2518,28 @@
 
 <body package="factoryMethod" selector="fabricarNorte">fabricarNorte	^Norte default</body>
 
-<body package="factoryMethod" selector="fabricarEste">fabricarEste	^Este default</body>
-
-<body package="factoryMethod" selector="crearLaberinto2habsYBombas">crearLaberinto2habsYBombas"inicialización de todas las instancias" | laberinto hab1  hab2 puerta  bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba.bomba1 estrategia:self fabricarEstrategiaH.bomba2 estrategia:self fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4."creacion del laberinto con dos habitaciones"hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: bomba1.hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared2.hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento:pared3.hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento:bomba2.hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento:pared5.hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
-
 <body package="factoryMethod" selector="fabricarOeste">fabricarOeste	^Oeste default</body>
 
 <body package="factoryMethod" selector="fabricarSur">fabricarSur	^Sur default</body>
 
+<body package="factoryMethod" selector="fabricarEste">fabricarEste	^Este default</body>
+
 <body package="factoryMethod" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | laberinto hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared."creacion del laberinto con dos habitaciones"hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: pared1.hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared2.hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento:pared3.hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared4.hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento:pared5.hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+
+<body package="factoryMethod" selector="crearLaberinto2habsYBombas">crearLaberinto2habsYBombas"inicialización de todas las instancias" | laberinto hab1  hab2 puerta  bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba.bomba1 estrategia:self fabricarEstrategiaH.bomba2 estrategia:self fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4."creacion del laberinto con dos habitaciones"hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: bomba1.hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared2.hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento:pared3.hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento:bomba2.hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento:pared5.hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+</methods>
+
+
+<methods>
+<class-id>FMComposite</class-id> <category>initialize-release</category>
+
+<body package="factoryMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>FMComposite</class-id> <category>métodosFactoria</category>
+
+<body package="factoryMethod" selector="crearLaberintoArmarios">crearLaberintoArmarios	| laberinto puerta hab1 hab2 armario1 armario2 bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |	laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba.armario1 := self fabricarArmario.armario2 := self fabricarArmario.bomba1 estrategia:self fabricarEstrategiaH.bomba2 estrategia:self fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.armario1 agregarHijo: bomba1.armario2 agregarHijo: bomba2."creacion del laberinto con dos habitaciones"hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: pared1.hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared2.hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento:pared3.hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared4.hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento:pared5.hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento:pared6.puerta hab1:hab1.puerta hab2:hab2.hab1 agregarHijo: armario1.hab2 agregarHijo: armario2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
 </methods>
 
 
@@ -2401,9 +2552,9 @@
 <methods>
 <class-id>FMCuadrado</class-id> <category>métodosFactoria</category>
 
-<body package="factoryMethod" selector="fabricarHabitacion:">fabricarHabitacion:id	| habitacion forma |		forma := self fabricarForma.	habitacion := Habitacion new id:id.	habitacion forma:forma.	forma contenedor:habitacion.	^habitacion.</body>
-
 <body package="factoryMethod" selector="crearLaberintoArmarios">crearLaberintoArmarios	| laberinto puerta hab1 hab2 armario1 armario2 bomba1 bomba2 bomba3 bomba4 pared1 pared2 pared3 pared4 pared5 pared6 |	laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba.bomba3 := self fabricarBomba.bomba4 := self fabricarBomba.armario1 := self fabricarArmario:hab1.armario2 := self fabricarArmario:hab2.bomba1 estrategia:self fabricarEstrategiaH.bomba2 estrategia:self fabricarEstrategiaBroma.bomba3 estrategia:self fabricarEstrategiaMina.bomba4 estrategia:self fabricarEstrategiaH."creacion del laberinto con dos habitaciones"bomba3 elementoMapa:pared1.bomba4 elementoMapa:pared4.armario1 agregarHijo: bomba1.armario2 agregarHijo: bomba2."creacion del laberinto con dos habitaciones"hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: bomba3.hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared2.hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento:pared3.hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento:bomba4.hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento:pared5.hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento:pared6.puerta hab1:hab1.puerta hab2:hab2.hab1 agregarHijo: armario1.hab2 agregarHijo: armario2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+
+<body package="factoryMethod" selector="fabricarHabitacion:">fabricarHabitacion:id	| habitacion forma |		forma := self fabricarForma.	habitacion := Habitacion new id:id.	habitacion forma:forma.	forma contenedor:habitacion.	^habitacion.</body>
 </methods>
 
 
@@ -2457,19 +2608,6 @@
 </methods>
 
 
-<methods>
-<class-id>FMComposite</class-id> <category>initialize-release</category>
-
-<body package="factoryMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-<methods>
-<class-id>FMComposite</class-id> <category>métodosFactoria</category>
-
-<body package="factoryMethod" selector="crearLaberintoArmarios">crearLaberintoArmarios	| laberinto puerta hab1 hab2 armario1 armario2 bomba1 bomba2 pared1 pared2 pared3 pared4 pared5 pared6 |	laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba.armario1 := self fabricarArmario.armario2 := self fabricarArmario.bomba1 estrategia:self fabricarEstrategiaH.bomba2 estrategia:self fabricarEstrategiaBroma."creacion del laberinto con dos habitaciones"bomba1 elementoMapa:pared1.bomba2 elementoMapa:pared4.armario1 agregarHijo: bomba1.armario2 agregarHijo: bomba2."creacion del laberinto con dos habitaciones"hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: pared1.hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared2.hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento:pared3.hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared4.hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento:pared5.hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento:pared6.puerta hab1:hab1.puerta hab2:hab2.hab1 agregarHijo: armario1.hab2 agregarHijo: armario2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
-</methods>
-
-
 
 <component-created>
 <name>decorator</name> <type>package</type>
@@ -2499,6 +2637,26 @@
 <comment>
 <class-id>Decorator</class-id>
 <body>Decorator es la clase abstracta que representa todos los objetos que serán decoradoresInstance Variables:	elementoMapa	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of elementoMapa</body>
+</comment>
+
+<class>
+<name>Precio</name>
+<environment>Smalltalk</environment>
+<super>Decorator</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>precio comandosTienda </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>decorator</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Precio</class-id>
+<body>Precio es un decorador para poder comprar cosas y que tengan un precio.Instance Variables:	precio	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of precio</body>
 </comment>
 
 <class>
@@ -2539,13 +2697,48 @@
 
 
 <methods>
+<class-id>Precio</class-id> <category>accessing</category>
+
+<body package="decorator" selector="comandosTienda">comandosTienda	^comandosTienda</body>
+
+<body package="decorator" selector="precio:">precio: anObject	precio := anObject</body>
+
+<body package="decorator" selector="comandosTienda:">comandosTienda: anObject	comandosTienda := anObject</body>
+
+<body package="decorator" selector="precio">precio	^precio</body>
+
+<body package="decorator" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Precio</class-id> <category>printing</category>
+
+<body package="decorator" selector="printOn:">printOn: aStream	aStream nextPutAll:self elementoMapa printString, ' ', self precio printString,'$'.</body>
+</methods>
+
+<methods>
+<class-id>Precio</class-id> <category>comandos</category>
+
+<body package="decorator" selector="agregarComandoTienda:">agregarComandoTienda:  unComando	comandosTienda add: unComando.</body>
+
+<body package="decorator" selector="quitarComandoTienda:">quitarComandoTienda:  unComando	comandosTienda remove: unComando.</body>
+</methods>
+
+<methods>
+<class-id>Precio</class-id> <category>initialize-release</category>
+
+<body package="decorator" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	precio := nil.	comandosTienda := List new.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
 <class-id>Bomba</class-id> <category>accessing</category>
+
+<body package="decorator" selector="activar">activar	self activa:true.</body>
 
 <body package="decorator" selector="activa:">activa: anObject	activa := anObject</body>
 
-<body package="decorator" selector="activa">activa	^activa</body>
-
-<body package="decorator" selector="activar">activar	self activa:true.</body>
+<body package="decorator" selector="estrategia">estrategia	^estrategia</body>
 
 <body package="decorator" selector="entrar:">entrar: alguien		self estrategia entrar: alguien en: self.</body>
 
@@ -2553,7 +2746,7 @@
 
 <body package="decorator" selector="estrategia:">estrategia: anObject	estrategia := anObject</body>
 
-<body package="decorator" selector="estrategia">estrategia	^estrategia</body>
+<body package="decorator" selector="activa">activa	^activa</body>
 </methods>
 
 <methods>
@@ -2565,9 +2758,9 @@
 <methods>
 <class-id>Bomba</class-id> <category>initialize-release</category>
 
-<body package="decorator" selector="entrar">entrar	"self activa ifTrue: [				self estrategia entrar.		self activa:false.	]	ifFalse: [				self elementoMapa entrar.	]"	self estrategia entrar:self.</body>
-
 <body package="decorator" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	activa := false.	" *** And replace this comment with additional initialization code *** "	^self</body>
+
+<body package="decorator" selector="entrar">entrar	"self activa ifTrue: [				self estrategia entrar.		self activa:false.	]	ifFalse: [				self elementoMapa entrar.	]"	self estrategia entrar:self.</body>
 </methods>
 
 
@@ -2698,106 +2891,6 @@
 </class>
 
 <methods>
-<class-id>PruebasLaberintoDecorator class</class-id> <category>instance creation</category>
-
-<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>PruebasLaberintoDecorator</class-id> <category>accessing</category>
-
-<body package="Pruebas" selector="juego">juego	^juego</body>
-
-<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoDecorator</class-id> <category>running</category>
-
-<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMCuadrado new.		juego laberinto:fm crearLaberinto2habsYBombas.</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoDecorator</class-id> <category>tests</category>
-
-<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 |		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	bomba1 := habitacion1 forma norte.	self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		habitacion2 := juego obtenerHabitacion:2.	bomba2 := habitacion2 forma sur.	self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
-
-<body package="Pruebas" selector="testBombaDecorator">testBombaDecorator	| hab bomba |		hab := self juego obtenerHabitacion:1.	bomba := hab forma norte.	self assert: bomba esBomba.	self assert: bomba elementoMapa notNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.		hab := self juego obtenerHabitacion:2.	bomba := hab forma sur.	self assert: bomba esBomba.	self assert: bomba elementoMapa notNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.</body>
-
-<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 bomba1 bomba2 puertaCaraHabitacion1 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		bomba1 := habitacion1 forma norte.	self assert: bomba1 elementoMapa esPared.		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		bomba2 := habitacion2 forma sur.	self assert: bomba2 elementoMapa esPared.		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).</body>
-
-<body package="Pruebas" selector="testComprobarJuego">testComprobarJuego	| habitacion1 |	self assert: (juego laberinto notNil).	self assert: (juego laberinto hijos size = 2).		habitacion1:= juego obtenerHabitacion: 1.	self assert: (habitacion1 forma norte esBomba).</body>
-
-<body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| habitacion |		habitacion := self juego obtenerHabitacion:1.	self assert: (habitacion id = 1).		habitacion := self juego obtenerHabitacion:2.	self assert: (habitacion id = 2).</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoDecorator</class-id> <category>initialize-release</category>
-
-<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>PruebasLaberintoBuilder class</class-id> <category>instance creation</category>
-
-<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>PruebasLaberintoBuilder</class-id> <category>initialize-release</category>
-
-<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoBuilder</class-id> <category>accessing</category>
-
-<body package="Pruebas" selector="juego">juego	^juego</body>
-
-<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
-</methods>
-
-
-<methods>
-<class-id>PruebasLaberintoComposite class</class-id> <category>instance creation</category>
-
-<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>PruebasLaberintoComposite</class-id> <category>accessing</category>
-
-<body package="Pruebas" selector="juego">juego	^juego</body>
-
-<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoComposite</class-id> <category>running</category>
-
-<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMCuadrado new.		juego laberinto:fm crearLaberintoArmarios.</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoComposite</class-id> <category>tests</category>
-
-<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 puertaCaraHabitacion1 armario1 armario2 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).	self assert: (puertaCaraHabitacion1 esCerrada).		armario1 := habitacion1 hijos at:1.	self assert: (armario1 esArmario).		armario2 := habitacion2 hijos at:1.	self assert: (armario2 esArmario).</body>
-
-<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 armario1 armario2|		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	armario1 := habitacion1 hijos at:1.	armario2 := habitacion2 hijos at:1.	bomba1 := armario1 hijos at:1.	bomba2 := armario2 hijos at:1.		self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoComposite</class-id> <category>initialize-release</category>
-
-<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	juego := nil.	^self</body>
-</methods>
-
-
-<methods>
 <class-id>PruebasBuilder class</class-id> <category>instance creation</category>
 
 <body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
@@ -2807,51 +2900,51 @@
 <methods>
 <class-id>PruebasBuilder</class-id> <category>accessing</category>
 
-<body package="Pruebas" selector="numeroHabitacion">numeroHabitacion	^numeroHabitacion</body>
-
 <body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
-
-<body package="Pruebas" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
-
-<body package="Pruebas" selector="orientaciones">orientaciones	^orientaciones</body>
-
-<body package="Pruebas" selector="dic">dic	^dic</body>
 
 <body package="Pruebas" selector="juego">juego	^juego</body>
 
 <body package="Pruebas" selector="dic:">dic: anObject	dic := anObject</body>
 
+<body package="Pruebas" selector="dic">dic	^dic</body>
+
+<body package="Pruebas" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
+
 <body package="Pruebas" selector="numeroHabitacion:">numeroHabitacion: anObject	numeroHabitacion := anObject</body>
+
+<body package="Pruebas" selector="orientaciones">orientaciones	^orientaciones</body>
+
+<body package="Pruebas" selector="numeroHabitacion">numeroHabitacion	^numeroHabitacion</body>
 </methods>
 
 <methods>
 <class-id>PruebasBuilder</class-id> <category>testing</category>
 
-<body package="Pruebas" selector="comprobarArmarioEn:">comprobarArmarioEn:padre	| arm |		arm := padre hijos detect: [:each | each esArmario and: [each tested not]] ifNone: [nil].	self assert: (arm notNil).	self assert: (arm esArmario).	arm tested:true.	^arm.</body>
+<body package="Pruebas" selector="comprobarBombaMinaEn:">comprobarBombaMinaEn:padre	| mina |	mina := padre hijos detect:[:each |each  esBomba and: [each tested not]] ifNone: [nil].	self assert: (mina esBomba).	self assert: (mina estrategia esMina).	mina tested:true.	^mina.</body>
 
-<body package="Pruebas" selector="comprobarPuertaDe:orientacion:a:orientacion:">comprobarPuertaDe:unNum1 orientacion:cadena1 a:unNum2 orientacion:cadena2	| hab1 hab2 or1 or2 puerta |	hab1 := self juego obtenerHabitacion: unNum1.	hab2 := self juego obtenerHabitacion: unNum2.	or1 := self orientaciones at:cadena1.	or2 := self orientaciones at:cadena2.		puerta := hab1 obtenerElementoOrientacion:or1.		self assert: (puerta esPuerta).	self assert: (puerta = (hab2 obtenerElementoOrientacion:or2))</body>
+<body package="Pruebas" selector="comprobarHabitacion:">comprobarHabitacion:unNum	| hab |		hab := self juego obtenerHabitacion: unNum.	self assert: (hab notNil).	self assert: (hab esHabitacion).		^hab.</body>
 
-<body package="Pruebas" selector="comprobarEspadaEn:">comprobarEspadaEn:padre	| espada |	espada := padre hijos detect:[:each |each  esEspada and: [each tested not]] ifNone: [nil].	self assert: (espada esEspada).	self assert: (espada poder = 2).	espada tested:true.	^espada.</body>
+<body package="Pruebas" selector="comprobarBaulEn:"> comprobarBaulEn:padre	| baul |		baul := padre hijos detect:[:each |each esBaul and: [each tested not]] ifNone: [nil].	self assert: (baul notNil).	self assert: (baul esBaul).	baul tested:true.	^baul.</body>
 
 <body package="Pruebas" selector="comprobarLaberintoRecursivo:en:">comprobarLaberintoRecursivo:unDic en:padre	| con |	(unDic at:'tipo')='habitacion' ifTrue:[con:= self comprobarHabitacion:self numeroHabitacion.	self numeroHabitacion:(self numeroHabitacion + 1).	].	(unDic at:'tipo')='baul' ifTrue:[con:=self comprobarBaulEn:padre].	(unDic at:'tipo')='armario' ifTrue:[con:=self comprobarArmarioEn:padre].	(unDic at:'tipo')='an' ifTrue: [con:=self comprobarAgujeroNegro:padre].	(unDic at:'tipo')='espada' ifTrue: [con:=self comprobarEspadaEn:padre].	(unDic at:'tipo')='bomba' ifTrue:[			(unDic at:'argumento')='broma' ifTrue: [self comprobarBombaBromaEn:padre].		(unDic at:'argumento')='H' ifTrue: [self comprobarBombaHEn:padre].		(unDic at:'argumento')='mina' ifTrue: [self comprobarBombaMinaEn:padre].	].		(unDic at:'hijos' ifAbsent:[^nil]) do:[:each | self comprobarLaberintoRecursivo:each en:con].</body>
 
 <body package="Pruebas" selector="comprobarTesoro">comprobarTesoro	| contenedores esta |	contenedores :=  self juego laberinto obtenerHijosRecursivo.	esta := contenedores detect: [:each  | each esTesoro ] ifNone: [Contenedor new].	self assert: (esta esTesoro).</body>
 
-<body package="Pruebas" selector="comprobarBaulEn:"> comprobarBaulEn:padre	| baul |		baul := padre hijos detect:[:each |each esBaul and: [each tested not]] ifNone: [nil].	self assert: (baul notNil).	self assert: (baul esBaul).	baul tested:true.	^baul.</body>
+<body package="Pruebas" selector="comprobarBombaBromaEn:">comprobarBombaBromaEn:padre	| broma |	broma := padre hijos detect:[:each |each  esBomba and: [each tested not]] ifNone: [nil].	self assert: (broma esBomba).	self assert: (broma estrategia esBroma).	broma tested:true.</body>
 
 <body package="Pruebas" selector="comprobarNumeroHabitaciones">comprobarNumeroHabitaciones	self assert: (self numeroHabitacion - 1 = self juego comprobarNumeroHabitaciones).</body>
 
-<body package="Pruebas" selector="comprobarBombaBromaEn:">comprobarBombaBromaEn:padre	| broma |	broma := padre hijos detect:[:each |each  esBomba and: [each tested not]] ifNone: [nil].	self assert: (broma esBomba).	self assert: (broma estrategia esBroma).	broma tested:true.</body>
+<body package="Pruebas" selector="comprobarPuertaDe:orientacion:a:orientacion:">comprobarPuertaDe:unNum1 orientacion:cadena1 a:unNum2 orientacion:cadena2	| hab1 hab2 or1 or2 puerta |	hab1 := self juego obtenerHabitacion: unNum1.	hab2 := self juego obtenerHabitacion: unNum2.	or1 := self orientaciones at:cadena1.	or2 := self orientaciones at:cadena2.		puerta := hab1 obtenerElementoOrientacion:or1.		self assert: (puerta esPuerta).	self assert: (puerta = (hab2 obtenerElementoOrientacion:or2))</body>
 
-<body package="Pruebas" selector="comprobarAgujeroNegro:">comprobarAgujeroNegro:padre	| an |	an := padre hijos detect: [:each | each esAgujeroNegro and: [each tested not]] ifNone: [nil].	self assert: (an esAgujeroNegro).	an tested: true.	^an.</body>
+<body package="Pruebas" selector="comprobarEspadaEn:">comprobarEspadaEn:padre	| espada |	espada := padre hijos detect:[:each |each  esEspada and: [each tested not]] ifNone: [nil].	self assert: (espada esEspada).	self assert: (espada poder = 2).	espada tested:true.	^espada.</body>
+
+<body package="Pruebas" selector="comprobarArmarioEn:">comprobarArmarioEn:padre	| arm |		arm := padre hijos detect: [:each | each esArmario and: [each tested not]] ifNone: [nil].	self assert: (arm notNil).	self assert: (arm esArmario).	arm tested:true.	^arm.</body>
 
 <body package="Pruebas" selector="comprobarBombaHEn:">comprobarBombaHEn:padre	| h |	h := padre hijos detect:[:each |each  esBomba and: [each tested not]] ifNone: [nil].	self assert: (h esBomba).	self assert: (h estrategia esH).	h tested:true.	^h.</body>
 
 <body package="Pruebas" selector="testLaberinto">testLaberinto		(self dic at:'laberinto') do:[:each | self comprobarLaberintoRecursivo:each en:'root' ].	(dic at:'puertas' ifAbsent:[^nil]) do:[:cada | self comprobarPuertaDe:(cada at:1) orientacion:(cada at:2) a:(cada at:3) orientacion:(cada at:4)].	self comprobarTesoro.	self comprobarNumeroHabitaciones.</body>
 
-<body package="Pruebas" selector="comprobarBombaMinaEn:">comprobarBombaMinaEn:padre	| mina |	mina := padre hijos detect:[:each |each  esBomba and: [each tested not]] ifNone: [nil].	self assert: (mina esBomba).	self assert: (mina estrategia esMina).	mina tested:true.	^mina.</body>
-
-<body package="Pruebas" selector="comprobarHabitacion:">comprobarHabitacion:unNum	| hab |		hab := self juego obtenerHabitacion: unNum.	self assert: (hab notNil).	self assert: (hab esHabitacion).		^hab.</body>
+<body package="Pruebas" selector="comprobarAgujeroNegro:">comprobarAgujeroNegro:padre	| an |	an := padre hijos detect: [:each | each esAgujeroNegro and: [each tested not]] ifNone: [nil].	self assert: (an esAgujeroNegro).	an tested: true.	^an.</body>
 </methods>
 
 <methods>
@@ -2868,35 +2961,6 @@
 
 
 <methods>
-<class-id>PruebasLaberintoArmarios</class-id> <category>accessing</category>
-
-<body package="Pruebas" selector="juegoLaberinto">juegoLaberinto	^juegoLaberinto</body>
-
-<body package="Pruebas" selector="juegoLaberinto:">juegoLaberinto: anObject	juegoLaberinto := anObject</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoArmarios</class-id> <category>running</category>
-
-<body package="Pruebas" selector="setUp">setUp| fm |		self juegoLaberinto:JuegoLaberinto new.	fm := FMCuadrado new.		juegoLaberinto laberinto:fm crearLaberintoArmarios.</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoArmarios</class-id> <category>testing</category>
-
-<body package="Pruebas" selector="testBomba">testBomba	| hab bomba |		hab := self juegoLaberinto obtenerHabitacion:1.	bomba := (hab hijos at:1)  hijos at:1.	self assert: bomba esBomba.	self assert: bomba elementoMapa isNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.		hab := self juegoLaberinto obtenerHabitacion:2.	bomba := (hab hijos at:1)  hijos at:1.	self assert: bomba esBomba.	self assert: bomba elementoMapa isNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.</body>
-
-<body package="Pruebas" selector="testArmario">testArmario	| hab armario |		hab := self juegoLaberinto obtenerHabitacion:1.	armario := hab hijos at:1.	self assert: armario esArmario.	self assert: armario forma este esPuerta.		hab := self juegoLaberinto obtenerHabitacion:2.	armario := hab hijos at:1.	self assert: armario esArmario.	self assert: armario forma este esPuerta.</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoArmarios</class-id> <category>initialize-release</category>
-
-<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juegoLaberinto := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
 <class-id>PruebaLaberintoBichos class</class-id> <category>instance creation</category>
 
 <body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
@@ -2906,9 +2970,9 @@
 <methods>
 <class-id>PruebaLaberintoBichos</class-id> <category>accessing</category>
 
-<body package="Pruebas" selector="juego">juego	^juego</body>
-
 <body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
 </methods>
 
 <methods>
@@ -2940,9 +3004,9 @@
 <methods>
 <class-id>PruebasLaberintoBombas</class-id> <category>accessing</category>
 
-<body package="Pruebas" selector="juego">juego	^juego</body>
-
 <body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
 </methods>
 
 <methods>
@@ -2954,21 +3018,150 @@
 <methods>
 <class-id>PruebasLaberintoBombas</class-id> <category>tests</category>
 
-<body package="Pruebas" selector="testComprobarJuego">testComprobarJuego	| habitacion1 |	self assert: (juego laberinto notNil).	self assert: (juego laberinto hijos size = 2).		habitacion1:= juego obtenerHabitacion: 1.	self assert: (habitacion1 forma norte esBomba).</body>
-
 <body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| habitacion |		habitacion := self juego obtenerHabitacion:1.	self assert: (habitacion id = 1).		habitacion := self juego obtenerHabitacion:2.	self assert: (habitacion id = 2).</body>
 
-<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 |		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	bomba1 := habitacion1 forma norte.	self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = Mina).		habitacion2 := juego obtenerHabitacion:2.	bomba2 := habitacion2 forma sur.	self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = H).</body>
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 bomba1 bomba2 puertaCaraHabitacion1 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		bomba1 := habitacion1 forma norte.	self assert: bomba1 elementoMapa esPared.		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		bomba2 := habitacion2 forma sur.	self assert: bomba2 elementoMapa esPared.		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).</body>
+
+<body package="Pruebas" selector="testComprobarJuego">testComprobarJuego	| habitacion1 |	self assert: (juego laberinto notNil).	self assert: (juego laberinto hijos size = 2).		habitacion1:= juego obtenerHabitacion: 1.	self assert: (habitacion1 forma norte esBomba).</body>
 
 <body package="Pruebas" selector="testBombaDecorator">testBombaDecorator	| hab bomba |		hab := self juego obtenerHabitacion:1.	bomba := hab forma norte.	self assert: bomba esBomba.	self assert: bomba elementoMapa notNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.		hab := self juego obtenerHabitacion:2.	bomba := hab forma sur.	self assert: bomba esBomba.	self assert: bomba elementoMapa notNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.</body>
 
-<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 bomba1 bomba2 puertaCaraHabitacion1 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		bomba1 := habitacion1 forma norte.	self assert: bomba1 elementoMapa esPared.		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		bomba2 := habitacion2 forma sur.	self assert: bomba2 elementoMapa esPared.		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).</body>
+<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 |		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	bomba1 := habitacion1 forma norte.	self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = Mina).		habitacion2 := juego obtenerHabitacion:2.	bomba2 := habitacion2 forma sur.	self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = H).</body>
 </methods>
 
 <methods>
 <class-id>PruebasLaberintoBombas</class-id> <category>initialize-release</category>
 
 <body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoDecorator class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMCuadrado new.		juego laberinto:fm crearLaberinto2habsYBombas.</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>tests</category>
+
+<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 |		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	bomba1 := habitacion1 forma norte.	self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		habitacion2 := juego obtenerHabitacion:2.	bomba2 := habitacion2 forma sur.	self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
+
+<body package="Pruebas" selector="testBombaDecorator">testBombaDecorator	| hab bomba |		hab := self juego obtenerHabitacion:1.	bomba := hab forma norte.	self assert: bomba esBomba.	self assert: bomba elementoMapa notNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.		hab := self juego obtenerHabitacion:2.	bomba := hab forma sur.	self assert: bomba esBomba.	self assert: bomba elementoMapa notNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.</body>
+
+<body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| habitacion |		habitacion := self juego obtenerHabitacion:1.	self assert: (habitacion id = 1).		habitacion := self juego obtenerHabitacion:2.	self assert: (habitacion id = 2).</body>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 bomba1 bomba2 puertaCaraHabitacion1 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		bomba1 := habitacion1 forma norte.	self assert: bomba1 elementoMapa esPared.		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		bomba2 := habitacion2 forma sur.	self assert: bomba2 elementoMapa esPared.		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).</body>
+
+<body package="Pruebas" selector="testComprobarJuego">testComprobarJuego	| habitacion1 |	self assert: (juego laberinto notNil).	self assert: (juego laberinto hijos size = 2).		habitacion1:= juego obtenerHabitacion: 1.	self assert: (habitacion1 forma norte esBomba).</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoDecorator</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoBuilder class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoBuilder</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoBuilder</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoComposite class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoComposite</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoComposite</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp	| fm |		self juego:JuegoLaberinto new.	fm := FMCuadrado new.		juego laberinto:fm crearLaberintoArmarios.</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoComposite</class-id> <category>tests</category>
+
+<body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 armario1 armario2|		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	armario1 := habitacion1 hijos at:1.	armario2 := habitacion2 hijos at:1.	bomba1 := armario1 hijos at:1.	bomba2 := armario2 hijos at:1.		self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 puertaCaraHabitacion1 armario1 armario2 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).	self assert: (puertaCaraHabitacion1 esCerrada).		armario1 := habitacion1 hijos at:1.	self assert: (armario1 esArmario).		armario2 := habitacion2 hijos at:1.	self assert: (armario2 esArmario).</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoComposite</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	juego := nil.	^self</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasLaberintoArmarios</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juegoLaberinto:">juegoLaberinto: anObject	juegoLaberinto := anObject</body>
+
+<body package="Pruebas" selector="juegoLaberinto">juegoLaberinto	^juegoLaberinto</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoArmarios</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp| fm |		self juegoLaberinto:JuegoLaberinto new.	fm := FMCuadrado new.		juegoLaberinto laberinto:fm crearLaberintoArmarios.</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoArmarios</class-id> <category>testing</category>
+
+<body package="Pruebas" selector="testBomba">testBomba	| hab bomba |		hab := self juegoLaberinto obtenerHabitacion:1.	bomba := (hab hijos at:1)  hijos at:1.	self assert: bomba esBomba.	self assert: bomba elementoMapa isNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.		hab := self juegoLaberinto obtenerHabitacion:2.	bomba := (hab hijos at:1)  hijos at:1.	self assert: bomba esBomba.	self assert: bomba elementoMapa isNil.	self assert: bomba activa not.	bomba activar.	self assert: bomba activa.</body>
+
+<body package="Pruebas" selector="testArmario">testArmario	| hab armario |		hab := self juegoLaberinto obtenerHabitacion:1.	armario := hab hijos at:1.	self assert: armario esArmario.	self assert: armario forma este esPuerta.		hab := self juegoLaberinto obtenerHabitacion:2.	armario := hab hijos at:1.	self assert: armario esArmario.	self assert: armario forma este esPuerta.</body>
+</methods>
+
+<methods>
+<class-id>PruebasLaberintoArmarios</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juegoLaberinto := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 
@@ -3075,9 +3268,9 @@
 
 <body package="Estrategy" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 
-<body package="Estrategy" selector="entrar:en:">entrar:alguien en:unaBomba	unaBomba activa ifTrue: [				self explotar:unaBomba sobre:alguien.	]	ifFalse: [				unaBomba elementoMapa notNil ifTrue: [				unaBomba elementoMapa entrar:alguien.			]	]</body>
-
 <body package="Estrategy" selector="explotar:sobre:">explotar:unaBomba sobre:alguien	self subclassResponsibility.</body>
+
+<body package="Estrategy" selector="entrar:en:">entrar:alguien en:unaBomba	unaBomba activa ifTrue: [				self explotar:unaBomba sobre:alguien.	]	ifFalse: [				unaBomba elementoMapa notNil ifTrue: [				unaBomba elementoMapa entrar:alguien.			]	]</body>
 
 <body package="Estrategy" selector="entrar:">entrar:unaBomba	self subclassResponsibility.</body>
 </methods>
@@ -3085,11 +3278,11 @@
 <methods>
 <class-id>Estrategia</class-id> <category>testing</category>
 
-<body package="Estrategy" selector="esBroma">esBroma	^false.</body>
+<body package="Estrategy" selector="esMina">esMina	^false.</body>
 
 <body package="Estrategy" selector="esH">esH	^false.</body>
 
-<body package="Estrategy" selector="esMina">esMina	^false.</body>
+<body package="Estrategy" selector="esBroma">esBroma	^false.</body>
 </methods>
 
 
@@ -3115,9 +3308,9 @@
 <methods>
 <class-id>Mina</class-id> <category>initialize-release</category>
 
-<body package="Estrategy" selector="explotar:sobre:">explotar:unaBomba sobre:alguien	Transcript show: alguien printString, 'Te has topado con una mina, estas muerto.'</body>
-
 <body package="Estrategy" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="Estrategy" selector="explotar:sobre:">explotar:unaBomba sobre:alguien	Transcript show: alguien printString, 'Te has topado con una mina, estas muerto.'</body>
 
 <body package="Estrategy" selector="entrar:en:">entrar:alguien en: unaBomba	unaBomba activa ifTrue: [				Transcript show: 'Te has topado con una mina, estas muerto.'.		unaBomba activa:false.	]	ifFalse: [				unaBomba elementoMapa entrar:alguien.	]</body>
 </methods>
@@ -3136,9 +3329,9 @@
 
 <body package="Estrategy" selector="explotar:sobre:">explotar:unaBomba sobre:alguien	Transcript show: alguien printString, 'Has activado una bomba de tipo H, en otras palabras has volado todo lo que había en la habitación, tu incluido :)'.</body>
 
-<body package="Estrategy" selector="entrar:en:">entrar:alguien en: unaBombaunaBomba activa ifTrue: [				Transcript show: 'Has activado una bomba de tipo H, en otras palabras has volado todo lo que había en la habitación, tu incluido :)'.unaBomba activa:false	]	ifFalse: [				unaBomba elementoMapa entrar:alguien.	]</body>
-
 <body package="Estrategy" selector="entrar">entrar	Transcript show: 'Has activado una bomba de tipo H, en otras palabras has volado todo lo que había en la habitación, tu incluido :)'</body>
+
+<body package="Estrategy" selector="entrar:en:">entrar:alguien en: unaBombaunaBomba activa ifTrue: [				Transcript show: 'Has activado una bomba de tipo H, en otras palabras has volado todo lo que había en la habitación, tu incluido :)'.unaBomba activa:false	]	ifFalse: [				unaBomba elementoMapa entrar:alguien.	]</body>
 </methods>
 
 <methods>
@@ -3158,46 +3351,6 @@
 <name>templateMethod</name> <type>package</type>
 <property>comment</property> <value>'Guarda las clases del patrán template method.'</value>
 </component-property>
-
-<class>
-<name>Modo</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>templateMethod</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Modo</class-id>
-<body>Modo representa los posibles comportamientos del bicho, clase abstracta</body>
-</comment>
-
-<class>
-<name>Golismero</name>
-<environment>Smalltalk</environment>
-<super>Modo</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>templateMethod</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Golismero</class-id>
-<body>Golismero es un modo de comportamiento para los michos que trata de entrar en los contenedores que hay dentro de las habitaciones.</body>
-</comment>
 
 <class>
 <name>Ente</name>
@@ -3225,7 +3378,7 @@
 <super>Ente</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>nombre mochila arma cartera </inst-vars>
+<inst-vars>nombre mochila arma cartera dinero </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -3237,6 +3390,26 @@
 <comment>
 <class-id>Personaje</class-id>
 <body>Personaje repsenta un ente diferente a los bichos con nombre propio.Instance Variables:	nombre	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of nombre</body>
+</comment>
+
+<class>
+<name>Modo</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>templateMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Modo</class-id>
+<body>Modo representa los posibles comportamientos del bicho, clase abstracta</body>
 </comment>
 
 <class>
@@ -3299,38 +3472,58 @@
 <body>Agresivo ataca a lo que sea.</body>
 </comment>
 
+<class>
+<name>Golismero</name>
+<environment>Smalltalk</environment>
+<super>Modo</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>templateMethod</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Golismero</class-id>
+<body>Golismero es un modo de comportamiento para los michos que trata de entrar en los contenedores que hay dentro de las habitaciones.</body>
+</comment>
+
 <methods>
 <class-id>Ente</class-id> <category>accessing</category>
 
-<body package="templateMethod" selector="poder">poder	^poder</body>
-
-<body package="templateMethod" selector="esPersonaje">esPersonaje	^false.</body>
-
-<body package="templateMethod" selector="poder:">poder: anObject	poder := anObject</body>
-
-<body package="templateMethod" selector="posicion">posicion	^posicion</body>
-
-<body package="templateMethod" selector="posicion:">posicion: anObject	posicion := anObject</body>
-
-<body package="templateMethod" selector="vidas">vidas	^vidas</body>
-
-<body package="templateMethod" selector="esBicho">esBicho	^false.</body>
-
-<body package="templateMethod" selector="vidas:">vidas: anObject	vidas := anObject.	self changed: #vidas.</body>
-
-<body package="templateMethod" selector="modo">modo	self subclassResponsibility</body>
+<body package="templateMethod" selector="obtenerOrientaciones">obtenerOrientaciones	self subclassResponsibility</body>
 
 <body package="templateMethod" selector="modo:">modo: anObject	self subclassResponsibility</body>
 
-<body package="templateMethod" selector="id">id	self subclassResponsibility</body>
-
-<body package="templateMethod" selector="id:">id: anObject	self subclassResponsibility</body>
-
 <body package="templateMethod" selector="juego">juego	^juego</body>
+
+<body package="templateMethod" selector="vidas:">vidas: anObject	vidas := anObject.	self changed: #vidas.</body>
+
+<body package="templateMethod" selector="poder">poder	^poder</body>
 
 <body package="templateMethod" selector="juego:">juego: anObject	juego := anObject</body>
 
-<body package="templateMethod" selector="obtenerOrientaciones">obtenerOrientaciones	self subclassResponsibility</body>
+<body package="templateMethod" selector="esPersonaje">esPersonaje	^false.</body>
+
+<body package="templateMethod" selector="vidas">vidas	^vidas</body>
+
+<body package="templateMethod" selector="modo">modo	self subclassResponsibility</body>
+
+<body package="templateMethod" selector="poder:">poder: anObject	poder := anObject</body>
+
+<body package="templateMethod" selector="id">id	self subclassResponsibility</body>
+
+<body package="templateMethod" selector="esBicho">esBicho	^false.</body>
+
+<body package="templateMethod" selector="posicion">posicion	^posicion</body>
+
+<body package="templateMethod" selector="id:">id: anObject	self subclassResponsibility</body>
+
+<body package="templateMethod" selector="posicion:">posicion: anObject	posicion := anObject</body>
 </methods>
 
 <methods>
@@ -3338,13 +3531,13 @@
 
 <body package="templateMethod" selector="atacarEnemigo:">atacarEnemigo:alguien	alguien esAtacado: self poder.	Transcript show: self printString, ' ataca a ', alguien printString;cr.</body>
 
-<body package="templateMethod" selector="esAtacado:">esAtacado:unNumero	self vidas:(self vidas - unNumero).	Transcript show: self printString, ' tiene ', self vidas printString, ' vidas';cr.	self vidas &lt;= 0 ifTrue: [self morir.].</body>
-
 <body package="templateMethod" selector="morir">morir	self subclassResponsibility.</body>
 
-<body package="templateMethod" selector="ataca">ataca	| enemigo |		enemigo := self seleccionarEnemigo.	enemigo ifNotNil: [self atacarEnemigo:enemigo.].</body>
-
 <body package="templateMethod" selector="seleccionarEnemigo">seleccionarEnemigo	self subclassResponsibility.</body>
+
+<body package="templateMethod" selector="esAtacado:">esAtacado:unNumero	self vidas:(self vidas - unNumero).	Transcript show: self printString, ' tiene ', self vidas printString, ' vidas';cr.	self vidas &lt;= 0 ifTrue: [self morir.].</body>
+
+<body package="templateMethod" selector="ataca">ataca	| enemigo |		enemigo := self seleccionarEnemigo.	enemigo ifNotNil: [self atacarEnemigo:enemigo.].</body>
 </methods>
 
 <methods>
@@ -3352,25 +3545,198 @@
 
 <body package="templateMethod" selector="irAlSurOeste">irAlSurOeste	self posicion forma irAlSurOeste:self.</body>
 
-<body package="templateMethod" selector="irAlSur">irAlSur	self posicion forma irAlSur:self.</body>
-
-<body package="templateMethod" selector="salirDePosicion">salirDePosicion	self posicion notNil	ifTrue: [self posicion salir:self].</body>
-
 <body package="templateMethod" selector="irAlOeste">irAlOeste	self posicion forma irAlOeste:self.</body>
-
-<body package="templateMethod" selector="irAlNorEste">irAlNorEste	self posicion forma irAlNorEste:self.</body>
 
 <body package="templateMethod" selector="irAlNorOeste">irAlNorOeste	self posicion forma irAlNorOeste:self.</body>
 
-<body package="templateMethod" selector="irAlNorte">irAlNorte	self posicion forma irAlNorte:self.</body>
+<body package="templateMethod" selector="irAlNorEste">irAlNorEste	self posicion forma irAlNorEste:self.</body>
+
+<body package="templateMethod" selector="salirDePosicion">salirDePosicion	self posicion notNil	ifTrue: [self posicion salir:self].</body>
 
 <body package="templateMethod" selector="irAlEste">irAlEste	self posicion forma irAlEste:self.</body>
 
+<body package="templateMethod" selector="irAlSur">irAlSur	self posicion forma irAlSur:self.</body>
+
 <body package="templateMethod" selector="actualizarPosicion:">actualizarPosicion:unContenedor	self salirDePosicion.	self posicion:unContenedor.	self posicion agregarOcupante:self.</body>
 
-<body package="templateMethod" selector="irAlSurEste">irAlSurEste	self posicion forma irAlSurEste:self.</body>
+<body package="templateMethod" selector="irAlNorte">irAlNorte	self posicion forma irAlNorte:self.</body>
 
 <body package="templateMethod" selector="actua">actua	self subclassResponsibility</body>
+
+<body package="templateMethod" selector="irAlSurEste">irAlSurEste	self posicion forma irAlSurEste:self.</body>
+</methods>
+
+
+<methods>
+<class-id>Personaje class</class-id> <category>instance creation</category>
+
+<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Personaje</class-id> <category>herramientas</category>
+
+<body package="templateMethod" selector="golpearCon:">golpearCon:unaHerramienta	self poder:(self poder + unaHerramienta poder).	self arma:unaHerramienta.	self golpear.</body>
+
+<body package="templateMethod" selector="golpear">golpear</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>accessing</category>
+
+<body package="templateMethod" selector="id">id	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="id:">id: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="arma">arma	^arma</body>
+
+<body package="templateMethod" selector="nombre">nombre	^nombre</body>
+
+<body package="templateMethod" selector="obtenerOrientaciones">obtenerOrientaciones	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="modo:">modo: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+
+<body package="templateMethod" selector="nombre:">nombre: anObject	nombre := anObject</body>
+
+<body package="templateMethod" selector="cartera:">cartera: anObject	cartera := anObject</body>
+
+<body package="templateMethod" selector="dinero">dinero	^dinero</body>
+
+<body package="templateMethod" selector="mochila">mochila	^mochila</body>
+
+<body package="templateMethod" selector="arma:">arma: anObject	arma := anObject</body>
+
+<body package="templateMethod" selector="esPersonaje">esPersonaje	^true.</body>
+
+<body package="templateMethod" selector="dinero:">dinero: anObject	dinero := anObject</body>
+
+<body package="templateMethod" selector="cartera">cartera	^cartera</body>
+
+<body package="templateMethod" selector="mochila:">mochila: anObject	mochila := anObject</body>
+
+<body package="templateMethod" selector="modo">modo	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>ataques</category>
+
+<body package="templateMethod" selector="seleccionarEnemigo">seleccionarEnemigo	^self posicion ocupantes detect:[:each | each esBicho ] ifNone:[nil].</body>
+
+<body package="templateMethod" selector="atacaCon:">atacaCon:unArma	self poder:(self poder + unArma poder).	self arma:unArma.	self ataca.</body>
+
+<body package="templateMethod" selector="ataca">ataca	| enemigo |		enemigo := self seleccionarEnemigo.	enemigo ifNotNil: [		self atacarEnemigo:enemigo.		self arma restarDuracion:self.		].</body>
+
+<body package="templateMethod" selector="morir">morir	self juego finJuego.	Transcript show: 'El personaje está muerto, el juego ha terminado.';cr.</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>mochila</category>
+
+<body package="templateMethod" selector="agregarObjeto:">agregarObjeto:unObjeto	self mochila add:unObjeto.</body>
+
+<body package="templateMethod" selector="quitarObjeto:">quitarObjeto:unObjeto	self mochila remove:unObjeto ifAbsent: [nil].</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>comandos</category>
+
+<body package="templateMethod" selector="cobrar:">cobrar: cantidad	| cobrado moneda |	cobrado := 0.	cantidad &gt; cobrado whileTrue: 			[moneda := cartera detect: [:each | each esD50].			moneda := cartera detect: [:each | each esD20].			moneda := cartera detect: [:each | each esD10].			moneda := cartera detect: [:each | each esD5].			cartera remove: moneda.			cobrado := cobrado + moneda valor].	cantidad &gt; cobrado whileTrue: 			[cobrado - cantidad &gt;= 50				ifTrue: 					[cartera add: D50 new.					cobrado := cobrado - 50].			cobrado - cantidad &gt;= 20				ifTrue: 					[cartera add: D20 new.					cobrado := cobrado - 20].			cobrado - cantidad &gt;= 10				ifTrue: 					[cartera add: D10 new.					cobrado := cobrado - 10].			cobrado - cantidad &gt;= 5				ifTrue: 					[cartera add: D5 new.					cobrado := cobrado - 5]]</body>
+
+<body package="templateMethod" selector="comprarComando:">comprarComando: objeto	objeto precio &lt;= self dineroTotal		ifTrue: 			[			self cobrar:objeto precio.			self agregarObjeto: objeto elementoMapa.			]		ifFalse: 			[Transcript				show: 'No tienes suficiente dinero para ' , objeto elementoMapa printString;				cr]</body>
+
+<body package="templateMethod" selector="hundir:">hundir:unComando	| objeto |	objeto := mochila detect: [:each| each esAlmadena] ifNone: [nil.].	objeto ifNotNil: [self equipar: objeto].	"si no es nula, la equipo, golpeo y le quito una de duracion"	self arma ifNotNil: [		self arma restarDuracion: self.		unComando receptor hundir:unComando.		] ifNil: [		Transcript show: 'Sin una almadena no puedes tumbar la pared.';cr].</body>
+
+<body package="templateMethod" selector="analizar:">analizar:unComando	| objeto monedas |	 objeto := mochila detect: [:each| each esDetector] ifNone: [nil.].	objeto ifNotNil: [self equipar: objeto].		self arma ifNotNil: [		self arma restarDuracion: self.		monedas := unComando receptor analizar: unComando.		self agregarMonedas: monedas.		dinero := self dineroTotal.		] ifNil: [		Transcript show: 'Sin un detector no puedes buscar monedas.';cr].</body>
+
+<body package="templateMethod" selector="equipar:">equipar:unObjeto	self quitarObjeto: unObjeto.	self arma ifNotNil: [self agregarObjeto: self arma].	self arma: unObjeto.</body>
+
+<body package="templateMethod" selector="obtenerComandos">obtenerComandos	^self posicion obtenerComandos.</body>
+
+<body package="templateMethod" selector="entraOrientacion:">entraOrientacion:unaOrientacion	self juego entrarOrientacion:unaOrientacion.</body>
+
+<body package="templateMethod" selector="ejecutarComando:">ejecutarComando:comando	self juego ejecutarComando:comando.</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>initialize-release</category>
+
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	mochila := List new.	cartera := List new.	dinero := 0.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>cartera</category>
+
+<body package="templateMethod" selector="dineroTotal">dineroTotal	| suma |	suma := 0.	self cartera do: [:each | suma:= suma + each valor].	^suma.</body>
+
+<body package="templateMethod" selector="quitarMoneda:">quitarMoneda:unaMoneda	self cartera remove:unaMoneda ifAbsent: [nil].</body>
+
+<body package="templateMethod" selector="agregarMonedas:">agregarMonedas:unasMonedas	unasMonedas do:[:each | cartera add:each].</body>
+
+<body package="templateMethod" selector="agregarMoneda:">agregarMoneda:unaMoneda	self cartera add:unaMoneda.</body>
+</methods>
+
+<methods>
+<class-id>Personaje</class-id> <category>templateMethod</category>
+
+<body package="templateMethod" selector="actua">actua	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+
+<methods>
+<class-id>Modo class</class-id> <category>instance creation</category>
+
+<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Modo</class-id> <category>testing</category>
+
+<body package="templateMethod" selector="esAgresivo">esAgresivo	^false.</body>
+
+<body package="templateMethod" selector="esPerezoso">esPerezoso	^false.</body>
+</methods>
+
+<methods>
+<class-id>Modo</class-id> <category>templateMethod</category>
+
+<body package="templateMethod" selector="golismear:">golismear:unBicho	(Delay forSeconds: 1) wait.	Transcript show: 'Soy ', unBicho printString, ' y no me gusta meterme en las cosas de los demás.';cr.</body>
+
+<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 2) wait.</body>
+
+<body package="templateMethod" selector="obtenerAleatorio:">obtenerAleatorio:numMax	^((Random new next*10)\\numMax+1) truncated.</body>
+
+<body package="templateMethod" selector="siguienteOrientacion:">siguienteOrientacion:unBicho	| unNumero orientaciones |		orientaciones := unBicho obtenerOrientaciones.	unNumero := self obtenerAleatorio: orientaciones size.	^unBicho posicion forma orientaciones at:unNumero.</body>
+
+<body package="templateMethod" selector="actua:">actua:unBicho	self caminar:unBicho.	self dormir.	unBicho ataca.	self golismear: unBicho.	"self dormir.	self atacar.	self dormir."</body>
+
+<body package="templateMethod" selector="caminar:">caminar:unBicho	| siguienteOrientacion |	 	siguienteOrientacion := self siguienteOrientacion:unBicho.	siguienteOrientacion entrar: unBicho.</body>
+</methods>
+
+<methods>
+<class-id>Modo</class-id> <category>initialize-release</category>
+
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Perezoso</class-id> <category>testing</category>
+
+<body package="templateMethod" selector="esPerezoso">esPerezoso	^true.</body>
+</methods>
+
+<methods>
+<class-id>Perezoso</class-id> <category>templateMethod</category>
+
+<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 4)  wait.</body>
+</methods>
+
+<methods>
+<class-id>Perezoso</class-id> <category>initialize-release</category>
+
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -3394,15 +3760,15 @@
 
 <body package="templateMethod" selector="obtenerOrientaciones">obtenerOrientaciones	^self posicion obtenerOrientaciones.</body>
 
-<body package="templateMethod" selector="esBicho">esBicho	^true</body>
-
 <body package="templateMethod" selector="id">id	^id</body>
 
-<body package="templateMethod" selector="modo:">modo: anObject	modo := anObject</body>
+<body package="templateMethod" selector="modo">modo	^modo</body>
 
 <body package="templateMethod" selector="id:">id: anObject	id := anObject</body>
 
-<body package="templateMethod" selector="modo">modo	^modo</body>
+<body package="templateMethod" selector="modo:">modo: anObject	modo := anObject</body>
+
+<body package="templateMethod" selector="esBicho">esBicho	^true</body>
 </methods>
 
 <methods>
@@ -3425,44 +3791,6 @@
 
 
 <methods>
-<class-id>Modo class</class-id> <category>instance creation</category>
-
-<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Modo</class-id> <category>testing</category>
-
-<body package="templateMethod" selector="esPerezoso">esPerezoso	^false.</body>
-
-<body package="templateMethod" selector="esAgresivo">esAgresivo	^false.</body>
-</methods>
-
-<methods>
-<class-id>Modo</class-id> <category>templateMethod</category>
-
-<body package="templateMethod" selector="siguienteOrientacion:">siguienteOrientacion:unBicho	| unNumero orientaciones |		orientaciones := unBicho obtenerOrientaciones.	unNumero := self obtenerAleatorio: orientaciones size.	^unBicho posicion forma orientaciones at:unNumero.</body>
-
-<body package="templateMethod" selector="caminar:">caminar:unBicho	| siguienteOrientacion |	 	siguienteOrientacion := self siguienteOrientacion:unBicho.	siguienteOrientacion entrar: unBicho.</body>
-
-<body package="templateMethod" selector="actua:">actua:unBicho	self caminar:unBicho.	self dormir.	unBicho ataca.	self golismear: unBicho.	"self dormir.	self atacar.	self dormir."</body>
-
-<body package="templateMethod" selector="golismear:">golismear:unBicho	(Delay forSeconds: 1) wait.	Transcript show: 'Soy ', unBicho printString, ' y no me gusta meterme en las cosas de los demás.';cr.</body>
-
-<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 2) wait.</body>
-
-<body package="templateMethod" selector="obtenerAleatorio:">obtenerAleatorio:numMax	^((Random new next*10)\\numMax+1) truncated.</body>
-</methods>
-
-<methods>
-<class-id>Modo</class-id> <category>initialize-release</category>
-
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
 <class-id>Agresivo</class-id> <category>testing</category>
 
 <body package="templateMethod" selector="esAgresivo">esAgresivo	^true.</body>
@@ -3476,114 +3804,6 @@
 
 
 <methods>
-<class-id>Personaje class</class-id> <category>instance creation</category>
-
-<body package="templateMethod" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Personaje</class-id> <category>herramientas</category>
-
-<body package="templateMethod" selector="golpear">golpear</body>
-
-<body package="templateMethod" selector="golpearCon:">golpearCon:unaHerramienta	self poder:(self poder + unaHerramienta poder).	self arma:unaHerramienta.	self golpear.</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>accessing</category>
-
-<body package="templateMethod" selector="id">id	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="id:">id: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="cartera">cartera	^cartera</body>
-
-<body package="templateMethod" selector="obtenerOrientaciones">obtenerOrientaciones	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="cartera:">cartera: anObject	cartera := anObject</body>
-
-<body package="templateMethod" selector="esPersonaje">esPersonaje	^true.</body>
-
-<body package="templateMethod" selector="mochila:">mochila: anObject	mochila := anObject</body>
-
-<body package="templateMethod" selector="arma">arma	^arma</body>
-
-<body package="templateMethod" selector="arma:">arma: anObject	arma := anObject</body>
-
-<body package="templateMethod" selector="mochila">mochila	^mochila</body>
-
-<body package="templateMethod" selector="modo">modo	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-
-<body package="templateMethod" selector="nombre">nombre	^nombre</body>
-
-<body package="templateMethod" selector="nombre:">nombre: anObject	nombre := anObject</body>
-
-<body package="templateMethod" selector="modo:">modo: anObject	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>ataques</category>
-
-<body package="templateMethod" selector="morir">morir	self juego finJuego.	Transcript show: 'El personaje está muerto, el juego ha terminado.';cr.</body>
-
-<body package="templateMethod" selector="atacaCon:">atacaCon:unArma	self poder:(self poder + unArma poder).	self arma:unArma.	self ataca.</body>
-
-<body package="templateMethod" selector="ataca">ataca	| enemigo |		enemigo := self seleccionarEnemigo.	enemigo ifNotNil: [		self atacarEnemigo:enemigo.		self arma restarDuracion:self.		].</body>
-
-<body package="templateMethod" selector="seleccionarEnemigo">seleccionarEnemigo	^self posicion ocupantes detect:[:each | each esBicho ] ifNone:[nil].</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>mochila</category>
-
-<body package="templateMethod" selector="agregarObjeto:">agregarObjeto:unObjeto	self mochila add:unObjeto.</body>
-
-<body package="templateMethod" selector="quitarObjeto:">quitarObjeto:unObjeto	self mochila remove:unObjeto ifAbsent: [nil].</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>comandos</category>
-
-<body package="templateMethod" selector="equipar:">equipar:unObjeto	self quitarObjeto: unObjeto.	self arma ifNotNil: [self agregarObjeto: self arma].	self arma: unObjeto.</body>
-
-<body package="templateMethod" selector="entraOrientacion:">entraOrientacion:unaOrientacion	self juego entrarOrientacion:unaOrientacion.</body>
-
-<body package="templateMethod" selector="hundir:">hundir:unComando	| objeto |	objeto := mochila detect: [:each| each esAlmadena] ifNone: [nil.].	objeto ifNotNil: [self equipar: objeto].	"si no es nula, la equipo, golpeo y le quito una de duracion"	self arma ifNotNil: [		self arma restarDuracion: self.		unComando receptor hundir:unComando.		] ifNil: [		Transcript show: 'Sin una almadena no puedes tumbar la pared.';cr].</body>
-
-<body package="templateMethod" selector="obtenerComandos">obtenerComandos	^self posicion obtenerComandos.</body>
-
-<body package="templateMethod" selector="analizar:">analizar:unComando	| objeto monedas |	 objeto := mochila detect: [:each| each esDetector] ifNone: [nil.].	objeto ifNotNil: [self equipar: objeto].	"si no es nula, la equipo, golpeo y le quito una de duracion"	self arma ifNotNil: [		self arma restarDuracion: self.		monedas := unComando receptor analizar: unComando.		self agregarMonedas: monedas.		] ifNil: [		Transcript show: 'Sin un detector no puedes buscar monedas.';cr].</body>
-
-<body package="templateMethod" selector="ejecutarComando:">ejecutarComando:comando	self juego ejecutarComando:comando.</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>initialize-release</category>
-
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	mochila := List new.	cartera := List new.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>cartera</category>
-
-<body package="templateMethod" selector="dineroTotal">dineroTotal	| suma |	self cartera do: [:each | suma:= suma + each valor ].</body>
-
-<body package="templateMethod" selector="agregarMoneda:">agregarMoneda:unaMoneda	self cartera add:unaMoneda.</body>
-
-<body package="templateMethod" selector="quitarMoneda:">quitarMoneda:unaMoneda	self cartera remove:unaMoneda ifAbsent: [nil].</body>
-
-<body package="templateMethod" selector="agregarMonedas:">agregarMonedas:unasMonedas	unasMonedas do:[:each | cartera add:each].</body>
-</methods>
-
-<methods>
-<class-id>Personaje</class-id> <category>templateMethod</category>
-
-<body package="templateMethod" selector="actua">actua	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
-</methods>
-
-
-<methods>
 <class-id>Golismero</class-id> <category>templateMethod</category>
 
 <body package="templateMethod" selector="golismear:">golismear:unBicho	| contenedor posicionContenedor |	posicionContenedor := unBicho posicion hijos size.	posicionContenedor &gt; 0 ifTrue: [				contenedor := unBicho posicion hijos at:(self obtenerAleatorio: posicionContenedor).		contenedor entrar:unBicho.	].</body>
@@ -3591,25 +3811,6 @@
 
 <methods>
 <class-id>Golismero</class-id> <category>initialize-release</category>
-
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Perezoso</class-id> <category>testing</category>
-
-<body package="templateMethod" selector="esPerezoso">esPerezoso	^true.</body>
-</methods>
-
-<methods>
-<class-id>Perezoso</class-id> <category>templateMethod</category>
-
-<body package="templateMethod" selector="dormir">dormir	(Delay forSeconds: 4)  wait.</body>
-</methods>
-
-<methods>
-<class-id>Perezoso</class-id> <category>initialize-release</category>
 
 <body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
@@ -3754,77 +3955,91 @@
 
 
 <methods>
+<class-id>Builder</class-id> <category>initialize-release</category>
+
+<body package="Builder" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	juego := nil.	orientaciones := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+<methods>
 <class-id>Builder</class-id> <category>accessing</category>
+
+<body package="Builder" selector="modificacion:">modificacion: anObject	modificacion := anObject</body>
 
 <body package="Builder" selector="laberinto">laberinto	^laberinto</body>
 
-<body package="Builder" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
+<body package="Builder" selector="modificacion">modificacion	^modificacion</body>
+
+<body package="Builder" selector="juego">juego	^juego</body>
 
 <body package="Builder" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Builder" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
 
 <body package="Builder" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
 
 <body package="Builder" selector="orientaciones">orientaciones	^orientaciones</body>
-
-<body package="Builder" selector="juego">juego	^juego</body>
-
-<body package="Builder" selector="modificacion:">modificacion: anObject	modificacion := anObject</body>
-
-<body package="Builder" selector="modificacion">modificacion	^modificacion</body>
 </methods>
 
 <methods>
 <class-id>Builder</class-id> <category>builders</category>
 
+<body package="Builder" selector="construirBombaHEn:">construirBombaHEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:H new.	padre agregarHijo:bomba.</body>
+
 <body package="Builder" selector="construirBombaBromaEn:">construirBombaBromaEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:Broma new.	padre agregarHijo:bomba.</body>
-
-<body package="Builder" selector="construirEspadaEn:">construirEspadaEn:unCont		| espada |		espada := Espada new.	espada agregarComando: (Coger new receptor:espada).		unCont agregarHijo: espada.</body>
-
-<body package="Builder" selector="construirBichoPerezosoEn:id:">construirBichoPerezosoEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.	bicho id:unId.	bicho modo:Perezoso new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
-
-<body package="Builder" selector="construirBaulEn:">construirBaulEn:padre| baul forma |		"crear un baul, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el baul con su padre y devolver el baul."	forma := self construirForma.	baul := Baul new.		baul forma:forma.	forma contenedor:baul.	baul forma orientaciones do: [:each | baul ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: baul orientacion: padre.	padre agregarHijo: baul.		^baul.</body>
 
 <body package="Builder" selector="construirBichoAgresivoEn:id:">construirBichoAgresivoEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.		bicho modo:Agresivo new.	habitacion := juego obtenerHabitacion: idContenedor.	bicho id:unId.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
 
-<body package="Builder" selector="construirAgujeroNegro:">construirAgujeroNegro:unContenedor	| an |		an := AgujeroNegro new.	unContenedor agregarHijo:an.	an agregarComando: (Entrar new receptor:an)</body>
-
-<body package="Builder" selector="construirBombaHEn:">construirBombaHEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:H new.	padre agregarHijo:bomba.</body>
-
-<body package="Builder" selector="construirMoneda5En:">construirMoneda5En: padre	| moneda |	moneda := D5 new.	moneda valor:5.	padre agregarHijo:moneda.</body>
-
-<body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe: unaOrientacion orientacion: otraOrientacion	| puerta |	puerta := Puerta new.	puerta estado:Cerrada new.	puerta hab1: unaOrientacion.	puerta hab2: otraOrientacion.	unaOrientacion ponerEnUnaOrientacion: Este default UnElemento: puerta.	puerta agregarComando: (Abrir new receptor: puerta)</body>
-
-<body package="Builder" selector="construirJuego">construirJuego	juego:=JuegoLaberinto new.	juego prototipo:self laberinto.	juego laberinto:self laberinto dcopy.</body>
-
-<body package="Builder" selector="construirMoneda10En:">construirMoneda10En: padre	| moneda |	moneda := D10 new.	moneda valor:10.	padre agregarHijo:moneda.</body>
-
-<body package="Builder" selector="construirNew">construirNew	^Tesoro new.</body>
-
-<body package="Builder" selector="construirBombaMinaEn:">construirBombaMinaEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:Mina new.	padre agregarHijo:bomba.</body>
+<body package="Builder" selector="construirMoneda20En:">construirMoneda20En: padre	| moneda |	moneda := D20 new.	moneda valor:20.	padre agregarHijo:moneda.</body>
 
 <body package="Builder" selector="construirPared">construirPared	^Pared new.</body>
 
-<body package="Builder" selector="construirMoneda20En:">construirMoneda20En: padre	| moneda |	moneda := D20 new.	moneda valor:20.	padre agregarHijo:moneda.</body>
+<body package="Builder" selector="construirTesoroEn:">construirTesoroEn: padre	| tesoro |	tesoro := Tesoro new.	tesoro agregarComando: (Coger new receptor:tesoro).	padre agregarHijo:tesoro.</body>
 
-<body package="Builder" selector="construirBichoGolismeroEn:id:">construirBichoGolismeroEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.	bicho id:unId.	bicho modo:Golismero new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
+<body package="Builder" selector="construirNew">construirNew	^Tesoro new.</body>
 
 <body package="Builder" selector="construirPuertaDe:orientacion:a:orientacion:">construirPuertaDe:num1 orientacion:or1 a:num2 orientacion:or2| puerta hab1 hab2 |puerta:=Puerta new.puerta estado:Cerrada new.hab1:=self laberinto obtenerHabitacion:num1.hab2:=self laberinto obtenerHabitacion:num2.puerta hab1:hab1.puerta hab2:hab2.hab1 ponerEnUnaOrientacion:(self orientaciones at:or1) UnElemento:puerta.hab2 ponerEnUnaOrientacion:(self orientaciones at:or2) UnElemento:puerta.puerta agregarComando: (Abrir new receptor:puerta).</body>
 
-<body package="Builder" selector="construirAlmadenaEn:">construirAlmadenaEn:unCont		| alma |		alma := Almadena new.	alma agregarComando: (Coger new receptor:alma).		unCont agregarHijo: alma.</body>
+<body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe: unaOrientacion orientacion: otraOrientacion	| puerta |	puerta := Puerta new.	puerta estado:Cerrada new.	puerta hab1: unaOrientacion.	puerta hab2: otraOrientacion.	unaOrientacion ponerEnUnaOrientacion: Este default UnElemento: puerta.	puerta agregarComando: (Abrir new receptor: puerta)</body>
 
-<body package="Builder" selector="construirTesoroEn:">construirTesoroEn: padre	| tesoro |	tesoro := Tesoro new.	tesoro agregarComando: (Coger new receptor:tesoro).	padre agregarHijo:tesoro.</body>
+<body package="Builder" selector="construirMoneda50En:">construirMoneda50En: padre	| moneda |	moneda := D50 new.	moneda valor:50.	padre agregarHijo:moneda.</body>
 
 <body package="Builder" selector="construirLaberinto">construirLaberinto	laberinto:=Laberinto new.</body>
 
-<body package="Builder" selector="construirDetectorEn:">construirDetectorEn:unCont		| detector |		detector := DetectorDeMetales new.	detector agregarComando: (Coger new receptor:detector).		unCont agregarHijo: detector.</body>
+<body package="Builder" selector="construirBichoGolismeroEn:id:">construirBichoGolismeroEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.	bicho id:unId.	bicho modo:Golismero new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
 
-<body package="Builder" selector="construirMoneda50En:">construirMoneda50En: padre	| moneda |	moneda := D50 new.	moneda valor:50.	padre agregarHijo:moneda.</body>
+<body package="Builder" selector="construirJuego">construirJuego	juego:=JuegoLaberinto new.	juego prototipo:self laberinto.	juego laberinto:self laberinto dcopy.</body>
+
+<body package="Builder" selector="construirMoneda5En:">construirMoneda5En: padre	| moneda |	moneda := D5 new.	moneda valor:5.	padre agregarHijo:moneda.</body>
+
+<body package="Builder" selector="construirBombaMinaEn:">construirBombaMinaEn:padre	| bomba |		bomba := Bomba new.	bomba estrategia:Mina new.	padre agregarHijo:bomba.</body>
+
+<body package="Builder" selector="construirBichoPerezosoEn:id:">construirBichoPerezosoEn:idContenedor id:unId	| bicho habitacion |		bicho := Bicho new.	bicho id:unId.	bicho modo:Perezoso new.	habitacion := juego obtenerHabitacion: idContenedor.	habitacion entrar:bicho.	habitacion agregarOcupante: bicho.	bicho vidas:2.	bicho poder:1.	self juego bichos add: bicho.	bicho juego: self juego.</body>
+
+<body package="Builder" selector="construirAgujeroNegro:">construirAgujeroNegro:unContenedor	| an |		an := AgujeroNegro new.	unContenedor agregarHijo:an.	an agregarComando: (Entrar new receptor:an)</body>
+
+<body package="Builder" selector="construirBaulEn:">construirBaulEn:padre| baul forma |		"crear un baul, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el baul con su padre y devolver el baul."	forma := self construirForma.	baul := Baul new.		baul forma:forma.	forma contenedor:baul.	baul forma orientaciones do: [:each | baul ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: baul orientacion: padre.	padre agregarHijo: baul.		^baul.</body>
+
+<body package="Builder" selector="construirEspadaEn:">construirEspadaEn:unCont		| espada |		espada := Espada new.	espada agregarComando: (Coger new receptor:espada).		unCont agregarHijo: espada.</body>
+
+<body package="Builder" selector="construirMoneda10En:">construirMoneda10En: padre	| moneda |	moneda := D10 new.	moneda valor:10.	padre agregarHijo:moneda.</body>
+
+<body package="Builder" selector="construirAlmadenaEn:">construirAlmadenaEn:unCont		| alma |		alma := Almadena new.	alma agregarComando: (Coger new receptor:alma).		unCont agregarHijo: alma.</body>
+
+<body package="Builder" selector="construirDetectorEn:">construirDetectorEn:unCont		| detector |		detector := DetectorDeMetales new.	detector agregarComando: (Coger new receptor:detector).		unCont agregarHijo: detector.</body>
 </methods>
 
 <methods>
-<class-id>Builder</class-id> <category>initialize-release</category>
+<class-id>Builder</class-id> <category>buildersTienda</category>
 
-<body package="Builder" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	juego := nil.	orientaciones := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+<body package="Builder" selector="construirEspadaEn:precio:">construirEspadaEn: unCont precio: numero	| espada |	(numero = '') not		ifTrue: 			[espada := Precio new.			espada precio:numero asNumber.			espada elementoMapa: Espada new.			espada agregarComandoTienda: (Comprar new receptor: espada).]		ifFalse: 			[espada := Espada new.			espada agregarComando: (Coger new receptor: espada)].	unCont agregarHijo: espada</body>
+
+<body package="Builder" selector="construirTiendaEn:">construirTiendaEn: padre	| estan tienda |	estan := Estanteria new.	estan agregarComando: (Entrar new receptor: estan).	tienda := Tienda new.	estan tienda: tienda.	estan contenedor: padre.</body>
+
+<body package="Builder" selector="construirTesoroEn:precio:">construirTesoroEn: unCont precio: numero	| tesoro |	(numero = '') not		ifTrue: 			[tesoro := Precio new.			tesoro precio:numero asNumber.			tesoro elementoMapa: Tesoro new.			tesoro agregarComandoTienda: (Comprar new receptor: tesoro).]		ifFalse: 			[tesoro := Tesoro new.			tesoro agregarComando: (Coger new receptor: tesoro)].	unCont agregarHijo: tesoro</body>
+
+<body package="Builder" selector="construirAlmadenaEn:precio:">construirAlmadenaEn: unCont precio: numero	| almadena |	(numero = '') not		ifTrue: 			[almadena := Precio new.			almadena precio:numero asNumber.			almadena elementoMapa: Almadena new.			almadena agregarComandoTienda: (Comprar new receptor: almadena).]		ifFalse: 			[almadena := Almadena new.			almadena agregarComando: (Coger new receptor: almadena)].	unCont agregarHijo: almadena</body>
+
+<body package="Builder" selector="construirDetectorEn:precio:">construirDetectorEn: unCont precio: numero	| detector |	(numero = '') not		ifTrue: 			[detector := Precio new.			detector precio:numero asNumber.			detector elementoMapa: DetectorDeMetales new.			detector agregarComandoTienda: (Comprar new receptor: detector).]		ifFalse: 			[detector := DetectorDeMetales new.			detector agregarComando: (Coger new receptor: detector)].	unCont agregarHijo: detector</body>
 </methods>
 
 
@@ -3838,17 +4053,17 @@
 <methods>
 <class-id>LaberintoOctogonal</class-id> <category>accessing</category>
 
+<body package="Builder" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
+
 <body package="Builder" selector="laberinto">laberinto	^laberinto</body>
+
+<body package="Builder" selector="juego">juego	^juego</body>
 
 <body package="Builder" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
 
 <body package="Builder" selector="juego:">juego: anObject	juego := anObject</body>
 
-<body package="Builder" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
-
 <body package="Builder" selector="orientaciones">orientaciones	^orientaciones</body>
-
-<body package="Builder" selector="juego">juego	^juego</body>
 </methods>
 
 <methods>
@@ -3865,87 +4080,6 @@
 <class-id>LaberintoOctogonal</class-id> <category>initialize-release</category>
 
 <body package="Builder" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	juego := nil.	orientaciones := Dictionary new.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Director class</class-id> <category>instance creation</category>
-
-<body package="Builder" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Director</class-id> <category>accessing</category>
-
-<body package="Builder" selector="builder">builder	^builder</body>
-
-<body package="Builder" selector="builder:">builder: anObject	builder := anObject</body>
-
-<body package="Builder" selector="dic">dic	^dic</body>
-
-<body package="Builder" selector="dic:">dic: anObject	dic := anObject</body>
-</methods>
-
-<methods>
-<class-id>Director</class-id> <category>parser</category>
-
-<body package="Builder" selector="crearLaberinto">crearLaberinto	builder construirLaberinto.	builder modificacion: BuilderPA new.	(self dic at: 'laberinto')		do: [:each | self crearLaberintoRecursivo: each en: 'root'].	(dic at: 'puertas' ifAbsent: [^nil]) do: 			[:cada |			self builder				construirPuertaDe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)].	(dic at: 'ParedesAdyacentes' ifAbsent: [^nil]) do: 			[:cada |			self builder modificacion				construirPADe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)				del: self builder laberinto				con: self builder orientaciones]</body>
-
-<body package="Builder" selector="iniBuilder">iniBuilder	(dic at:'forma')='cuadrado'	ifTrue:[builder:=LaberintoCuadrado new initialize].		(dic at:'forma')='octogono'	ifTrue:[builder:=LaberintoOctogonal new initialize].</body>
-
-<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  	(cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion') id:(cada at:'id')].	(cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].	(cada at:'modo')='golismero' ifTrue:[self builder construirBichoGolismeroEn:(cada at:'habitacion')id:(cada at:'id')].]</body>
-
-<body package="Builder" selector="crearJuego">crearJuego	builder construirJuego.</body>
-
-<body package="Builder" selector="procesar:">procesar:unArchivo	self leerConfig:unArchivo.	self iniBuilder.	self crearLaberinto.	self crearJuego.	self crearBichos.</body>
-
-<body package="Builder" selector="crearLaberintoRecursivo:en:">crearLaberintoRecursivo:unDic en:padre| con |(unDic at:'tipo')='habitacion' ifTrue:[con:=builder construirHabitacion].(unDic at:'tipo')='bomba' ifTrue:[		(unDic at:'argumento')='broma' ifTrue: [self builder construirBombaBromaEn:padre].	(unDic at:'argumento')='H' ifTrue: [self builder construirBombaHEn:padre].	(unDic at:'argumento')='mina' ifTrue: [self builder construirBombaMinaEn:padre].	].(unDic at:'tipo')='tesoro' ifTrue:[con:=builder construirTesoroEn:padre].(unDic at:'tipo')='armario' ifTrue:[con:=builder construirArmarioEn:padre].(unDic at:'tipo')='baul' ifTrue:[con:=builder construirBaulEn:padre].(unDic at:'tipo')='an' ifTrue: [con:=builder construirAgujeroNegro:padre].(unDic at:'tipo')='espada' ifTrue: [con:=builder construirEspadaEn: padre].(unDic at:'tipo')='almadena' ifTrue: [con:=builder construirAlmadenaEn: padre].(unDic at:'tipo')='detector' ifTrue: [con:=builder construirDetectorEn: padre].self crearMonedas:unDic padre: padre.(unDic at:'hijos' ifAbsent:[^nil]) do:[:each | self crearLaberintoRecursivo:each en:con].</body>
-
-<body package="Builder" selector="crearMonedas:padre:">crearMonedas:unDic padre: padre(unDic at:'tipo')='moneda' ifTrue:[	(unDic at:'argumento')='50' ifTrue:[self builder construirMoneda50En: padre.].	(unDic at:'argumento')='10' ifTrue:[self builder construirMoneda10En: padre].	(unDic at:'argumento')='20' ifTrue:[self builder construirMoneda20En: padre].	(unDic at:'argumento')='5' ifTrue:[self builder construirMoneda5En: padre].	padre obtenerComandos detect: [:each | each esAnalizar] ifNone: [padre agregarComando: (AnalizarContenedor new receptor: padre)].]</body>
-
-<body package="Builder" selector="leerConfig:">leerConfig:unArchivo	|stream|	stream:=unArchivo asFilename readStream.	dic:=JSON.JsonReader readFrom:stream.	stream close.</body>
-</methods>
-
-<methods>
-<class-id>Director</class-id> <category>initialize-release</category>
-
-<body package="Builder" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	builder := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>LaberintoCuadrado</class-id> <category>accessing</category>
-
-<body package="Builder" selector="orientaciones">orientaciones	^orientaciones</body>
-
-<body package="Builder" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
-
-<body package="Builder" selector="juego">juego	^juego</body>
-
-<body package="Builder" selector="laberinto">laberinto	^laberinto</body>
-
-<body package="Builder" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
-
-<body package="Builder" selector="juego:">juego: anObject	juego := anObject</body>
-</methods>
-
-<methods>
-<class-id>LaberintoCuadrado</class-id> <category>builders</category>
-
-<body package="Builder" selector="construirHabitacion">construirHabitacion	|hab num forma |	num:=self laberinto hijos size + 1.	hab:=Habitacion new id:num.	forma := self construirForma.	hab forma:forma.	forma contenedor:hab.	hab ponerEnUnaOrientacion: Norte default UnElemento:self construirPared.	hab ponerEnUnaOrientacion:Este default UnElemento:self construirPared.	hab ponerEnUnaOrientacion:Oeste default UnElemento:self construirPared.	hab ponerEnUnaOrientacion:Sur default UnElemento:self construirPared.	laberinto agregarHijo: hab.	^hab</body>
-
-<body package="Builder" selector="construirBombaEn:">construirBombaEn:padre	| bomba |		bomba := Bomba new.	padre agregarHijo:bomba.</body>
-
-<body package="Builder" selector="construirForma">construirForma	| cuandrado |		cuandrado := Cuadrado new.	cuandrado orientaciones add: Norte default.	cuandrado orientaciones add:Este  default.	cuandrado orientaciones add:Sur  default.	cuandrado orientaciones add:Oeste default.		self orientaciones at:'Norte' put: Norte default.	self orientaciones at:'Sur' put: Sur default.	self orientaciones at:'Este' put: Este default.	self orientaciones at:'Oeste' put: Oeste default.	^cuandrado.</body>
-
-<body package="Builder" selector="construirArmarioEn:">construirArmarioEn:padre| armario forma |		"crear un armario, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el armario con su padre y devolver el armario."	forma := self construirForma.	armario := Armario new.		armario forma:forma.	forma contenedor:armario.	armario forma orientaciones do: [:each | armario ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: armario orientacion: padre.	padre agregarHijo: armario.		^armario.</body>
-</methods>
-
-<methods>
-<class-id>LaberintoCuadrado</class-id> <category>initialize-release</category>
-
-<body package="Builder" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	juego := nil.		orientaciones := Dictionary new.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 
@@ -3976,6 +4110,89 @@
 </methods>
 
 
+<methods>
+<class-id>Director class</class-id> <category>instance creation</category>
+
+<body package="Builder" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Director</class-id> <category>accessing</category>
+
+<body package="Builder" selector="dic">dic	^dic</body>
+
+<body package="Builder" selector="builder">builder	^builder</body>
+
+<body package="Builder" selector="dic:">dic: anObject	dic := anObject</body>
+
+<body package="Builder" selector="builder:">builder: anObject	builder := anObject</body>
+</methods>
+
+<methods>
+<class-id>Director</class-id> <category>parser</category>
+
+<body package="Builder" selector="leerConfig:">leerConfig:unArchivo	|stream|	stream:=unArchivo asFilename readStream.	dic:=JSON.JsonReader readFrom:stream.	stream close.</body>
+
+<body package="Builder" selector="crearLaberinto">crearLaberinto	builder construirLaberinto.	builder modificacion: BuilderPA new.	(self dic at: 'laberinto')		do: [:each | self crearLaberintoRecursivo: each en: 'root'].	(dic at: 'puertas' ifAbsent: [^nil]) do: 			[:cada |			self builder				construirPuertaDe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)].	(dic at: 'ParedesAdyacentes' ifAbsent: [^nil]) do: 			[:cada |			self builder modificacion				construirPADe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)				del: self builder laberinto				con: self builder orientaciones]</body>
+
+<body package="Builder" selector="crearLaberintoRecursivo:en:">crearLaberintoRecursivo:unDic en:padre| con |(unDic at:'tipo')='habitacion' ifTrue:[con:=builder construirHabitacion].(unDic at:'tipo')='bomba' ifTrue:[		(unDic at:'argumento')='broma' ifTrue: [self builder construirBombaBromaEn:padre].	(unDic at:'argumento')='H' ifTrue: [self builder construirBombaHEn:padre].	(unDic at:'argumento')='mina' ifTrue: [self builder construirBombaMinaEn:padre].	].(unDic at:'tipo')='tesoro' ifTrue:[con:=builder construirTesoroEn:padre precio: (unDic at:'argumento')].(unDic at:'tipo')='armario' ifTrue:[con:=builder construirArmarioEn:padre].(unDic at:'tipo')='baul' ifTrue:[con:=builder construirBaulEn:padre].(unDic at:'tipo')='an' ifTrue: [con:=builder construirAgujeroNegro:padre].(unDic at:'tipo')='espada' ifTrue: [con:=builder construirEspadaEn: padre precio: (unDic at:'argumento')].(unDic at:'tipo')='almadena' ifTrue: [con:=builder construirAlmadenaEn: padre precio: (unDic at:'argumento')].(unDic at:'tipo')='detector' ifTrue: [con:=builder construirDetectorEn: padre precio: (unDic at:'argumento')].self crearMonedas:unDic padre: padre.(unDic at:'tipo')='tienda' ifTrue: [con:=builder construirTiendaEn: padre].(unDic at:'hijos' ifAbsent:[^nil]) do:[:each | self crearLaberintoRecursivo:each en:con].</body>
+
+<body package="Builder" selector="crearBichos">crearBichos(dic at:'bichos' ifAbsent:[^nil]) do:[:cada |  	(cada at:'modo')='agresivo' ifTrue:[self builder construirBichoAgresivoEn:(cada at:'habitacion') id:(cada at:'id')].	(cada at:'modo')='perezoso' ifTrue:[self builder construirBichoPerezosoEn:(cada at:'habitacion')id:(cada at:'id')].	(cada at:'modo')='golismero' ifTrue:[self builder construirBichoGolismeroEn:(cada at:'habitacion')id:(cada at:'id')].]</body>
+
+<body package="Builder" selector="iniBuilder">iniBuilder	(dic at:'forma')='cuadrado'	ifTrue:[builder:=LaberintoCuadrado new initialize].		(dic at:'forma')='octogono'	ifTrue:[builder:=LaberintoOctogonal new initialize].</body>
+
+<body package="Builder" selector="crearMonedas:padre:">crearMonedas:unDic padre: padre(unDic at:'tipo')='moneda' ifTrue:[	(unDic at:'argumento')='50' ifTrue:[self builder construirMoneda50En: padre.].	(unDic at:'argumento')='10' ifTrue:[self builder construirMoneda10En: padre].	(unDic at:'argumento')='20' ifTrue:[self builder construirMoneda20En: padre].	(unDic at:'argumento')='5' ifTrue:[self builder construirMoneda5En: padre].	padre obtenerComandos detect: [:each | each esAnalizar] ifNone: [padre agregarComando: (AnalizarContenedor new receptor: padre)].]</body>
+
+<body package="Builder" selector="procesar:">procesar:unArchivo	self leerConfig:unArchivo.	self iniBuilder.	self crearLaberinto.	self crearJuego.	self crearBichos.</body>
+
+<body package="Builder" selector="crearJuego">crearJuego	builder construirJuego.</body>
+</methods>
+
+<methods>
+<class-id>Director</class-id> <category>initialize-release</category>
+
+<body package="Builder" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	builder := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>LaberintoCuadrado</class-id> <category>accessing</category>
+
+<body package="Builder" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
+
+<body package="Builder" selector="orientaciones">orientaciones	^orientaciones</body>
+
+<body package="Builder" selector="laberinto">laberinto	^laberinto</body>
+
+<body package="Builder" selector="juego">juego	^juego</body>
+
+<body package="Builder" selector="orientaciones:">orientaciones: anObject	orientaciones := anObject</body>
+
+<body package="Builder" selector="juego:">juego: anObject	juego := anObject</body>
+</methods>
+
+<methods>
+<class-id>LaberintoCuadrado</class-id> <category>builders</category>
+
+<body package="Builder" selector="construirHabitacion">construirHabitacion	|hab num forma |	num:=self laberinto hijos size + 1.	hab:=Habitacion new id:num.	forma := self construirForma.	hab forma:forma.	forma contenedor:hab.	hab ponerEnUnaOrientacion: Norte default UnElemento:self construirPared.	hab ponerEnUnaOrientacion:Este default UnElemento:self construirPared.	hab ponerEnUnaOrientacion:Oeste default UnElemento:self construirPared.	hab ponerEnUnaOrientacion:Sur default UnElemento:self construirPared.	laberinto agregarHijo: hab.	^hab</body>
+
+<body package="Builder" selector="construirBombaEn:">construirBombaEn:padre	| bomba |		bomba := Bomba new.	padre agregarHijo:bomba.</body>
+
+<body package="Builder" selector="construirForma">construirForma	| cuandrado |		cuandrado := Cuadrado new.	cuandrado orientaciones add: Norte default.	cuandrado orientaciones add:Este  default.	cuandrado orientaciones add:Sur  default.	cuandrado orientaciones add:Oeste default.		self orientaciones at:'Norte' put: Norte default.	self orientaciones at:'Sur' put: Sur default.	self orientaciones at:'Este' put: Este default.	self orientaciones at:'Oeste' put: Oeste default.	^cuandrado.</body>
+
+<body package="Builder" selector="construirTiendaEn:">construirTiendaEn: padre| tienda forma |		"crear un armario, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el armario con su padre y devolver el armario."	forma := self construirForma.	tienda := Tienda new.		tienda forma:forma.	forma contenedor:tienda.	tienda forma orientaciones do: [:each | tienda ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: tienda orientacion: padre.	padre agregarHijo: tienda.		^tienda.</body>
+
+<body package="Builder" selector="construirArmarioEn:">construirArmarioEn:padre| armario forma |		"crear un armario, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el armario con su padre y devolver el armario."	forma := self construirForma.	armario := Armario new.		armario forma:forma.	forma contenedor:armario.	armario forma orientaciones do: [:each | armario ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: armario orientacion: padre.	padre agregarHijo: armario.		^armario.</body>
+</methods>
+
+<methods>
+<class-id>LaberintoCuadrado</class-id> <category>initialize-release</category>
+
+<body package="Builder" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	laberinto := nil.	juego := nil.		orientaciones := Dictionary new.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
 
 <component-created>
 <name>LaberintoGUI</name> <type>package</type>
@@ -3993,7 +4210,7 @@
 <super>UI.ApplicationModel</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>juego archivo numHab numBichos forma Bichos nombre orientaciones comandos numVidas person gc origen ancho alto hiloMover objetosMochila </inst-vars>
+<inst-vars>juego archivo numHab numBichos forma Bichos nombre orientaciones comandos numVidas person gc origen ancho alto hiloMover objetosMochila objetosTienda cartera </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -4010,44 +4227,44 @@
 <methods>
 <class-id>LaberintoGUI class</class-id> <category>interface specs</category>
 
-<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 1152 577 ) 			#max: #(#{Core.Point} 1152 577 ) 			#bounds: #(#{Graphics.Rectangle} 159 136 1311 713 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 98 0 479 0 234 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 248 0 479 0 499 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 490 0 19 0 1138 0 536 0 ) 					#name: #GroupBox3 					#label: 'Laberinto' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 110 0 48 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 109 0 19 0 355 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 12 0 21 0 ) 					#name: #Label2 					#label: 'Ruta archivo json' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 91 0 508 0 177 0 529 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 308 0 509 0 389 0 530 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 153 0 269 0 172 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 119 0 267 0 138 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 153 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 185 0 269 0 210 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 121 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 188 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 140 0 436 0 207 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 5 0 271 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 61 0 269 0 161 0 288 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 62 0 299 0 172 0 320 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 120 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 5 0 354 0 158 0 487 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 5 0 328 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 164 0 354 0 317 0 487 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 164 0 328 0 ) 					#name: #Label8 					#label: 'Comandos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 200 0 271 0 ) 					#name: #Label9 					#label: 'Vidas' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 245 0 269 0 345 0 288 0 ) 					#name: #InputField6 					#model: #numVidas 					#type: #number ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 322 0 354 0 475 0 487 0 ) 					#name: #List4 					#model: #objetosMochila 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #equiparObjeto ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 329 0 324 0 ) 					#name: #Label10 					#label: 'Mochila' ) ) ) )</body>
+<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 1152 577 ) 			#max: #(#{Core.Point} 1152 577 ) 			#bounds: #(#{Graphics.Rectangle} 1416 -143 2568 434 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 48 0 489 0 182 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 181 0 489 0 565 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 502 0 48 0 1150 0 565 0 ) 					#name: #GroupBox3 					#label: 'Laberinto' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 226 0 19 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 6 0 21 0 219 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 368 0 498 0 454 0 519 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 368 0 531 0 454 0 552 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 103 0 269 0 122 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 69 0 267 0 88 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 103 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 138 0 269 0 157 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 71 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 138 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 90 0 436 0 157 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 10 0 205 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 66 0 203 0 166 0 222 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 178 0 202 0 288 0 223 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 70 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 10 0 244 0 163 0 377 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 10 0 229 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 169 0 244 0 322 0 377 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 169 0 229 0 ) 					#name: #Label8 					#label: 'Comandos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 326 0 203 0 ) 					#name: #Label9 					#label: 'Vidas' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 371 0 201 0 471 0 220 0 ) 					#name: #InputField6 					#model: #numVidas 					#isReadOnly: true 					#type: #number ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 334 0 244 0 487 0 377 0 ) 					#name: #List4 					#model: #objetosMochila 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #equiparObjeto ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 334 0 229 0 ) 					#name: #Label10 					#label: 'Mochila' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 6 0 380 0 323 0 544 0 ) 					#name: #GroupBox4 					#label: 'Tienda' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 170 0 397 0 ) 					#name: #Label11 					#label: 'Cartera' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 170 0 415 0 270 0 434 0 ) 					#name: #InputField7 					#model: #cartera 					#isReadOnly: true 					#type: #number 					#formatString: '#,##0$' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 170 0 443 0 222 0 464 0 ) 					#name: #ActionButton4 					#model: #entrarTienda 					#label: 'Entrar' 					#defaultable: true ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 10 0 397 0 163 0 530 0 ) 					#name: #List5 					#model: #objetosTienda 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #comprarObjeto ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 171 0 477 0 223 0 498 0 ) 					#name: #ActionButton5 					#model: #salirTienda 					#label: 'Salir' 					#defaultable: true ) ) ) )</body>
 </methods>
 
 
 <methods>
 <class-id>LaberintoGUI</class-id> <category>accessing</category>
 
-<body package="LaberintoGUI" selector="hiloMover:">hiloMover: anObject	hiloMover := anObject</body>
-
 <body package="LaberintoGUI" selector="gc">gc	^gc</body>
-
-<body package="LaberintoGUI" selector="person:">person: anObject	person := anObject</body>
-
-<body package="LaberintoGUI" selector="juego">juego	^juego</body>
-
-<body package="LaberintoGUI" selector="juego:">juego: anObject	juego := anObject</body>
-
-<body package="LaberintoGUI" selector="archivo1">archivo1	^archivo</body>
-
-<body package="LaberintoGUI" selector="ancho:">ancho: anObject	ancho := anObject</body>
 
 <body package="LaberintoGUI" selector="alto:">alto: anObject	alto := anObject</body>
 
-<body package="LaberintoGUI" selector="archivo:">archivo: anObject	^archivo := anObject</body>
-
-<body package="LaberintoGUI" selector="ancho">ancho	^ancho</body>
-
-<body package="LaberintoGUI" selector="origen">origen	^origen</body>
+<body package="LaberintoGUI" selector="person">person	^person</body>
 
 <body package="LaberintoGUI" selector="origen:">origen: anObject	origen := anObject</body>
 
+<body package="LaberintoGUI" selector="juego">juego	^juego</body>
+
+<body package="LaberintoGUI" selector="hiloMover">hiloMover	^hiloMover</body>
+
+<body package="LaberintoGUI" selector="archivo:">archivo: anObject	^archivo := anObject</body>
+
+<body package="LaberintoGUI" selector="hiloMover:">hiloMover: anObject	hiloMover := anObject</body>
+
 <body package="LaberintoGUI" selector="alto">alto	^alto</body>
+
+<body package="LaberintoGUI" selector="archivo1">archivo1	^archivo</body>
+
+<body package="LaberintoGUI" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="LaberintoGUI" selector="ancho">ancho	^ancho</body>
 
 <body package="LaberintoGUI" selector="gc:">gc: anObject	gc := anObject</body>
 
-<body package="LaberintoGUI" selector="person">person	^person</body>
+<body package="LaberintoGUI" selector="ancho:">ancho: anObject	ancho := anObject</body>
 
-<body package="LaberintoGUI" selector="hiloMover">hiloMover	^hiloMover</body>
+<body package="LaberintoGUI" selector="person:">person: anObject	person := anObject</body>
+
+<body package="LaberintoGUI" selector="origen">origen	^origen</body>
 </methods>
 
 <methods>
@@ -4059,91 +4276,101 @@
 <methods>
 <class-id>LaberintoGUI</class-id> <category>actions</category>
 
-<body package="LaberintoGUI" selector="ejecutar">ejecutar	| or alguien |	or := self orientaciones selection.	alguien := self juego personaje.	alguien entraOrientacion:or.	self mostrarOrientaciones.	self mostrarComandos.</body>
-
-<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self mostrarObjetosMochila.		self iniciarAspectos.		self inciarJuego.		]</body>
-
-<body package="LaberintoGUI" selector="iniciarAspectos">iniciarAspectos	numVidas subject:self person.</body>
-
-<body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
-
 <body package="LaberintoGUI" selector="crearJuego:">crearJuego:nom	| director |	director:= Director new.	director procesar:nom.	self forma value: director builder printString.	self juego:director builder juego.</body>
-
-<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	"comando ejecutar:alguien."	alguien ejecutarComando:comando.	self mostrarComandos.</body>
-
-<body package="LaberintoGUI" selector="equiparObjeto">equiparObjeto		| objeto alguien equipar |	objeto:= self objetosMochila selection.	alguien := self juego personaje.	equipar := Equipar new.	equipar receptor:objeto.	alguien ejecutarComando:(equipar).</body>
 
 <body package="LaberintoGUI" selector="procesar">procesar	| dialog nom |	dialog := OpenFileDialog new.	dialog		windowTitle: 'Obtener archivo de configuración';		acceptButtonLabel: 'Obtener';		addFileFilter: 'JSON (*.json)' pattern: '*.json';		defaultFilename: ''.	nom := dialog select.	nom isNil ifFalse:[		self archivo value: nom tail.		self crearJuego:nom.		self mostrarValores.	]</body>
 
+<body package="LaberintoGUI" selector="salirTienda">salirTienda	"This stub method was generated by UIDefiner"	^self</body>
+
+<body package="LaberintoGUI" selector="comprarObjeto">comprarObjeto		| objeto alguien tienda |	objeto:= self objetosTienda selection.	alguien := self juego personaje.	tienda := self person contenedor detect: [:each | each esTienda.].	tienda quitarObjeto: objeto.	alguien comprarComando:objeto.</body>
+
+<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	"comando ejecutar:alguien."	alguien ejecutarComando:comando.	self mostrarComandos.</body>
+
+<body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
+
 <body package="LaberintoGUI" selector="terminarBichos">terminarBichos	"This stub method was generated by UIDefiner"	self juego terminarHilosBichos.</body>
+
+<body package="LaberintoGUI" selector="equiparObjeto">equiparObjeto		| objeto alguien equipar |	objeto:= self objetosMochila selection.	alguien := self juego personaje.	equipar := Equipar new.	equipar receptor:objeto.	alguien ejecutarComando:(equipar).</body>
+
+<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self mostrarObjetosMochila.		cartera value: person dineroTotal.		self iniciarAspectos.		self inciarJuego.		]</body>
+
+<body package="LaberintoGUI" selector="entrarTienda">entrarTienda	| tienda |	self juego fase entrarEnLaTienda:self juego.	tienda := self juego personaje posicion obtenerTienda.	tienda ifNotNil: [		self objetosTienda list: (tienda hijos).		].</body>
+
+<body package="LaberintoGUI" selector="iniciarAspectos">iniciarAspectos	cartera subject:self person.	numVidas subject:self person.</body>
+
+<body package="LaberintoGUI" selector="ejecutar">ejecutar	| or alguien |	or := self orientaciones selection.	alguien := self juego personaje.	alguien entraOrientacion:or.	self mostrarOrientaciones.	self mostrarComandos.</body>
 </methods>
 
 <methods>
 <class-id>LaberintoGUI</class-id> <category>drawing</category>
+
+<body package="LaberintoGUI" selector="dibujarLaberinto">dibujarLaberinto	self gc clear.	self juego laberinto hijos do: [:each | each dibujar: self].	"self juego bichos do:[:bicho |	self mostrarBicho:bicho]."	person ifNotNil: [self mostrarPersonaje.]</body>
+
+<body package="LaberintoGUI" selector="normalizar">normalizar	| minX minY unPunto |	minX := 0.	minY := 0.	self juego laberinto hijos do: 			[:each |			each punto x &lt; minX ifTrue: [minX := each punto x].			each punto y &lt; minY ifTrue: [minY := each punto y]].	self juego laberinto hijos do: 			[:each |			unPunto := each punto.			each punto: (unPunto x + minX abs) @ (unPunto y + minY abs)]</body>
+
+<body package="LaberintoGUI" selector="moverObjetos">moverObjetos        hiloMover:=[[true] whileTrue:[                        (Delay forMilliseconds:1000) wait.                        self dibujarLaberinto.                        ]] fork.</body>
+
+<body package="LaberintoGUI" selector="iniciar">iniciar	| ventana |	ventana := self open.	self gc: ventana window graphicsContext</body>
+
+<body package="LaberintoGUI" selector="inciarJuego">inciarJuego	"self lanzarBichos."	self moverObjetos.</body>
 
 <body package="LaberintoGUI" selector="asignarPuntosReales">asignarPuntosReales	| x y |	self juego laberinto hijos do: 			[:each |			x := self origen x + (each punto x * self ancho).			y := self origen y + (each punto y * self alto).			each punto: x @ y.			each extent: self ancho @ self alto.			each hijos do: [:hijo | hijo asignarPuntosReales: each]]</body>
 
 <body package="LaberintoGUI" selector="dibujarContenedorRectangular:">dibujarContenedorRectangular: unCont	| rec unPunto an |	unPunto := unCont punto.	an := unCont extent x.	rec := Rectangle origin: unPunto extent: unCont extent.	rec displayStrokedOn: (self gc paint: ColorValue black).	"dibuja el número del contenedor"	unCont esHabitacion ifTrue: [		(unCont id printString) displayOn:self gc at:(unPunto x+an-15)@(unPunto y+15).		]	ifFalse: [(unCont printString) displayOn:self gc at:(unPunto x+an-15)@(unPunto y+15).].	"self dibujarPuertasRectangular:unCont."</body>
 
 <body package="LaberintoGUI" selector="calcularDimensiones">calcularDimensiones	"Este rectangulo delimita el área sobre la que se dibuja el laberinto: 416@4 extent:560@359"	| maxX maxY |	maxX := 0.	maxY := 0.	origen := 473 @ 19.	self juego laberinto hijos do: 			[:each |			each punto x &gt; maxX ifTrue: [maxX := each punto x].			each punto y &gt; maxY ifTrue: [maxY := each punto y]].	maxX := maxX + 1.	maxY := maxY + 1.	self ancho: 648 // maxX.	self alto: 517 // maxY.	self gc clippingRectangle: (473 @ 19 extent: 1122 @ 537).	self gc clear</body>
-
-<body package="LaberintoGUI" selector="inciarJuego">inciarJuego	"self lanzarBichos."	self moverObjetos.</body>
-
-<body package="LaberintoGUI" selector="iniciar">iniciar	| ventana |	ventana := self open.	self gc: ventana window graphicsContext</body>
-
-<body package="LaberintoGUI" selector="normalizar">normalizar	| minX minY unPunto |	minX := 0.	minY := 0.	self juego laberinto hijos do: 			[:each |			each punto x &lt; minX ifTrue: [minX := each punto x].			each punto y &lt; minY ifTrue: [minY := each punto y]].	self juego laberinto hijos do: 			[:each |			unPunto := each punto.			each punto: (unPunto x + minX abs) @ (unPunto y + minY abs)]</body>
-
-<body package="LaberintoGUI" selector="moverObjetos">moverObjetos        hiloMover:=[[true] whileTrue:[                        (Delay forMilliseconds:1000) wait.                        self dibujarLaberinto.                        ]] fork.</body>
-
-<body package="LaberintoGUI" selector="dibujarLaberinto">dibujarLaberinto	self gc clear.	self juego laberinto hijos do: [:each | each dibujar: self].	"self juego bichos do:[:bicho |	self mostrarBicho:bicho]."	person ifNotNil: [self mostrarPersonaje.]</body>
 </methods>
 
 <methods>
 <class-id>LaberintoGUI</class-id> <category>initialize-release</category>
 
-<body package="LaberintoGUI" selector="initialize">initialize	numVidas := (AspectAdaptor subject: self person sendsUpdates: true)				forAspect: #vidas.	^self</body>
+<body package="LaberintoGUI" selector="initialize">initialize	numVidas := (AspectAdaptor subject: self person sendsUpdates: true)				forAspect: #vidas.	cartera := (AspectAdaptor subject: self person sendsUpdates: true)				forAspect: #dinero.	^self</body>
 </methods>
 
 <methods>
 <class-id>LaberintoGUI</class-id> <category>aspects</category>
 
-<body package="LaberintoGUI" selector="orientaciones">orientaciones	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^orientaciones isNil		ifTrue:			[orientaciones := SelectionInList new]		ifFalse:			[orientaciones]</body>
+<body package="LaberintoGUI" selector="objetosTienda">objetosTienda	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^objetosTienda isNil		ifTrue:			[objetosTienda := SelectionInList new]		ifFalse:			[objetosTienda]</body>
 
 <body package="LaberintoGUI" selector="numBichos">numBichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numBichos isNil		ifTrue:			[numBichos := 0 asValue]		ifFalse:			[numBichos]</body>
 
-<body package="LaberintoGUI" selector="comandos">comandos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^comandos isNil		ifTrue:			[comandos := SelectionInList new]		ifFalse:			[comandos]</body>
+<body package="LaberintoGUI" selector="forma">forma	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^forma isNil		ifTrue:			[forma := String new asValue]		ifFalse:			[forma]</body>
 
 <body package="LaberintoGUI" selector="numVidas">numVidas	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numVidas isNil		ifTrue:			[numVidas := 0 asValue]		ifFalse:			[numVidas]</body>
 
-<body package="LaberintoGUI" selector="archivo">archivo	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^archivo isNil		ifTrue:			[archivo := String new asValue]		ifFalse:			[archivo]</body>
-
-<body package="LaberintoGUI" selector="forma">forma	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^forma isNil		ifTrue:			[forma := String new asValue]		ifFalse:			[forma]</body>
-
-<body package="LaberintoGUI" selector="Bichos">Bichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^Bichos isNil		ifTrue:			[Bichos := SelectionInList new]		ifFalse:			[Bichos]</body>
-
-<body package="LaberintoGUI" selector="objetosMochila">objetosMochila	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^objetosMochila isNil		ifTrue:			[objetosMochila := SelectionInList new]		ifFalse:			[objetosMochila]</body>
+<body package="LaberintoGUI" selector="orientaciones">orientaciones	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^orientaciones isNil		ifTrue:			[orientaciones := SelectionInList new]		ifFalse:			[orientaciones]</body>
 
 <body package="LaberintoGUI" selector="nombre">nombre	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^nombre isNil		ifTrue:			[nombre := String new asValue]		ifFalse:			[nombre]</body>
 
 <body package="LaberintoGUI" selector="numHab">numHab	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^numHab isNil		ifTrue:			[numHab := 0 asValue]		ifFalse:			[numHab]</body>
+
+<body package="LaberintoGUI" selector="objetosMochila">objetosMochila	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^objetosMochila isNil		ifTrue:			[objetosMochila := SelectionInList new]		ifFalse:			[objetosMochila]</body>
+
+<body package="LaberintoGUI" selector="cartera">cartera	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^cartera isNil		ifTrue:			[cartera := 0 asValue]		ifFalse:			[cartera]</body>
+
+<body package="LaberintoGUI" selector="comandos">comandos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^comandos isNil		ifTrue:			[comandos := SelectionInList new]		ifFalse:			[comandos]</body>
+
+<body package="LaberintoGUI" selector="Bichos">Bichos	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^Bichos isNil		ifTrue:			[Bichos := SelectionInList new]		ifFalse:			[Bichos]</body>
+
+<body package="LaberintoGUI" selector="archivo">archivo	"This method was generated by UIDefiner.  Any edits made here	may be lost whenever methods are automatically defined.  The	initialization provided below may have been preempted by an	initialize method."	^archivo isNil		ifTrue:			[archivo := String new asValue]		ifFalse:			[archivo]</body>
 </methods>
 
 <methods>
 <class-id>LaberintoGUI</class-id> <category>mostrarCosas</category>
 
-<body package="LaberintoGUI" selector="mostrarOrientaciones">mostrarOrientaciones	self orientaciones list:self juego personaje posicion forma orientaciones.</body>
-
-<body package="LaberintoGUI" selector="mostrarPersonaje">mostrarPersonaje	| unContenedor anchura altura a b c d rec|		unContenedor := self person posicion.	altura := unContenedor extent x.	anchura := unContenedor extent y.	a := (unContenedor punto x) + (anchura//2).	b := (unContenedor punto y) + (altura//2).	c := 5.	d := 5.	rec := Rectangle origin: a@b extent: c@d.	rec displayFilledOn: (self gc paint: ColorValue yellow).</body>
-
 <body package="LaberintoGUI" selector="mostrarObjetosMochila">mostrarObjetosMochila		self objetosMochila list: (self juego personaje mochila).</body>
-
-<body package="LaberintoGUI" selector="mostrarLaberinto">mostrarLaberinto	self calcularPosiciones.	self normalizar.	self calcularDimensiones.	self asignarPuntosReales.	self dibujarLaberinto.</body>
 
 <body package="LaberintoGUI" selector="mostrarComandos">mostrarComandos		self comandos list: (self juego personaje obtenerComandos).	self mostrarPersonaje.</body>
 
-<body package="LaberintoGUI" selector="calcularPosiciones">calcularPosiciones	| h1 |	self juego isNil		ifFalse: 			[h1 := self juego obtenerHabitacion: 1.			h1 punto: 0 @ 0.			h1 calcularPosicion]</body>
-
 <body package="LaberintoGUI" selector="mostrarValores">mostrarValores	self numHab value:self juego obtenerNumeroDeHabitaciones.	self numBichos value:self juego obtenerNumeroDeBichos.		self Bichos list:self juego bichos.	self mostrarLaberinto.</body>
+
+<body package="LaberintoGUI" selector="mostrarPersonaje">mostrarPersonaje	| unContenedor anchura altura a b c d rec|		unContenedor := self person posicion.	altura := unContenedor extent x.	anchura := unContenedor extent y.	a := (unContenedor punto x) + (altura//2).	b := (unContenedor punto y) + (anchura//2).	c := 5.	d := 5.	rec := Rectangle origin: a@b extent: c@d.	rec displayFilledOn: (self gc paint: ColorValue blue).</body>
+
+<body package="LaberintoGUI" selector="mostrarOrientaciones">mostrarOrientaciones	self orientaciones list:self juego personaje posicion forma orientaciones.</body>
+
+<body package="LaberintoGUI" selector="mostrarLaberinto">mostrarLaberinto	self calcularPosiciones.	self normalizar.	self calcularDimensiones.	self asignarPuntosReales.	self dibujarLaberinto.</body>
+
+<body package="LaberintoGUI" selector="calcularPosiciones">calcularPosiciones	| h1 |	self juego isNil		ifFalse: 			[h1 := self juego obtenerHabitacion: 1.			h1 punto: 0 @ 0.			h1 calcularPosicion]</body>
 </methods>
 
 
@@ -4196,6 +4423,26 @@
 <comment>
 <class-id>Coger</class-id>
 <body>Coger comando para poder coger cosas sueltas del suelo.</body>
+</comment>
+
+<class>
+<name>Comprar</name>
+<environment>Smalltalk</environment>
+<super>Comando</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>command</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Comprar</class-id>
+<body>Comprar cuando un producto se escoge para comprarlo.</body>
 </comment>
 
 <class>
@@ -4348,15 +4595,17 @@
 <methods>
 <class-id>Comando</class-id> <category>accessing</category>
 
-<body package="command" selector="receptor">receptor	^receptor</body>
-
 <body package="command" selector="receptor:">receptor: anObject	receptor := anObject</body>
+
+<body package="command" selector="receptor">receptor	^receptor</body>
 </methods>
 
 <methods>
 <class-id>Comando</class-id> <category>testing</category>
 
 <body package="command" selector="esEntrar">esEntrar	^false.</body>
+
+<body package="command" selector="esComprar">esComprar	^false.</body>
 
 <body package="command" selector="esAnalizar">esAnalizar	^false.</body>
 </methods>
@@ -4375,6 +4624,63 @@
 
 
 <methods>
+<class-id>Coger</class-id> <category>printing</category>
+
+<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Coger ', self receptor printString.</body>
+</methods>
+
+<methods>
+<class-id>Coger</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar:">ejecutar:alguien		self receptor coger:alguien comando:self.</body>
+</methods>
+
+<methods>
+<class-id>Coger</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Comprar</class-id> <category>testing</category>
+
+<body package="command" selector="esComprar">esComprar	^true.</body>
+</methods>
+
+<methods>
+<class-id>Comprar</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar:">ejecutar:alguien	" *** This method was defined by Comando as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Comprar</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Atacar</class-id> <category>printing</category>
+
+<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Atacar '.</body>
+</methods>
+
+<methods>
+<class-id>Atacar</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar:">ejecutar:alguien		self receptor atacar:alguien comando:self.</body>
+</methods>
+
+<methods>
+<class-id>Atacar</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
 <class-id>Hundir</class-id> <category>acciones</category>
 
 <body package="command" selector="ejecutar:">ejecutar:alguien		self receptor hundir:alguien comando:self.</body>
@@ -4382,6 +4688,57 @@
 
 <methods>
 <class-id>Hundir</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Equipar</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar:">ejecutar:alguien		alguien equipar:self receptor.</body>
+</methods>
+
+<methods>
+<class-id>Equipar</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>AnalizarContenedor</class-id> <category>testing</category>
+
+<body package="command" selector="esAnalizar">esAnalizar	^true.</body>
+</methods>
+
+<methods>
+<class-id>AnalizarContenedor</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar:">ejecutar:alguien		self receptor analizar: alguien comando:self.</body>
+</methods>
+
+<methods>
+<class-id>AnalizarContenedor</class-id> <category>initialize-release</category>
+
+<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Abrir</class-id> <category>printing</category>
+
+<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll:'Abrir ' , self receptor printString.</body>
+</methods>
+
+<methods>
+<class-id>Abrir</class-id> <category>acciones</category>
+
+<body package="command" selector="ejecutar:">ejecutar:alguien	self receptor abrir:self.</body>
+</methods>
+
+<methods>
+<class-id>Abrir</class-id> <category>initialize-release</category>
 
 <body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
@@ -4431,95 +4788,6 @@
 </methods>
 
 
-<methods>
-<class-id>Atacar</class-id> <category>printing</category>
-
-<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Atacar '.</body>
-</methods>
-
-<methods>
-<class-id>Atacar</class-id> <category>acciones</category>
-
-<body package="command" selector="ejecutar:">ejecutar:alguien		self receptor atacar:alguien comando:self.</body>
-</methods>
-
-<methods>
-<class-id>Atacar</class-id> <category>initialize-release</category>
-
-<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Coger</class-id> <category>printing</category>
-
-<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll: 'Coger ', self receptor printString.</body>
-</methods>
-
-<methods>
-<class-id>Coger</class-id> <category>acciones</category>
-
-<body package="command" selector="ejecutar:">ejecutar:alguien		self receptor coger:alguien comando:self.</body>
-</methods>
-
-<methods>
-<class-id>Coger</class-id> <category>initialize-release</category>
-
-<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>AnalizarContenedor</class-id> <category>testing</category>
-
-<body package="command" selector="esAnalizar">esAnalizar	^true.</body>
-</methods>
-
-<methods>
-<class-id>AnalizarContenedor</class-id> <category>acciones</category>
-
-<body package="command" selector="ejecutar:">ejecutar:alguien		self receptor analizar: alguien comando:self.</body>
-</methods>
-
-<methods>
-<class-id>AnalizarContenedor</class-id> <category>initialize-release</category>
-
-<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Equipar</class-id> <category>acciones</category>
-
-<body package="command" selector="ejecutar:">ejecutar:alguien		alguien equipar:self receptor.</body>
-</methods>
-
-<methods>
-<class-id>Equipar</class-id> <category>initialize-release</category>
-
-<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Abrir</class-id> <category>printing</category>
-
-<body package="command" selector="printOn:">printOn: aStream	aStream nextPutAll:'Abrir ' , self receptor printString.</body>
-</methods>
-
-<methods>
-<class-id>Abrir</class-id> <category>acciones</category>
-
-<body package="command" selector="ejecutar:">ejecutar:alguien	self receptor abrir:self.</body>
-</methods>
-
-<methods>
-<class-id>Abrir</class-id> <category>initialize-release</category>
-
-<body package="command" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
 
 <component-created>
 <name>state</name> <type>package</type>
@@ -4530,66 +4798,6 @@
 <name>state</name> <type>package</type>
 <property>comment</property> <value>'Todo lo realcionado con el patrón state'</value>
 </component-property>
-
-<class>
-<name>Estado</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>state</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Estado</class-id>
-<body>Estado representa los posibles estados</body>
-</comment>
-
-<class>
-<name>Abierta</name>
-<environment>Smalltalk</environment>
-<super>Estado</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>state</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Abierta</class-id>
-<body>Abierta representa el estado de una puerta abierta</body>
-</comment>
-
-<class>
-<name>Cerrada</name>
-<environment>Smalltalk</environment>
-<super>Estado</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>state</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>Cerrada</class-id>
-<body>Cerrada representa el estado de una puerta cerrada</body>
-</comment>
 
 <class>
 <name>Fase</name>
@@ -4609,6 +4817,26 @@
 <comment>
 <class-id>Fase</class-id>
 <body>Fase define la interfaz de los estados de un juego.</body>
+</comment>
+
+<class>
+<name>EnPausa</name>
+<environment>Smalltalk</environment>
+<super>Fase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>EnPausa</class-id>
+<body>EnPausa cuando el juego se esta jugando pero se par aun instante de tiempo antes de que el personaje haya conseguido el tesoro.</body>
 </comment>
 
 <class>
@@ -4731,50 +4959,116 @@
 <body>Final estado que se alcanza cuando el juego termina.</body>
 </comment>
 
+<class>
+<name>Estado</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Estado</class-id>
+<body>Estado representa los posibles estados</body>
+</comment>
+
+<class>
+<name>Abierta</name>
+<environment>Smalltalk</environment>
+<super>Estado</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Abierta</class-id>
+<body>Abierta representa el estado de una puerta abierta</body>
+</comment>
+
+<class>
+<name>Cerrada</name>
+<environment>Smalltalk</environment>
+<super>Estado</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>state</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Cerrada</class-id>
+<body>Cerrada representa el estado de una puerta cerrada</body>
+</comment>
+
 <methods>
-<class-id>Estado class</class-id> <category>instance creation</category>
+<class-id>Fase class</class-id> <category>instance creation</category>
 
 <body package="state" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
 </methods>
 
 
 <methods>
-<class-id>Estado</class-id> <category>initialize-release</category>
+<class-id>Fase</class-id> <category>estado</category>
 
-<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	self subclassResponsibility.</body>
+<body package="state" selector="finJuego:">finJuego:unJuego	self subclassResponsibility.</body>
 
-<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	self subclassResponsibility.</body>
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	self subclassResponsibility.</body>
 
-<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	self subclassResponsibility.</body>
+<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	self subclassResponsibility.</body>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	self subclassResponsibility.</body>
+
+<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	self subclassResponsibility.</body>
+
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	self subclassResponsibility.</body>
+</methods>
+
+<methods>
+<class-id>Fase</class-id> <category>initialize-release</category>
 
 <body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+
 <methods>
-<class-id>Estado</class-id> <category>testing</category>
+<class-id>Jugando</class-id> <category>estado</category>
 
-<body package="state" selector="esCerrada">esCerrada	^false.</body>
+<body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego ha termiando';cr.	unJuego fase: Final new.	unJuego terminarHilosBichos.</body>
 
-<body package="state" selector="esAbierta">esAbierta	^false.</body>
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se esta jugando.';cr.</body>
+
+<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	unJuego fase: EnPausa new.</body>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	unBicho modo actua:unBicho.</body>
+
+<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	| person |	person := unJuego personaje.	comando ejecutar: person.</body>
+
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	| person |		person := unJuego personaje.	unaOrientacion entrar: person.</body>
 </methods>
 
-
 <methods>
-<class-id>Abierta</class-id> <category>initialize-release</category>
-
-<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	self shouldNotImplement.</body>
-
-<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	unaPuerta estado:Cerrada new.	Transcript show: unaPuerta printString , ' se acaba de cerrar.';cr.	unaPuerta quitarComando: unComando.	unaPuerta quitarEntrar.	unaPuerta agregarComando: (Abrir new receptor:unaPuerta).</body>
+<class-id>Jugando</class-id> <category>initialize-release</category>
 
 <body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-
-<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	alguien posicion = unaPuerta hab1	ifTrue: [unaPuerta hab2 entrar: alguien]	ifFalse: [unaPuerta hab1 entrar: alguien].	unaPuerta quitarEntrar</body>
-</methods>
-
-<methods>
-<class-id>Abierta</class-id> <category>testing</category>
-
-<body package="state" selector="esAbierta">esAbierta	^true.</body>
 </methods>
 
 
@@ -4801,66 +5095,6 @@
 
 
 <methods>
-<class-id>Cerrada</class-id> <category>initialize-release</category>
-
-<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	Transcript show: alguien printString ,' La ',unaPuerta printString ,' esta cerrada'.</body>
-
-<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	unaPuerta estado:Abierta new.	Transcript show: unaPuerta printString , ' se acaba de abrir.';cr.	unaPuerta quitarComando: unComando.	unaPuerta agregarComando: (Entrar new receptor:unaPuerta).	unaPuerta agregarComando: (Cerrar new receptor:unaPuerta).</body>
-
-<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	self shouldNotImplement.</body>
-
-<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-<methods>
-<class-id>Cerrada</class-id> <category>testing</category>
-
-<body package="state" selector="esCerrada">esCerrada	^true.</body>
-</methods>
-
-
-<methods>
-<class-id>Hundida</class-id> <category>comandos</category>
-
-<body package="state" selector="entar:alguien:comando:">entar:unaPared alguien:alguien comando: unComando	alguien posicion = unaPared hab1	ifTrue: [unaPared hab2 entrar: alguien]	ifFalse: [unaPared hab1 entrar: alguien].</body>
-</methods>
-
-<methods>
-<class-id>Hundida</class-id> <category>initialize-release</category>
-
-<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Fase class</class-id> <category>instance creation</category>
-
-<body package="state" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>Fase</class-id> <category>estado</category>
-
-<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	self subclassResponsibility.</body>
-
-<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	self subclassResponsibility.</body>
-
-<body package="state" selector="finJuego:">finJuego:unJuego	self subclassResponsibility.</body>
-
-<body package="state" selector="bichoActua:">bichoActua:unBicho	self subclassResponsibility.</body>
-
-<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	self subclassResponsibility.</body>
-</methods>
-
-<methods>
-<class-id>Fase</class-id> <category>initialize-release</category>
-
-<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
 <class-id>EnPie</class-id> <category>comandos</category>
 
 <body package="state" selector="hundir:comando:">hundir:unaPared comando:unComando	unaPared estado:Hundida new.	Transcript show: 'Acabas de tirar la ', unaPared printString;cr.	unaPared quitarComando: unComando.	unaPared agregarComando: (Entrar new receptor:unaPared).</body>
@@ -4876,15 +5110,129 @@
 
 
 <methods>
+<class-id>Final</class-id> <category>estado</category>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	| juego |	Transcript show: 'el juego ha terminado, no se pueden añadir más bichos.';cr.	juego := unBicho juego.	juego terminarHilosBichos.</body>
+
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	Transcript show: 'EL juego no ha comenzado, no se puede entrar en ninguna orientación.';cr.</body>
+
+<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	Transcript show: 'no se pueden ejecutar comandos si el juego ha terminado.';cr.</body>
+
+<body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego ya esta terminado';cr.</body>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se ha terminado el juego.';cr.</body>
+
+<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	Transcript show: 'no se puede comprar cuando el juego ha terminado';cr.</body>
+</methods>
+
+<methods>
+<class-id>Final</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Estado class</class-id> <category>instance creation</category>
+
+<body package="state" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>Estado</class-id> <category>initialize-release</category>
+
+<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	self subclassResponsibility.</body>
+
+<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	self subclassResponsibility.</body>
+
+<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	self subclassResponsibility.</body>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Estado</class-id> <category>testing</category>
+
+<body package="state" selector="esCerrada">esCerrada	^false.</body>
+
+<body package="state" selector="esAbierta">esAbierta	^false.</body>
+</methods>
+
+
+<methods>
+<class-id>EnPausa</class-id> <category>estado</category>
+
+<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego		| person |	person := unJuego personaje.	comando esComprar ifTrue: [		comando ejecutar: person.		].</body>
+
+<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego		Transcript show: 'Con el juego pausado no te puedes mover.';cr.</body>
+
+<body package="state" selector="finJuego:">finJuego:unJuego	Transcript show: 'El juego está pausado.';cr.</body>
+
+<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego		Transcript show: 'No se pueden agregar personajes cuando el juego se ha iniciado y añadido uno ya.';cr.</body>
+
+<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego		Transcript show: 'El juego ya está pausado.';cr.</body>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'Con le juego pausado los bichos no pueden actuar.';cr.</body>
+</methods>
+
+<methods>
+<class-id>EnPausa</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>Abierta</class-id> <category>initialize-release</category>
+
+<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	unaPuerta estado:Cerrada new.	Transcript show: unaPuerta printString , ' se acaba de cerrar.';cr.	unaPuerta quitarComando: unComando.	unaPuerta quitarEntrar.	unaPuerta agregarComando: (Abrir new receptor:unaPuerta).</body>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+
+<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	self shouldNotImplement.</body>
+
+<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	alguien posicion = unaPuerta hab1	ifTrue: [unaPuerta hab2 entrar: alguien]	ifFalse: [unaPuerta hab1 entrar: alguien].	unaPuerta quitarEntrar</body>
+</methods>
+
+<methods>
+<class-id>Abierta</class-id> <category>testing</category>
+
+<body package="state" selector="esAbierta">esAbierta	^true.</body>
+</methods>
+
+
+<methods>
+<class-id>Cerrada</class-id> <category>initialize-release</category>
+
+<body package="state" selector="abrir:comando:">abrir:unaPuerta comando:unComando	unaPuerta estado:Abierta new.	Transcript show: unaPuerta printString , ' se acaba de abrir.';cr.	unaPuerta quitarComando: unComando.	unaPuerta agregarComando: (Entrar new receptor:unaPuerta).	unaPuerta agregarComando: (Cerrar new receptor:unaPuerta).</body>
+
+<body package="state" selector="entar:alguien:comando:">entar:unaPuerta alguien:alguien comando: unComando	Transcript show: alguien printString ,' La ',unaPuerta printString ,' esta cerrada'.</body>
+
+<body package="state" selector="cerrar:comando:">cerrar:unaPuerta comando:unComando	self shouldNotImplement.</body>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Cerrada</class-id> <category>testing</category>
+
+<body package="state" selector="esCerrada">esCerrada	^true.</body>
+</methods>
+
+
+<methods>
 <class-id>Incial</class-id> <category>estado</category>
+
+<body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'el juego no ha empezado.';cr.</body>
+
+<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	Transcript show: 'no se pueden ejecutar comandos si el juego no ha empezado.';cr.</body>
 
 <body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	Transcript show: 'El juego ha termiando, no se puede entrar en ninguna orientación.';cr.</body>
 
 <body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego el juego no ha empezado';cr.</body>
 
-<body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'el juego no ha empezado.';cr.</body>
-
-<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	Transcript show: 'no se pueden ejecutar comandos si el juego no ha empezado.';cr.</body>
+<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	Transcript show: 'no se puede comprar antes de que el jueco comienze.';cr.</body>
 
 <body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	unJuego personaje:unPersonaje.	unJuego entrar: unPersonaje.	unJuego fase: Jugando new.	unJuego lanzarHiloBichos.</body>
 </methods>
@@ -4897,42 +5245,13 @@
 
 
 <methods>
-<class-id>Jugando</class-id> <category>estado</category>
+<class-id>Hundida</class-id> <category>comandos</category>
 
-<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	| person |		person := unJuego personaje.	unaOrientacion entrar: person.</body>
-
-<body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego ha termiando';cr.	unJuego fase: Final new.	unJuego terminarHilosBichos.</body>
-
-<body package="state" selector="bichoActua:">bichoActua:unBicho	unBicho modo actua:unBicho.</body>
-
-<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se esta jugando.';cr.</body>
-
-<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	| person |	person := unJuego personaje.	comando ejecutar: person.</body>
+<body package="state" selector="entar:alguien:comando:">entar:unaPared alguien:alguien comando: unComando	alguien posicion = unaPared hab1	ifTrue: [unaPared hab2 entrar: alguien]	ifFalse: [unaPared hab1 entrar: alguien].</body>
 </methods>
 
 <methods>
-<class-id>Jugando</class-id> <category>initialize-release</category>
-
-<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
-
-<methods>
-<class-id>Final</class-id> <category>estado</category>
-
-<body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	Transcript show: 'no se pueden ejecutar comandos si el juego ha terminado.';cr.</body>
-
-<body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se ha terminado el juego.';cr.</body>
-
-<body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	Transcript show: 'EL juego no ha comenzado, no se puede entrar en ninguna orientación.';cr.</body>
-
-<body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego ya esta terminado';cr.</body>
-
-<body package="state" selector="bichoActua:">bichoActua:unBicho	| juego |	Transcript show: 'el juego ha terminado, no se pueden añadir más bichos.';cr.	juego := unBicho juego.	juego terminarHilosBichos.</body>
-</methods>
-
-<methods>
-<class-id>Final</class-id> <category>initialize-release</category>
+<class-id>Hundida</class-id> <category>initialize-release</category>
 
 <body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
@@ -4979,9 +5298,9 @@
 <methods>
 <class-id>AgujeroNegro</class-id> <category>accessing</category>
 
-<body package="prototipe" selector="laberinto">laberinto	^laberinto</body>
-
 <body package="prototipe" selector="laberinto:">laberinto: anObject	laberinto := anObject</body>
+
+<body package="prototipe" selector="laberinto">laberinto	^laberinto</body>
 </methods>
 
 <methods>
@@ -5023,11 +5342,11 @@
 </initialize>
 
 <initialize>
-<variable-id>SurOeste.SurOesteUnica</variable-id>
+<variable-id>NorOeste.NorOesteUnica</variable-id>
 </initialize>
 
 <initialize>
-<variable-id>NorOeste.NorOesteUnica</variable-id>
+<variable-id>SurOeste.SurOesteUnica</variable-id>
 </initialize>
 
 </st-source>
