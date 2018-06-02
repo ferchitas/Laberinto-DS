@@ -13,14 +13,16 @@
   ],
   "laberinto":
   [
-    {"em":"contenedor", "tipo":"tienda", "hijos":[
-      {"em":"hoja", "tipo":"almadena", "argumento":"30"},
-      {"em":"hoja", "tipo":"detector", "argumento":"20"},
-      {"em":"hoja", "tipo":"espada", "argumento":"25"},
-      {"em":"hoja", "tipo":"tesoro", "argumento":"200"}
-    ]},
     {"em":"contenedor", "tipo":"habitacion", "hijos":
       [
+        {"em":"contenedor", "tipo":"tienda", "hijos":[
+          {"em":"hoja", "tipo":"almadena", "argumento":"30"},
+          {"em":"hoja", "tipo":"detector", "argumento":"20"},
+          {"em":"hoja", "tipo":"espada", "argumento":"25"},
+          {"em":"hoja", "tipo":"tesoro", "argumento":"200"}
+        ]},
+        {"em":"hoja", "tipo":"moneda", "argumento":"50"},
+        {"em":"hoja", "tipo":"moneda", "argumento":"50"},
         {"em":"hoja", "tipo":"moneda", "argumento":"50"},
         {"em":"hoja", "tipo":"almadena", "argumento":""},
         {"em":"hoja", "tipo":"detector", "argumento":""},
