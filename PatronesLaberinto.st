@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 4 de junio de 2018 at 2:49:23</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 4 de junio de 2018 at 5:03:32</time-stamp>
 
 
 <component-created>
@@ -1036,6 +1036,8 @@
 
 <body package="SolucionLaberinto" selector="esTesoro">esTesoro	^false.</body>
 
+<body package="SolucionLaberinto" selector="esPA">esPA	^false.</body>
+
 <body package="SolucionLaberinto" selector="esD20">esD20	^false.</body>
 
 <body package="SolucionLaberinto" selector="esEspada">esEspada	^false.</body>
@@ -1322,15 +1324,9 @@
 </methods>
 
 <methods>
-<class-id>ParedAdyacente</class-id> <category>printing</category>
+<class-id>ParedAdyacente</class-id> <category>testing</category>
 
-<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'P.Adyacente ', self hab1 printString, ' - ', self hab2 printString.</body>
-</methods>
-
-<methods>
-<class-id>ParedAdyacente</class-id> <category>drawing</category>
-
-<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde: unCont en: unPunto	self visitada		ifFalse:			[	self visitada: true.				unCont id = self hab1 id				ifTrue: 					[					self hab2 punto: unPunto.					self hab2 calcularPosicion]				ifFalse: 					[					self hab1 punto: unPunto.					self hab1 calcularPosicion]]</body>
+<body package="SolucionLaberinto" selector="esPA">esPA	^true.</body>
 </methods>
 
 <methods>
@@ -1346,9 +1342,21 @@
 </methods>
 
 <methods>
+<class-id>ParedAdyacente</class-id> <category>drawing</category>
+
+<body package="SolucionLaberinto" selector="calcularPosicionDesde:en:">calcularPosicionDesde: unCont en: unPunto	self visitada		ifFalse:			[	self visitada: true.				unCont id = self hab1 id				ifTrue: 					[					self hab2 punto: unPunto.					self hab2 calcularPosicion]				ifFalse: 					[					self hab1 punto: unPunto.					self hab1 calcularPosicion]]</body>
+</methods>
+
+<methods>
 <class-id>ParedAdyacente</class-id> <category>initialize-release</category>
 
 <body package="SolucionLaberinto" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	hab1 := nil.	hab2 :=nil.	estado := EnPie new.	self visitada:false.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>ParedAdyacente</class-id> <category>printing</category>
+
+<body package="SolucionLaberinto" selector="printOn:">printOn: aStream	aStream nextPutAll: 'P.Adyacente ', self hab1 printString, ' - ', self hab2 printString.</body>
 </methods>
 
 
@@ -1726,7 +1734,7 @@
 <methods>
 <class-id>Laberinto</class-id> <category>accessing</category>
 
-<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	"x detect: [:a | a &gt; 3] ifNone: []"	^hijos detect: [:each | (each esHabitacion) &amp; (each id = id)] ifNone:[nil]</body>
+<body package="SolucionLaberinto" selector="obtenerHabitacion:">obtenerHabitacion:id	^hijos detect: [:each | (each esHabitacion) &amp; (each id = id)] ifNone:[nil]</body>
 
 <body package="SolucionLaberinto" selector="obtenerNumeroDeHabitaciones">obtenerNumeroDeHabitaciones	^hijos size.</body>
 
@@ -3118,15 +3126,23 @@
 <methods>
 <class-id>Modificaciones</class-id> <category>testing</category>
 
-<body package="Pruebas" selector="comprobarLaberintoRecursivoModificaciones:en:">comprobarLaberintoRecursivoModificaciones: unDic en: padre	| con |	(unDic at: 'tipo') = 'habitacion'		ifTrue: 			[con := self comprobarHabitacion: self numeroHabitacion.			self numeroHabitacion: self numeroHabitacion + 1].	(unDic at: 'tipo') = 'baul' ifTrue: [con := self comprobarBaulEn: padre].	(unDic at: 'tipo') = 'armario'		ifTrue: [con := self comprobarArmarioEn: padre].	(unDic at: 'tipo') = 'an'		ifTrue: [con := self comprobarAgujeroNegro: padre].	(unDic at: 'tipo') = 'espada'		ifTrue: [con := self comprobarEspadaEn: padre].	(unDic at: 'tipo') = 'almadena'		ifTrue: [con := self comprobarAlmadenaEn: padre].	(unDic at: 'tipo') = 'detector'		ifTrue: [con := self comprobarDetectorEn: padre].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD50En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD20En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD10En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD5En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'tienda'		ifTrue: [con := self comprobarTiendaEn: padre].	(unDic at: 'tipo') = 'bomba'		ifTrue: 			[(unDic at: 'argumento') = 'broma'				ifTrue: [self comprobarBombaBromaEn: padre].			(unDic at: 'argumento') = 'H' ifTrue: [self comprobarBombaHEn: padre].			(unDic at: 'argumento') = 'mina'				ifTrue: [self comprobarBombaMinaEn: padre]].	(unDic at: 'hijos' ifAbsent: [^nil])		do: [:each | self comprobarLaberintoRecursivoModificaciones: each en: con]</body>
-
 <body package="Pruebas" selector="comprobarDetectorEn:">comprobarDetectorEn: padre	| detector |	detector := nil.	padre esTienda		ifFalse: 			[detector := padre hijos						detect: [:each | each esDetector and: [each tested not]]						ifNone: [nil].			self assert: detector esDetector.			self assert: detector duracion = 5.			detector tested: true].	^detector</body>
 
-<body package="Pruebas" selector="comprobarPADe:orientacion:a:orientacion:">comprobarPADe:unNum1 orientacion:cadena1 a:unNum2 orientacion:cadena2	| hab1 hab2 or1 or2 pA |	hab1 := self juego obtenerHabitacion: unNum1.	hab2 := self juego obtenerHabitacion: unNum2.	or1 := self orientaciones at:cadena1.	or2 := self orientaciones at:cadena2.		pA := hab1 obtenerElementoOrientacion:or1.		self assert: (pA esPuerta).	self assert: (pA = (hab2 obtenerElementoOrientacion:or2))</body>
+<body package="Pruebas" selector="testComandoEquipar">testComandoEquipar	| objeto personaje equipar |		objeto := DetectorDeMetales new.		self assert: (objeto esDetector).	personaje := Personaje new.	personaje juego: self juego.	self juego personaje: (personaje).	self juego fase: (Jugando new).	self assert: (personaje arma = nil).	equipar := Equipar new.	equipar receptor:objeto.	personaje ejecutarComando: (equipar).	self assert: (personaje arma esDetector).</body>
+
+<body package="Pruebas" selector="testFaseJuegoEnPausa">testFaseJuegoEnPausa	self juego fase: EnPausa new.	self juego fase agregarPersonaje: Personaje new juego: self juego.	self assert: (self juego fase esEnPausa).	self juego fase bichoActua: Bicho new.	self assert: (self juego fase esEnPausa).	self juego fase ejecutarComando: Hundir new juego: self juego.	self assert: (self juego fase esEnPausa).	self juego fase entrarOrientacion: Norte default juego: self juego.	self assert: (self juego fase esEnPausa).	self juego fase finJuego: self juego.	self assert: (self juego fase esEnPausa).	self juego fase salirDeLaTienda: self juego interfaz: LaberintoGUI new.	self assert: (self juego fase esJugando).</body>
+
+<body package="Pruebas" selector="comprobarLaberintoRecursivoModificaciones:en:">comprobarLaberintoRecursivoModificaciones: unDic en: padre	| con |	(unDic at: 'tipo') = 'habitacion'		ifTrue: 			[con := self comprobarHabitacion: self numeroHabitacion.			self numeroHabitacion: self numeroHabitacion + 1].	(unDic at: 'tipo') = 'baul' ifTrue: [con := self comprobarBaulEn: padre].	(unDic at: 'tipo') = 'armario'		ifTrue: [con := self comprobarArmarioEn: padre].	(unDic at: 'tipo') = 'an'		ifTrue: [con := self comprobarAgujeroNegro: padre].	(unDic at: 'tipo') = 'espada'		ifTrue: [con := self comprobarEspadaEn: padre].	(unDic at: 'tipo') = 'almadena'		ifTrue: [con := self comprobarAlmadenaEn: padre].	(unDic at: 'tipo') = 'detector'		ifTrue: [con := self comprobarDetectorEn: padre].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD50En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD20En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD10En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD5En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'tienda'		ifTrue: [con := self comprobarTiendaEn: padre].	(unDic at: 'tipo') = 'bomba'		ifTrue: 			[(unDic at: 'argumento') = 'broma'				ifTrue: [self comprobarBombaBromaEn: padre].			(unDic at: 'argumento') = 'H' ifTrue: [self comprobarBombaHEn: padre].			(unDic at: 'argumento') = 'mina'				ifTrue: [self comprobarBombaMinaEn: padre]].	(unDic at: 'hijos' ifAbsent: [^nil])		do: [:each | self comprobarLaberintoRecursivoModificaciones: each en: con]</body>
 
 <body package="Pruebas" selector="comprobarAlmadenaEn:">comprobarAlmadenaEn: padre	| almadena |	almadena := nil.	padre esTienda		ifFalse: 			[almadena := padre hijos						detect: [:each | each esAlmadena and: [each tested not]]						ifFound: 							[self assert: almadena esAlmadena.							self assert: almadena duracion = 5.							almadena tested: true]						ifNone: [nil]].	^almadena</body>
 
-<body package="Pruebas" selector="testLaberintoModificaciones">testLaberintoModificaciones	(self dic at: 'laberinto')		do: [:each | self comprobarLaberintoRecursivoModificaciones: each en: 'root'].	(dic at: 'puertas' ifAbsent: [^nil]) do: 			[:cada |			self				comprobarPuertaDe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)].	self comprobarTesoro.	self comprobarNumeroHabitaciones</body>
+<body package="Pruebas" selector="testBuilderModificacion">testBuilderModificacion	| modificacion builder h1 h2 |	builder := LaberintoCuadrado new.	builder construirLaberinto.	builder construirForma.	modificacion := BuilderPA new.	h1 := builder construirHabitacion.	h2 := builder construirHabitacion.	builder laberinto hijos add: h1.	builder laberinto hijos add: h2.	modificacion construirPADe: 1 orientacion: 'Norte' a: 2 orientacion: 'Sur' del: builder laberinto con: builder orientaciones.		self assert: (h1 forma norte esPA).</body>
+
+<body package="Pruebas" selector="testComandoHundir">testComandoHundir	| pA |		pA := ParedAdyacente new.		self assert: (pA esPA).	self assert: (pA estado esEnPie).	pA hundir: (Hundir new receptor: pA).	self assert: (pA estado esHundida).</body>
+
+<body package="Pruebas" selector="comprobarPADe:orientacion:a:orientacion:">comprobarPADe:unNum1 orientacion:cadena1 a:unNum2 orientacion:cadena2	| hab1 hab2 or1 or2 pA |	hab1 := self juego obtenerHabitacion: unNum1.	hab2 := self juego obtenerHabitacion: unNum2.	or1 := self orientaciones at:cadena1.	or2 := self orientaciones at:cadena2.		pA := hab1 obtenerElementoOrientacion:or1.		self assert: (pA esPA).	self assert: (pA = (hab2 obtenerElementoOrientacion:or2)).		self assert: (pA estado esEnPie).	pA hundir: (Hundir new receptor: pA).	self assert: (pA estado esHundida).</body>
+
+<body package="Pruebas" selector="testLaberintoModificaciones">testLaberintoModificaciones	(self dic at: 'laberinto')		do: [:each | self comprobarLaberintoRecursivoModificaciones: each en: 'root'].	(dic at: 'puertas' ifAbsent: [^nil]) do: 			[:cada |			self				comprobarPuertaDe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)].(dic at: 'ParedesAdyacentes' ifAbsent: [^nil]) do: 			[:cada |			self				comprobarPADe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)].	self comprobarTesoro.	self comprobarNumeroHabitaciones</body>
 </methods>
 
 <methods>
@@ -4209,10 +4225,6 @@
 
 <body package="Builder" selector="construirPared">construirPared	^Pared new.</body>
 
-<body package="Builder" selector="construirTesoroEn:">construirTesoroEn: padre	| tesoro |	tesoro := Tesoro new.	tesoro agregarComando: (Coger new receptor:tesoro).	padre agregarHijo:tesoro.</body>
-
-<body package="Builder" selector="construirNew">construirNew	^Tesoro new.</body>
-
 <body package="Builder" selector="construirPuertaDe:orientacion:a:orientacion:">construirPuertaDe:num1 orientacion:or1 a:num2 orientacion:or2| puerta hab1 hab2 |puerta:=Puerta new.puerta estado:Cerrada new.hab1:=self laberinto obtenerHabitacion:num1.hab2:=self laberinto obtenerHabitacion:num2.puerta hab1:hab1.puerta hab2:hab2.hab1 ponerEnUnaOrientacion:(self orientaciones at:or1) UnElemento:puerta.hab2 ponerEnUnaOrientacion:(self orientaciones at:or2) UnElemento:puerta.puerta agregarComando: (Abrir new receptor:puerta).</body>
 
 <body package="Builder" selector="construirPuertaEspecialDe:orientacion:">construirPuertaEspecialDe: unaOrientacion orientacion: otraOrientacion	| puerta |	puerta := Puerta new.	puerta estado:Cerrada new.	puerta hab1: unaOrientacion.	puerta hab2: otraOrientacion.	unaOrientacion ponerEnUnaOrientacion: Este default UnElemento: puerta.	puerta agregarComando: (Abrir new receptor: puerta)</body>
@@ -4235,13 +4247,7 @@
 
 <body package="Builder" selector="construirBaulEn:">construirBaulEn:padre| baul forma |		"crear un baul, asignarle forma, crear una puerta (el mismo por un lado y otro contenedor por otro), asociar el baul con su padre y devolver el baul."	forma := self construirForma.	baul := Baul new.		baul forma:forma.	forma contenedor:baul.	baul forma orientaciones do: [:each | baul ponerEnUnaOrientacion: each UnElemento: self construirPared].		self construirPuertaEspecialDe: baul orientacion: padre.	padre agregarHijo: baul.		^baul.</body>
 
-<body package="Builder" selector="construirEspadaEn:">construirEspadaEn:unCont		| espada |		espada := Espada new.	espada agregarComando: (Coger new receptor:espada).		unCont agregarHijo: espada.</body>
-
 <body package="Builder" selector="construirMoneda10En:">construirMoneda10En: padre	| moneda |	moneda := D10 new.	moneda valor:10.	padre agregarHijo:moneda.</body>
-
-<body package="Builder" selector="construirAlmadenaEn:">construirAlmadenaEn:unCont		| alma |		alma := Almadena new.	alma agregarComando: (Coger new receptor:alma).		unCont agregarHijo: alma.</body>
-
-<body package="Builder" selector="construirDetectorEn:">construirDetectorEn:unCont		| detector |		detector := DetectorDeMetales new.	detector agregarComando: (Coger new receptor:detector).		unCont agregarHijo: detector.</body>
 </methods>
 
 <methods>
@@ -5245,13 +5251,25 @@
 
 
 <methods>
+<class-id>Fase</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>Fase</class-id> <category>testing</category>
+
+<body package="state" selector="esEnPausa">esEnPausa	^false.</body>
+
+<body package="state" selector="esJugando">esJugando	^false.</body>
+</methods>
+
+<methods>
 <class-id>Fase</class-id> <category>estado</category>
 
 <body package="state" selector="finJuego:">finJuego:unJuego	self subclassResponsibility.</body>
 
 <body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	self subclassResponsibility.</body>
-
-<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	self subclassResponsibility.</body>
 
 <body package="state" selector="salirDeLaTienda:interfaz:">salirDeLaTienda: unJuego interfaz:inter	self subclassResponsibility.</body>
 
@@ -5262,12 +5280,18 @@
 <body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	self subclassResponsibility.</body>
 </methods>
 
+
 <methods>
-<class-id>Fase</class-id> <category>initialize-release</category>
+<class-id>Jugando</class-id> <category>initialize-release</category>
 
 <body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+<methods>
+<class-id>Jugando</class-id> <category>testing</category>
+
+<body package="state" selector="esJugando">esJugando	^true.</body>
+</methods>
 
 <methods>
 <class-id>Jugando</class-id> <category>estado</category>
@@ -5287,12 +5311,6 @@
 <body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	| person |		person := unJuego personaje.	unaOrientacion entrar: person.</body>
 </methods>
 
-<methods>
-<class-id>Jugando</class-id> <category>initialize-release</category>
-
-<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
-</methods>
-
 
 <methods>
 <class-id>EstadoPA class</class-id> <category>instance creation</category>
@@ -5300,6 +5318,14 @@
 <body package="state" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
 </methods>
 
+
+<methods>
+<class-id>EstadoPA</class-id> <category>testing</category>
+
+<body package="state" selector="esHundida">esHundida	^false.</body>
+
+<body package="state" selector="esEnPie">esEnPie	^false.</body>
+</methods>
 
 <methods>
 <class-id>EstadoPA</class-id> <category>comandos</category>
@@ -5315,6 +5341,12 @@
 <body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+
+<methods>
+<class-id>EnPie</class-id> <category>testing</category>
+
+<body package="state" selector="esEnPie">esEnPie	^true.</body>
+</methods>
 
 <methods>
 <class-id>EnPie</class-id> <category>comandos</category>
@@ -5385,6 +5417,18 @@
 
 
 <methods>
+<class-id>EnPausa</class-id> <category>initialize-release</category>
+
+<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+<methods>
+<class-id>EnPausa</class-id> <category>testing</category>
+
+<body package="state" selector="esEnPausa">esEnPausa	^true.</body>
+</methods>
+
+<methods>
 <class-id>EnPausa</class-id> <category>estado</category>
 
 <body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego		| person |	person := unJuego personaje.	comando esComprar ifTrue: [		comando ejecutar: person.		].</body>
@@ -5400,12 +5444,6 @@
 <body package="state" selector="entrarEnLaTienda:interfaz:">entrarEnLaTienda: unJuego interfaz:inter		Transcript show: 'El juego ya está pausado.';cr.</body>
 
 <body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'Con le juego pausado los bichos no pueden actuar.';cr.</body>
-</methods>
-
-<methods>
-<class-id>EnPausa</class-id> <category>initialize-release</category>
-
-<body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
 
@@ -5471,6 +5509,12 @@
 <body package="state" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
 </methods>
 
+
+<methods>
+<class-id>Hundida</class-id> <category>testing</category>
+
+<body package="state" selector="esHundida">esHundida	^true.</body>
+</methods>
 
 <methods>
 <class-id>Hundida</class-id> <category>comandos</category>
