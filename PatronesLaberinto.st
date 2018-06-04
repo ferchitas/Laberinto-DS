@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 3 de junio de 2018 at 0:26:14</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 8.3 of 28 de julio de 2017 on 4 de junio de 2018 at 2:49:23</time-stamp>
 
 
 <component-created>
@@ -1012,15 +1012,21 @@
 
 <body package="SolucionLaberinto" selector="esAgujeroNegro">esAgujeroNegro	^false.</body>
 
-<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^false.</body>
+<body package="SolucionLaberinto" selector="esHerramienta">esHerramienta	^false.</body>
 
 <body package="SolucionLaberinto" selector="esD5">esD5	^false.</body>
 
 <body package="SolucionLaberinto" selector="esHabitacion">esHabitacion	^false.</body>
 
+<body package="SolucionLaberinto" selector="esPrecio">esPrecio	^false.</body>
+
+<body package="SolucionLaberinto" selector="esPuerta">esPuerta	^false.</body>
+
 <body package="SolucionLaberinto" selector="esContenedor">esContenedor	^false.</body>
 
 <body package="SolucionLaberinto" selector="esAlmadena">esAlmadena	^false.</body>
+
+<body package="SolucionLaberinto" selector="esHoja">esHoja	^false.</body>
 
 <body package="SolucionLaberinto" selector="esArmario">esArmario	^false.</body>
 
@@ -1233,6 +1239,12 @@
 
 
 <methods>
+<class-id>Hoja</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esHoja">esHoja	^true.</body>
+</methods>
+
+<methods>
 <class-id>Hoja</class-id> <category>enumerate</category>
 
 <body package="SolucionLaberinto" selector="do:">do:aBlock	aBlock value:self.</body>
@@ -1294,21 +1306,19 @@
 
 <body package="SolucionLaberinto" selector="hab2:">hab2: anObject	hab2 := anObject</body>
 
-<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
-
-<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
-
 <body package="SolucionLaberinto" selector="hab1">hab1	^hab1</body>
 
+<body package="SolucionLaberinto" selector="estado:">estado: anObject	estado := anObject</body>
+
 <body package="SolucionLaberinto" selector="hab1:">hab1: anObject	hab1 := anObject</body>
+
+<body package="SolucionLaberinto" selector="hab2">hab2	^hab2</body>
 
 <body package="SolucionLaberinto" selector="visitada">visitada	^visitada</body>
 
 <body package="SolucionLaberinto" selector="visitada:">visitada: anObject	visitada := anObject</body>
 
 <body package="SolucionLaberinto" selector="estado">estado	^estado</body>
-
-<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	self estado entar:self alguien:alguien comando:comando.</body>
 </methods>
 
 <methods>
@@ -1329,6 +1339,8 @@
 <body package="SolucionLaberinto" selector="hundir:comando:">hundir:alguien comando:unComando	alguien hundir: unComando.</body>
 
 <body package="SolucionLaberinto" selector="hundir:">hundir:unComando	self estado hundir: self comando:unComando.</body>
+
+<body package="SolucionLaberinto" selector="entrar:comando:">entrar:alguien comando:comando	self estado entar:self alguien:alguien comando:comando.</body>
 
 <body package="SolucionLaberinto" selector="quitarEntrar">quitarEntrar	| comando |		comando := self comandos detect: [:each | each esEntrar] ifNone: [nil].	comando notNil ifTrue: [self quitarComando: comando].</body>
 </methods>
@@ -1823,6 +1835,12 @@
 <body package="SolucionLaberinto" selector="duracion:">duracion: anObject	duracion := anObject</body>
 
 <body package="SolucionLaberinto" selector="entrar:">entrar:alguien	" *** This method was defined by ElementoMapa as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
+</methods>
+
+<methods>
+<class-id>Herramienta</class-id> <category>testing</category>
+
+<body package="SolucionLaberinto" selector="esHerramienta">esHerramienta	^true.</body>
 </methods>
 
 <methods>
@@ -2463,7 +2481,7 @@
 
 <body package="factoryMethod" selector="crearLaberinto2habs">crearLaberinto2habs"inicialización de todas las instancias" | laberinto hab1  hab2 puerta  pared1 pared2 pared3 pared4 pared5 pared6 |laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared."creacion del laberinto con dos habitaciones"hab1 forma norte:pared1.hab1 forma sur:pared2.hab1 forma este:pared3.hab1 forma oeste:puerta.hab2 forma este:puerta.hab2 forma sur:pared4.hab2 forma norte:pared5.hab2 forma oeste:pared6.puerta hab1:hab1.puerta hab2:hab2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
 
-<body package="factoryMethod" selector="fabricarBicho:en:">fabricarBicho:unModo en:unContenedor	| bicho |		bicho := Bicho new.	unContenedor ocupantes add:bicho.	bicho modo:unModo.	bicho posicion:unContenedor.	bicho juego: self juego.		^bicho.</body>
+<body package="factoryMethod" selector="fabricarBicho:en:">fabricarBicho:unModo en:unContenedor	| bicho |		bicho := Bicho new.	unContenedor ocupantes add:bicho.	bicho modo:unModo.	bicho posicion:unContenedor.		^bicho.</body>
 
 <body package="factoryMethod" selector="fabricarModoAgresivo">fabricarModoAgresivo	^Agresivo new.</body>
 
@@ -2552,7 +2570,7 @@
 <methods>
 <class-id>FMCuadrado</class-id> <category>métodosFactoria</category>
 
-<body package="factoryMethod" selector="crearLaberintoArmarios">crearLaberintoArmarios	| laberinto puerta hab1 hab2 armario1 armario2 bomba1 bomba2 bomba3 bomba4 pared1 pared2 pared3 pared4 pared5 pared6 |	laberinto := self fabricarLaberinto.hab1 := self fabricarHabitacion:1.hab2 := self fabricarHabitacion:2.puerta := self fabricarPuertaHab1: hab1 hab2: hab2.pared1 := self fabricarPared.pared2 := self fabricarPared.pared3 := self fabricarPared.pared4 := self fabricarPared.pared5 := self fabricarPared.pared6 := self fabricarPared.bomba1 := self fabricarBomba.bomba2 := self fabricarBomba.bomba3 := self fabricarBomba.bomba4 := self fabricarBomba.armario1 := self fabricarArmario:hab1.armario2 := self fabricarArmario:hab2.bomba1 estrategia:self fabricarEstrategiaH.bomba2 estrategia:self fabricarEstrategiaBroma.bomba3 estrategia:self fabricarEstrategiaMina.bomba4 estrategia:self fabricarEstrategiaH."creacion del laberinto con dos habitaciones"bomba3 elementoMapa:pared1.bomba4 elementoMapa:pared4.armario1 agregarHijo: bomba1.armario2 agregarHijo: bomba2."creacion del laberinto con dos habitaciones"hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: bomba3.hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento:pared2.hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento:pared3.hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento:puerta.hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento:bomba4.hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento:pared5.hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento:pared6.puerta hab1:hab1.puerta hab2:hab2.hab1 agregarHijo: armario1.hab2 agregarHijo: armario2."laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."laberinto agregarHijo: hab1.laberinto agregarHijo: hab2.^laberinto.</body>
+<body package="factoryMethod" selector="crearLaberintoArmarios">crearLaberintoArmarios	| laberinto puerta hab1 hab2 armario1 armario2 bomba1 bomba2 bomba3 bomba4 pared1 pared2 pared3 pared4 pared5 pared6 |	laberinto := self fabricarLaberinto.	hab1 := self fabricarHabitacion: 1.	hab2 := self fabricarHabitacion: 2.	puerta := self fabricarPuertaHab1: hab1 hab2: hab2.	pared1 := self fabricarPared.	pared2 := self fabricarPared.	pared3 := self fabricarPared.	pared4 := self fabricarPared.	pared5 := self fabricarPared.	pared6 := self fabricarPared.	bomba1 := self fabricarBomba.	bomba2 := self fabricarBomba.	bomba3 := self fabricarBomba.	bomba4 := self fabricarBomba.	armario1 := self fabricarArmario: hab1.	armario2 := self fabricarArmario: hab2.	bomba1 estrategia: self fabricarEstrategiaH.	bomba2 estrategia: self fabricarEstrategiaBroma.	bomba3 estrategia: self fabricarEstrategiaMina.	bomba4 estrategia: self fabricarEstrategiaH.	"creacion del laberinto con dos habitaciones"	bomba3 elementoMapa: pared1.	bomba4 elementoMapa: pared4.	armario1 agregarHijo: bomba1.	armario2 agregarHijo: bomba2.	"creacion del laberinto con dos habitaciones"	hab1 ponerEnUnaOrientacion: self fabricarNorte UnElemento: bomba3.	hab1 ponerEnUnaOrientacion: self fabricarSur UnElemento: pared2.	hab1 ponerEnUnaOrientacion: self fabricarEste UnElemento: pared3.	hab1 ponerEnUnaOrientacion: self fabricarOeste UnElemento: puerta.	hab2 ponerEnUnaOrientacion: self fabricarEste UnElemento: puerta.	hab2 ponerEnUnaOrientacion: self fabricarSur UnElemento: bomba4.	hab2 ponerEnUnaOrientacion: self fabricarNorte UnElemento: pared5.	hab2 ponerEnUnaOrientacion: self fabricarOeste UnElemento: pared6.	puerta hab1: hab1.	puerta hab2: hab2.	hab1 agregarHijo: armario1.	hab2 agregarHijo: armario2.	"laberinto insertarHabitacion:hab1.laberinto insertarHabitacion:hab2."	laberinto agregarHijo: hab1.	laberinto agregarHijo: hab2.	^laberinto</body>
 
 <body package="factoryMethod" selector="fabricarHabitacion:">fabricarHabitacion:id	| habitacion forma |		forma := self fabricarForma.	habitacion := Habitacion new id:id.	habitacion forma:forma.	forma contenedor:habitacion.	^habitacion.</body>
 </methods>
@@ -2711,6 +2729,12 @@
 </methods>
 
 <methods>
+<class-id>Precio</class-id> <category>testing</category>
+
+<body package="decorator" selector="esPrecio">esPrecio	^true.</body>
+</methods>
+
+<methods>
 <class-id>Precio</class-id> <category>printing</category>
 
 <body package="decorator" selector="printOn:">printOn: aStream	aStream nextPutAll:self elementoMapa printString, ' ', self precio printString,'$'.</body>
@@ -2836,9 +2860,9 @@
 </class>
 
 <class>
-<name>PruebasLaberintoBuilder</name>
+<name>PruebasEjercicioBuilder</name>
 <environment>Smalltalk</environment>
-<super>Core.Object</super>
+<super>XProgramming.SUnit.TestCase</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
 <inst-vars>juego </inst-vars>
@@ -2849,11 +2873,6 @@
 <package>Pruebas</package>
 </attributes>
 </class>
-
-<comment>
-<class-id>PruebasLaberintoBuilder</class-id>
-<body>Todas las pruebas que tienen que ver con el builder.Instance Variables:	juego	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of juego</body>
-</comment>
 
 <class>
 <name>PruebasLaberintoComposite</name>
@@ -2889,6 +2908,142 @@
 <package>Pruebas</package>
 </attributes>
 </class>
+
+<class>
+<name>PruebasEjercicio3Buider</name>
+<environment>Smalltalk</environment>
+<super>XProgramming.SUnit.TestCase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>juego </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Pruebas</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>PruebasEjercicio3Buider</class-id>
+<body>PruebasEjercicio3Buider guarda mis pruebas apra un laberinto con formas octogonales definido por el profesor para el ejercicio 3, estas pruebas se basarán en las que el dio del ejercicio anterior.Instance Variables:	juego	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of juego</body>
+</comment>
+
+<class>
+<name>PruebasOctogono</name>
+<environment>Smalltalk</environment>
+<super>XProgramming.SUnit.TestCase</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>juego </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Pruebas</package>
+</attributes>
+</class>
+
+<class>
+<name>Modificaciones</name>
+<environment>Smalltalk</environment>
+<super>PruebasBuilder</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Pruebas</package>
+</attributes>
+</class>
+
+<methods>
+<class-id>PruebasEjercicio3Buider class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasEjercicio3Buider</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+</methods>
+
+<methods>
+<class-id>PruebasEjercicio3Buider</class-id> <category>running</category>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| h  puerta|		h:=self juego obtenerHabitacion: 1.	self assert:(h forma norte esPared).	self assert:(h forma norEste esPared).	self assert:(h forma este esPared).	self assert:(h forma surEste esPared).	puerta:=h forma sur.	self assert:(puerta esPuerta).	self assert:(puerta estado esCerrada).	self assert:(h forma surOeste esPared).	self assert:(h forma oeste esPared).	self assert:(h forma norOeste esPared).		h:=self juego obtenerHabitacion: 2.	self assert:(h forma norte = puerta).	puerta:=h forma norte.	self assert:(puerta estado esCerrada).	self assert:(puerta esPuerta).	self assert:(h forma norEste esPared).	self assert:(h forma este esPared).	self assert: (h forma surEste esPuerta).	self assert:(h forma sur esPared).	self assert:(h forma surOeste esPared).	self assert:(h forma oeste esPared).	self assert:(h forma norOeste esPared).		h:=self juego obtenerHabitacion: 3.	self assert:(h forma norte esPared).	self assert:(h forma norEste esPared).	self assert:(h forma este esPared).	self assert: (h forma surEste esPuerta).	self assert:(h forma sur esPared).	self assert:(h forma surOeste esPared).	self assert:(h forma oeste esPared).	puerta:=h forma norOeste.	self assert:(puerta esPuerta).	self assert:(puerta estado esCerrada).		h:=self juego obtenerHabitacion: 4.	self assert:(h forma norte esPared).	self assert:(h forma norEste esPared).	self assert:(h forma este esPared).	self assert: (h forma surEste esPared).	self assert:(h forma sur esPared).	self assert:(h forma surOeste esPared).	self assert:(h forma oeste esPared).	puerta:=h forma norOeste.	self assert:(puerta esPuerta).	self assert:(puerta estado esCerrada).</body>
+
+<body package="Pruebas" selector="setUp">setUp	| director ruta|	director:= Director new.	ruta:='C:\Users\ferch\Documents\GitHub\Laberinto-DS\JsonBuilders\laberintoEjercicio3-Octogonos.json'.	director procesar:ruta.	self juego:director builder juego.</body>
+
+<body package="Pruebas" selector="testNumeroHabitaciones">testNumeroHabitaciones	self assert:(self juego laberinto hijos size=4).</body>
+
+<body package="Pruebas" selector="testArmarios">testArmarios	| hab armario |	hab:=self juego obtenerHabitacion: 1.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert: armario forma esOctogono.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 2.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert: armario forma esOctogono.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 3.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert: armario forma esOctogono.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 4.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert: armario forma esOctogono.	self assert:armario forma este esPuerta.</body>
+
+<body package="Pruebas" selector="testBaules">testBaules	| hab baul |	hab:=self juego obtenerHabitacion: 1.	baul:=hab hijos at:2.	self assert:baul esBaul.	self assert: baul forma esOctogono.		hab:=self juego obtenerHabitacion: 2.	baul:=hab hijos at:2.	self assert:baul esBaul.	self assert: baul forma esOctogono.	hab:=self juego obtenerHabitacion: 3.	baul:=hab hijos at:2.	self assert:baul esBaul.	self assert: baul forma esOctogono.		hab:=self juego obtenerHabitacion: 4.	baul:=hab hijos at:2.	self assert:baul esBaul.	self assert: baul forma esOctogono.</body>
+
+<body package="Pruebas" selector="testBombas">testBombas	| hab armario bomba |	hab:=self juego obtenerHabitacion: 1.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba elementoMapa isNil.	self assert:bomba estrategia class = Mina.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.		hab:=self juego obtenerHabitacion: 2.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba elementoMapa isNil.	self assert:bomba estrategia class = H.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.		hab:=self juego obtenerHabitacion: 3.	armario:=hab hijos at:1.	bomba:= armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba estrategia class = H.	self assert:bomba elementoMapa isNil.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.		hab:=self juego obtenerHabitacion: 4.	armario:= hab hijos at:1.	bomba:= armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba elementoMapa isNil.	self assert:bomba estrategia class = Broma.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.</body>
+
+<body package="Pruebas" selector="testBicho">testBicho	| bicho |	self assert:juego bichos size=4.	bicho:=self juego bichos at:1.	self assert:bicho modo esPerezoso.	self assert:bicho posicion id =1.	bicho:=self juego bichos at:2.	self assert:bicho modo esAgresivo.	self assert:bicho posicion id =2.		bicho:=self juego bichos at:3.	self assert:bicho modo esAgresivo.	self assert:bicho posicion id =3.		bicho:=self juego bichos at:4.	self assert:bicho modo esAgresivo.	self assert:bicho posicion id =4.</body>
+
+<body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| hab|		hab:=self juego obtenerHabitacion: 1.	self assert:(hab id=1).		hab:=self juego obtenerHabitacion: 2.	self assert:(hab id=2).		hab:=self juego obtenerHabitacion: 3.	self assert:(hab id=3).		hab:=self juego obtenerHabitacion: 4.	self assert:(hab id=4).</body>
+
+<body package="Pruebas" selector="testLaberinto">testLaberinto		self assert:self juego laberinto notNil.</body>
+</methods>
+
+<methods>
+<class-id>PruebasEjercicio3Buider</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasOctogono class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasOctogono</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+</methods>
+
+<methods>
+<class-id>PruebasOctogono</class-id> <category>running</category>
+
+<body package="Pruebas" selector="testLaberinto">testLaberinto	self assert:self juego laberinto notNil.</body>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| h  puerta|		h:=self juego obtenerHabitacion: 1.	puerta:=h forma sur.	self assert:(puerta esPuerta).	self assert:(puerta estado esCerrada).		self assert:(h forma este esPared).	self assert:(h forma norte esPared).	self assert:(h forma oeste esPared).		h:=self juego obtenerHabitacion: 2.	self assert:(h forma norte = puerta).		puerta:=h forma surEste.	self assert:(puerta esPuerta).	self assert:(h forma oeste esPared).		h:=self juego obtenerHabitacion: 3.	self assert:(h forma norte esPared).	self assert:(h forma norOeste =puerta).	self assert:(h forma este esPared).	self assert:(h forma surEste esPuerta).	puerta:=h forma surEste.		h:=self juego obtenerHabitacion: 4.	self assert:(h forma norOeste=puerta).	self assert:(h forma este esPared).	self assert:(h forma sur esPared).	self assert:(h forma oeste esPared).</body>
+
+<body package="Pruebas" selector="setUp">setUp	| director ruta|	director:= Director new.	ruta:='D:\dev\laberintos\'.	"ruta:='C:\Users\jag\CloudStation\asignaturas\diseño de sofware\curso17-18\laberintos\'."		ruta:='C:\Users\ferch\Documents\GitHub\Laberinto-DS\JsonBuilders\laberintoEjercicio3-Octogonos.json'.	director procesar:ruta.	self juego:director builder juego.</body>
+
+<body package="Pruebas" selector="testNumeroHabitaciones">testNumeroHabitaciones	self assert:(self juego laberinto hijos size=4).</body>
+
+<body package="Pruebas" selector="testArmarios">testArmarios	| hab armario |	hab:=self juego obtenerHabitacion: 1.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 2.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 3.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 4.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.</body>
+
+<body package="Pruebas" selector="testBombas">testBombas	| hab armario bomba |	hab:=self juego obtenerHabitacion: 1.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba elementoMapa isNil.	self assert:bomba estrategia class = Mina.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.		hab:=self juego obtenerHabitacion: 2.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba estrategia class = H.	self assert:bomba elementoMapa isNil.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.	hab:=self juego obtenerHabitacion: 3.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba estrategia class = H.	self assert:bomba elementoMapa isNil.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.		hab:=self juego obtenerHabitacion: 4.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba elementoMapa isNil.	self assert:bomba estrategia class = Broma.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.</body>
+
+<body package="Pruebas" selector="testBicho">testBicho	| bicho |	self assert:juego bichos size=4.	bicho:=self juego bichos at:1.	self assert:bicho modo class = Perezoso.	self assert:bicho posicion id =1.	bicho:=self juego bichos at:2.	self assert:bicho modo class = Agresivo.	self assert:bicho posicion id =2.		bicho:=self juego bichos at:3.	self assert:bicho modo class = Agresivo.	self assert:bicho posicion id =3.		bicho:=self juego bichos at:4.	self assert:bicho modo class = Agresivo.	self assert:bicho posicion id =4.</body>
+
+<body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| hab|		hab:=self juego obtenerHabitacion: 1.	self assert:(hab id=1).		hab:=self juego obtenerHabitacion: 2.	self assert:(hab id=2).</body>
+</methods>
+
+<methods>
+<class-id>PruebasOctogono</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
 
 <methods>
 <class-id>PruebasBuilder class</class-id> <category>instance creation</category>
@@ -2936,7 +3091,7 @@
 
 <body package="Pruebas" selector="comprobarPuertaDe:orientacion:a:orientacion:">comprobarPuertaDe:unNum1 orientacion:cadena1 a:unNum2 orientacion:cadena2	| hab1 hab2 or1 or2 puerta |	hab1 := self juego obtenerHabitacion: unNum1.	hab2 := self juego obtenerHabitacion: unNum2.	or1 := self orientaciones at:cadena1.	or2 := self orientaciones at:cadena2.		puerta := hab1 obtenerElementoOrientacion:or1.		self assert: (puerta esPuerta).	self assert: (puerta = (hab2 obtenerElementoOrientacion:or2))</body>
 
-<body package="Pruebas" selector="comprobarEspadaEn:">comprobarEspadaEn:padre	| espada |	espada := padre hijos detect:[:each |each  esEspada and: [each tested not]] ifNone: [nil].	self assert: (espada esEspada).	self assert: (espada poder = 2).	espada tested:true.	^espada.</body>
+<body package="Pruebas" selector="comprobarEspadaEn:">comprobarEspadaEn:padre	| espada |	espada := nil.	padre esTienda		ifFalse: 			[espada := padre hijos						detect: [:each | each esEspada and: [each tested not]]						ifNone: [nil].			self assert: espada esEspada.			self assert: espada duracion = 5.			self assert: espada poder = 2.			espada tested: true].			^espada.</body>
 
 <body package="Pruebas" selector="comprobarArmarioEn:">comprobarArmarioEn:padre	| arm |		arm := padre hijos detect: [:each | each esArmario and: [each tested not]] ifNone: [nil].	self assert: (arm notNil).	self assert: (arm esArmario).	arm tested:true.	^arm.</body>
 
@@ -2961,6 +3116,53 @@
 
 
 <methods>
+<class-id>Modificaciones</class-id> <category>testing</category>
+
+<body package="Pruebas" selector="comprobarLaberintoRecursivoModificaciones:en:">comprobarLaberintoRecursivoModificaciones: unDic en: padre	| con |	(unDic at: 'tipo') = 'habitacion'		ifTrue: 			[con := self comprobarHabitacion: self numeroHabitacion.			self numeroHabitacion: self numeroHabitacion + 1].	(unDic at: 'tipo') = 'baul' ifTrue: [con := self comprobarBaulEn: padre].	(unDic at: 'tipo') = 'armario'		ifTrue: [con := self comprobarArmarioEn: padre].	(unDic at: 'tipo') = 'an'		ifTrue: [con := self comprobarAgujeroNegro: padre].	(unDic at: 'tipo') = 'espada'		ifTrue: [con := self comprobarEspadaEn: padre].	(unDic at: 'tipo') = 'almadena'		ifTrue: [con := self comprobarAlmadenaEn: padre].	(unDic at: 'tipo') = 'detector'		ifTrue: [con := self comprobarDetectorEn: padre].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD50En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD20En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD10En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'moneda'		ifTrue: [con := self comprobarD5En: padre con: (unDic at: 'argumento')].	(unDic at: 'tipo') = 'tienda'		ifTrue: [con := self comprobarTiendaEn: padre].	(unDic at: 'tipo') = 'bomba'		ifTrue: 			[(unDic at: 'argumento') = 'broma'				ifTrue: [self comprobarBombaBromaEn: padre].			(unDic at: 'argumento') = 'H' ifTrue: [self comprobarBombaHEn: padre].			(unDic at: 'argumento') = 'mina'				ifTrue: [self comprobarBombaMinaEn: padre]].	(unDic at: 'hijos' ifAbsent: [^nil])		do: [:each | self comprobarLaberintoRecursivoModificaciones: each en: con]</body>
+
+<body package="Pruebas" selector="comprobarDetectorEn:">comprobarDetectorEn: padre	| detector |	detector := nil.	padre esTienda		ifFalse: 			[detector := padre hijos						detect: [:each | each esDetector and: [each tested not]]						ifNone: [nil].			self assert: detector esDetector.			self assert: detector duracion = 5.			detector tested: true].	^detector</body>
+
+<body package="Pruebas" selector="comprobarPADe:orientacion:a:orientacion:">comprobarPADe:unNum1 orientacion:cadena1 a:unNum2 orientacion:cadena2	| hab1 hab2 or1 or2 pA |	hab1 := self juego obtenerHabitacion: unNum1.	hab2 := self juego obtenerHabitacion: unNum2.	or1 := self orientaciones at:cadena1.	or2 := self orientaciones at:cadena2.		pA := hab1 obtenerElementoOrientacion:or1.		self assert: (pA esPuerta).	self assert: (pA = (hab2 obtenerElementoOrientacion:or2))</body>
+
+<body package="Pruebas" selector="comprobarAlmadenaEn:">comprobarAlmadenaEn: padre	| almadena |	almadena := nil.	padre esTienda		ifFalse: 			[almadena := padre hijos						detect: [:each | each esAlmadena and: [each tested not]]						ifFound: 							[self assert: almadena esAlmadena.							self assert: almadena duracion = 5.							almadena tested: true]						ifNone: [nil]].	^almadena</body>
+
+<body package="Pruebas" selector="testLaberintoModificaciones">testLaberintoModificaciones	(self dic at: 'laberinto')		do: [:each | self comprobarLaberintoRecursivoModificaciones: each en: 'root'].	(dic at: 'puertas' ifAbsent: [^nil]) do: 			[:cada |			self				comprobarPuertaDe: (cada at: 1)				orientacion: (cada at: 2)				a: (cada at: 3)				orientacion: (cada at: 4)].	self comprobarTesoro.	self comprobarNumeroHabitaciones</body>
+</methods>
+
+<methods>
+<class-id>Modificaciones</class-id> <category>testingTienda</category>
+
+<body package="Pruebas" selector="comprobarTiendaEn:">comprobarTiendaEn: padre	| tienda |	tienda := padre hijos				detect: [:each | each esTienda and: [each tested not]]				ifNone: [nil].	self assert: tienda esTienda.	tienda tested: true.	self comprobarProductos: tienda.	^tienda</body>
+
+<body package="Pruebas" selector="comprobarProductos:">comprobarProductos: tienda	tienda hijos do: 			[:each |			self assert: each esPrecio.			self assert: (each precio = nil) not.			self assert: each elementoMapa esHoja]</body>
+</methods>
+
+<methods>
+<class-id>Modificaciones</class-id> <category>testingMonedas</category>
+
+<body package="Pruebas" selector="comprobarD10En:con:">comprobarD10En: padre con: argumento	| moneda |	argumento = '10'		ifTrue: 			[moneda := padre hijos detect: [:each | each esD10 and: [each tested not]]						ifNone: [nil].			self assert: moneda esD10.			self assert: moneda valor = 10.			moneda tested: true]		ifFalse: [moneda := nil].	^moneda</body>
+
+<body package="Pruebas" selector="comprobarD20En:con:">comprobarD20En: padre con: argumento	| moneda |	argumento = '20'		ifTrue: 			[moneda := padre hijos detect: [:each | each esD20 and: [each tested not]]						ifNone: [nil].			self assert: moneda esD20.			self assert: moneda valor = 20.			moneda tested: true]		ifFalse: [moneda := nil].	^moneda</body>
+
+<body package="Pruebas" selector="comprobarD5En:con:">comprobarD5En: padre con: argumento	| moneda |	argumento = '5'		ifTrue: 			[moneda := padre hijos detect: [:each | each esD5 and: [each tested not]]						ifNone: [nil].			self assert: moneda esD5.			self assert: moneda valor = 5.			moneda tested: true]		ifFalse: [moneda := nil].	^moneda</body>
+
+<body package="Pruebas" selector="comprobarD50En:con:">comprobarD50En: padre con: argumento	| moneda |	argumento = '50'		ifTrue: 			[moneda := padre hijos detect: [:each | each esD50 and: [each tested not]]						ifNone: [nil].			self assert: moneda esD50.			self assert: moneda valor = 50.			moneda tested: true]		ifFalse: [moneda := nil].	^moneda</body>
+</methods>
+
+<methods>
+<class-id>Modificaciones</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp	| director ruta fichero |		director := Director new.	ruta := 'C:\Users\ferch\Documents\GitHub\Laberinto-DS\JsonBuilders\'.	fichero := 'laberintoEjercicio2PAdya-pruebas.json'.	director procesar: ruta , fichero.	self juego:director builder juego.	self dic:director dic.	self numeroHabitacion:1.	self orientaciones:director builder orientaciones.</body>
+</methods>
+
+<methods>
+<class-id>Modificaciones</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Replace this comment with the appropriate initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
 <class-id>PruebaLaberintoBichos class</class-id> <category>instance creation</category>
 
 <body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
@@ -2978,7 +3180,7 @@
 <methods>
 <class-id>PruebaLaberintoBichos</class-id> <category>running</category>
 
-<body package="Pruebas" selector="setUp">setUp	| fm h1 |		self juego:JuegoLaberinto new.	fm := FMCuadrado new.		juego laberinto:fm crearLaberintoArmarios.	h1 := juego laberinto hijos at:1.	self juego agregarBicho: (fm fabricarBicho:fm fabricarModoAgresivo en:h1).</body>
+<body package="Pruebas" selector="setUp">setUp	| fm h1 bicho |		self juego:JuegoLaberinto new.	fm := FMCuadrado new.		juego laberinto:fm crearLaberintoArmarios.	h1 := juego laberinto hijos at:1.	bicho := fm fabricarBicho:fm fabricarModoAgresivo en:h1.	bicho juego: self juego.	self juego agregarBicho: (bicho).</body>
 </methods>
 
 <methods>
@@ -3079,28 +3281,6 @@
 
 
 <methods>
-<class-id>PruebasLaberintoBuilder class</class-id> <category>instance creation</category>
-
-<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>PruebasLaberintoBuilder</class-id> <category>initialize-release</category>
-
-<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
-</methods>
-
-<methods>
-<class-id>PruebasLaberintoBuilder</class-id> <category>accessing</category>
-
-<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
-
-<body package="Pruebas" selector="juego">juego	^juego</body>
-</methods>
-
-
-<methods>
 <class-id>PruebasLaberintoComposite class</class-id> <category>instance creation</category>
 
 <body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
@@ -3126,7 +3306,7 @@
 
 <body package="Pruebas" selector="testEstrategiasBomba">testEstrategiasBomba	| habitacion1 habitacion2 bomba1 bomba2 armario1 armario2|		habitacion1 := juego obtenerHabitacion:1.	habitacion2 := juego obtenerHabitacion:2.	armario1 := habitacion1 hijos at:1.	armario2 := habitacion2 hijos at:1.	bomba1 := armario1 hijos at:1.	bomba2 := armario2 hijos at:1.		self assert: (bomba1 estrategia notNil).	self assert: (bomba1 estrategia class = H).		self assert: (bomba2 estrategia notNil).	self assert: (bomba2 estrategia class = Broma).</body>
 
-<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 puertaCaraHabitacion1 armario1 armario2 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).	self assert: (puertaCaraHabitacion1 esCerrada).		armario1 := habitacion1 hijos at:1.	self assert: (armario1 esArmario).		armario2 := habitacion2 hijos at:1.	self assert: (armario2 esArmario).</body>
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| habitacion1 habitacion2 puertaCaraHabitacion1 armario1 armario2 |		habitacion1 := juego obtenerHabitacion:1.	self assert: (habitacion1 forma norte esBomba).	self assert: (habitacion1 forma oeste esPuerta).	self assert: (habitacion1 forma sur esPared).	self assert: (habitacion1 forma este esPared).		habitacion2 := juego obtenerHabitacion:2.	self assert: (habitacion2 forma sur esBomba).	self assert: (habitacion2 forma este esPuerta).	self assert: (habitacion2 forma norte esPared).	self assert: (habitacion2 forma oeste esPared).		puertaCaraHabitacion1 := habitacion1 forma oeste.	self assert: (puertaCaraHabitacion1 == habitacion2 forma este).	self assert: (puertaCaraHabitacion1 estado esCerrada).		armario1 := habitacion1 hijos at:1.	self assert: (armario1 esArmario).		armario2 := habitacion2 hijos at:1.	self assert: (armario2 esArmario).</body>
 </methods>
 
 <methods>
@@ -3162,6 +3342,50 @@
 <class-id>PruebasLaberintoArmarios</class-id> <category>initialize-release</category>
 
 <body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juegoLaberinto := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasEjercicioBuilder class</class-id> <category>instance creation</category>
+
+<body package="Pruebas" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
+</methods>
+
+
+<methods>
+<class-id>PruebasEjercicioBuilder</class-id> <category>accessing</category>
+
+<body package="Pruebas" selector="juego">juego	^juego</body>
+
+<body package="Pruebas" selector="juego:">juego: anObject	juego := anObject</body>
+</methods>
+
+<methods>
+<class-id>PruebasEjercicioBuilder</class-id> <category>running</category>
+
+<body package="Pruebas" selector="setUp">setUp	| director ruta|	director:= Director new.	ruta:='C:\Users\ferch\Documents\GitHub\Laberinto-DS\JsonBuilders\'.	director procesar:ruta,'laberintoEjercicio2.json'.	self juego:director builder juego.</body>
+
+<body package="Pruebas" selector="testNumeroHabitaciones">testNumeroHabitaciones	self assert:(self juego laberinto hijos size=4).</body>
+
+<body package="Pruebas" selector="testArmarios">testArmarios	| hab armario |	hab:=self juego obtenerHabitacion: 1.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 2.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 3.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.		hab:=self juego obtenerHabitacion: 4.	armario:=hab hijos at:1.	self assert:armario esArmario.	self assert:armario forma este esPuerta.</body>
+
+<body package="Pruebas" selector="testBaules">testBaules	| hab baul |	hab:=self juego obtenerHabitacion: 1.	baul:=hab hijos at:2.	self assert:baul esBaul.		hab:=self juego obtenerHabitacion: 2.	baul:=hab hijos at:2.	self assert:baul esBaul.	hab:=self juego obtenerHabitacion: 3.	baul:=hab hijos at:2.	self assert:baul esBaul.		hab:=self juego obtenerHabitacion: 4.	baul:=hab hijos at:2.	self assert:baul esBaul.</body>
+
+<body package="Pruebas" selector="testBombas">testBombas	"| hab armario bomba |	hab:=self juego obtenerHabitacion: 1.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba elementoMapa isNil.	self assert:bomba estrategia class = Mina.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.		hab:=self juego obtenerHabitacion: 3.	bomba:=hab hijos at:3.	self assert:bomba esBomba.	self assert:bomba estrategia class = Broma.	self assert:bomba elementoMapa isNil.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa.		hab:=self juego obtenerHabitacion: 4.	armario:=hab hijos at:1.	bomba:=armario hijos at:1.	self assert:bomba esBomba.	self assert:bomba elementoMapa isNil.	self assert:bomba estrategia class = Broma.	self assert:bomba activa not.	bomba activar.	self assert:bomba activa."</body>
+
+<body package="Pruebas" selector="testBicho">testBicho	| bicho |	self assert:juego bichos size=2.	bicho:=self juego bichos at:1.	self assert:bicho modo class = Agresivo.	self assert:bicho posicion id =1.	bicho:=self juego bichos at:2.	self assert:bicho modo class = Perezoso.	self assert:bicho posicion id =2.</body>
+
+<body package="Pruebas" selector="testObtenerHabitacion">testObtenerHabitacion	| hab|		hab:=self juego obtenerHabitacion: 1.	self assert:(hab id=1).		hab:=self juego obtenerHabitacion: 2.	self assert:(hab id=2).</body>
+
+<body package="Pruebas" selector="testLaberinto">testLaberinto	self assert:self juego laberinto notNil.</body>
+
+<body package="Pruebas" selector="testHabitaciones">testHabitaciones	| h  puerta|		h:=self juego obtenerHabitacion: 1.	puerta:=h forma sur.	self assert:(puerta esPuerta).	self assert:(puerta estado esCerrada).		self assert:(h forma este esPared).	self assert:(h forma norte esPared).	self assert:(h forma oeste esPared).		h:=self juego obtenerHabitacion: 2.	self assert:(h forma norte = puerta).		puerta:=h forma este.	self assert:(puerta esPuerta).	self assert:(h forma oeste esPared).		h:=self juego obtenerHabitacion: 3.	self assert:(h forma norte esPared).	self assert:(h forma oeste =puerta).	self assert:(h forma este esPared).	self assert:(h forma sur esPuerta).	puerta:=h forma sur.		h:=self juego obtenerHabitacion: 4.	self assert:(h forma norte=puerta).	self assert:(h forma este esPared).	self assert:(h forma sur esPared).	self assert:(h forma oeste esPared).</body>
+</methods>
+
+<methods>
+<class-id>PruebasEjercicioBuilder</class-id> <category>initialize-release</category>
+
+<body package="Pruebas" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	juego := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 
@@ -3575,14 +3799,6 @@
 
 
 <methods>
-<class-id>Personaje</class-id> <category>herramientas</category>
-
-<body package="templateMethod" selector="golpearCon:">golpearCon:unaHerramienta	self poder:(self poder + unaHerramienta poder).	self arma:unaHerramienta.	self golpear.</body>
-
-<body package="templateMethod" selector="golpear">golpear</body>
-</methods>
-
-<methods>
 <class-id>Personaje</class-id> <category>accessing</category>
 
 <body package="templateMethod" selector="id">id	" *** This method was defined by Ente as a subclass responsibility.	Replace its body with a proper implementation. *** "	self error: 'Subclass responsibility stub not reimplemented'</body>
@@ -3641,9 +3857,9 @@
 <methods>
 <class-id>Personaje</class-id> <category>comandos</category>
 
-<body package="templateMethod" selector="cobrar:">cobrar: cantidad	| cobrado moneda |	cobrado := 0.	cantidad &gt; cobrado whileTrue: 			[moneda := cartera detect: [:each | each esD50].			moneda := cartera detect: [:each | each esD20].			moneda := cartera detect: [:each | each esD10].			moneda := cartera detect: [:each | each esD5].			cartera remove: moneda.			cobrado := cobrado + moneda valor].	cantidad &gt; cobrado whileTrue: 			[cobrado - cantidad &gt;= 50				ifTrue: 					[cartera add: D50 new.					cobrado := cobrado - 50].			cobrado - cantidad &gt;= 20				ifTrue: 					[cartera add: D20 new.					cobrado := cobrado - 20].			cobrado - cantidad &gt;= 10				ifTrue: 					[cartera add: D10 new.					cobrado := cobrado - 10].			cobrado - cantidad &gt;= 5				ifTrue: 					[cartera add: D5 new.					cobrado := cobrado - 5]]</body>
+<body package="templateMethod" selector="comprar:">comprar: objeto	| tienda |	objeto precio &lt;= self dineroTotal		ifTrue: 			[			self cobrar:objeto precio.			self agregarObjeto: objeto elementoMapa.			tienda := self  posicion obtenerTienda.			tienda eliminarHijo: objeto.			]		ifFalse: 			[Transcript				show: 'No tienes suficiente dinero para ' , objeto elementoMapa printString;				cr]</body>
 
-<body package="templateMethod" selector="comprarComando:">comprarComando: objeto	objeto precio &lt;= self dineroTotal		ifTrue: 			[			self cobrar:objeto precio.			self agregarObjeto: objeto elementoMapa.			]		ifFalse: 			[Transcript				show: 'No tienes suficiente dinero para ' , objeto elementoMapa printString;				cr]</body>
+<body package="templateMethod" selector="cobrar:">cobrar: cantidad	| devolucion |	devolucion := self dineroTotal - cantidad.	cartera removeAll.	[devolucion &gt; self dineroTotal] whileTrue: 			[devolucion - self dineroTotal &gt;= 50 ifTrue: [self agregarMoneda: D50 new].			devolucion - self dineroTotal &gt;= 20 ifTrue: [self agregarMoneda: D20 new].			devolucion - self dineroTotal &gt;= 10 ifTrue: [self agregarMoneda: D10 new].			devolucion - self dineroTotal &gt;= 5 ifTrue: [self agregarMoneda: D5 new]]</body>
 
 <body package="templateMethod" selector="hundir:">hundir:unComando	| objeto |	objeto := mochila detect: [:each| each esAlmadena] ifNone: [nil.].	objeto ifNotNil: [self equipar: objeto].	"si no es nula, la equipo, golpeo y le quito una de duracion"	self arma ifNotNil: [		self arma restarDuracion: self.		unComando receptor hundir:unComando.		] ifNil: [		Transcript show: 'Sin una almadena no puedes tumbar la pared.';cr].</body>
 
@@ -3661,7 +3877,7 @@
 <methods>
 <class-id>Personaje</class-id> <category>initialize-release</category>
 
-<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	mochila := List new.	cartera := List new.	dinero := 0.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
+<body package="templateMethod" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	" *** Edit the following to properly initialize instance variables ***"	self vidas:3.	self poder:1.	mochila := List new.	cartera := List new.	self dinero: 0.	nombre := nil.	" *** And replace this comment with additional initialization code *** "	^self</body>
 </methods>
 
 <methods>
@@ -4227,7 +4443,7 @@
 <methods>
 <class-id>LaberintoGUI class</class-id> <category>interface specs</category>
 
-<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 1152 577 ) 			#max: #(#{Core.Point} 1152 577 ) 			#bounds: #(#{Graphics.Rectangle} 1416 -143 2568 434 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 48 0 489 0 182 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 181 0 489 0 565 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 502 0 48 0 1150 0 565 0 ) 					#name: #GroupBox3 					#label: 'Laberinto' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 226 0 19 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 6 0 21 0 219 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 368 0 498 0 454 0 519 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 368 0 531 0 454 0 552 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 103 0 269 0 122 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 69 0 267 0 88 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 103 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 138 0 269 0 157 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 71 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 138 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 90 0 436 0 157 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 10 0 205 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 66 0 203 0 166 0 222 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 178 0 202 0 288 0 223 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 70 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 10 0 244 0 163 0 377 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 10 0 229 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 169 0 244 0 322 0 377 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 169 0 229 0 ) 					#name: #Label8 					#label: 'Comandos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 326 0 203 0 ) 					#name: #Label9 					#label: 'Vidas' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 371 0 201 0 471 0 220 0 ) 					#name: #InputField6 					#model: #numVidas 					#isReadOnly: true 					#type: #number ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 334 0 244 0 487 0 377 0 ) 					#name: #List4 					#model: #objetosMochila 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #equiparObjeto ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 334 0 229 0 ) 					#name: #Label10 					#label: 'Mochila' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 6 0 380 0 323 0 544 0 ) 					#name: #GroupBox4 					#label: 'Tienda' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 170 0 397 0 ) 					#name: #Label11 					#label: 'Cartera' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 170 0 415 0 270 0 434 0 ) 					#name: #InputField7 					#model: #cartera 					#isReadOnly: true 					#type: #number 					#formatString: '#,##0$' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 170 0 443 0 222 0 464 0 ) 					#name: #ActionButton4 					#model: #entrarTienda 					#label: 'Entrar' 					#defaultable: true ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 10 0 397 0 163 0 530 0 ) 					#name: #List5 					#model: #objetosTienda 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #comprarObjeto ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 171 0 477 0 223 0 498 0 ) 					#name: #ActionButton5 					#model: #salirTienda 					#label: 'Salir' 					#defaultable: true ) ) ) )</body>
+<body package="LaberintoGUI" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Juego del laberinto' 			#min: #(#{Core.Point} 1152 577 ) 			#max: #(#{Core.Point} 1152 577 ) 			#bounds: #(#{Graphics.Rectangle} 1416 -143 2568 434 ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 48 0 489 0 182 0 ) 					#name: #GroupBox1 					#label: 'Datos del laberinto' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 2 0 181 0 489 0 565 0 ) 					#name: #GroupBox2 					#label: 'Personaje' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 502 0 48 0 1150 0 565 0 ) 					#name: #GroupBox3 					#label: 'Laberinto' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutSizedOrigin} 226 0 19 0 245 23 ) 					#name: #ActionButton1 					#model: #procesar 					#label: 'Cargar archivo de configuración y procesar' 					#isDefault: true 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 6 0 21 0 219 0 38 0 ) 					#name: #InputField1 					#model: #archivo 					#isReadOnly: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 368 0 498 0 454 0 519 0 ) 					#name: #ActionButton2 					#model: #lanzarBichos 					#label: 'Lazar bichos' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 368 0 531 0 454 0 552 0 ) 					#name: #ActionButton3 					#model: #terminarBichos 					#label: 'Parar bichos' 					#defaultable: true ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 103 0 269 0 122 0 ) 					#name: #InputField2 					#model: #numHab 					#isReadOnly: true 					#type: #number ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 69 0 267 0 88 0 ) 					#name: #InputField3 					#model: #numBichos 					#isReadOnly: true 					#type: #number ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 103 0 ) 					#name: #Label1 					#label: 'Habitaciones' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 112 0 138 0 269 0 157 0 ) 					#name: #InputField4 					#model: #forma 					#isReadOnly: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 71 0 ) 					#name: #Label3 					#label: 'Bichos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 35 0 138 0 ) 					#name: #Label4 					#label: 'Forma' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 277 0 90 0 436 0 157 0 ) 					#name: #List1 					#model: #Bichos 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 10 0 205 0 ) 					#name: #Label5 					#label: 'Nombre' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 66 0 203 0 166 0 222 0 ) 					#name: #InputField5 					#model: #nombre ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 178 0 202 0 288 0 223 0 ) 					#name: #agregarPersonaje 					#model: #agregarPersonaje 					#label: 'Agregar personaje' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 277 0 70 0 ) 					#name: #Label6 					#label: 'Bichos' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 10 0 244 0 163 0 377 0 ) 					#name: #List2 					#model: #orientaciones 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutar ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 10 0 229 0 ) 					#name: #Label7 					#label: 'Orientaciones' ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 169 0 244 0 322 0 377 0 ) 					#name: #List3 					#model: #comandos 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #ejecutarComandos ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 169 0 229 0 ) 					#name: #Label8 					#label: 'Comandos' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 326 0 203 0 ) 					#name: #Label9 					#label: 'Vidas' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 371 0 201 0 471 0 220 0 ) 					#name: #InputField6 					#model: #numVidas 					#isReadOnly: true 					#type: #number ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 334 0 244 0 487 0 377 0 ) 					#name: #List4 					#model: #objetosMochila 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #equiparObjeto ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 334 0 229 0 ) 					#name: #Label10 					#label: 'Mochila' ) 				#(#{UI.GroupBoxSpec} 					#layout: #(#{Graphics.LayoutFrame} 6 0 380 0 323 0 544 0 ) 					#name: #GroupBox4 					#label: 'Tienda' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Graphics.LayoutOrigin} 170 0 397 0 ) 					#name: #Label11 					#label: 'Cartera' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.LayoutFrame} 170 0 415 0 270 0 434 0 ) 					#name: #InputField7 					#model: #cartera 					#isReadOnly: true 					#type: #number 					#formatString: '0' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 170 0 443 0 222 0 464 0 ) 					#name: #ActionButton4 					#model: #entrarTienda 					#label: 'Entrar' 					#defaultable: true ) 				#(#{UI.SequenceViewSpec} 					#layout: #(#{Graphics.LayoutFrame} 10 0 397 0 163 0 530 0 ) 					#name: #List5 					#model: #objetosTienda 					#callbacksSpec: 					#(#{UI.UIEventCallbackSubSpec} 						#doubleClickSelector: #comprarObjeto ) 					#useModifierKeys: true 					#selectionType: #highlight ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.LayoutFrame} 171 0 477 0 223 0 498 0 ) 					#name: #ActionButton5 					#model: #salirTienda 					#label: 'Salir' 					#defaultable: true ) ) ) )</body>
 </methods>
 
 
@@ -4280,11 +4496,11 @@
 
 <body package="LaberintoGUI" selector="procesar">procesar	| dialog nom |	dialog := OpenFileDialog new.	dialog		windowTitle: 'Obtener archivo de configuración';		acceptButtonLabel: 'Obtener';		addFileFilter: 'JSON (*.json)' pattern: '*.json';		defaultFilename: ''.	nom := dialog select.	nom isNil ifFalse:[		self archivo value: nom tail.		self crearJuego:nom.		self mostrarValores.	]</body>
 
-<body package="LaberintoGUI" selector="salirTienda">salirTienda	"This stub method was generated by UIDefiner"	^self</body>
+<body package="LaberintoGUI" selector="salirTienda">salirTienda	self juego fase salirDeLaTienda:self juego interfaz:self.</body>
 
-<body package="LaberintoGUI" selector="comprarObjeto">comprarObjeto		| objeto alguien tienda |	objeto:= self objetosTienda selection.	alguien := self juego personaje.	tienda := self person contenedor detect: [:each | each esTienda.].	tienda quitarObjeto: objeto.	alguien comprarComando:objeto.</body>
+<body package="LaberintoGUI" selector="comprarObjeto">comprarObjeto		| objeto alguien |	objeto:= self objetosTienda selection.	alguien := self juego personaje.	alguien comprar:objeto.	self mostrarDinero.</body>
 
-<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	"comando ejecutar:alguien."	alguien ejecutarComando:comando.	self mostrarComandos.</body>
+<body package="LaberintoGUI" selector="ejecutarComandos">ejecutarComandos		| comando alguien |	comando:= self comandos selection.	alguien := self juego personaje.	alguien ejecutarComando:comando.	self mostrarComandos.	self mostrarDinero.</body>
 
 <body package="LaberintoGUI" selector="lanzarBichos">lanzarBichos	"This stub method was generated by UIDefiner"	self juego notNil	ifTrue: [		self juego lanzarHiloBichos.].</body>
 
@@ -4292,9 +4508,9 @@
 
 <body package="LaberintoGUI" selector="equiparObjeto">equiparObjeto		| objeto alguien equipar |	objeto:= self objetosMochila selection.	alguien := self juego personaje.	equipar := Equipar new.	equipar receptor:objeto.	alguien ejecutarComando:(equipar).</body>
 
-<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self mostrarObjetosMochila.		cartera value: person dineroTotal.		self iniciarAspectos.		self inciarJuego.		]</body>
+<body package="LaberintoGUI" selector="agregarPersonaje">agregarPersonaje	self nombre value = '' ifFalse: [		self person:(Personaje new nombre:self nombre value).		self juego agregarPersonaje:self person.		self mostrarOrientaciones.		self mostrarComandos.		self mostrarObjetosMochila.		self iniciarAspectos.		self mostrarDinero.		self inciarJuego.		]</body>
 
-<body package="LaberintoGUI" selector="entrarTienda">entrarTienda	| tienda |	self juego fase entrarEnLaTienda:self juego.	tienda := self juego personaje posicion obtenerTienda.	tienda ifNotNil: [		self objetosTienda list: (tienda hijos).		].</body>
+<body package="LaberintoGUI" selector="entrarTienda">entrarTienda	self juego fase entrarEnLaTienda:self juego interfaz:self.</body>
 
 <body package="LaberintoGUI" selector="iniciarAspectos">iniciarAspectos	cartera subject:self person.	numVidas subject:self person.</body>
 
@@ -4318,7 +4534,7 @@
 
 <body package="LaberintoGUI" selector="dibujarContenedorRectangular:">dibujarContenedorRectangular: unCont	| rec unPunto an |	unPunto := unCont punto.	an := unCont extent x.	rec := Rectangle origin: unPunto extent: unCont extent.	rec displayStrokedOn: (self gc paint: ColorValue black).	"dibuja el número del contenedor"	unCont esHabitacion ifTrue: [		(unCont id printString) displayOn:self gc at:(unPunto x+an-15)@(unPunto y+15).		]	ifFalse: [(unCont printString) displayOn:self gc at:(unPunto x+an-15)@(unPunto y+15).].	"self dibujarPuertasRectangular:unCont."</body>
 
-<body package="LaberintoGUI" selector="calcularDimensiones">calcularDimensiones	"Este rectangulo delimita el área sobre la que se dibuja el laberinto: 416@4 extent:560@359"	| maxX maxY |	maxX := 0.	maxY := 0.	origen := 473 @ 19.	self juego laberinto hijos do: 			[:each |			each punto x &gt; maxX ifTrue: [maxX := each punto x].			each punto y &gt; maxY ifTrue: [maxY := each punto y]].	maxX := maxX + 1.	maxY := maxY + 1.	self ancho: 648 // maxX.	self alto: 517 // maxY.	self gc clippingRectangle: (473 @ 19 extent: 1122 @ 537).	self gc clear</body>
+<body package="LaberintoGUI" selector="calcularDimensiones">calcularDimensiones	"Este rectangulo delimita el área sobre la que se dibuja el laberinto: 416@4 extent:560@359"	| maxX maxY |	maxX := 0.	maxY := 0.	origen := 502 @ 48.	self juego laberinto hijos do: 			[:each |			each punto x &gt; maxX ifTrue: [maxX := each punto x].			each punto y &gt; maxY ifTrue: [maxY := each punto y]].	maxX := maxX + 1.	maxY := maxY + 1.	self ancho: 575 // maxX.	self alto: 515 // maxY.	self gc clippingRectangle: (502 @ 48 extent: 1150 @ 565).	self gc clear</body>
 </methods>
 
 <methods>
@@ -4359,6 +4575,8 @@
 <class-id>LaberintoGUI</class-id> <category>mostrarCosas</category>
 
 <body package="LaberintoGUI" selector="mostrarObjetosMochila">mostrarObjetosMochila		self objetosMochila list: (self juego personaje mochila).</body>
+
+<body package="LaberintoGUI" selector="mostrarDinero">mostrarDinero	self person dinero: self person dineroTotal.	cartera value: person dineroTotal.</body>
 
 <body package="LaberintoGUI" selector="mostrarComandos">mostrarComandos		self comandos list: (self juego personaje obtenerComandos).	self mostrarPersonaje.</body>
 
@@ -5035,6 +5253,8 @@
 
 <body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	self subclassResponsibility.</body>
 
+<body package="state" selector="salirDeLaTienda:interfaz:">salirDeLaTienda: unJuego interfaz:inter	self subclassResponsibility.</body>
+
 <body package="state" selector="bichoActua:">bichoActua:unBicho	self subclassResponsibility.</body>
 
 <body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	self subclassResponsibility.</body>
@@ -5056,7 +5276,9 @@
 
 <body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se esta jugando.';cr.</body>
 
-<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	unJuego fase: EnPausa new.</body>
+<body package="state" selector="salirDeLaTienda:interfaz:">salirDeLaTienda: unJuego interfaz:inter	Transcript show: 'no estas en la tienda, no puedes salir de ella.';cr.</body>
+
+<body package="state" selector="entrarEnLaTienda:interfaz:">entrarEnLaTienda: unJuego interfaz:inter	| tienda |	unJuego fase: EnPausa new.	tienda := unJuego personaje posicion obtenerTienda.	tienda ifNotNil: [		inter objetosTienda list: (tienda hijos).		].</body>
 
 <body package="state" selector="bichoActua:">bichoActua:unBicho	unBicho modo actua:unBicho.</body>
 
@@ -5112,6 +5334,8 @@
 <methods>
 <class-id>Final</class-id> <category>estado</category>
 
+<body package="state" selector="entrarEnLaTienda:interfaz:">entrarEnLaTienda: unJuego interfaz:inter	Transcript show: 'no se puede comprar cuando el juego ha terminado';cr.</body>
+
 <body package="state" selector="bichoActua:">bichoActua:unBicho	| juego |	Transcript show: 'el juego ha terminado, no se pueden añadir más bichos.';cr.	juego := unBicho juego.	juego terminarHilosBichos.</body>
 
 <body package="state" selector="entrarOrientacion:juego:">entrarOrientacion:unaOrientacion juego:unJuego	Transcript show: 'EL juego no ha comenzado, no se puede entrar en ninguna orientación.';cr.</body>
@@ -5122,7 +5346,7 @@
 
 <body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	Transcript show: 'No se pueden agregar personajes cuando se ha terminado el juego.';cr.</body>
 
-<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	Transcript show: 'no se puede comprar cuando el juego ha terminado';cr.</body>
+<body package="state" selector="salirDeLaTienda:interfaz:">salirDeLaTienda: unJuego interfaz:inter	Transcript show: 'El juego ya esta terminado';cr.</body>
 </methods>
 
 <methods>
@@ -5171,7 +5395,9 @@
 
 <body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego		Transcript show: 'No se pueden agregar personajes cuando el juego se ha iniciado y añadido uno ya.';cr.</body>
 
-<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego		Transcript show: 'El juego ya está pausado.';cr.</body>
+<body package="state" selector="salirDeLaTienda:interfaz:">salirDeLaTienda: unJuego interfaz:inter		unJuego fase: Jugando new.	Transcript show: 'Acabas de salir de la tienda.';cr.	inter objetosTienda list:(List new).</body>
+
+<body package="state" selector="entrarEnLaTienda:interfaz:">entrarEnLaTienda: unJuego interfaz:inter		Transcript show: 'El juego ya está pausado.';cr.</body>
 
 <body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'Con le juego pausado los bichos no pueden actuar.';cr.</body>
 </methods>
@@ -5224,6 +5450,8 @@
 <methods>
 <class-id>Incial</class-id> <category>estado</category>
 
+<body package="state" selector="entrarEnLaTienda:interfaz:">entrarEnLaTienda: unJuego interfaz:inter	Transcript show: 'no se puede comprar antes de que el jueco comienze.';cr.</body>
+
 <body package="state" selector="bichoActua:">bichoActua:unBicho	Transcript show: 'el juego no ha empezado.';cr.</body>
 
 <body package="state" selector="ejecutarComando:juego:">ejecutarComando:comando juego:unJuego	Transcript show: 'no se pueden ejecutar comandos si el juego no ha empezado.';cr.</body>
@@ -5232,9 +5460,9 @@
 
 <body package="state" selector="finJuego:">finJuego: unJuego	Transcript show: 'El juego el juego no ha empezado';cr.</body>
 
-<body package="state" selector="entrarEnLaTienda:">entrarEnLaTienda: unJuego	Transcript show: 'no se puede comprar antes de que el jueco comienze.';cr.</body>
-
 <body package="state" selector="agregarPersonaje:juego:">agregarPersonaje:unPersonaje juego:unJuego	unJuego personaje:unPersonaje.	unJuego entrar: unPersonaje.	unJuego fase: Jugando new.	unJuego lanzarHiloBichos.</body>
+
+<body package="state" selector="salirDeLaTienda:interfaz:">salirDeLaTienda: unJuego interfaz:inter	Transcript show: 'No puedes entrar el juego nos e ha iniciado.';cr.</body>
 </methods>
 
 <methods>

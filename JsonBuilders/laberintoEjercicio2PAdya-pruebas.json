@@ -24,6 +24,9 @@
         {"em":"hoja", "tipo":"moneda", "argumento":"50"},
         {"em":"hoja", "tipo":"moneda", "argumento":"50"},
         {"em":"hoja", "tipo":"moneda", "argumento":"50"},
+        {"em":"hoja", "tipo":"moneda", "argumento":"20"},
+        {"em":"hoja", "tipo":"moneda", "argumento":"10"},
+        {"em":"hoja", "tipo":"moneda", "argumento":"5"},
         {"em":"hoja", "tipo":"almadena", "argumento":""},
         {"em":"hoja", "tipo":"detector", "argumento":""},
         {"em":"Contenedor", "tipo":"armario","hijos":
